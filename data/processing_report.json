@@ -1,0 +1,16 @@
+{
+  "output_rows": 520,
+  "removed_exact_duplicate_rows": [
+    {
+      "record_id": "tesla-64d78323c3eb4fb8",
+      "source_line": 303
+    },
+    {
+      "record_id": "tesla-7eb2fd7a945f88ee",
+      "source_line": 463
+    }
+  ],
+  "rule": "remove only byte-equivalent source rows sharing patient, peptide, and normalized HLA",
+  "source_rows": 522,
+  "source_sha256": "b3a38ea1a871a1cfc861a2809f9f2193228876746fb8964151255a6ea9bd0c18"
+}

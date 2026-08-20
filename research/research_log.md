@@ -21,3 +21,10 @@
 - Failed approach: `setuptools.build_meta` editable install under the repository path containing Unicode em dash (`—`).
 - Evidence: editable-wheel creation raised `UnicodeEncodeError` while encoding the generated `.pth` path as ASCII.
 - Resolution: switched the project build backend to Hatchling. Wheel creation succeeded, but editable installs still failed when a generated `.pth` file containing the Unicode path was decoded as ASCII. Project install and CI commands therefore use a regular wheel; source-tree tests may use `PYTHONPATH=src`.
+
+## 2026-08-20 — Pilot data freeze and predictor licensing
+
+- Frozen pilot: DeepImmuno's commit-pinned transformed TESLA table, 522 source rows and 520 unique patient-peptide-HLA observations after removing two byte-identical source duplicates.
+- Audit: 35 positive observations across six patient identifiers and one study. Patient-level ranking is supported; study-held-out claims are not supported by this pilot.
+- Predictor freeze: MHCflurry 2.2.1, BigMHC v1.0, and PRIME 2.0 plus MixMHCpred 2.2.
+- License decision: MHCflurry is redistributable under Apache-2.0. BigMHC is academic-only with conditional redistribution. PRIME and MixMHCpred are academic-only and non-transferable, so their upstream artifacts must not be committed or repackaged.

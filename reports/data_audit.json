@@ -1,0 +1,11 @@
+{
+  "input": "data/processed/benchmark.csv",
+  "issue_rows": 0,
+  "issues_by_type": {},
+  "patient_level_eligible": true,
+  "patients": 6,
+  "rows": 520,
+  "sha256": "95c047fce5556faff64f97fdcb6760a89164680ea693fc5648bf96ef02ea7f49",
+  "studies": 1,
+  "study_level_eligible": false
+}

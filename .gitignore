@@ -3,6 +3,10 @@
 .env.*
 !.env.example
 .venv/
+predictors/**/.venv/
+predictors/**/source/
+predictors/**/vendor/
+tmp/
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -25,4 +29,3 @@ paper/*.fdb_latexmk
 paper/*.fls
 paper/*.log
 paper/*.out
-
