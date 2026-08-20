@@ -1,0 +1,16 @@
+{
+  "citations_used": [
+    "albert2023bigmhc",
+    "borch2024improve",
+    "gfeller2023prime2",
+    "odonnell2020mhcflurry",
+    "wells2020tesla",
+    "zhang2026shortcut"
+  ],
+  "forbidden_overclaims": [],
+  "missing_required_artifacts": [],
+  "status": "pass",
+  "uncited_bibliography_entries": [],
+  "unresolved_citations": [],
+  "unresolved_placeholders": []
+}

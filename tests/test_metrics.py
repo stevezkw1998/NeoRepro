@@ -16,6 +16,11 @@ def test_auroc_ties_use_average_ranks() -> None:
     assert auroc([1, 0], [0.5, 0.5]) == 0.5
 
 
+def test_average_precision_handles_ties_at_threshold_level() -> None:
+    assert average_precision([1, 0], [0.5, 0.5]) == 0.5
+    assert average_precision([1, 0, 1, 0], [1.0, 1.0, 0.0, 0.0]) == 0.5
+
+
 def test_patient_top_k_uses_available_candidates() -> None:
     result = ranking_metrics([0, 1, 0], [1, 2, 5])
     assert result["mrr"] == 0.5
@@ -28,4 +33,3 @@ def test_patient_top_k_uses_available_candidates() -> None:
 def test_ranking_requires_positive_patient() -> None:
     with pytest.raises(ValueError, match="positive-bearing"):
         ranking_metrics([0, 0], [5])
-

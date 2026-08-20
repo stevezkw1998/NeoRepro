@@ -1,12 +1,10 @@
 cff-version: 1.2.0
 message: "If you use NeoRepro, cite the archived release and associated preprint."
-title: "NeoRepro: Reproducibility and Patient-Level Evaluation of Public Neoantigen Prediction Tools"
+title: "NeoRepro: Leakage-Aware Reproduction and Patient-Level Evaluation of Public MHC-I Neoantigen Predictors"
 type: software
-version: 0.1.0-dev
+version: 0.1.0
 date-released: 2026-08-20
 license: MIT
-repository-code: "https://github.com/OWNER/NeoRepro"
 authors:
   - name: "NeoRepro contributors"
 abstract: "An evidence-first framework for auditing public neoantigen prediction tools and comparing reproducible peptide-HLA scores under patient-aware evaluation."
-

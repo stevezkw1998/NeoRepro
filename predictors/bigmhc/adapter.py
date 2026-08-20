@@ -107,9 +107,7 @@ def main() -> int:
         raise ValueError(f"missing input columns: {sorted(missing)}")
     supported_hlas = {uid(row["mhc"]) for row in read_csv(source_dir / "data/pseudoseqs.csv")}
     eligible = [
-        row
-        for row in rows
-        if uid(row["hla"]) in supported_hlas and 8 <= len(row["peptide"]) <= 14
+        row for row in rows if uid(row["hla"]) in supported_hlas and 8 <= len(row["peptide"]) <= 14
     ]
 
     by_id: dict[str, dict[str, str]] = {}
@@ -125,7 +123,7 @@ def main() -> int:
             el_rows = run_model(python, source_dir, "el", input_path, work / "el.csv")
             if len(im_rows) != len(eligible) or len(el_rows) != len(eligible):
                 raise RuntimeError("BigMHC output row count differs from eligible input")
-            for source, im_row, el_row in zip(eligible, im_rows, el_rows, strict=True):
+            for source, im_row, el_row in zip(eligible, im_rows, el_rows):
                 if (im_row["mhc"], im_row["pep"]) != (source["hla"], source["peptide"]):
                     raise RuntimeError("BigMHC IM changed input row identity")
                 if (el_row["mhc"], el_row["pep"]) != (source["hla"], source["peptide"]):

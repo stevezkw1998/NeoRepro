@@ -119,9 +119,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=Path, default=Path("data/processed/benchmark.csv"))
     parser.add_argument("--source-dir", type=Path, default=Path("predictors/prime/source"))
-    parser.add_argument(
-        "--mix-dir", type=Path, default=Path("predictors/prime/vendor/mixmhcpred")
-    )
+    parser.add_argument("--mix-dir", type=Path, default=Path("predictors/prime/vendor/mixmhcpred"))
     parser.add_argument(
         "--output", type=Path, default=Path("results/raw_predictions/prime-2.0.csv")
     )
@@ -142,18 +140,14 @@ def main() -> int:
         if line.strip()
     }
     eligible = [
-        row
-        for row in rows
-        if simple_hla(row["hla"]) in mapping and 8 <= len(row["peptide"]) <= 14
+        row for row in rows if simple_hla(row["hla"]) in mapping and 8 <= len(row["peptide"]) <= 14
     ]
     alleles = sorted({simple_hla(row["hla"]) for row in eligible})
     by_id: dict[str, dict[str, str]] = {}
     if eligible:
         with tempfile.TemporaryDirectory(prefix="neorepro-prime-") as temporary:
             work = Path(temporary)
-            prime_wrapper, mix_wrapper, prime_stage = stage_sources(
-                source_dir, mix_dir, work
-            )
+            prime_wrapper, mix_wrapper, prime_stage = stage_sources(source_dir, mix_dir, work)
             peptide_file = work / "peptides.txt"
             peptide_file.write_text("\n".join(row["peptide"] for row in eligible) + "\n")
             output_file = work / "prime.tsv"
@@ -168,7 +162,7 @@ def main() -> int:
             predictions = parse_prime(output_file)
             if len(predictions) != len(eligible):
                 raise RuntimeError("PRIME output row count differs from eligible input")
-            for source, prediction in zip(eligible, predictions, strict=True):
+            for source, prediction in zip(eligible, predictions):
                 if prediction["Peptide"] != source["peptide"]:
                     raise RuntimeError("PRIME changed input row order")
                 allele = simple_hla(source["hla"])

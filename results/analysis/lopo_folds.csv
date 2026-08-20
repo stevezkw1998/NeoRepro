@@ -1,0 +1,7 @@
+split_unit,held_out_group,train_rows,train_positives,test_rows,test_positives,unseen_test_hlas
+patient_id,TESLA-1,438,26,82,9,1
+patient_id,TESLA-10,461,32,59,3,1
+patient_id,TESLA-12,443,31,77,4,2
+patient_id,TESLA-16,399,32,121,3,3
+patient_id,TESLA-2,423,31,97,4,1
+patient_id,TESLA-3,436,23,84,12,0

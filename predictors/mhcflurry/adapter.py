@@ -79,7 +79,7 @@ def main() -> int:
         raise RuntimeError(f"expected {len(rows)} output rows, received {len(predictions)}")
 
     output_rows = []
-    for source, (_, prediction) in zip(rows, predictions.iterrows(), strict=True):
+    for source, (_, prediction) in zip(rows, predictions.iterrows()):
         if prediction["sample_name"] != source["record_id"]:
             raise RuntimeError("MHCflurry changed input row order")
         presentation_score = scalar(prediction.get("presentation_score"))

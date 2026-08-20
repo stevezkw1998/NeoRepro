@@ -1,0 +1,12 @@
+{
+  "aggregation_unit": "patient-peptide",
+  "discordant_hla_label_candidates": 101,
+  "input_pmhc_records": 17475,
+  "label_rule": "positive if any tested peptide-HLA record was positive",
+  "multi_hla_candidates": 1601,
+  "patient_peptide_candidates": 15508,
+  "patients": 70,
+  "positives": 454,
+  "records_in_multi_hla_candidates": 3568,
+  "score_rule": "maximum oriented score across tested HLA records"
+}

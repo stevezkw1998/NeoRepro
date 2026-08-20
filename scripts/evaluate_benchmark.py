@@ -10,6 +10,7 @@ import math
 import random
 from collections import defaultdict
 from itertools import combinations
+from math import comb
 from pathlib import Path
 from statistics import mean
 
@@ -41,18 +42,25 @@ def pooled(rows: list[dict[str, object]]) -> dict[str, float | int | None]:
         positive_ranks = sum(
             rank for rank, label in zip(ranks(scores), labels, strict=True) if label
         )
-        auroc = (positive_ranks - positives * (positives + 1) / 2) / (
-            positives * negatives
-        )
+        auroc = (positive_ranks - positives * (positives + 1) / 2) / (positives * negatives)
     average_precision = None
     if positives:
-        hits = 0
-        precisions = []
-        for index, (_, label) in enumerate(sorted(zip(scores, labels), reverse=True), 1):
-            hits += label
-            if label:
-                precisions.append(hits / index)
-        average_precision = sum(precisions) / positives
+        true_positives = 0
+        predicted_positives = 0
+        average_precision = 0.0
+        order = sorted(range(len(scores)), key=scores.__getitem__, reverse=True)
+        start = 0
+        while start < len(order):
+            end = start + 1
+            while end < len(order) and scores[order[end]] == scores[order[start]]:
+                end += 1
+            group_positives = sum(labels[index] for index in order[start:end])
+            true_positives += group_positives
+            predicted_positives += end - start
+            average_precision += (group_positives / positives) * (
+                true_positives / predicted_positives
+            )
+            start = end
     return {
         "n": len(rows),
         "positives": positives,
@@ -68,27 +76,64 @@ def patient_values(rows: list[dict[str, object]]) -> dict[str, dict[str, float]]
         groups[str(row["patient_id"])].append(row)
     result = {}
     for patient, patient_rows in groups.items():
-        ordered = sorted(
-            patient_rows, key=lambda row: (-float(row["score"]), str(row["record_id"]))
-        )
+        ordered = sorted(patient_rows, key=lambda row: -float(row["score"]))
         positives = sum(int(row["label"]) for row in ordered)
         if not positives:
             continue
-        first = next(index for index, row in enumerate(ordered, 1) if int(row["label"]))
-        metrics = {"mrr": 1 / first}
+        score_groups = []
+        start = 0
+        while start < len(ordered):
+            end = start + 1
+            while end < len(ordered) and ordered[end]["score"] == ordered[start]["score"]:
+                end += 1
+            group = ordered[start:end]
+            score_groups.append((len(group), sum(int(row["label"]) for row in group)))
+            start = end
+
+        offset = 0
+        expected_mrr = 0.0
+        for size, group_positives in score_groups:
+            if group_positives:
+                denominator = comb(size, group_positives)
+                expected_mrr = sum(
+                    (comb(size - first, group_positives - 1) / denominator)
+                    / (offset + first)
+                    for first in range(1, size - group_positives + 2)
+                )
+                break
+            offset += size
+        metrics = {"mrr": expected_mrr}
         for k in KS:
-            top = ordered[:k]
-            hits = sum(int(row["label"]) for row in top)
-            metrics[f"recall@{k}"] = hits / positives
-            metrics[f"precision@{k}"] = hits / len(top)
-            metrics[f"hitrate@{k}"] = float(hits > 0)
-            dcg = sum(
-                int(row["label"]) / math.log2(rank + 1)
-                for rank, row in enumerate(top, 1)
-            )
-            ideal_hits = min(positives, len(top))
+            limit = min(k, len(ordered))
+            remaining = limit
+            offset = 0
+            expected_hits = 0.0
+            expected_dcg = 0.0
+            zero_hit_probability = 1.0
+            for size, group_positives in score_groups:
+                if not remaining:
+                    break
+                selected = min(remaining, size)
+                expected_hits += selected * group_positives / size
+                expected_dcg += (group_positives / size) * sum(
+                    1 / math.log2(rank + 1)
+                    for rank in range(offset + 1, offset + selected + 1)
+                )
+                if selected == size:
+                    if group_positives:
+                        zero_hit_probability = 0.0
+                elif zero_hit_probability and group_positives:
+                    zero_hit_probability *= comb(size - group_positives, selected) / comb(
+                        size, selected
+                    )
+                remaining -= selected
+                offset += selected
+            metrics[f"recall@{k}"] = expected_hits / positives
+            metrics[f"precision@{k}"] = expected_hits / limit
+            metrics[f"hitrate@{k}"] = 1 - zero_hit_probability
+            ideal_hits = min(positives, limit)
             idcg = sum(1 / math.log2(rank + 1) for rank in range(1, ideal_hits + 1))
-            metrics[f"ndcg@{k}"] = dcg / idcg
+            metrics[f"ndcg@{k}"] = expected_dcg / idcg
         result[patient] = metrics
     return result
 
@@ -100,6 +145,20 @@ def aggregate_patient(values: dict[str, dict[str, float]]) -> dict[str, float | 
     for metric in next(iter(values.values())):
         result[metric] = mean(patient[metric] for patient in values.values())
     return result
+
+
+def comparison_values(rows: list[dict[str, object]]) -> dict[str, float | int | None]:
+    pooled_metrics = pooled(rows)
+    patient_metrics = aggregate_patient(patient_values(rows))
+    return {
+        "auroc": pooled_metrics["auroc"],
+        "average_precision": pooled_metrics["average_precision"],
+        **{
+            key: value
+            for key, value in patient_metrics.items()
+            if key != "positive_bearing_patients"
+        },
+    }
 
 
 def percentile(values: list[float], probability: float) -> float:
@@ -203,15 +262,22 @@ def main() -> int:
         patient_by_predictor[predictor] = patient
         hla = {}
         hla_groups: dict[str, list[dict[str, object]]] = defaultdict(list)
+        study = {}
+        study_groups: dict[str, list[dict[str, object]]] = defaultdict(list)
         for row in rows:
             hla_groups[str(row["hla"])].append(row)
+            study_groups[str(row["study_id"])].append(row)
         for allele, allele_rows in sorted(hla_groups.items()):
             hla[allele] = pooled(allele_rows)
+        for study_id, study_rows in sorted(study_groups.items()):
+            study[study_id] = pooled(study_rows)
         metrics[predictor] = {
             "metadata": metadata[predictor],
             "pooled": pooled(rows),
             "patient": aggregate_patient(patient),
+            "patient_values": patient,
             "hla": hla,
+            "study": study,
         }
 
     rng = random.Random(args.seed)
@@ -228,10 +294,42 @@ def main() -> int:
     for pair in eligible_pairs:
         paired_samples[pair] = defaultdict(list)
 
+    common_pair_rows = {}
+    common_pair_points = {}
+    full_pair_support = {}
+    common_support = []
+    for pair in eligible_pairs:
+        left, right = pair
+        common_ids = {str(row["record_id"]) for row in joined[left]} & {
+            str(row["record_id"]) for row in joined[right]
+        }
+        if not common_ids:
+            raise SystemExit(f"{left} and {right} have no common predicted rows")
+        pair_rows = {
+            predictor: [row for row in joined[predictor] if str(row["record_id"]) in common_ids]
+            for predictor in pair
+        }
+        common_pair_rows[pair] = pair_rows
+        full_pair_support[pair] = all(
+            len(pair_rows[predictor]) == len(joined[predictor]) for predictor in pair
+        )
+        common_pair_points[pair] = {
+            predictor: comparison_values(pair_rows[predictor]) for predictor in pair
+        }
+        common_support.append(
+            {
+                "left": left,
+                "right": right,
+                "task": metadata[left]["task"],
+                "n_common": len(common_ids),
+                "positives_common": sum(int(row["label"]) for row in pair_rows[left]),
+                "patients_common": len({str(row["patient_id"]) for row in pair_rows[left]}),
+            }
+        )
+
     rows_by_patient = {
         predictor: {
-            patient: [row for row in rows if row["patient_id"] == patient]
-            for patient in patients
+            patient: [row for row in rows if row["patient_id"] == patient] for patient in patients
         }
         for predictor, rows in joined.items()
     }
@@ -260,14 +358,31 @@ def main() -> int:
             for metric, value in values.items():
                 if isinstance(value, (int, float)) and math.isfinite(value):
                     samples[predictor][metric].append(float(value))
-        for left, right in eligible_pairs:
-            for metric in set(replicate[left]) & set(replicate[right]):
-                left_value = replicate[left][metric]
-                right_value = replicate[right][metric]
-                if isinstance(left_value, (int, float)) and isinstance(
-                    right_value, (int, float)
-                ):
-                    paired_samples[(left, right)][metric].append(left_value - right_value)
+        for pair in eligible_pairs:
+            left, right = pair
+            if full_pair_support[pair]:
+                pair_replicate = {predictor: replicate[predictor] for predictor in pair}
+            else:
+                pair_rows = common_pair_rows[pair]
+                pair_patients = sorted({str(row["patient_id"]) for row in pair_rows[left]})
+                pair_draws = rng.choices(pair_patients, k=len(pair_patients))
+                pair_replicate = {}
+                for predictor in pair:
+                    by_patient: dict[str, list[dict[str, object]]] = defaultdict(list)
+                    for row in pair_rows[predictor]:
+                        by_patient[str(row["patient_id"])].append(row)
+                    boot_rows = []
+                    for draw_index, patient in enumerate(pair_draws):
+                        boot_rows.extend(
+                            {**row, "patient_id": f"{draw_index}:{patient}"}
+                            for row in by_patient[patient]
+                        )
+                    pair_replicate[predictor] = comparison_values(boot_rows)
+            for metric in set(pair_replicate[left]) & set(pair_replicate[right]):
+                left_value = pair_replicate[left][metric]
+                right_value = pair_replicate[right][metric]
+                if isinstance(left_value, (int, float)) and isinstance(right_value, (int, float)):
+                    paired_samples[pair][metric].append(left_value - right_value)
 
     for predictor, predictor_metrics in metrics.items():
         predictor_metrics["patient_bootstrap_95ci"] = {
@@ -275,12 +390,12 @@ def main() -> int:
         }
     paired = []
     for (left, right), metric_samples in paired_samples.items():
+        support = next(
+            row for row in common_support if row["left"] == left and row["right"] == right
+        )
         for metric, values in sorted(metric_samples.items()):
-            point_left = metrics[left]["pooled"].get(metric)
-            point_right = metrics[right]["pooled"].get(metric)
-            if point_left is None or point_right is None:
-                point_left = metrics[left]["patient"].get(metric)
-                point_right = metrics[right]["patient"].get(metric)
+            point_left = common_pair_points[(left, right)][left].get(metric)
+            point_right = common_pair_points[(left, right)][right].get(metric)
             confidence = interval(values)
             paired.append(
                 {
@@ -288,6 +403,11 @@ def main() -> int:
                     "right": right,
                     "task": metadata[left]["task"],
                     "metric": metric,
+                    "n_common": support["n_common"],
+                    "positives_common": support["positives_common"],
+                    "patients_common": support["patients_common"],
+                    "left_value_common": point_left,
+                    "right_value_common": point_right,
                     "difference_left_minus_right": float(point_left) - float(point_right),
                     "ci_low": confidence["low"],
                     "ci_high": confidence["high"],
@@ -299,6 +419,7 @@ def main() -> int:
         "config": {"bootstrap": args.bootstrap, "seed": args.seed, "ks": list(KS)},
         "benchmark": str(args.benchmark),
         "metrics": metrics,
+        "common_support": common_support,
         "paired_same_task": paired,
     }
     (args.output_dir / "metrics.json").write_text(
@@ -314,6 +435,11 @@ def main() -> int:
             "right",
             "task",
             "metric",
+            "n_common",
+            "positives_common",
+            "patients_common",
+            "left_value_common",
+            "right_value_common",
             "difference_left_minus_right",
             "ci_low",
             "ci_high",

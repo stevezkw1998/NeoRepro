@@ -1,0 +1,20 @@
+{
+  "exact_peptide_free": {
+    "excluded_from_common_benchmark": 35,
+    "patients": 70,
+    "positives": 464,
+    "rows": 17440
+  },
+  "length_9_10": {
+    "excluded_from_common_benchmark": 2241,
+    "patients": 70,
+    "positives": 411,
+    "rows": 15234
+  },
+  "near_overlap_free": {
+    "excluded_from_common_benchmark": 18,
+    "patients": 70,
+    "positives": 463,
+    "rows": 17457
+  }
+}

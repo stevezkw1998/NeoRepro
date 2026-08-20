@@ -10,6 +10,8 @@ TESLA established prospective, patient-specific comparison across six subjects a
 
 Recent model papers and benchmarks further complicate naive comparisons. BigMHC released presentation and immunogenicity models with public code/data. NeoGuider reports seven-cohort patient evaluation. A 2026 Cell Genomics study demonstrates severe HLA-label shortcut behavior, including strong HLA-only baselines. TransNRank reports improved Top-20 recall on NCI, TESLA and HiTIDE, while NEAT predicts expert vaccine-board decisions rather than functional T-cell immunogenicity.
 
+The 2024 IMPROVE study contributes a particularly useful evaluation resource: 17,520 patient-matched T-cell screening outcomes from 70 patients across metastatic melanoma, metastatic urothelial carcinoma and a pan-cancer basket cohort. Its public repository preserves patient, cohort, peptide and HLA fields. NeoRepro uses these records as the principal benchmark only after an independent exact-overlap audit against the official PRIME2 training table.
+
 The remaining practical gap is longitudinal reproducibility and fair rerunning. Public availability at publication does not establish that a pinned tool still installs, that its weights and training data remain available, or that two tools produce scores for the same rows. NeoRepro therefore separates a broad public-artifact reproducibility profile from a narrower common-input scoring benchmark.
 
 ## Evidence map
@@ -21,4 +23,3 @@ Machine-readable study comparisons are in `research/related_work_matrix.csv`. Pr
 Queries covered neoantigen/neoepitope prediction, prioritization, benchmarking, reproducibility, patient-level ranking, cross-study evaluation, Top-K metrics, HLA bias, leakage and recent 2025–2026 reviews and preprints. Sources included PubMed/Europe PMC, publisher pages, arXiv/medRxiv, official GitHub repositories, Zenodo and project documentation.
 
 This review remains living: candidate papers and tools with unverified metadata are explicitly marked unknown or pending rather than silently excluded.
-

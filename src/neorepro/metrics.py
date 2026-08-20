@@ -38,18 +38,26 @@ def auroc(labels: Sequence[int], scores: Sequence[float]) -> float:
 
 
 def average_precision(labels: Sequence[int], scores: Sequence[float]) -> float:
-    """Compute non-interpolated average precision."""
+    """Compute non-interpolated average precision with threshold-level tie handling."""
     _validate(labels, scores)
     positives = sum(labels)
     if not positives:
         raise ValueError("average precision requires a positive label")
-    hits = 0
-    precisions: list[float] = []
-    for rank, (_, label) in enumerate(sorted(zip(scores, labels), reverse=True), start=1):
-        hits += label
-        if label:
-            precisions.append(hits / rank)
-    return sum(precisions) / positives
+    true_positives = 0
+    predicted_positives = 0
+    result = 0.0
+    ordered = sorted(range(len(scores)), key=scores.__getitem__, reverse=True)
+    start = 0
+    while start < len(ordered):
+        end = start + 1
+        while end < len(ordered) and scores[ordered[end]] == scores[ordered[start]]:
+            end += 1
+        group_positives = sum(labels[index] for index in ordered[start:end])
+        true_positives += group_positives
+        predicted_positives += end - start
+        result += (group_positives / positives) * (true_positives / predicted_positives)
+        start = end
+    return result
 
 
 def ranking_metrics(labels_in_rank_order: Sequence[int], ks: Iterable[int]) -> dict[str, float]:
@@ -74,4 +82,3 @@ def ranking_metrics(labels_in_rank_order: Sequence[int], ks: Iterable[int]) -> d
         idcg = sum(1 / math.log2(rank + 1) for rank in range(1, ideal_hits + 1))
         result[f"ndcg@{k}"] = dcg / idcg
     return result
-

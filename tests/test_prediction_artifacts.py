@@ -21,6 +21,20 @@ PREDICTIONS = {
         "ea247e4234b707d4eff51c8dda89657999db7a6f393aaa276631dd320711a336",
     ),
 }
+BASELINES = {
+    "HLA-only LOPO": (
+        ROOT / "results/raw_predictions/baselines/hla-only-lopo.csv",
+        "c59f381d1b416e3697ed39f425c278d4b1a1146ac62f48fe61595b7017bfb5d5",
+    ),
+    "HLA+peptide LR LOPO": (
+        ROOT / "results/raw_predictions/baselines/hla-peptide-lr-lopo.csv",
+        "b04991c454c66a03de1d25f36d491fdff17720cde2eb8e47a03e1d07de08b2af",
+    ),
+    "Peptide LR LOPO": (
+        ROOT / "results/raw_predictions/baselines/peptide-lr-lopo.csv",
+        "f10d1c8b03338e7f1601000a66be38924e1bb9271afaf6ea7861b83bcc4e86c7",
+    ),
+}
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -57,4 +71,35 @@ def test_frozen_analysis_matches_metric_fixtures() -> None:
         for row in result["paired_same_task"]
         if row["left"] == "BigMHC" and row["right"] == "PRIME"
     }
+    assert result["common_support"] == [
+        {
+            "left": "BigMHC",
+            "right": "PRIME",
+            "task": "immunogenicity",
+            "n_common": 520,
+            "positives_common": 35,
+            "patients_common": 6,
+        }
+    ]
+    assert set(metrics["BigMHC"]["study"]) == {"TESLA2020"}
+    assert len(metrics["BigMHC"]["patient_values"]) == 6
+    assert paired["auroc"]["n_common"] == 520
     assert paired["auroc"]["ci_low"] > 0
+
+
+@pytest.mark.parametrize(("predictor", "artifact"), BASELINES.items())
+def test_lopo_baseline_contract(predictor: str, artifact: tuple[Path, str]) -> None:
+    path, expected_hash = artifact
+    prediction_rows = rows(path)
+    assert len(prediction_rows) == 520
+    assert {row["predictor"] for row in prediction_rows} == {predictor}
+    assert {row["task"] for row in prediction_rows} == {"immunogenicity_lopo"}
+    assert {row["split_unit"] for row in prediction_rows} == {"patient_id"}
+    assert len({row["held_out_group"] for row in prediction_rows}) == 6
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == expected_hash
+
+
+def test_training_overlap_audit_blocks_generalization_claims() -> None:
+    summary = json.loads((ROOT / "research/training_overlap_summary.json").read_text())
+    assert summary["benchmark_record_classifications"] == {"exact_label_concordant": 520}
+    assert summary["benchmark_records_exact_bigmhc_im_trainval_overlap"] == 520

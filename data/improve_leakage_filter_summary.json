@@ -1,0 +1,9 @@
+{
+  "excluded_exact_prime2_peptide_hla_rows": 45,
+  "input_rows": 17520,
+  "policy": "union exclusion for a common PRIME2/BigMHC evaluation set",
+  "retained_patients": 70,
+  "retained_positives": 465,
+  "retained_rows": 17475,
+  "retained_studies": 3
+}

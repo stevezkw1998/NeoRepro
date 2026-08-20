@@ -1,0 +1,18 @@
+{
+  "benchmark_record_classifications": {
+    "exact_label_concordant": 520
+  },
+  "benchmark_records_exact_bigmhc_im_trainval_overlap": 520,
+  "benchmark_rows": 520,
+  "benchmark_unique_peptide_hla": 520,
+  "benchmark_unique_peptides": 520,
+  "interpretation": "Exact peptide-HLA matches are direct training overlap for PRIME2 and must be excluded or reported separately. BigMHC im_trainval uses non-random PRIME1/2 peptides of length 9-10, so its exact overlaps are also training leakage.",
+  "prime2_training_rows": 65585,
+  "prime2_unique_peptide_hla": 64047,
+  "prime2_unique_peptides": 63494,
+  "sheet": "TableS4",
+  "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9811684/supplementaryFiles",
+  "supplement_archive_sha256": "c51709f078fdc3c85de9d440f0cfac39888c17d41aea1efb75f949f22a2fd4d7",
+  "workbook_member": "mmc6.xlsx",
+  "workbook_member_sha256": "641a104764167f9f04bafb6606e519e5625740ed1720af7d15ac9026636bc23a"
+}

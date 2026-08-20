@@ -1,0 +1,150 @@
+{
+  "checks": [
+    {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/bigmhc-v1.0.csv",
+      "predictor": "BigMHC"
+    },
+    {
+      "maximum_absolute_error": 1.3877787807814457e-17,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/mhcflurry-2.2.1.csv",
+      "predictor": "MHCflurry"
+    },
+    {
+      "maximum_absolute_error": 9.020562075079397e-17,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/prime-2.0.csv",
+      "predictor": "PRIME"
+    },
+    {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/baselines/lopo/hla-only-lopo.csv",
+      "predictor": "HLA-only LR LOPO"
+    },
+    {
+      "maximum_absolute_error": 6.938893903907228e-18,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/baselines/lopo/hla-peptide-lr-lopo.csv",
+      "predictor": "HLA+peptide LR LOPO"
+    },
+    {
+      "maximum_absolute_error": 3.469446951953614e-17,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/baselines/lopo/peptide-lr-lopo.csv",
+      "predictor": "Peptide LR LOPO"
+    },
+    {
+      "maximum_absolute_error": 0.0,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/baselines/loso/hla-only-loso.csv",
+      "predictor": "HLA-only LR LOSO"
+    },
+    {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/baselines/loso/hla-peptide-lr-loso.csv",
+      "predictor": "HLA+peptide LR LOSO"
+    },
+    {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/baselines/loso/peptide-lr-loso.csv",
+      "predictor": "Peptide LR LOSO"
+    },
+    {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/peptide_sensitivity/bigmhc-v1.0.csv",
+      "predictor": "BigMHC"
+    },
+    {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/peptide_sensitivity/mhcflurry-2.2.1.csv",
+      "predictor": "MHCflurry"
+    },
+    {
+      "maximum_absolute_error": 6.938893903907228e-18,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/peptide_sensitivity/prime-2.0.csv",
+      "predictor": "PRIME"
+    },
+    {
+      "maximum_absolute_error": 6.938893903907228e-18,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/peptide_sensitivity_hla_rank/bigmhc-v1.0.csv",
+      "predictor": "BigMHC"
+    },
+    {
+      "maximum_absolute_error": 0.0,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/peptide_sensitivity_hla_rank/mhcflurry-2.2.1.csv",
+      "predictor": "MHCflurry"
+    },
+    {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "pass": true,
+      "prediction_file": "results/raw_predictions/improve/peptide_sensitivity_hla_rank/prime-2.0.csv",
+      "predictor": "PRIME"
+    },
+    {
+      "maximum_absolute_error": 0.0,
+      "pass": true,
+      "prediction_file": "data/sensitivity/exact_peptide_free/predictions/bigmhc-v1.0.csv",
+      "predictor": "BigMHC"
+    },
+    {
+      "maximum_absolute_error": 2.0816681711721685e-17,
+      "pass": true,
+      "prediction_file": "data/sensitivity/exact_peptide_free/predictions/mhcflurry-2.2.1.csv",
+      "predictor": "MHCflurry"
+    },
+    {
+      "maximum_absolute_error": 6.938893903907228e-18,
+      "pass": true,
+      "prediction_file": "data/sensitivity/exact_peptide_free/predictions/prime-2.0.csv",
+      "predictor": "PRIME"
+    },
+    {
+      "maximum_absolute_error": 3.469446951953614e-17,
+      "pass": true,
+      "prediction_file": "data/sensitivity/near_overlap_free/predictions/bigmhc-v1.0.csv",
+      "predictor": "BigMHC"
+    },
+    {
+      "maximum_absolute_error": 2.0816681711721685e-17,
+      "pass": true,
+      "prediction_file": "data/sensitivity/near_overlap_free/predictions/mhcflurry-2.2.1.csv",
+      "predictor": "MHCflurry"
+    },
+    {
+      "maximum_absolute_error": 2.7755575615628914e-17,
+      "pass": true,
+      "prediction_file": "data/sensitivity/near_overlap_free/predictions/prime-2.0.csv",
+      "predictor": "PRIME"
+    },
+    {
+      "maximum_absolute_error": 6.938893903907228e-18,
+      "pass": true,
+      "prediction_file": "data/sensitivity/length_9_10/predictions/bigmhc-v1.0.csv",
+      "predictor": "BigMHC"
+    },
+    {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "pass": true,
+      "prediction_file": "data/sensitivity/length_9_10/predictions/mhcflurry-2.2.1.csv",
+      "predictor": "MHCflurry"
+    },
+    {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "pass": true,
+      "prediction_file": "data/sensitivity/length_9_10/predictions/prime-2.0.csv",
+      "predictor": "PRIME"
+    }
+  ],
+  "status": "pass",
+  "tolerance": 1e-12
+}

@@ -1,0 +1,15 @@
+{
+  "input": "data/processed/improve_benchmark.csv",
+  "issue_rows": 1937,
+  "issues_by_type": {
+    "context_dependent_label": 3,
+    "duplicate_peptide": 1776,
+    "duplicate_peptide_hla": 158
+  },
+  "patient_level_eligible": true,
+  "patients": 70,
+  "rows": 17475,
+  "sha256": "4d3ace123a22b780817d194870bacb5f276489c22979a25b52a2490e41c88b34",
+  "studies": 3,
+  "study_level_eligible": true
+}

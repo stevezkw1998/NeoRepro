@@ -1,0 +1,4 @@
+predictor,status,count
+HLA-only LR LOPO,predicted,17475
+HLA+peptide LR LOPO,predicted,17475
+Peptide LR LOPO,predicted,17475

@@ -1,0 +1,266 @@
+{
+  "artifacts": [
+    {
+      "bytes": 11682527,
+      "path": "data/processed/improve_benchmark_full.csv",
+      "sha256": "af393532651edca25ec54e356de0b0ff82afbbeffa8d4e6819c35861155b9ff7"
+    },
+    {
+      "bytes": 11652086,
+      "path": "data/processed/improve_benchmark.csv",
+      "sha256": "4d3ace123a22b780817d194870bacb5f276489c22979a25b52a2490e41c88b34"
+    },
+    {
+      "bytes": 959,
+      "path": "data/improve_summary.json",
+      "sha256": "09935734ff02c0f1ed8921193f933efac953a6ca04a4763a7467fdcc8112381c"
+    },
+    {
+      "bytes": 254,
+      "path": "data/improve_leakage_filter_summary.json",
+      "sha256": "d1fd1aa1411de0a9e629ae7738a301d6053b0ecda31a936a74229169877f1fe9"
+    },
+    {
+      "bytes": 396,
+      "path": "data/improve_fixed_sensitivity_summary.json",
+      "sha256": "b6df06dc215f9f6e33ee3103a4485384feda456eaa875fa7431fde3a03c4babf"
+    },
+    {
+      "bytes": 411,
+      "path": "data/improve_patient_peptide_sensitivity_summary.json",
+      "sha256": "d25229756dc24f3acea5fdf85216a4bf55a1ac86f32da99099433bc1897ee59e"
+    },
+    {
+      "bytes": 388,
+      "path": "data/improve_patient_peptide_hla_rank_sensitivity_summary.json",
+      "sha256": "20b67f64a26ea80477288798b28cac630113369a848a82ecbf131d17dbe7e107"
+    },
+    {
+      "bytes": 877426,
+      "path": "research/training_overlap_audit_improve.csv",
+      "sha256": "fb0a4a9e9e00574e4a789c6c058a9276bf0f7a3b13bfbac6369089eeec7078af"
+    },
+    {
+      "bytes": 1439,
+      "path": "research/training_overlap_summary_improve.json",
+      "sha256": "3800beda3547022779e1777527341481f96b4a812e000c0f479481c98767e817"
+    },
+    {
+      "bytes": 2880094,
+      "path": "results/raw_predictions/improve/mhcflurry-2.2.1.csv",
+      "sha256": "fad50cb83c207a2da1b9b3041f4161ebd5b416c5fff4b037c3b64d50bd2589d1"
+    },
+    {
+      "bytes": 1804516,
+      "path": "results/raw_predictions/improve/bigmhc-v1.0.csv",
+      "sha256": "8aca17b0d98e4bbace179ac5bfa2127ac8fd03ec2a963cae97f49201f850113c"
+    },
+    {
+      "bytes": 1639128,
+      "path": "results/raw_predictions/improve/prime-2.0.csv",
+      "sha256": "8f6b8130eeaa28a3acc05be198b8f70a994c4696142f3d191d2c1980ef98362e"
+    },
+    {
+      "bytes": 2032872,
+      "path": "results/raw_predictions/improve/baselines/lopo/hla-only-lopo.csv",
+      "sha256": "a1c561b8155742ab3a10668d86a721fa81453cddd4db25bff731b52d3b39778b"
+    },
+    {
+      "bytes": 2012913,
+      "path": "results/raw_predictions/improve/baselines/lopo/peptide-lr-lopo.csv",
+      "sha256": "18cfa6a844eacecd9deac76e63920b69755420738e1db5533302addad9b5ff03"
+    },
+    {
+      "bytes": 2085096,
+      "path": "results/raw_predictions/improve/baselines/lopo/hla-peptide-lr-lopo.csv",
+      "sha256": "bb4b5164602c475ece5d039287094f4b0adcd8620c979517208ad98d16bd6dd5"
+    },
+    {
+      "bytes": 2123912,
+      "path": "results/raw_predictions/improve/baselines/loso/hla-only-loso.csv",
+      "sha256": "e80042a46b7cdab5094da4d0f1dc802a8b43e7e62727b67a7800ea1c842a20cc"
+    },
+    {
+      "bytes": 2105686,
+      "path": "results/raw_predictions/improve/baselines/loso/peptide-lr-loso.csv",
+      "sha256": "b2588e2a1275a61930b7a466957505218a550c13352fc6fd442783a092068025"
+    },
+    {
+      "bytes": 2177618,
+      "path": "results/raw_predictions/improve/baselines/loso/hla-peptide-lr-loso.csv",
+      "sha256": "5b4019b1dc4e48aea7bcea714850dfea019672b318c83ccff02ff82cea5d8068"
+    },
+    {
+      "bytes": 118279,
+      "path": "results/analysis/improve/fixed/metrics.json",
+      "sha256": "0e7015f682076c85d879fc1674073f61f62d27cd0da145522e30d01b97c84531"
+    },
+    {
+      "bytes": 139694,
+      "path": "results/analysis/improve/baselines/lopo/metrics.json",
+      "sha256": "bf8f111e671bbd90929eb32c6dc8fe0974a16fd8fa7d16848fb5741626df7db0"
+    },
+    {
+      "bytes": 139329,
+      "path": "results/analysis/improve/baselines/loso/metrics.json",
+      "sha256": "becc4e396aad14382048dd8109b7a439d0693d7d3650ded996585353a1a48fe1"
+    },
+    {
+      "bytes": 118775,
+      "path": "results/analysis/improve/peptide_sensitivity/metrics.json",
+      "sha256": "6b1eccfa82044a80b6d765826e3da14e31e97db50d8fec90ffb13fafdcfe9ae3"
+    },
+    {
+      "bytes": 118635,
+      "path": "results/analysis/improve/peptide_sensitivity_hla_rank/metrics.json",
+      "sha256": "f376f079c14a91be6d3ed5f68c9bded3e40602b3318ba8bad0b761a22066ed67"
+    },
+    {
+      "bytes": 118313,
+      "path": "results/analysis/improve/exact_peptide_free/metrics.json",
+      "sha256": "88f3192af811920d7ac56187b01e73590462c30bbcb866571f4a19647f295adb"
+    },
+    {
+      "bytes": 118196,
+      "path": "results/analysis/improve/near_overlap_free/metrics.json",
+      "sha256": "e919b39945afe426450ccc7d9b57718c9494b70521e1a1cb46cea0a7db8280b8"
+    },
+    {
+      "bytes": 117209,
+      "path": "results/analysis/improve/length_9_10/metrics.json",
+      "sha256": "04a9560644bada082723eec78f14955d69cdd736c462d83cd356b01f6e121c8e"
+    },
+    {
+      "bytes": 2653,
+      "path": "results/analysis/improve/lopo_folds.csv",
+      "sha256": "d58977669dc2bc36b13d864932851173ebdb1d9b8612c10ab83dd2c7c8248664"
+    },
+    {
+      "bytes": 229,
+      "path": "results/analysis/improve/loso_folds.csv",
+      "sha256": "43d4217d8e2abc6bb08c5a71754a44858a870fb4613fd67258115683c077c56a"
+    },
+    {
+      "bytes": 847,
+      "path": "results/analysis/improve/hla_sensitivity.csv",
+      "sha256": "bce7cfb51851369953a7c4bc5d96943debbde8f2c65852f52e612576226c47c7"
+    },
+    {
+      "bytes": 7266,
+      "path": "results/analysis/improve/per_hla_metrics.csv",
+      "sha256": "62784780a0a4f3f8f6f33c284e7276d0d5defa9b363337cdb21150664d58f666"
+    },
+    {
+      "bytes": 5103,
+      "path": "reports/metric_validation.json",
+      "sha256": "942261896d6c1c11e92f700b4dcb534e5b33831fc84262bf791fe05c18b628cd"
+    },
+    {
+      "bytes": 365,
+      "path": "reports/manuscript_audit.json",
+      "sha256": "d01baee57a3c936df5949ce7a6dc5e0e5dbd56aad5846d4a96ce0c57f34faf36"
+    },
+    {
+      "bytes": 11059,
+      "path": "reports/mhcflurry_model_manifest.json",
+      "sha256": "e71562c18f90d2de4099bad00488da28a88f61f1f2c38331f62d54724fd717f3"
+    },
+    {
+      "bytes": 4248,
+      "path": "reports/full_predictor_run.json",
+      "sha256": "f5f2b2d8ca010dd84ce75f3e46452e5d52a5e9269190818191a540c5d836a514"
+    },
+    {
+      "bytes": 2025,
+      "path": "reports/prime_full_rerun.json",
+      "sha256": "54dc400f5e5970188b4822ae9253e17c3e2b18a463056a2e629f7f884e44589d"
+    },
+    {
+      "bytes": 3957,
+      "path": "results/final_results.csv",
+      "sha256": "72168def27704259ac17ad94cbbcf981a1f3b11f5b031739a9d863b3386537ed"
+    },
+    {
+      "bytes": 1485,
+      "path": "results/tables/fixed_predictor_summary.csv",
+      "sha256": "0c58083416186b40eec00451b856d885770280963dde2ac93696e6e0f74b7833"
+    },
+    {
+      "bytes": 2763,
+      "path": "results/tables/heldout_baseline_summary.csv",
+      "sha256": "5ae107274d09c3f6bd08bdd1d589c86ae021dc715c028c43cb3bc2ee13914113"
+    },
+    {
+      "bytes": 71501,
+      "path": "results/figures/fixed_predictor_performance.png",
+      "sha256": "647171b6ddbd096a69addb10e4016c441388dc096ca6cf66e2d55d18e2806262"
+    },
+    {
+      "bytes": 81557,
+      "path": "results/figures/heldout_baselines.png",
+      "sha256": "8d7eea5ca3d4d9c269160fac44c9fed0a03ef6025909b479fd85386c74b1ddb9"
+    },
+    {
+      "bytes": 100879,
+      "path": "results/figures/hla_sensitivity.png",
+      "sha256": "7ce8286833d358eecc1d636e031865dcc9ac3f614364931c2a0eba0610f43ec0"
+    },
+    {
+      "bytes": 59434,
+      "path": "results/figures/patient_recall20.png",
+      "sha256": "537cb1397a68c114f4e49db1dd07be57fcab435bc2849d342f55399b650ac18e"
+    },
+    {
+      "bytes": 20170,
+      "path": "paper/manuscript.md",
+      "sha256": "a29d8e8e44a7e05227ac2a8f19715978af037eb475a911a02a57ab50504de457"
+    },
+    {
+      "bytes": 2615,
+      "path": "paper/references.bib",
+      "sha256": "a409ae92ad6c85acb4dfdb8a58c235f02faaf28d1ad108846eefb3009906f406"
+    },
+    {
+      "bytes": 5320,
+      "path": "paper/reviewer_comments.md",
+      "sha256": "4a0fbe8b57d349428e971d8775723ac8c33eb70b174351d9051a5b725cf1e8b0"
+    },
+    {
+      "bytes": 6521,
+      "path": "paper/reviewer_response.md",
+      "sha256": "ea4f77465475f129b30c488849566016727b60454bd8b155d8da171be51e708a"
+    },
+    {
+      "bytes": 4960,
+      "path": "FINAL_REPORT.md",
+      "sha256": "2254cf30652a725986dbf67de5946108df8c8e5d5c623ba2ca144cb36e3230b3"
+    }
+  ],
+  "benchmark": {
+    "exact_prime2_training_overlaps_excluded": 45,
+    "patients": 70,
+    "positives": 465,
+    "records": 17475,
+    "studies": 3
+  },
+  "evaluation": {
+    "bootstrap_replicates": 2000,
+    "seed": 20260820,
+    "tie_policy": "analytic expectation over score ties",
+    "top_k": [
+      5,
+      10,
+      20
+    ]
+  },
+  "generated_date": "2026-08-20",
+  "predictor_revisions": {
+    "BigMHC": "v1.0",
+    "IMPROVE data": "c67094276b52358b5202ad9e5597acd87888ea1d",
+    "MHCflurry": "2.2.1",
+    "PRIME": "2.0"
+  },
+  "project_commit": "cf64ba336184619561b5594acf6f5e4609810123",
+  "project_worktree_clean": false,
+  "schema_version": "1.0"
+}

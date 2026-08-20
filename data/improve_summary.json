@@ -1,0 +1,31 @@
+{
+  "article_doi": "10.3389/fimmu.2024.1360281",
+  "cohorts": 3,
+  "hla_alleles": 36,
+  "negative_only_patients": 9,
+  "patients": 70,
+  "peptide_lengths": {
+    "10": 4716,
+    "11": 1728,
+    "8": 515,
+    "9": 10561
+  },
+  "positive_bearing_patients": 61,
+  "positives": 467,
+  "positives_by_study": {
+    "IMPROVE-basket": 116,
+    "IMPROVE-mUC": 147,
+    "IMPROVE-melanoma": 204
+  },
+  "rows": 17520,
+  "rows_by_study": {
+    "IMPROVE-basket": 5362,
+    "IMPROVE-mUC": 6237,
+    "IMPROVE-melanoma": 5921
+  },
+  "source_archive_sha256": "adf02eb5054a8aa4b6eccd3b6e0ff1200889d41ae05655fd6e55c5c347f720d9",
+  "source_member": "data/01_data/01_Validated_neoepitopes.txt",
+  "source_member_sha256": "b27854c98a34b6bb83af248979cc3ea121534fa2e8d9e97415654dc0c0a95c95",
+  "source_revision": "c67094276b52358b5202ad9e5597acd87888ea1d",
+  "source_url": "https://raw.githubusercontent.com/SRHgroup/IMPROVE_paper/c67094276b52358b5202ad9e5597acd87888ea1d/data.zip"
+}

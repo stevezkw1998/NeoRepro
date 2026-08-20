@@ -35,7 +35,9 @@ Maintain a broad landscape of citable public tools and record legal access, inst
 
 ### Track B — comparable MHC-I peptide–HLA score benchmark
 
-Run a smaller set of locally executable, public scoring methods on the same experimentally tested candidate records. The primary patient-level dataset will be TESLA because it preserves six subject groupings and tested candidate lists. Other provenance-complete datasets may provide external study strata but will not be called patient-held-out when reliable patient identifiers are absent.
+Run a smaller set of locally executable, public scoring methods on the same experimentally tested candidate records. The initial TESLA pilot preserves six subject groupings, but the official PRIME2 training table revealed that all 520 pilot rows were exact training records for PRIME2 and met BigMHC's immunogenicity-training construction. TESLA is therefore a leakage-positive reproduction fixture, not the primary performance benchmark.
+
+The primary patient-level dataset is now the public IMPROVE screen: 17,520 experimentally screened records from 70 source-grounded patients and three cohorts. A common leakage filter removes 45 exact PRIME2 peptide–HLA overlaps, leaving 17,475 rows for fixed-tool comparison. The full and filtered manifests remain versioned.
 
 Pretrained predictors cannot honestly receive a new “study-held-out” label unless their training data and model fitting support that claim. For fixed pretrained tools, NeoRepro will report cross-study external performance and known/unknown training overlap. True patient-held-out or study-held-out training will be reserved for transparent baselines fitted within NeoRepro.
 
@@ -56,9 +58,9 @@ The defensible contribution is a reproducibility dataset plus a fair rerun: whic
 ## Threats to novelty
 
 - A fast-moving 2026 literature landscape may produce another reproducibility benchmark before submission.
-- TESLA has only six subjects and selection of tested candidates was conditioned on team submissions.
-- Some public methods may have trained on or tuned against TESLA or related records.
+- IMPROVE candidate screening was conditioned on predicted presentation, so the benchmark does not represent all tumor mutations.
+- Exact overlap removal cannot establish absence of near-sequence, feature-level, or undocumented training influence.
+- Only three source cohorts are available for study-level sensitivity analysis.
 - Tool tasks differ; binding, presentation, immunogenicity and end-to-end ranking must not be collapsed into one leaderboard.
 
 Re-run the novelty audit before full-scale experiments and before venue selection.
-

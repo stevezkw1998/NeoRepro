@@ -1,0 +1,4 @@
+split_unit,held_out_group,train_rows,train_positives,test_rows,test_positives,unseen_test_hlas
+study_id,IMPROVE-basket,12115,349,5360,116,0
+study_id,IMPROVE-mUC,11240,318,6235,147,5
+study_id,IMPROVE-melanoma,11595,263,5880,202,3

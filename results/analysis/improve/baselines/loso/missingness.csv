@@ -1,0 +1,4 @@
+predictor,status,count
+HLA-only LR LOSO,predicted,17475
+HLA+peptide LR LOSO,predicted,17475
+Peptide LR LOSO,predicted,17475
