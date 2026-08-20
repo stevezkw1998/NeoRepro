@@ -1,21 +1,28 @@
+[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Deutsch](README.de.md) | [Español](README.es.md) | [Français](README.fr.md)
+
 # NeoRepro
 
 NeoRepro is a leakage-aware, patient-level, reproducible benchmark resource for public MHC-I peptide–HLA neoantigen predictors. It packages pinned predictor artifacts, record-level provenance, training-overlap audits, common-support comparisons, patient-level uncertainty, support-matched random baselines and machine-generated results.
 
 This is a benchmark/resource contribution, not a new predictor and not a claim of a universal model winner or clinical utility.
 
-See [RESEARCH_SPEC.md](RESEARCH_SPEC.md) for the scientific contract and [PROJECT_PROMPT.md](PROJECT_PROMPT.md) for the original project brief.
+## Start here
+
+- **Current manuscript:** [resource-positioned manuscript](paper/manuscript_resource.md).
+- **Two-minute evidence summary:** [bilingual expert brief](output/pdf/neorepro_expert_brief_bilingual.pdf) and [independent-cohort extension summary](reports/extension_summary.md).
+- **Reproduce the frozen results:** use the command in the Reproduce section below.
+- **Cite a fixed version:** [CITATION.cff](CITATION.cff) and the [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
+
+For the scientific contract and scope, see [RESEARCH_SPEC.md](RESEARCH_SPEC.md).
 
 ## Status
 
-- Repository initialized: yes
 - Current-literature audit: complete; decision `RESCOPE, then GO`
 - Reproduced predictors: MHCflurry 2.2.1, BigMHC v1.0, PRIME 2.0, DeepImmuno-CNN and DeepHLApan
 - TESLA pilot: complete; reclassified as a training-overlap-positive control
 - Primary benchmark: IMPROVE, 17,475 leakage-filtered rows, 70 patients, 3 cohorts
-- Full inference and analysis: complete; 52,425 fixed-tool predictions with no missing rows
+- Primary IMPROVE inference: complete; 52,425 fixed-tool predictions with no missing rows
 - Manuscript: [resource-positioned version](paper/manuscript_resource.md), generated from frozen result files; independent statistical and biological review complete
-- Expert brief: [bilingual one-page PDF](output/pdf/neorepro_expert_brief_bilingual.pdf)
 
 ## Main result
 
@@ -31,7 +38,11 @@ make -j4 reproduce-results
 
 Independent bootstrap analyses are parallelized by Make. Use `make reproduce-results` without `-j4` when CPU or memory is constrained. `make -j4 full-reproduce` additionally downloads the pinned public source data and installs/runs the third-party predictors. It requires explicit acceptance of the academic-only BigMHC and PRIME terms, several gigabytes of disk space, and substantially more runtime.
 
-Key outputs are the [final report](FINAL_REPORT.md), [resource manuscript](paper/manuscript_resource.md), [review record](paper/reviewer_response.md), [final result table](results/final_results.csv), [figures](results/figures/), [training-overlap audit](research/training_overlap_summary_improve.json), [target-venue strategy](reports/target_venues_2026-08-20.md), and [SHA-256 manifest](results/manifest.json).
+## Evidence trail
+
+- **Primary scientific record:** [current manuscript](paper/manuscript_resource.md), [final report](FINAL_REPORT.md), and [review record](paper/reviewer_response.md).
+- **Auditable outputs:** [final result table](results/final_results.csv), [figures](results/figures/), [training-overlap audit](research/training_overlap_summary_improve.json), and [SHA-256 manifest](results/manifest.json).
+- **Submission planning:** [target-venue strategy](reports/target_venues_2026-08-20.md).
 
 The independent Zhao 2026 vaccine-cohort extension is reproduced with `make -j4 extension`. Its concise evidence summary is in [reports/extension_summary.md](reports/extension_summary.md), with the frozen pre-inference contract in [research/extension_protocol.json](research/extension_protocol.json). The external endpoint is post-vaccination ELISPOT after peptide-pulsed dendritic-cell administration and must not be interpreted as natural tumor presentation or clinical efficacy.
 

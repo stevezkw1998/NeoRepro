@@ -1,0 +1,91 @@
+{
+  "locales": {
+    "de": {
+      "file": "README.de.md",
+      "sections": {
+        "evidence-trail": "d59dadcd64bcd6fb91d6b2f0e17c2bcbbdda83f5ffb0e706dde0d3254f730f12",
+        "license": "c8b5a3d845f447f3d200d9eccc802340c77f3d954f86bcdbfa91322a46c89f67",
+        "main-result": "0f4aa84d0a01bba3302829e11a79635483cbc7ed332a7585666226d663e4536a",
+        "preamble": "65418799adf89e3fce1e798f934e0d60ec21086d5db6023cf2721d1b841f0835",
+        "reproduce": "a3378bedac0f19d71a46de7ce86eb0d6c5bce141215fe1564c9ff7ad8b9e38a4",
+        "start-here": "418af0c8b42d6606208a2d5ef296b960882c4264f3e92795b5e326f2ea13a4d5",
+        "status": "4247275cd63fe06bb87fd248db4543aca69f00da41fc15df46e492809dfca2d1"
+      }
+    },
+    "es": {
+      "file": "README.es.md",
+      "sections": {
+        "evidence-trail": "d59dadcd64bcd6fb91d6b2f0e17c2bcbbdda83f5ffb0e706dde0d3254f730f12",
+        "license": "c8b5a3d845f447f3d200d9eccc802340c77f3d954f86bcdbfa91322a46c89f67",
+        "main-result": "0f4aa84d0a01bba3302829e11a79635483cbc7ed332a7585666226d663e4536a",
+        "preamble": "65418799adf89e3fce1e798f934e0d60ec21086d5db6023cf2721d1b841f0835",
+        "reproduce": "a3378bedac0f19d71a46de7ce86eb0d6c5bce141215fe1564c9ff7ad8b9e38a4",
+        "start-here": "418af0c8b42d6606208a2d5ef296b960882c4264f3e92795b5e326f2ea13a4d5",
+        "status": "4247275cd63fe06bb87fd248db4543aca69f00da41fc15df46e492809dfca2d1"
+      }
+    },
+    "fr": {
+      "file": "README.fr.md",
+      "sections": {
+        "evidence-trail": "d59dadcd64bcd6fb91d6b2f0e17c2bcbbdda83f5ffb0e706dde0d3254f730f12",
+        "license": "c8b5a3d845f447f3d200d9eccc802340c77f3d954f86bcdbfa91322a46c89f67",
+        "main-result": "0f4aa84d0a01bba3302829e11a79635483cbc7ed332a7585666226d663e4536a",
+        "preamble": "65418799adf89e3fce1e798f934e0d60ec21086d5db6023cf2721d1b841f0835",
+        "reproduce": "a3378bedac0f19d71a46de7ce86eb0d6c5bce141215fe1564c9ff7ad8b9e38a4",
+        "start-here": "418af0c8b42d6606208a2d5ef296b960882c4264f3e92795b5e326f2ea13a4d5",
+        "status": "4247275cd63fe06bb87fd248db4543aca69f00da41fc15df46e492809dfca2d1"
+      }
+    },
+    "ja": {
+      "file": "README.ja.md",
+      "sections": {
+        "evidence-trail": "d59dadcd64bcd6fb91d6b2f0e17c2bcbbdda83f5ffb0e706dde0d3254f730f12",
+        "license": "c8b5a3d845f447f3d200d9eccc802340c77f3d954f86bcdbfa91322a46c89f67",
+        "main-result": "0f4aa84d0a01bba3302829e11a79635483cbc7ed332a7585666226d663e4536a",
+        "preamble": "65418799adf89e3fce1e798f934e0d60ec21086d5db6023cf2721d1b841f0835",
+        "reproduce": "a3378bedac0f19d71a46de7ce86eb0d6c5bce141215fe1564c9ff7ad8b9e38a4",
+        "start-here": "418af0c8b42d6606208a2d5ef296b960882c4264f3e92795b5e326f2ea13a4d5",
+        "status": "4247275cd63fe06bb87fd248db4543aca69f00da41fc15df46e492809dfca2d1"
+      }
+    },
+    "ko": {
+      "file": "README.ko.md",
+      "sections": {
+        "evidence-trail": "d59dadcd64bcd6fb91d6b2f0e17c2bcbbdda83f5ffb0e706dde0d3254f730f12",
+        "license": "c8b5a3d845f447f3d200d9eccc802340c77f3d954f86bcdbfa91322a46c89f67",
+        "main-result": "0f4aa84d0a01bba3302829e11a79635483cbc7ed332a7585666226d663e4536a",
+        "preamble": "65418799adf89e3fce1e798f934e0d60ec21086d5db6023cf2721d1b841f0835",
+        "reproduce": "a3378bedac0f19d71a46de7ce86eb0d6c5bce141215fe1564c9ff7ad8b9e38a4",
+        "start-here": "418af0c8b42d6606208a2d5ef296b960882c4264f3e92795b5e326f2ea13a4d5",
+        "status": "4247275cd63fe06bb87fd248db4543aca69f00da41fc15df46e492809dfca2d1"
+      }
+    },
+    "zh-CN": {
+      "file": "README.zh-CN.md",
+      "sections": {
+        "evidence-trail": "d59dadcd64bcd6fb91d6b2f0e17c2bcbbdda83f5ffb0e706dde0d3254f730f12",
+        "license": "c8b5a3d845f447f3d200d9eccc802340c77f3d954f86bcdbfa91322a46c89f67",
+        "main-result": "0f4aa84d0a01bba3302829e11a79635483cbc7ed332a7585666226d663e4536a",
+        "preamble": "65418799adf89e3fce1e798f934e0d60ec21086d5db6023cf2721d1b841f0835",
+        "reproduce": "a3378bedac0f19d71a46de7ce86eb0d6c5bce141215fe1564c9ff7ad8b9e38a4",
+        "start-here": "418af0c8b42d6606208a2d5ef296b960882c4264f3e92795b5e326f2ea13a4d5",
+        "status": "4247275cd63fe06bb87fd248db4543aca69f00da41fc15df46e492809dfca2d1"
+      }
+    },
+    "zh-TW": {
+      "file": "README.zh-TW.md",
+      "sections": {
+        "evidence-trail": "d59dadcd64bcd6fb91d6b2f0e17c2bcbbdda83f5ffb0e706dde0d3254f730f12",
+        "license": "c8b5a3d845f447f3d200d9eccc802340c77f3d954f86bcdbfa91322a46c89f67",
+        "main-result": "0f4aa84d0a01bba3302829e11a79635483cbc7ed332a7585666226d663e4536a",
+        "preamble": "65418799adf89e3fce1e798f934e0d60ec21086d5db6023cf2721d1b841f0835",
+        "reproduce": "a3378bedac0f19d71a46de7ce86eb0d6c5bce141215fe1564c9ff7ad8b9e38a4",
+        "start-here": "418af0c8b42d6606208a2d5ef296b960882c4264f3e92795b5e326f2ea13a4d5",
+        "status": "4247275cd63fe06bb87fd248db4543aca69f00da41fc15df46e492809dfca2d1"
+      }
+    }
+  },
+  "source": "README.md",
+  "source_sha256": "764f22611b5381d431e8191a5f19fb312f6023049bfbf942ea10e28a63243a12",
+  "version": 1
+}

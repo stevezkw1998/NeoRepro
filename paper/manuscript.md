@@ -1,5 +1,7 @@
 # NeoRepro: leakage-aware reproduction of public MHC-I predictors across patient T-cell recognition and vaccine-response cohorts
 
+> **Archived draft.** This pre-resource-positioning manuscript is retained as a historical record and is not the current submission version. It has not been updated for the final five-predictor resource framing. Read the [current resource-positioned manuscript](manuscript_resource.md) instead.
+
 **Author line:** to be completed before submission
 
 ## Abstract
