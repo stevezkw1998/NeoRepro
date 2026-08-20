@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/usr/bin/c++",
+    "-O3",
+    "predictors/prime/source/lib/PRIME.cc",
+    "-o",
+    "predictors/prime/source/lib/PRIME.x"
+  ],
+  "duration_seconds": 6.046859,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "prime",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "install",
+  "started_at": "2026-08-20T10:12:57.733099+00:00",
+  "stderr_log": "20260820T101257733099Z-install.stderr.log",
+  "stdout_log": "20260820T101257733099Z-install.stdout.log",
+  "timed_out": false
+}

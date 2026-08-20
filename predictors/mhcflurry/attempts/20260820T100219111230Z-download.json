@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/usr/bin/env",
+    "MHCFLURRY_DOWNLOADS_DIR=predictors/mhcflurry/vendor",
+    "predictors/mhcflurry/.venv/bin/mhcflurry-downloads",
+    "fetch",
+    "models_class1_presentation"
+  ],
+  "duration_seconds": 3.611792,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "mhcflurry",
+  "python": "3.9.6",
+  "returncode": 1,
+  "stage": "download",
+  "started_at": "2026-08-20T10:02:19.111230+00:00",
+  "stderr_log": "20260820T100219111230Z-download.stderr.log",
+  "stdout_log": "20260820T100219111230Z-download.stdout.log",
+  "timed_out": false
+}

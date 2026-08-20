@@ -1,0 +1,4 @@
+Using CPython 3.9.6 interpreter at: /Library/Developer/CommandLineTools/usr/bin/python3
+warning: The requested interpreter resolved to Python 3.9.6, which is incompatible with the project's Python requirement: `>=3.11` (from `project.requires-python`)
+Creating virtual environment at: predictors/bigmhc/.venv
+Activate with: source predictors/bigmhc/.venv/bin/activate

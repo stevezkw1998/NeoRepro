@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "venv",
+    "--python",
+    "3.11",
+    "predictors/mhcflurry/.venv"
+  ],
+  "duration_seconds": 0.0191,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "mhcflurry",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "install",
+  "started_at": "2026-08-20T10:00:53.634907+00:00",
+  "stderr_log": "20260820T100053634907Z-install.stderr.log",
+  "stdout_log": "20260820T100053634907Z-install.stdout.log",
+  "timed_out": false
+}

@@ -1,0 +1,22 @@
+{
+  "command": [
+    "git",
+    "clone",
+    "--branch",
+    "v2.2",
+    "--depth",
+    "1",
+    "https://github.com/GfellerLab/MixMHCpred.git",
+    "predictors/prime/vendor/mixmhcpred"
+  ],
+  "duration_seconds": 1.068714,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "prime",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "download",
+  "started_at": "2026-08-20T10:12:20.324010+00:00",
+  "stderr_log": "20260820T101220324010Z-download.stderr.log",
+  "stdout_log": "20260820T101220324010Z-download.stdout.log",
+  "timed_out": false
+}

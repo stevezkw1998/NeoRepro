@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/bin/zsh",
+    "-lc",
+    "cd predictors/bigmhc/source/src && ../../.venv/bin/python predict.py -i=../data/example1.csv -m=el -t=2 -d=cpu -j=1 -f=2 -v=0 -o=/tmp/neorepro-bigmhc-example1.csv"
+  ],
+  "duration_seconds": 45.152348,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "bigmhc",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "test",
+  "started_at": "2026-08-20T10:09:29.799550+00:00",
+  "stderr_log": "20260820T100929799550Z-test.stderr.log",
+  "stdout_log": "20260820T100929799550Z-test.stdout.log",
+  "timed_out": false
+}

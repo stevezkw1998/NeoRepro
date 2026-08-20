@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcflurry/.venv/bin/mhcflurry-downloads", line 12, in <module>
+    sys.exit(run())
+             ^^^^^
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcflurry/.venv/lib/python3.11/site-packages/mhcflurry/downloads_command.py", line 119, in run
+    command_functions[args.subparser_name](args)
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcflurry/.venv/lib/python3.11/site-packages/mhcflurry/downloads_command.py", line 165, in fetch_subcommand
+    raise RuntimeError(
+RuntimeError: No release defined. This can happen when you are specifying a custom models directory. Specify --release to indicate the release to download.

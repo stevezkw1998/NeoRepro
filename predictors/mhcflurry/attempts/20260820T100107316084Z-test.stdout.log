@@ -1,0 +1,33 @@
+Environment variables
+  MHCFLURRY_DATA_DIR                  [unset or empty]
+  MHCFLURRY_DOWNLOADS_CURRENT_RELEASE [unset or empty]
+  MHCFLURRY_DOWNLOADS_DIR             [unset or empty]
+  MHCFLURRY_DEFAULT_CLASS1_MODELS     [unset or empty]
+
+Configuration
+  current release                     = 2.2.0                
+  downloads dir                       = '/Users/steve/Library/Application Support/mhcflurry/4/2.2.0' [does not exist]
+
+DOWNLOAD NAME                             DOWNLOADED?   UP TO DATE?   URL                  
+models_class1_pan                         NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.0/models_class1_pan.selected.20200610.tar.bz2 
+models_class1_presentation                NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.0/models_class1_presentation.20200611.tar.bz2 
+models_class1_processing                  NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.0/models_class1_processing.selected.20200611.tar.bz2 
+models_class1_pan_unselected              NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.0/models_class1_pan.20200610.tar.bz2 
+models_class1_pan_variants                NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.0/models_class1_pan_variants.selected.20200610.tar.bz2 
+data_evaluation                           NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.0/data_evaluation.20200611.tar.bz2.part.aa + 2 more parts 
+analysis_predictor_info                   NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.0/analysis_predictor_info.20200711.tar.bz2 
+data_predictions                          NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.0/data_predictions.20200713.tar.bz2.part.aa + 11 more parts 
+data_mass_spec_annotated                  NO                          https://github.com/openvax/mhcflurry/releases/download/1.6.0/data_mass_spec_annotated.20191226.tar.bz2 
+data_references                           NO                          https://github.com/openvax/mhcflurry/releases/download/pre-1.4.0/data_references.20190927.tar.bz2 
+data_iedb                                 NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.1/data_iedb.20231019.tar.bz2 
+data_systemhcatlas                        NO                          http://github.com/openvax/mhcflurry/releases/download/pan-dev1/data_systemhcatlas.20190506.tar.bz2 
+allele_sequences                          NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.1/allele_sequences.20231025.tar.bz2 
+random_peptide_predictions                NO                          http://github.com/openvax/mhcflurry/releases/download/pan-dev1/random_peptide_predictions.20190506.tar.bz2 
+data_published                            NO                          https://github.com/openvax/mhcflurry/releases/download/pre-1.7.0/data_published.20200501.tar.bz2 
+data_curated                              NO                          https://github.com/openvax/mhcflurry/releases/download/pre-2.1/data_curated.20231023.tar.bz2 
+models_class1                             NO                          http://github.com/openvax/mhcflurry/releases/download/pre-1.2/models_class1.20180225.tar.bz2 
+models_class1_selected_no_mass_spec       NO                          http://github.com/openvax/mhcflurry/releases/download/pre-1.2/models_class1_selected_no_mass_spec.20180225.tar.bz2 
+models_class1_unselected                  NO                          http://github.com/openvax/mhcflurry/releases/download/pre-1.2/models_class1_unselected.20180221.tar.bz2 
+models_class1_trained_with_mass_spec      NO                          http://github.com/openvax/mhcflurry/releases/download/pre-1.2.1/models_class1_trained_with_mass_spec.20180228.tar.bz2 
+models_class1_unselected_with_mass_spec   NO                          http://github.com/openvax/mhcflurry/releases/download/pre-1.2.1/models_class1_unselected_with_mass_spec.20180227.tar.bz2 
+models_class1_minimal                     NO                          http://github.com/openvax/mhcflurry/releases/download/pre-1.2/models_class1_minimal.20180226.tar.bz2 

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/usr/bin/c++",
+    "-O3",
+    "predictors/prime/vendor/mixmhcpred/lib/MixMHCpred.cc",
+    "-o",
+    "predictors/prime/vendor/mixmhcpred/lib/MixMHCpred.x"
+  ],
+  "duration_seconds": 0.567456,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "prime",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "install",
+  "started_at": "2026-08-20T10:13:34.474644+00:00",
+  "stderr_log": "20260820T101334474644Z-install.stderr.log",
+  "stdout_log": "20260820T101334474644Z-install.stdout.log",
+  "timed_out": false
+}

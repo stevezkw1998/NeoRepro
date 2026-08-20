@@ -1,0 +1,18 @@
+Using Python 3.9.6 environment at: predictors/bigmhc/.venv
+Resolved 6 packages in 133ms
+Downloading scikit-learn (6.6MiB)
+Downloading scipy (25.8MiB)
+Downloading numpy (11.8MiB)
+ Downloaded scikit-learn
+ Downloaded scipy
+ Downloaded numpy
+Prepared 4 packages in 1.78s
+Uninstalled 1 package in 82ms
+Installed 6 packages in 56ms
+ + joblib==1.5.3
+ - numpy==2.0.2
+ + numpy==1.21.5
+ + psutil==5.9.8
+ + scikit-learn==1.0.2
+ + scipy==1.7.3
+ + threadpoolctl==3.6.0

@@ -1,0 +1,23 @@
+{
+  "command": [
+    "uv",
+    "pip",
+    "install",
+    "--python",
+    "predictors/bigmhc/.venv/bin/python",
+    "numpy==1.21.5",
+    "scipy==1.7.3",
+    "scikit-learn==1.0.2",
+    "psutil==5.9.8"
+  ],
+  "duration_seconds": 2.07737,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "bigmhc",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "install",
+  "started_at": "2026-08-20T10:09:14.871013+00:00",
+  "stderr_log": "20260820T100914871013Z-install.stderr.log",
+  "stdout_log": "20260820T100914871013Z-install.stdout.log",
+  "timed_out": false
+}

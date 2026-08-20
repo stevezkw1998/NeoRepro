@@ -1,0 +1,17 @@
+Using Python 3.9.6 environment at: predictors/bigmhc/.venv
+Resolved 7 packages in 209ms
+Downloading numpy (5.1MiB)
+Downloading pandas (10.0MiB)
+Downloading torch (53.1MiB)
+ Downloaded numpy
+ Downloaded pandas
+ Downloaded torch
+Prepared 4 packages in 5.56s
+Installed 7 packages in 261ms
+ + numpy==2.0.2
+ + pandas==1.4.4
+ + python-dateutil==2.9.0.post0
+ + pytz==2026.3.post1
+ + six==1.17.0
+ + torch==1.13.0
+ + typing-extensions==4.16.0

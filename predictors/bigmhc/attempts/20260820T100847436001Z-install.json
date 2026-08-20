@@ -1,0 +1,21 @@
+{
+  "command": [
+    "uv",
+    "pip",
+    "install",
+    "--python",
+    "predictors/bigmhc/.venv/bin/python",
+    "torch==1.13.0",
+    "pandas==1.4.4"
+  ],
+  "duration_seconds": 6.295879,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "bigmhc",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "install",
+  "started_at": "2026-08-20T10:08:47.436001+00:00",
+  "stderr_log": "20260820T100847436001Z-install.stderr.log",
+  "stdout_log": "20260820T100847436001Z-install.stdout.log",
+  "timed_out": false
+}

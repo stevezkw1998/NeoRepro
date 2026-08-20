@@ -20,7 +20,7 @@ data/raw/**
 !data/raw/.gitkeep
 results/raw_predictions/**
 !results/raw_predictions/.gitkeep
-predictors/**/attempts/*.log
+!results/raw_predictions/*.csv
 predictors/**/attempts/*.tmp
 paper/*.aux
 paper/*.bbl

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/tmp/neorepro-test.LHRUJK/bin/python",
+    "predictors/prime/adapter.py",
+    "--input",
+    "data/processed/benchmark.csv",
+    "--source-dir",
+    "predictors/prime/source",
+    "--mix-dir",
+    "predictors/prime/vendor/mixmhcpred",
+    "--output",
+    "results/raw_predictions/prime-2.0.csv"
+  ],
+  "duration_seconds": 1.372408,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "prime",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "adapter",
+  "started_at": "2026-08-20T10:17:07.368261+00:00",
+  "stderr_log": "20260820T101707368261Z-adapter.stderr.log",
+  "stdout_log": "20260820T101707368261Z-adapter.stdout.log",
+  "timed_out": false
+}

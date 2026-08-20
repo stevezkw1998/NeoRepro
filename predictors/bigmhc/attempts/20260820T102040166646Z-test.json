@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/usr/bin/cmp",
+    "results/raw_predictions/bigmhc-v1.0.csv",
+    "tmp/bigmhc-repeat.csv"
+  ],
+  "duration_seconds": 0.002976,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "bigmhc",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "test",
+  "started_at": "2026-08-20T10:20:40.166646+00:00",
+  "stderr_log": "20260820T102040166646Z-test.stderr.log",
+  "stdout_log": "20260820T102040166646Z-test.stdout.log",
+  "timed_out": false
+}

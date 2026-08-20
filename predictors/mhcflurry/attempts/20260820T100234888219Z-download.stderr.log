@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcflurry/.venv/bin/mhcflurry-downloads", line 12, in <module>
+    sys.exit(run())
+             ^^^^^
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcflurry/.venv/lib/python3.11/site-packages/mhcflurry/downloads_command.py", line 119, in run
+    command_functions[args.subparser_name](args)
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcflurry/.venv/lib/python3.11/site-packages/mhcflurry/downloads_command.py", line 170, in fetch_subcommand
+    downloads = get_current_release_downloads()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcflurry/.venv/lib/python3.11/site-packages/mhcflurry/downloads.py", line 175, in get_current_release_downloads
+    get_downloads_metadata()
+KeyError: None

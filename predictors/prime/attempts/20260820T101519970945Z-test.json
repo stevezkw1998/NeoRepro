@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/tmp/neorepro-test.LHRUJK/bin/python",
+    "predictors/prime/check_fixture.py",
+    "--source-dir",
+    "predictors/prime/source",
+    "--mix-dir",
+    "predictors/prime/vendor/mixmhcpred"
+  ],
+  "duration_seconds": 0.660422,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "prime",
+  "python": "3.9.6",
+  "returncode": 1,
+  "stage": "test",
+  "started_at": "2026-08-20T10:15:19.970945+00:00",
+  "stderr_log": "20260820T101519970945Z-test.stderr.log",
+  "stdout_log": "20260820T101519970945Z-test.stdout.log",
+  "timed_out": false
+}

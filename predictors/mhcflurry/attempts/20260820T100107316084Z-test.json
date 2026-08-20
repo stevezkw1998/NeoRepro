@@ -1,0 +1,16 @@
+{
+  "command": [
+    "predictors/mhcflurry/.venv/bin/mhcflurry-downloads",
+    "info"
+  ],
+  "duration_seconds": 43.164659,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "mhcflurry",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "test",
+  "started_at": "2026-08-20T10:01:07.316084+00:00",
+  "stderr_log": "20260820T100107316084Z-test.stderr.log",
+  "stdout_log": "20260820T100107316084Z-test.stdout.log",
+  "timed_out": false
+}

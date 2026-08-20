@@ -1,0 +1,22 @@
+{
+  "command": [
+    "predictors/mhcflurry/.venv/bin/python",
+    "predictors/mhcflurry/adapter.py",
+    "--input",
+    "data/processed/benchmark.csv",
+    "--models-dir",
+    "predictors/mhcflurry/vendor/2.2.0/models_class1_presentation/models",
+    "--output",
+    "tmp/mhcflurry-repeat.csv"
+  ],
+  "duration_seconds": 35.072189,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "mhcflurry",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "test",
+  "started_at": "2026-08-20T10:06:23.444761+00:00",
+  "stderr_log": "20260820T100623444761Z-test.stderr.log",
+  "stdout_log": "20260820T100623444761Z-test.stdout.log",
+  "timed_out": false
+}

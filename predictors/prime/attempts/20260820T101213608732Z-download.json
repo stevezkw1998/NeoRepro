@@ -1,0 +1,22 @@
+{
+  "command": [
+    "git",
+    "clone",
+    "--branch",
+    "v2.0",
+    "--depth",
+    "1",
+    "https://github.com/GfellerLab/PRIME.git",
+    "predictors/prime/source"
+  ],
+  "duration_seconds": 0.814607,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "prime",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "download",
+  "started_at": "2026-08-20T10:12:13.608732+00:00",
+  "stderr_log": "20260820T101213608732Z-download.stderr.log",
+  "stdout_log": "20260820T101213608732Z-download.stdout.log",
+  "timed_out": false
+}

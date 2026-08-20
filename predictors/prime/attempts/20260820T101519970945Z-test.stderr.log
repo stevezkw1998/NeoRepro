@@ -1,0 +1,27 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LC_ALL = "C.UTF-8",
+	LC_CTYPE = "C.UTF-8",
+	LANG = "C.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+panic: locale.c: 4486: Could not change LC_CTYPE locale to C.UTF-8, errno=9
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LC_ALL = "C.UTF-8",
+	LC_CTYPE = "C.UTF-8",
+	LANG = "C.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+panic: locale.c: 4486: Could not change LC_CTYPE locale to C.UTF-8, errno=9
+Traceback (most recent call last):
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/prime/check_fixture.py", line 60, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/prime/check_fixture.py", line 30, in main
+    run_prime(
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/prime/adapter.py", line 87, in run_prime
+    subprocess.run(
+  File "/Users/steve/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/var/folders/78/q87rpcx94sgfgglps30zx23m0000gn/T/neorepro-prime-fixture-0_zbpi0k/prime/PRIME', '-i', '/var/folders/78/q87rpcx94sgfgglps30zx23m0000gn/T/neorepro-prime-fixture-0_zbpi0k/fixture.txt', '-o', '/var/folders/78/q87rpcx94sgfgglps30zx23m0000gn/T/neorepro-prime-fixture-0_zbpi0k/actual.tsv', '-a', 'A0101,A2501,B0801,B1801', '-mix', '/var/folders/78/q87rpcx94sgfgglps30zx23m0000gn/T/neorepro-prime-fixture-0_zbpi0k/mix/MixMHCpred']' returned non-zero exit status 1.

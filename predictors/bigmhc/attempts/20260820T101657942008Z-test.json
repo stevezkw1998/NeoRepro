@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/tmp/neorepro-test.LHRUJK/bin/python",
+    "predictors/bigmhc/adapter.py",
+    "--input",
+    "data/processed/benchmark.csv",
+    "--source-dir",
+    "predictors/bigmhc/source",
+    "--python",
+    "predictors/bigmhc/.venv/bin/python",
+    "--output",
+    "tmp/bigmhc-repeat.csv"
+  ],
+  "duration_seconds": 29.1515,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "bigmhc",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "test",
+  "started_at": "2026-08-20T10:16:57.942008+00:00",
+  "stderr_log": "20260820T101657942008Z-test.stderr.log",
+  "stdout_log": "20260820T101657942008Z-test.stdout.log",
+  "timed_out": false
+}

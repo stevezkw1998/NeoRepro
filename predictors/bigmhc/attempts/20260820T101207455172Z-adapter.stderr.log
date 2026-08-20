@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/bigmhc/adapter.py", line 173, in <module>
+    raise SystemExit(main())
+  File "/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/bigmhc/adapter.py", line 128, in main
+    for source, im_row, el_row in zip(eligible, im_rows, el_rows, strict=True):
+TypeError: zip() takes no keyword arguments

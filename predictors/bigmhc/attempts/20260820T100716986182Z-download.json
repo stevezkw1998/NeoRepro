@@ -1,0 +1,22 @@
+{
+  "command": [
+    "git",
+    "clone",
+    "--branch",
+    "v1.0",
+    "--depth",
+    "1",
+    "https://github.com/KarchinLab/bigmhc.git",
+    "predictors/bigmhc/source"
+  ],
+  "duration_seconds": 74.944889,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "bigmhc",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "download",
+  "started_at": "2026-08-20T10:07:16.986182+00:00",
+  "stderr_log": "20260820T100716986182Z-download.stderr.log",
+  "stdout_log": "20260820T100716986182Z-download.stdout.log",
+  "timed_out": false
+}

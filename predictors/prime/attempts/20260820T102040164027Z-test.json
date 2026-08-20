@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/usr/bin/cmp",
+    "results/raw_predictions/prime-2.0.csv",
+    "tmp/prime-repeat.csv"
+  ],
+  "duration_seconds": 0.002828,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "prime",
+  "python": "3.9.6",
+  "returncode": 0,
+  "stage": "test",
+  "started_at": "2026-08-20T10:20:40.164027+00:00",
+  "stderr_log": "20260820T102040164027Z-test.stderr.log",
+  "stdout_log": "20260820T102040164027Z-test.stdout.log",
+  "timed_out": false
+}
