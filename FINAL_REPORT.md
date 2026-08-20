@@ -38,6 +38,8 @@ The repository contains a CPython 3.11.15 pin, pinned source revisions, adapters
 
 The documented command was also executed from a clean clone of commit `f4d86e6fbffb8062952eab3ec0d6d236a936a67d` using CPython 3.11.15. It completed in 734 seconds with Ruff passing, 27/27 tests passing and all tracked generated artifacts byte-identical; only the manifest's expected source-commit and clean-state metadata changed. The machine-readable receipt is `reports/clean_reproduction.json`.
 
+The completed extension was independently checked from a fresh clone of commit `9373c0ab3ef4aa381839f8e23b084f2818aaaaac` in a fresh uv environment: Ruff passed and all 32/32 tests passed. The receipt is `reports/extension_clean_reproduction.json`.
+
 Run `make -j4 reproduce-results` to regenerate analyses, figures, tables and the manuscript from the versioned benchmark and prediction files while parallelizing independent bootstrap analyses. Omit `-j4` on a constrained machine. Run `make -j4 full-reproduce` to also acquire the pinned public inputs and install and execute the licensed third-party predictors. The latter requires explicit acceptance of BigMHC and PRIME academic-use terms.
 
 ## Independent review

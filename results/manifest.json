@@ -236,9 +236,9 @@
       "sha256": "3bc706c7b062876fcdec8c1fb12c788baacb2302ed4eb4beef67961ded4ac792"
     },
     {
-      "bytes": 7103,
+      "bytes": 7353,
       "path": "FINAL_REPORT.md",
-      "sha256": "3d97420090c4b308b48a80c4dbf3f7931cf0827ba88f77bd166c1f6ec8aff7c5"
+      "sha256": "c2ffc0f9b83d7407a5e05ad36016e3cab9ccdf9ca7ab1dbc2f570f91bf7e4963"
     },
     {
       "bytes": 1239894,
@@ -364,6 +364,11 @@
       "bytes": 435,
       "path": "reports/new_predictor_determinism.json",
       "sha256": "65fb300429c41a1fe7b251e90e4c799c901e22bb1e628f27422c1f2639f42254"
+    },
+    {
+      "bytes": 288,
+      "path": "reports/extension_clean_reproduction.json",
+      "sha256": "f60acbb3d208c6971bf129be0c5d7be39dd2784147918005ff794b2ead558fa7"
     }
   ],
   "benchmark": {
@@ -429,7 +434,7 @@
     "MHCflurry": "2.2.1",
     "PRIME": "2.0"
   },
-  "project_commit": "639268bd84c2de11421eb9aacaccb5edef8a8a6e",
-  "project_worktree_clean": false,
+  "project_commit": "9373c0ab3ef4aa381839f8e23b084f2818aaaaac",
+  "project_worktree_clean": true,
   "schema_version": "1.0"
 }

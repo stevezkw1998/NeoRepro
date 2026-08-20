@@ -1,0 +1,11 @@
+{
+  "commit": "9373c0ab3ef4aa381839f8e23b084f2818aaaaac",
+  "environment": "fresh local clone and fresh uv virtual environment",
+  "platform": "macOS arm64",
+  "python": "3.11.15",
+  "ruff": "pass",
+  "status": "pass",
+  "tests_collected": 32,
+  "tests_failed": 0,
+  "tests_passed": 32
+}

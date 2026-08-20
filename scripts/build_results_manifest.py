@@ -85,6 +85,7 @@ DEFAULT_PATHS = (
     "results/analysis/improve/expanded_9_10/metrics.json",
     "reports/improve_expanded_predictor_run.json",
     "reports/new_predictor_determinism.json",
+    "reports/extension_clean_reproduction.json",
 )
 
 
