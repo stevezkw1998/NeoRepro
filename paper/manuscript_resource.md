@@ -14,7 +14,7 @@ We pinned five public predictors in isolated environments; harmonized a presenta
 
 ### Results
 
-{{AUTO_ABSTRACT_RESULTS}}
+All five pinned predictors produced outputs within their declared input support. The initial 520-row TESLA fixture was entirely training-overlapped and was retained only as a leakage-positive reproduction test. After excluding 45 exact PRIME2 overlaps from 17,520 IMPROVE records, 17,475 records from 70 patients remained. On common support, PRIME achieved AUROC 0.597 and mean pMHC-pair Recall@20 0.260 among 60 positive-bearing patients, versus 0.546 and 0.146 for BigMHC. Transparent peptide baselines outperformed HLA-only baselines under both patient- and study-held-out fitting, while adding HLA to peptide features did not consistently improve over peptide features alone. A frozen extension evaluated five models on 2,315 overlap-filtered vaccine peptides with a distinct post-vaccination ELISPOT endpoint. Support-matched random ranking showed that high marginal Top-K values did not necessarily imply useful ranking signal.
 
 ### Conclusions
 
@@ -60,7 +60,65 @@ The resource stores canonical schemas, source-row provenance, predictor and data
 
 ## Results
 
-{{AUTO_RESULTS}}
+### Public-artifact reproduction
+
+The version-pinned CPU workflows for MHCflurry 2.2.1, BigMHC v1.0 and PRIME 2.0 all produced complete outputs for the common benchmark. Reproduction nevertheless required tool-specific workarounds: MHCflurry model-path correction, a 4.6-GB BigMHC repository checkout and native rebuilding of PRIME and MixMHCpred binaries on Apple Silicon. These observations are recorded in `data/predictor_registry.csv`; they describe this platform and these pinned revisions rather than a universal installation-success rate.
+
+### Leakage audit changed the benchmark
+
+All 520 records in the TESLA pilot exactly matched a peptide–HLA pair in the official PRIME2 training table with concordant labels; all also satisfied the public BigMHC immunogenicity training-set construction. We therefore retained TESLA only as a leakage-positive reproduction fixture. The public IMPROVE source contained 17,520 rows, 467 T-cell-recognized records, 70 patients and 3 cohorts. Its audit identified 45 exact PRIME2 peptide–HLA overlaps, including 7 label conflicts; 43 met the BigMHC immunogenicity training construction. Union exclusion removed all 45 exact PRIME2 overlaps and retained 17,475 records, 465 positives and 70 patients. Mutation, patient and study overlap were unavailable in the PRIME2 training table and are explicitly marked unknown. Among retained records, 35 had a peptide seen in PRIME2 training only with another HLA; excluding them yielded AUROC 0.545 for BigMHC and 0.596 for PRIME. A further 18 records had a same-HLA, same-length PRIME2 training peptide one substitution away. Removing them yielded nearly unchanged AUROC for BigMHC (0.546) and PRIME (0.596). Exact and one-substitution non-overlap still cannot rule out undocumented or representation-level training influence.
+
+### Fixed public predictors
+
+Table 1 reports the two fixed scores in the same broad immunogenicity category on identical records. The primary comparison was pooled AUROC. The analytic random-ranking reference for mean pMHC-pair Recall@20 was 0.103. PRIME exceeded BigMHC by 0.051 AUROC (patient-bootstrap 95% CI 0.008–0.092 for PRIME minus BigMHC). PRIME also had higher mean pMHC-pair Recall@20 among 60 positive-bearing patients (0.260, conditional 95% CI 0.187–0.342) than BigMHC (0.146, 0.098–0.204). MHCflurry is a peptide/HLA-only presentation invocation without presentation ground truth; its descriptive association with T-cell detection was AUROC 0.537, AP 0.032 and pMHC-pair Recall@20 0.202. It is not ranked as an immunogenicity competitor. Patient retrieval varied substantially (Figure 2).
+
+**Table 1. Fixed public immunogenicity scores on the common overlap-filtered benchmark.** AP is average precision. Patient confidence intervals use 2,000 resamples of patients and are conditional on the fixed predictions.
+
+| Predictor | Task | AUROC | AP | Mean Recall@20 (95% patient-bootstrap CI) |
+|---|---|---:|---:|---:|
+| BigMHC | immunogenicity | 0.546 | 0.032 | 0.146 (0.098–0.204) |
+| PRIME | immunogenicity | 0.597 | 0.040 | 0.260 (0.187–0.342) |
+
+### Decision-unit and length-domain sensitivity
+
+The 17,475 pMHC records represented 15,508 unique patient–peptide candidates; 1,601 candidates had multiple tested HLA pairings and 101 had discordant labels across HLA. After any-HLA-positive label aggregation and maximum raw-score aggregation, Recall@20 was 0.166 for BigMHC, 0.220 for MHCflurry and 0.304 for PRIME. Because raw score scales depend on HLA, this aggregation is exploratory. Normalizing scores to empirical within-HLA mid-percentiles before taking the maximum gave Recall@20 of 0.202, 0.215 and 0.240, respectively. Thus the decision unit and cross-HLA score rule changed absolute retrieval but not the qualitative ordering. Restriction to 9–10mers retained 15,234 records and yielded AUROC 0.547 for BigMHC and 0.605 for PRIME, preserving the primary direction.
+
+Expanding the same 9–10mer IMPROVE subset to the two newly reproduced models gave AUROC 0.527 on 11,036 supported records for DeepImmuno-CNN and 0.508 on all 15,234 records for DeepHLApan, versus 0.605 for PRIME. Their patient NDCG@5 values were 0.021, 0.023 and 0.102, respectively. This secondary expanded-model analysis used 500 patient bootstrap replicates and does not alter the frozen 2,000-replicate external primary analysis.
+
+### Patient- and study-held-out transparent baselines
+
+Under leave-one-patient-out (LOPO) fitting, peptide logistic regression achieved AUROC 0.628 and mean Recall@20 0.212, compared with 0.562 and 0.121 for HLA-only logistic regression. The HLA-plus-peptide model reached AUROC 0.634, but its paired AUROC difference from peptide only was not resolved by the conditional 95% interval. Under leave-one-study-out (LOSO) fitting, peptide only again exceeded HLA only (AUROC 0.619 versus 0.546); adding HLA yielded 0.595. These comparisons use the same estimator and differ only in feature set. The three study-specific LOSO results are descriptive, not a population-of-studies inference (Figure 3 and `results/analysis/improve/baselines/`).
+
+**Table 2. Transparent baselines fitted with the declared held-out unit.** Patient-bootstrap intervals are conditional on the frozen out-of-fold predictions and omit fitting variation.
+
+| Predictor | Task | AUROC | AP | Mean Recall@20 (95% patient-bootstrap CI) |
+|---|---|---:|---:|---:|
+| HLA+peptide LR LOPO | immunogenicity_lopo | 0.634 | 0.049 | 0.206 (0.147–0.273) |
+| HLA-only LR LOPO | immunogenicity_lopo | 0.562 | 0.038 | 0.121 (0.088–0.157) |
+| Peptide LR LOPO | immunogenicity_lopo | 0.628 | 0.047 | 0.212 (0.150–0.279) |
+| HLA+peptide LR LOSO | immunogenicity_loso | 0.595 | 0.043 | 0.172 (0.123–0.228) |
+| HLA-only LR LOSO | immunogenicity_loso | 0.546 | 0.033 | 0.119 (0.084–0.158) |
+| Peptide LR LOSO | immunogenicity_loso | 0.619 | 0.045 | 0.191 (0.137–0.251) |
+
+### HLA and cohort sensitivity
+
+Within-HLA rank AUROC was 0.546, 0.575 and 0.603 for MHCflurry, BigMHC and PRIME, respectively. HLA mean scores alone were near or below chance (0.466, 0.480 and 0.505). The score-scale-specific fraction of observed variance lying between HLA groups was 0.112, 0.325 and 0.060; it is not interpreted as an isolated allele effect or compared across arbitrary score transformations. BigMHC cohort AUROC ranged from 0.511 to 0.644. With only three compound domains, cohort results cannot separate cancer, treatment, assay and HLA composition.
+
+### Independent vaccine-cohort extension
+
+The frozen extension contained 2,317 individually administered 8–11mer peptides from 352 patients. Known exact-overlap union exclusion removed 2 records (2 positives), retaining 2,315 records, 311 positives and 131 positive-bearing patients. The audit found 2 exact PRIME2 matches and 0 exact DeepImmuno matches; DeepHLApan row-level training identity remains unknown.
+
+The prospectively frozen primary metric was patient-macro NDCG@5 because the median patient had six candidates and Recall@20 would saturate. Table 3 reports each immunogenicity model together with the exact expectation for a tied random score on that model's support. On full support, random NDCG@5 was 0.578; BigMHC exceeded that reference by 0.081, whereas DeepHLApan's gain was 0.002. DeepImmuno-CNN's apparently high marginal NDCG@5 was 0.755 on 43.8% coverage, compared with a support-matched random expectation of 0.759. Pairwise comparisons used model-specific common support and 2,000 patient bootstrap replicates. The BigMHC-minus-PRIME NDCG@5 difference on common support was 0.057 (unadjusted 95% CI 0.008–0.106); this within-cohort contrast is not a formal cross-dataset interaction test. MHCflurry remains a task-distinct presentation association control.
+
+**Table 3. Independent Zhao 2026 vaccine-cohort extension.** The endpoint is post-vaccination IFN-γ ELISPOT after peptide-pulsed dendritic-cell administration, not natural tumor presentation or clinical efficacy.
+
+| Predictor | Predicted records | AUROC | AP | Patient NDCG@5 (95% CI) | Random NDCG@5 | Gain over random |
+|---|---:|---:|---:|---:|---:|---:|
+| BigMHC | 2,315 | 0.550 | 0.148 | 0.658 (0.606–0.707) | 0.578 | 0.081 |
+| DeepHLApan | 2,315 | 0.488 | 0.131 | 0.580 (0.524–0.635) | 0.578 | 0.002 |
+| DeepImmuno-CNN | 1,015 | 0.526 | 0.158 | 0.755 (0.691–0.816) | 0.759 | -0.004 |
+| PRIME | 2,310 | 0.531 | 0.148 | 0.604 (0.546–0.660) | 0.581 | 0.023 |
+
 
 ### Reusable benchmark outputs
 

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 from collections import defaultdict
 from pathlib import Path
 from statistics import mean
@@ -38,6 +39,33 @@ def metric_table(rows: list[dict[str, str]]) -> str:
             f"{f(row['average_precision'])} | {recall} ({low}–{high}) |"
         )
     return "\n".join(lines)
+
+
+def random_ranking_reference(
+    benchmark_rows: list[dict[str, str]], prediction_rows: list[dict[str, str]], k: int = 5
+) -> tuple[float, float]:
+    """Return exact patient-macro NDCG/recall expectations for a tied random score."""
+    predicted_ids = {
+        row["record_id"] for row in prediction_rows if row.get("status") == "predicted"
+    }
+    groups: dict[str, list[int]] = defaultdict(list)
+    for row in benchmark_rows:
+        if row["record_id"] in predicted_ids:
+            groups[row["patient_id"]].append(int(row["immunogenicity"]))
+    ndcg_values = []
+    recall_values = []
+    for labels in groups.values():
+        positives = sum(labels)
+        if not positives:
+            continue
+        limit = min(k, len(labels))
+        discounts = sum(1 / math.log2(rank + 1) for rank in range(1, limit + 1))
+        expected_dcg = (positives / len(labels)) * discounts
+        ideal_hits = min(positives, limit)
+        ideal_dcg = sum(1 / math.log2(rank + 1) for rank in range(1, ideal_hits + 1))
+        ndcg_values.append(expected_dcg / ideal_dcg)
+        recall_values.append(limit / len(labels))
+    return mean(ndcg_values), mean(recall_values)
 
 
 def build_results(root: Path) -> tuple[str, str]:
@@ -81,18 +109,20 @@ def build_results(root: Path) -> tuple[str, str]:
         if row["left"] == "BigMHC" and row["right"] == "PRIME" and row["metric"] == "auroc"
     )
     abstract = (
-        f"All three pinned predictors ran to completion. The initial {tesla['benchmark_rows']}-row "
-        "TESLA fixture was entirely training-overlapped and was not used for performance claims. "
+        "All five pinned predictors produced outputs within their declared input support. The initial "
+        f"{tesla['benchmark_rows']}-row TESLA fixture was entirely training-overlapped and was retained "
+        "only as a leakage-positive reproduction test. "
         f"After excluding {filtered['excluded_exact_prime2_peptide_hla_rows']} exact PRIME2 overlaps "
         f"from {full['rows']:,} IMPROVE records, {filtered['retained_rows']:,} records from "
-        f"{filtered['retained_patients']} patients remained. On the common set, PRIME achieved AUROC "
+        f"{filtered['retained_patients']} patients remained. On common support, PRIME achieved AUROC "
         f"{f(prime['auroc'])} and mean pMHC-pair Recall@20 {f(prime['recall@20'])} among 60 "
         "positive-bearing patients, versus "
         f"{f(bigmhc['auroc'])} and {f(bigmhc['recall@20'])} for BigMHC. Transparent peptide "
         "baselines outperformed HLA-only baselines under both patient- and study-held-out fitting, "
         "while adding HLA to peptide features did not consistently improve over peptide features alone. "
-        f"A frozen independent extension evaluated five models on {zhao_filtered['retained_rows']:,} "
-        "overlap-filtered vaccine peptides with a distinct post-vaccination ELISPOT endpoint."
+        f"A frozen extension evaluated five models on {zhao_filtered['retained_rows']:,} overlap-filtered "
+        "vaccine peptides with a distinct post-vaccination ELISPOT endpoint. Support-matched random "
+        "ranking showed that high marginal Top-K values did not necessarily imply useful ranking signal."
     )
 
     lopo = {row["predictor"]: row for row in baselines if row["analysis"] == "lopo"}
@@ -103,15 +133,27 @@ def build_results(root: Path) -> tuple[str, str]:
     near_metrics = near_result["metrics"]
     length_metrics = length_result["metrics"]
     zhao_rows = []
+    zhao_benchmark = load_csv(root / "data/processed/zhao_vaccine_benchmark.csv")
+    zhao_random: dict[str, tuple[float, float]] = {}
     for name, value in sorted(zhao_result["metrics"].items()):
         if value["metadata"]["task"] != "immunogenicity":
             continue
+        random_ndcg5, _random_recall5 = random_ranking_reference(
+            zhao_benchmark, load_csv(root / value["metadata"]["source"]), k=5
+        )
+        zhao_random[name] = (random_ndcg5, _random_recall5)
         ci = value["patient_bootstrap_95ci"]["ndcg@5"]
         zhao_rows.append(
             f"| {name} | {value['pooled']['n']:,} | {f(value['pooled']['auroc'])} | "
             f"{f(value['pooled']['average_precision'])} | {f(value['patient']['ndcg@5'])} "
-            f"({f(ci['low'])}–{f(ci['high'])}) | {f(value['patient']['recall@5'])} |"
+            f"({f(ci['low'])}–{f(ci['high'])}) | {f(random_ndcg5)} | "
+            f"{f(value['patient']['ndcg@5'] - random_ndcg5)} |"
         )
+    big_prime_ndcg = next(
+        row
+        for row in zhao_result["paired_same_task"]
+        if row["left"] == "BigMHC" and row["right"] == "PRIME" and row["metric"] == "ndcg@5"
+    )
     results = f"""### Public-artifact reproduction
 
 The version-pinned CPU workflows for MHCflurry 2.2.1, BigMHC v1.0 and PRIME 2.0 all produced complete outputs for the common benchmark. Reproduction nevertheless required tool-specific workarounds: MHCflurry model-path correction, a 4.6-GB BigMHC repository checkout and native rebuilding of PRIME and MixMHCpred binaries on Apple Silicon. These observations are recorded in `data/predictor_registry.csv`; they describe this platform and these pinned revisions rather than a universal installation-success rate.
@@ -150,12 +192,12 @@ Within-HLA rank AUROC was {f(hla['MHCflurry']['within_hla_rank_auroc'])}, {f(hla
 
 The frozen extension contained {zhao_source['output_rows']:,} individually administered 8–11mer peptides from {zhao_source['patients']} patients. Known exact-overlap union exclusion removed {zhao_filtered['excluded_rows']} records ({zhao_filtered['excluded_positives']} positives), retaining {zhao_filtered['retained_rows']:,} records, {zhao_filtered['retained_positives']} positives and {zhao_filtered['retained_positive_bearing_patients']} positive-bearing patients. The audit found {zhao_overlap['benchmark_exact_prime2']} exact PRIME2 matches and {zhao_overlap['benchmark_exact_deepimmuno']} exact DeepImmuno matches; DeepHLApan row-level training identity remains unknown.
 
-The prospectively frozen primary metric was patient-macro NDCG@5 because the median patient had six candidates and Recall@20 would saturate. Table 3 reports the immunogenicity models. Pairwise comparisons use model-specific common support and 2,000 patient bootstrap replicates; MHCflurry remains a task-distinct presentation association control.
+The prospectively frozen primary metric was patient-macro NDCG@5 because the median patient had six candidates and Recall@20 would saturate. Table 3 reports each immunogenicity model together with the exact expectation for a tied random score on that model's support. On full support, random NDCG@5 was {f(zhao_random['BigMHC'][0])}; BigMHC exceeded that reference by {f(zhao_result['metrics']['BigMHC']['patient']['ndcg@5'] - zhao_random['BigMHC'][0])}, whereas DeepHLApan's gain was {f(zhao_result['metrics']['DeepHLApan']['patient']['ndcg@5'] - zhao_random['DeepHLApan'][0])}. DeepImmuno-CNN's apparently high marginal NDCG@5 was {f(zhao_result['metrics']['DeepImmuno-CNN']['patient']['ndcg@5'])} on 43.8% coverage, compared with a support-matched random expectation of {f(zhao_random['DeepImmuno-CNN'][0])}. Pairwise comparisons used model-specific common support and 2,000 patient bootstrap replicates. The BigMHC-minus-PRIME NDCG@5 difference on common support was {f(big_prime_ndcg['difference_left_minus_right'])} (unadjusted 95% CI {f(big_prime_ndcg['ci_low'])}–{f(big_prime_ndcg['ci_high'])}); this within-cohort contrast is not a formal cross-dataset interaction test. MHCflurry remains a task-distinct presentation association control.
 
 **Table 3. Independent Zhao 2026 vaccine-cohort extension.** The endpoint is post-vaccination IFN-γ ELISPOT after peptide-pulsed dendritic-cell administration, not natural tumor presentation or clinical efficacy.
 
-| Predictor | Predicted records | AUROC | AP | Patient NDCG@5 (95% CI) | Patient Recall@5 |
-|---|---:|---:|---:|---:|---:|
+| Predictor | Predicted records | AUROC | AP | Patient NDCG@5 (95% CI) | Random NDCG@5 | Gain over random |
+|---|---:|---:|---:|---:|---:|---:|
 {chr(10).join(zhao_rows)}
 """
     return abstract, results
@@ -165,7 +207,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path("."))
     parser.add_argument("--template", type=Path, default=Path("paper/manuscript_template.md"))
-    parser.add_argument("--output", type=Path, default=Path("paper/manuscript.md"))
+    parser.add_argument("--output", type=Path, default=Path("paper/manuscript_resource.md"))
     args = parser.parse_args()
     root = args.root.resolve()
     template = (root / args.template).read_text(encoding="utf-8")

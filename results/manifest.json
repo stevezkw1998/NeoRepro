@@ -156,9 +156,9 @@
       "sha256": "1b2e9de3c7f7dfabc9c3241b7552db3cd8f7298e866a8f08ed2fe00a000b7635"
     },
     {
-      "bytes": 388,
-      "path": "reports/manuscript_audit.json",
-      "sha256": "0feae6e8c58600efa569f597f7216411f29109e2041864dfab1559bae2023ae2"
+      "bytes": 487,
+      "path": "reports/manuscript_resource_audit.json",
+      "sha256": "90836e1d37e0eeaab46a0ab3781bc8811877c4c514570015d1546875fd3cdcd0"
     },
     {
       "bytes": 11059,
@@ -216,14 +216,14 @@
       "sha256": "537cb1397a68c114f4e49db1dd07be57fcab435bc2849d342f55399b650ac18e"
     },
     {
-      "bytes": 23918,
-      "path": "paper/manuscript.md",
-      "sha256": "619e1c1f32e296081798eb528a03650e46cdc0a59609684e64a11af4a414de13"
+      "bytes": 28603,
+      "path": "paper/manuscript_resource.md",
+      "sha256": "3f994070a10d1408aa2d985ced7947f2406f62eb41504c161166bb768d9839ac"
     },
     {
-      "bytes": 3018,
+      "bytes": 4697,
       "path": "paper/references.bib",
-      "sha256": "2c63b4fc72cd8a5014457c14aa3d7cd3285ba2a465ae37ead5bbc83cf61be995"
+      "sha256": "5d883804d7d2be339135d8b3aa9efe2f4798ecadf4405a25b6318848c210216a"
     },
     {
       "bytes": 5320,
@@ -434,7 +434,7 @@
     "MHCflurry": "2.2.1",
     "PRIME": "2.0"
   },
-  "project_commit": "9373c0ab3ef4aa381839f8e23b084f2818aaaaac",
-  "project_worktree_clean": true,
+  "project_commit": "f02559b72773293c175c7bde418206b4e39b37a9",
+  "project_worktree_clean": false,
   "schema_version": "1.0"
 }

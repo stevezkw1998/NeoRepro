@@ -21,6 +21,7 @@ TEAL_LIGHT = HexColor("#E6F5F3")
 BLUE = HexColor("#286F9E")
 BLUE_LIGHT = HexColor("#EAF2F8")
 ORANGE = HexColor("#D97706")
+BAR_GRAY = HexColor("#8B9AAA")
 INK = HexColor("#172B4D")
 MUTED = HexColor("#5D6B7A")
 LINE = HexColor("#D7E0E8")
@@ -127,6 +128,10 @@ def comparison_bar(
     maximum: float,
     regular: str,
     medium: str,
+    label_a: str = "BigMHC",
+    label_b: str = "PRIME",
+    color_a=BAR_GRAY,
+    color_b=TEAL,
 ) -> None:
     c.setFont(medium, 9.5)
     c.setFillColor(INK)
@@ -137,7 +142,7 @@ def comparison_bar(
     track_x = x + 62
     track_w = w - 78
     for index, (name, value, color) in enumerate(
-        (("BigMHC", bigmhc, HexColor("#8B9AAA")), ("PRIME", prime, TEAL))
+        ((label_a, bigmhc, color_a), (label_b, prime, color_b))
     ):
         row_y = y - 18 - index * 23
         c.setFont(regular, 7.8)
@@ -191,13 +196,13 @@ def build() -> None:
     c.rect(0, page_h - 75, page_w, 3, fill=1, stroke=0)
     c.setFont(medium, 21)
     c.setFillColor(white)
-    c.drawString(38, page_h - 34, "NeoRepro 核心成果 | Expert Brief")
+    c.drawString(38, page_h - 34, "NeoRepro 核心成果 | Bilingual Expert Brief")
     c.setFont(regular, 9.2)
     c.setFillColor(HexColor("#C9D7E5"))
     c.drawString(
         39,
         page_h - 54,
-        "公共 MHC-I 新抗原预测工具的泄漏感知复现与患者级评估  |  Leakage-aware reproduction and patient-level evaluation",
+        "泄漏感知、患者级、可复现的 MHC-I 预测评测资源  |  Leakage-aware, patient-level, reproducible benchmark resource",
     )
 
     # Core message, bilingual columns
@@ -208,24 +213,24 @@ def build() -> None:
     c.drawString(427, top_y, "BOTTOM LINE")
     draw_wrapped(
         c,
-        "最重要的发现不是简单宣布“谁最好”，而是证明：常用外部基准可能已进入模型训练集；严格排除泄漏后，模型差异仍存在，但绝对预测能力有限。",
+        "核心成果不是新模型或“普适赢家”，而是一套可复现证据链：固定版本、记录级溯源、训练重叠排除、共同支持、患者级统计与同支持随机基线。它能阻止外部验证和 Top-K 结果被误读。",
         39,
         top_y - 17,
         363,
         medium,
-        11.3,
+        10.8,
         INK,
         16,
         3,
     )
     draw_wrapped(
         c,
-        "The key result is not a simplistic winner. A widely used external benchmark had entered training data; after strict leakage exclusion, model differences persisted, but absolute predictive performance remained modest.",
+        "The contribution is not a new model or universal winner, but an executable evidence chain: pinned versions, record provenance, overlap exclusion, common support, patient-level inference and support-matched random baselines. It prevents misleading external-validation and Top-K claims.",
         427,
         top_y - 17,
         374,
         regular,
-        9.6,
+        9.1,
         INK,
         13.2,
         4,
@@ -243,7 +248,7 @@ def build() -> None:
         82,
         "520 / 520",
         "TESLA 记录与 PRIME2 训练集精确重叠",
-        "TESLA records exactly overlapped PRIME2 training data; they were withdrawn as external validation evidence.",
+        "All TESLA records exactly overlapped PRIME2 training data; retained only as a leakage-positive test fixture.",
         ORANGE,
         regular,
         medium,
@@ -256,7 +261,7 @@ def build() -> None:
         82,
         "17,475",
         "泄漏过滤后的 IMPROVE pMHC 记录",
-        "Leakage-filtered pMHC records: 465 positives, 70 patients, 3 cohorts, one common evaluation set.",
+        "Leakage-filtered pMHC records: 465 positives, 70 patients and 3 cohorts on one common evaluation set.",
         BLUE,
         regular,
         medium,
@@ -267,9 +272,9 @@ def build() -> None:
         card_y,
         card_w,
         82,
-        "+0.051",
-        "PRIME 相对 BigMHC 的 AUROC 差值",
-        "Patient-bootstrap 95% CI: 0.008 to 0.092. Direction robust across all reported sensitivity analyses.",
+        "2,315",
+        "过滤后的独立疫苗队列肽记录",
+        "Distinct post-vaccination ELISPOT endpoint: 311 positives from 352 patients after known-overlap exclusion.",
         TEAL,
         regular,
         medium,
@@ -280,17 +285,17 @@ def build() -> None:
     rounded_card(c, left_x, lower_y, left_w, lower_h)
     c.setFont(medium, 11)
     c.setFillColor(NAVY)
-    c.drawString(left_x + 17, lower_y + lower_h - 24, "主要结果 | PRIMARY RESULTS")
+    c.drawString(left_x + 17, lower_y + lower_h - 24, "证据示例 | EVIDENCE SNAPSHOT")
     c.setFont(regular, 7.2)
     c.setFillColor(MUTED)
-    c.drawRightString(left_x + left_w - 17, lower_y + lower_h - 23, "common support / same task")
+    c.drawRightString(left_x + left_w - 17, lower_y + lower_h - 23, "support-aware references")
     comparison_bar(
         c,
         left_x + 17,
         lower_y + lower_h - 52,
         left_w - 34,
-        "总体区分度 | Pooled AUROC",
-        "higher is better",
+        "IMPROVE 总体区分度 | Pooled AUROC",
+        "common support",
         0.545829,
         0.596909,
         0.50,
@@ -303,26 +308,30 @@ def build() -> None:
         left_x + 17,
         lower_y + lower_h - 116,
         left_w - 34,
-        "患者级检索 | Mean pMHC Recall@20",
-        "60 positive-bearing patients",
-        0.145803,
-        0.260047,
-        0.00,
-        0.30,
+        "Zhao 患者级排序 | Patient NDCG@5",
+        "full support",
+        0.658377,
+        0.577853,
+        0.50,
+        0.70,
         regular,
         medium,
+        label_a="BigMHC",
+        label_b="Random",
+        color_a=TEAL,
+        color_b=HexColor("#A6B1BC"),
     )
     c.setFillColor(TEAL_LIGHT)
     c.roundRect(left_x + 17, lower_y + 13, left_w - 34, 29, 6, fill=1, stroke=0)
     c.setFont(medium, 7.8)
     c.setFillColor(TEAL)
-    c.drawString(left_x + 28, lower_y + 30, "稳健性 | Robustness")
+    c.drawString(left_x + 28, lower_y + 30, "关键解释 | INTERPRETATION")
     c.setFont(regular, 6.8)
     c.setFillColor(INK)
     c.drawString(
         left_x + 28,
         lower_y + 18,
-        "Exact-peptide, Hamming-1, 9-10mer, patient-peptide and within-HLA normalization all preserved the direction.",
+        "Zhao gain over random: BigMHC +0.081; DeepHLApan +0.002; DeepImmuno -0.004 on 43.8% support.",
     )
 
     # Lower right: value and boundary
@@ -338,7 +347,7 @@ def build() -> None:
         y,
         right_w - 34,
         "阻止错误外部验证",
-        "Prevents training-overlapped data from being presented as independent evidence.",
+        "Prevents training-overlapped records from being presented as independent validation evidence.",
         regular,
         medium,
     )
@@ -347,8 +356,8 @@ def build() -> None:
         right_x + 17,
         y,
         right_w - 34,
-        "把比较变成可审计流程",
-        "Provides pinned tools, common support, provenance, failure evidence and byte-stable reproduction.",
+        "让患者级比较可解释",
+        "Uses common support and support-matched random ranking so coverage and small candidate sets cannot inflate conclusions.",
         regular,
         medium,
     )
@@ -357,8 +366,8 @@ def build() -> None:
         right_x + 17,
         y,
         right_w - 34,
-        "给出可信而克制的模型差异",
-        "PRIME ranked better here, but low AP and patient heterogeneity argue against universal superiority.",
+        "形成可扩展的公共资源",
+        "Packages five pinned predictors, canonical schemas, adapters, failures, overlap audits, metrics and a result manifest.",
         regular,
         medium,
     )
@@ -372,12 +381,12 @@ def build() -> None:
     c.drawString(
         right_x + 27,
         lower_y + 29,
-        "仅评估 presentation 预筛选候选的 pMHC multimer 可检测 T-cell recognition。",
+        "不是新预测器，不主张统计学成立的跨域排名反转，也不证明临床效益。",
     )
     c.drawString(
         right_x + 27,
         lower_y + 19,
-        "Not natural processing, tumor presentation, killing or clinical benefit.",
+        "A benchmark/resource contribution - not natural presentation, killing or clinical benefit.",
     )
 
     # Footer
@@ -391,19 +400,19 @@ def build() -> None:
     c.drawString(
         39,
         70,
-        "Clean checkout: 27/27 tests passed; 24 independent metric checks; max error 1.1e-16; tracked outputs byte-stable.",
+        "Independent clean clone: 32/32 tests; Ruff pass. Current metric audit: 34 checks; maximum error 2.2e-16.",
     )
     c.setFont(medium, 7.2)
     c.setFillColor(NAVY)
     c.drawString(485, 83, "主要来源 | KEY SOURCES")
     c.setFont(regular, 6.5)
     c.setFillColor(MUTED)
-    c.drawString(485, 70, "IMPROVE (2024) · PRIME2 (2023) · BigMHC (2023) · TESLA (2020)")
+    c.drawString(485, 70, "IMPROVE (2024) · Zhao vaccine cohort (2026) · PRIME2 (2023) · BigMHC (2023) · TESLA (2020)")
     c.setFont(regular, 5.8)
     c.setFillColor(HexColor("#8291A2"))
-    c.drawString(39, 46, "NeoRepro · Evidence-first benchmark brief · 2026-08-20")
+    c.drawString(39, 46, "NeoRepro · Benchmark/resource positioning · Updated 2026-08-20")
     c.drawRightString(
-        page_w - 39, 46, "Interpretation: dataset- and contract-specific; no clinical-utility claim"
+        page_w - 39, 46, "Best use: auditable benchmark infrastructure, not a universal model leaderboard"
     )
 
     c.showPage()
