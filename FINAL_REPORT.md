@@ -26,6 +26,8 @@ The result is directional rather than a claim of strong absolute prediction. Ave
 
 The repository contains a CPython 3.11.15 pin, pinned source revisions, adapters, standardized prediction files, analytic score-tie handling, patient bootstrap intervals, leakage and near-overlap audits, sensitivity subsets, figures, tables and a generated manuscript. Metric recomputation against scikit-learn agrees to at most 1.2e-16. A 58-file, 206,810,982-byte MHCflurry model tree is captured by SHA-256, and the unified full-predictor runner records commands, runtimes, execution/reuse status, platform details and output hashes. Existing predictions are reused only after exact row-order, record-ID, model-revision, status and score validation.
 
+The documented command was also executed from a clean clone of commit `f4d86e6fbffb8062952eab3ec0d6d236a936a67d` using CPython 3.11.15. It completed in 734 seconds with Ruff passing, 27/27 tests passing and all tracked generated artifacts byte-identical; only the manifest's expected source-commit and clean-state metadata changed. The machine-readable receipt is `reports/clean_reproduction.json`.
+
 Run `make -j4 reproduce-results` to regenerate analyses, figures, tables and the manuscript from the versioned benchmark and prediction files while parallelizing independent bootstrap analyses. Omit `-j4` on a constrained machine. Run `make -j4 full-reproduce` to also acquire the pinned public inputs and install and execute the licensed third-party predictors. The latter requires explicit acceptance of BigMHC and PRIME academic-use terms.
 
 ## Independent review

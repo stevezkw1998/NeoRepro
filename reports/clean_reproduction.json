@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "source_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
+  "command": "make -j4 reproduce-results",
+  "started_at": "2026-08-20T12:17:40Z",
+  "completed_at": "2026-08-20T12:29:54Z",
+  "elapsed_seconds": 734,
+  "initial_worktree_clean": true,
+  "returncode": 0,
+  "runtime": {
+    "python": "CPython 3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.9.0",
+    "platform": "macOS-15.3-arm64"
+  },
+  "verification": {
+    "ruff": "pass",
+    "pytest": "27 passed",
+    "metric_validation": "24 checks passed at tolerance 1e-12",
+    "maximum_metric_absolute_error": 1.1102230246251565e-16,
+    "byte_stable_tracked_artifacts": true,
+    "post_run_changed_files_excluding_manifest": []
+  },
+  "expected_manifest_change": {
+    "project_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
+    "project_worktree_clean": true
+  }
+}

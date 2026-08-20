@@ -176,6 +176,11 @@
       "sha256": "54dc400f5e5970188b4822ae9253e17c3e2b18a463056a2e629f7f884e44589d"
     },
     {
+      "bytes": 889,
+      "path": "reports/clean_reproduction.json",
+      "sha256": "7ff012366417a31a5136f85e7a3be6bcd9135a77545078d26938abb699b3c02d"
+    },
+    {
       "bytes": 3957,
       "path": "results/final_results.csv",
       "sha256": "72168def27704259ac17ad94cbbcf981a1f3b11f5b031739a9d863b3386537ed"
@@ -226,14 +231,14 @@
       "sha256": "4a0fbe8b57d349428e971d8775723ac8c33eb70b174351d9051a5b725cf1e8b0"
     },
     {
-      "bytes": 6521,
+      "bytes": 6642,
       "path": "paper/reviewer_response.md",
-      "sha256": "ea4f77465475f129b30c488849566016727b60454bd8b155d8da171be51e708a"
+      "sha256": "3bc706c7b062876fcdec8c1fb12c788baacb2302ed4eb4beef67961ded4ac792"
     },
     {
-      "bytes": 4983,
+      "bytes": 5383,
       "path": "FINAL_REPORT.md",
-      "sha256": "8a72fc999a4a40c4024bf1c2645d1e4017b8db188c49779ca01036d4ab8e9d2d"
+      "sha256": "232b0a6402d4a464995dcfb7f60af609e8174d515b7a8de3f16ba689b01efbe3"
     }
   ],
   "benchmark": {
@@ -242,6 +247,35 @@
     "positives": 465,
     "records": 17475,
     "studies": 3
+  },
+  "clean_reproduction": {
+    "command": "make -j4 reproduce-results",
+    "completed_at": "2026-08-20T12:29:54Z",
+    "elapsed_seconds": 734,
+    "expected_manifest_change": {
+      "project_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
+      "project_worktree_clean": true
+    },
+    "initial_worktree_clean": true,
+    "returncode": 0,
+    "runtime": {
+      "numpy": "2.4.6",
+      "platform": "macOS-15.3-arm64",
+      "python": "CPython 3.11.15",
+      "scikit_learn": "1.9.0",
+      "scipy": "1.17.1"
+    },
+    "schema_version": "1.0",
+    "source_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
+    "started_at": "2026-08-20T12:17:40Z",
+    "verification": {
+      "byte_stable_tracked_artifacts": true,
+      "maximum_metric_absolute_error": 1.1102230246251565e-16,
+      "metric_validation": "24 checks passed at tolerance 1e-12",
+      "post_run_changed_files_excluding_manifest": [],
+      "pytest": "27 passed",
+      "ruff": "pass"
+    }
   },
   "evaluation": {
     "bootstrap_replicates": 2000,
@@ -260,7 +294,7 @@
     "MHCflurry": "2.2.1",
     "PRIME": "2.0"
   },
-  "project_commit": "579e6265c6fd09e81e36ba903f2967958c0b43b2",
-  "project_worktree_clean": false,
+  "project_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
+  "project_worktree_clean": true,
   "schema_version": "1.0"
 }

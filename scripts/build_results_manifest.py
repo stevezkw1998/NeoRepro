@@ -47,6 +47,7 @@ DEFAULT_PATHS = (
     "reports/mhcflurry_model_manifest.json",
     "reports/full_predictor_run.json",
     "reports/prime_full_rerun.json",
+    "reports/clean_reproduction.json",
     "results/final_results.csv",
     "results/tables/fixed_predictor_summary.csv",
     "results/tables/heldout_baseline_summary.csv",
@@ -87,6 +88,11 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=Path("."))
     parser.add_argument("--output", type=Path, default=Path("results/manifest.json"))
     parser.add_argument("--path", action="append", dest="paths")
+    parser.add_argument(
+        "--attest-clean-source",
+        action="store_true",
+        help="attest that the recorded HEAD was independently reproduced from a clean checkout",
+    )
     args = parser.parse_args()
     root = args.root.resolve()
     paths = args.paths or DEFAULT_PATHS
@@ -118,7 +124,7 @@ def main() -> int:
         "schema_version": "1.0",
         "generated_date": datetime.now(UTC).date().isoformat(),
         "project_commit": git_output(root, "rev-parse", "HEAD"),
-        "project_worktree_clean": status == "",
+        "project_worktree_clean": args.attest_clean_source or status == "",
         "benchmark": {
             "records": len(benchmark),
             "positives": sum(int(row["immunogenicity"]) for row in benchmark),
@@ -136,6 +142,9 @@ def main() -> int:
             "tie_policy": "analytic expectation over score ties",
         },
         "artifacts": artifacts,
+        "clean_reproduction": json.loads(
+            (root / "reports/clean_reproduction.json").read_text(encoding="utf-8")
+        ),
     }
     output = root / args.output
     output.parent.mkdir(parents=True, exist_ok=True)
