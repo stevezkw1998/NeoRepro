@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
+plt.rcParams["svg.hashsalt"] = "neorepro-20260820"
+
 
 def load_metrics(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
