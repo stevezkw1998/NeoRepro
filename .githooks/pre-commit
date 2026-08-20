@@ -1,0 +1,38 @@
+#!/bin/sh
+set -eu
+
+expected_name="stevezkw"
+author_ident="$(git var GIT_AUTHOR_IDENT)"
+committer_ident="$(git var GIT_COMMITTER_IDENT)"
+
+case "$author_ident" in
+  "$expected_name <"*) ;;
+  *)
+    echo "pre-commit: author must be '$expected_name'; got: $author_ident" >&2
+    exit 1
+    ;;
+esac
+
+case "$committer_ident" in
+  "$expected_name <"*) ;;
+  *)
+    echo "pre-commit: committer must be '$expected_name'; got: $committer_ident" >&2
+    exit 1
+    ;;
+esac
+
+git diff --cached --check
+
+changed_paths="$(git diff --cached --name-only --diff-filter=ACMR)"
+
+if printf '%s\n' "$changed_paths" | grep -Eq '^\.githooks/(pre-commit|pre-push)$'; then
+  sh -n .githooks/pre-commit .githooks/pre-push
+fi
+
+if printf '%s\n' "$changed_paths" | grep -Eq '^(README(\.[^.]+)?\.md|i18n/(glossary\.md|readme_state\.json)|scripts/readme_i18n\.py|tests/test_readme_i18n\.py)$'; then
+  export PYTHONUTF8=1
+  export LC_ALL=en_US.UTF-8
+  export LANG=en_US.UTF-8
+  python3 scripts/readme_i18n.py check
+  uv run pytest -q tests/test_readme_i18n.py
+fi
