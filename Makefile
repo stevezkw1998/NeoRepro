@@ -9,7 +9,7 @@ PY := uv run python
 	evaluate-peptide-hla-rank-sensitivity build-fixed-sensitivities \
 	evaluate-exact-peptide-sensitivity evaluate-near-sensitivity \
 	evaluate-length-sensitivity manifest validate-metrics reproduce-results full-reproduce test \
-	verify-reproduction validate-literature status
+	verify-reproduction validate-literature status readme-i18n-status check-readme-i18n
 
 install:
 	uv sync --extra dev --extra analysis
@@ -252,3 +252,9 @@ validate-literature:
 
 status:
 	uv run neorepro status
+
+readme-i18n-status:
+	$(PY) scripts/readme_i18n.py status
+
+check-readme-i18n:
+	$(PY) scripts/readme_i18n.py check
