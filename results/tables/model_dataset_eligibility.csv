@@ -1,0 +1,6 @@
+dataset,predictor,task,coverage,known_training_overlap,primary_eligible,interpretation
+Zhao-2026-vaccine,BigMHC,immunogenicity,1.0,known exact overlaps removed,yes,post-vaccination ELISPOT association; not natural presentation or clinical efficacy
+Zhao-2026-vaccine,DeepHLApan,immunogenicity,1.0,unknown,yes,post-vaccination ELISPOT association; not natural presentation or clinical efficacy
+Zhao-2026-vaccine,DeepImmuno-CNN,immunogenicity,0.43844492440604754,known exact overlaps removed,yes,post-vaccination ELISPOT association; not natural presentation or clinical efficacy
+Zhao-2026-vaccine,MHCflurry,presentation,1.0,known exact overlaps removed,no,post-vaccination ELISPOT association; not natural presentation or clinical efficacy
+Zhao-2026-vaccine,PRIME,immunogenicity,0.9978401727861771,known exact overlaps removed,yes,post-vaccination ELISPOT association; not natural presentation or clinical efficacy

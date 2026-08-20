@@ -1,0 +1,220 @@
+{
+  "cross_dataset": {
+    "BigMHC": {
+      "improve_auroc": 0.5458288293413741,
+      "improve_ndcg5": 0.05999687767867254,
+      "zhao_auroc": 0.5500606504033733,
+      "zhao_ndcg5": 0.6583767475453979
+    },
+    "PRIME": {
+      "improve_auroc": 0.5969085863470571,
+      "improve_ndcg5": 0.09908070239863123,
+      "zhao_auroc": 0.5309238584591199,
+      "zhao_ndcg5": 0.6035588234319573
+    }
+  },
+  "filtered": {
+    "excluded_positives": 2,
+    "excluded_rows": 2,
+    "exclusion_column": "union_known_exact_overlap",
+    "retained_patients": 352,
+    "retained_positive_bearing_patients": 131,
+    "retained_positives": 311,
+    "retained_rows": 2315,
+    "source_rows": 2317
+  },
+  "overlap": {
+    "benchmark": "data/processed/zhao_vaccine_benchmark_full.csv",
+    "benchmark_exact_bigmhc_im_trainval": 1,
+    "benchmark_exact_deepimmuno": 0,
+    "benchmark_exact_prime2": 2,
+    "benchmark_near_deepimmuno": 1,
+    "benchmark_near_prime2": 12,
+    "benchmark_rows": 2317,
+    "benchmark_union_known_exact_overlap": 2,
+    "deepimmuno_training_rows_resolved": 9055,
+    "deepimmuno_training_rows_source": 9055,
+    "deepimmuno_unresolved_hla_rows": 0,
+    "overlap_dimensions": {
+      "bigmhc_published_immunogenicity_construction": "checked_via_prime2_random_flag",
+      "deephlapan_training_identity": "unknown_official_row_manifest_unavailable",
+      "deepimmuno_exact_peptide_hla": "checked",
+      "near_sequence_same_hla_same_length": "checked_for_prime2_and_deepimmuno",
+      "patient_and_study_training_identity": "unavailable",
+      "prime2_exact_peptide_hla": "checked"
+    },
+    "prime2_training_rows": 65585,
+    "prime2_workbook_sha256": "641a104764167f9f04bafb6606e519e5625740ed1720af7d15ac9026636bc23a"
+  },
+  "paired_ndcg5": [
+    {
+      "ci_high": 0.13321802960274304,
+      "ci_low": 0.022140533994335524,
+      "difference_left_minus_right": 0.07814506933967014,
+      "left": "BigMHC",
+      "left_value_common": 0.6583767475453979,
+      "metric": "ndcg@5",
+      "n_common": 2315,
+      "patients_common": 352,
+      "positives_common": 311,
+      "right": "DeepHLApan",
+      "right_value_common": 0.5802316782057277,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.09589513521158989,
+      "ci_low": -0.019283813860620877,
+      "difference_left_minus_right": 0.03831937628173654,
+      "left": "BigMHC",
+      "left_value_common": 0.7928874358425787,
+      "metric": "ndcg@5",
+      "n_common": 1015,
+      "patients_common": 298,
+      "positives_common": 141,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.7545680595608422,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.10604155085270726,
+      "ci_low": 0.008461851730882868,
+      "difference_left_minus_right": 0.05727337756375683,
+      "left": "BigMHC",
+      "left_value_common": 0.6608322009957142,
+      "metric": "ndcg@5",
+      "n_common": 2310,
+      "patients_common": 352,
+      "positives_common": 309,
+      "right": "PRIME",
+      "right_value_common": 0.6035588234319573,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.038095760672663216,
+      "ci_low": -0.05418337456046904,
+      "difference_left_minus_right": -0.007117129825191193,
+      "left": "DeepHLApan",
+      "left_value_common": 0.747450929735651,
+      "metric": "ndcg@5",
+      "n_common": 1015,
+      "patients_common": 298,
+      "positives_common": 141,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.7545680595608422,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.05081092479009751,
+      "ci_low": -0.07620939886558681,
+      "difference_left_minus_right": -0.015346264584059077,
+      "left": "DeepHLApan",
+      "left_value_common": 0.5882125588478982,
+      "metric": "ndcg@5",
+      "n_common": 2310,
+      "patients_common": 352,
+      "positives_common": 309,
+      "right": "PRIME",
+      "right_value_common": 0.6035588234319573,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.042694152962635463,
+      "ci_low": -0.07566648447493947,
+      "difference_left_minus_right": -0.015014183877546383,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.7545680595608422,
+      "metric": "ndcg@5",
+      "n_common": 1015,
+      "patients_common": 298,
+      "positives_common": 141,
+      "right": "PRIME",
+      "right_value_common": 0.7695822434383885,
+      "task": "immunogenicity"
+    }
+  ],
+  "primary_metric": "patient-macro NDCG@5",
+  "ranking": [
+    {
+      "auroc": 0.5257315351282925,
+      "average_precision": 0.158108723061618,
+      "coverage": 0.43844492440604754,
+      "mrr": 0.7125054112554112,
+      "ndcg@5": 0.7545680595608422,
+      "ndcg@5_ci_high": 0.8161056332431506,
+      "ndcg@5_ci_low": 0.6910151347990755,
+      "predicted": 1015,
+      "predictor": "DeepImmuno-CNN",
+      "recall@5": 0.925,
+      "task": "immunogenicity"
+    },
+    {
+      "auroc": 0.5500606504033733,
+      "average_precision": 0.14754790613734112,
+      "coverage": 1.0,
+      "mrr": 0.6584093387528502,
+      "ndcg@5": 0.6583767475453979,
+      "ndcg@5_ci_high": 0.7072963500052366,
+      "ndcg@5_ci_low": 0.6059728978229252,
+      "predicted": 2315,
+      "predictor": "BigMHC",
+      "recall@5": 0.8155549497152551,
+      "task": "immunogenicity"
+    },
+    {
+      "auroc": 0.5309238584591199,
+      "average_precision": 0.1480477456423677,
+      "coverage": 0.9978401727861771,
+      "mrr": 0.6062507690414667,
+      "ndcg@5": 0.6035588234319573,
+      "ndcg@5_ci_high": 0.66016501911583,
+      "ndcg@5_ci_low": 0.5458672325340596,
+      "predicted": 2310,
+      "predictor": "PRIME",
+      "recall@5": 0.7697151470407284,
+      "task": "immunogenicity"
+    },
+    {
+      "auroc": 0.4879357041543922,
+      "average_precision": 0.1314033972926639,
+      "coverage": 1.0,
+      "mrr": 0.5897825033321217,
+      "ndcg@5": 0.5802316782057277,
+      "ndcg@5_ci_high": 0.6354722798195015,
+      "ndcg@5_ci_low": 0.5239223012484198,
+      "predicted": 2315,
+      "predictor": "DeepHLApan",
+      "recall@5": 0.7255967526959893,
+      "task": "immunogenicity"
+    }
+  ],
+  "source": {
+    "article_doi": "10.3389/fimmu.2026.1829509",
+    "cancer_types": 14,
+    "candidates_per_patient": {
+      "max": 16,
+      "median": 6.0,
+      "min": 1
+    },
+    "endpoint": "post-vaccination IFN-gamma ELISPOT response to administered peptide",
+    "exact_duplicates_removed": 0,
+    "hla_alleles": 63,
+    "label_rule": "ELSPOT ratio >= 2.0",
+    "negatives": 2004,
+    "output_rows": 2317,
+    "patients": 352,
+    "peptide_lengths": {
+      "10": 489,
+      "11": 539,
+      "8": 411,
+      "9": 878
+    },
+    "positive_bearing_patients": 132,
+    "positives": 313,
+    "right_censored_elispot_ratios": 55,
+    "source_rows": 2317,
+    "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13286890/supplementaryFiles",
+    "title": "Supplementary Table 1. Summary of 2,317 CD8+ T cell-restricted neoantigen peptides derived from SNVs",
+    "workbook_member": "Table1.xlsx",
+    "workbook_member_sha256": "1fa76cf45435c39dc28e9d52e584d56938cee531dda953ad11cfbcc9c2617aea"
+  }
+}

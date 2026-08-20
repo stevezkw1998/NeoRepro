@@ -1,6 +1,6 @@
 # NeoRepro research specification
 
-Version: 0.4.0 (2026-08-20; transparent post-review reporting revision)
+Version: 0.5.0 (2026-08-20; external-extension protocol frozen before new predictions)
 
 ## Objective
 
@@ -57,6 +57,12 @@ Scale only if:
 - runtime and projected spend remain compatible with the budget.
 
 Fixed pretrained tools are evaluated descriptively on the common exact-overlap-filtered IMPROVE set. Exact non-overlap does not prove absence of all training influence. Patient- and study-held-out language is reserved for transparent NeoRepro baselines whose fitting is performed inside the declared folds.
+
+## Frozen external extension
+
+The first frozen extension candidate, the public NCI Surgery Branch mutated-minimal-peptide test set, failed the pMHC eligibility gate before prediction: its large file enumerates short candidates derived from screened mutations, and most short candidates were not individually assayed. That protocol and failure are preserved in `research/extension_protocol_v1_nci_failed.json`.
+
+The replacement protocol in `research/extension_protocol.json` was frozen before any external prediction. It uses 2,317 individually administered and post-vaccination ELISPOT-assayed short peptides from 352 patients in Zhao et al. The preregistered extension primary is patient-macro NDCG@5 on pairwise common support among same-task immunogenicity predictors, with 2,000 paired patient bootstrap replicates and analytic score-tie expectations. Pooled AUROC, average precision, other patient metrics, coverage, and cross-dataset stability are secondary. Exact known training overlaps are excluded by a common union for each comparison; unavailable training identities remain `unknown`. The endpoint is vaccine-elicited response after peptide-pulsed dendritic-cell administration, not natural tumor presentation or untreated intrinsic immunogenicity. MHCflurry remains task-distinct and does not enter the same-task primary comparison.
 
 ## Cost and claim constraints
 

@@ -13,6 +13,8 @@ REVISIONS = {
     "bigmhc": "9d84a3b4da77c9253ac90ff8cb629274003b90fd",
     "prime": "ec1aa020089d62e9193ad377ddda9c93eed7f5b1",
     "mixmhcpred": "f64bb4548082768c70a1cfb5a4442d5e6ea04591",
+    "deepimmuno": "df42ac5b6bddfe531268335e2dcb496559cd488b",
+    "deephlapan": "ac1f4bebc095271504dfc2d2a93888df3be94e83",
 }
 
 
@@ -40,6 +42,22 @@ def clone_or_verify(root: Path, path: Path, url: str, tag: str, expected_revisio
         return
     path.parent.mkdir(parents=True, exist_ok=True)
     execute(["git", "clone", "--branch", tag, "--depth", "1", url, str(path)], root)
+    observed = revision(path)
+    if observed != expected_revision:
+        raise RuntimeError(f"cloned {path} at {observed}, expected {expected_revision}")
+
+
+def clone_revision(root: Path, path: Path, url: str, expected_revision: str) -> None:
+    """Clone and detach at an immutable commit even when upstream default moves."""
+    if path.exists():
+        observed = revision(path)
+        if observed != expected_revision:
+            raise RuntimeError(f"{path} is {observed}, expected {expected_revision}")
+        print(f"verified existing source {path} at {observed}")
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    execute(["git", "clone", "--filter=blob:none", url, str(path)], root)
+    execute(["git", "checkout", "--detach", expected_revision], path)
     observed = revision(path)
     if observed != expected_revision:
         raise RuntimeError(f"cloned {path} at {observed}, expected {expected_revision}")
@@ -148,13 +166,31 @@ def setup_prime(root: Path) -> None:
             execute([compiler, "-O3", str(source), "-o", str(output)], root)
 
 
+def setup_tensorflow_predictor(root: Path, uv: str, name: str) -> None:
+    settings = {
+        "deepimmuno": "https://github.com/frankligy/DeepImmuno.git",
+        "deephlapan": "https://github.com/jiujiezz/deephlapan.git",
+    }
+    url = settings[name]
+    source = root / f"predictors/{name}/source"
+    clone_revision(root, source, url, REVISIONS[name])
+    environment_dir = root / f"predictors/{name}/.venv"
+    if not environment_dir.exists():
+        execute([uv, "venv", "--python", "3.11", str(environment_dir)], root)
+    execute(
+        [uv, "pip", "install", "--python", str(environment_dir / "bin/python"),
+         "tensorflow==2.15.1", "pandas==2.3.2", "numpy==1.26.4"],
+        root,
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--predictors",
         nargs="+",
-        choices=("mhcflurry", "bigmhc", "prime"),
-        default=("mhcflurry", "bigmhc", "prime"),
+        choices=("mhcflurry", "bigmhc", "prime", "deepimmuno", "deephlapan"),
+        default=("mhcflurry", "bigmhc", "prime", "deepimmuno", "deephlapan"),
     )
     parser.add_argument("--accept-academic-licenses", action="store_true")
     args = parser.parse_args()
@@ -173,8 +209,10 @@ def main() -> int:
             setup_mhcflurry(root, uv)
         elif predictor == "bigmhc":
             setup_bigmhc(root, uv)
-        else:
+        elif predictor == "prime":
             setup_prime(root)
+        else:
+            setup_tensorflow_predictor(root, uv, predictor)
     return 0
 
 

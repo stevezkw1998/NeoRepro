@@ -32,8 +32,11 @@ def normalize_hla(value: object) -> str:
 def load_training_rows(
     archive: Path, member: str, sheet: str
 ) -> tuple[list[dict[str, object]], str]:
-    with ZipFile(archive) as handle:
-        workbook_bytes = handle.read(member)
+    if archive.suffix.lower() == ".xlsx":
+        workbook_bytes = archive.read_bytes()
+    else:
+        with ZipFile(archive) as handle:
+            workbook_bytes = handle.read(member)
     workbook = load_workbook(BytesIO(workbook_bytes), read_only=True, data_only=True)
     worksheet = workbook[sheet]
     iterator = worksheet.iter_rows(values_only=True)

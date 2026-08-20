@@ -1,0 +1,30 @@
+{
+  "article_doi": "10.3389/fimmu.2026.1829509",
+  "cancer_types": 14,
+  "candidates_per_patient": {
+    "max": 16,
+    "median": 6.0,
+    "min": 1
+  },
+  "endpoint": "post-vaccination IFN-gamma ELISPOT response to administered peptide",
+  "exact_duplicates_removed": 0,
+  "hla_alleles": 63,
+  "label_rule": "ELSPOT ratio >= 2.0",
+  "negatives": 2004,
+  "output_rows": 2317,
+  "patients": 352,
+  "peptide_lengths": {
+    "8": 411,
+    "9": 878,
+    "10": 489,
+    "11": 539
+  },
+  "positive_bearing_patients": 132,
+  "positives": 313,
+  "right_censored_elispot_ratios": 55,
+  "source_rows": 2317,
+  "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13286890/supplementaryFiles",
+  "title": "Supplementary Table 1. Summary of 2,317 CD8+ T cell-restricted neoantigen peptides derived from SNVs",
+  "workbook_member": "Table1.xlsx",
+  "workbook_member_sha256": "1fa76cf45435c39dc28e9d52e584d56938cee531dda953ad11cfbcc9c2617aea"
+}

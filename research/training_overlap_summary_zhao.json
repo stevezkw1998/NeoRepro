@@ -1,0 +1,23 @@
+{
+  "benchmark": "data/processed/zhao_vaccine_benchmark_full.csv",
+  "benchmark_exact_bigmhc_im_trainval": 1,
+  "benchmark_exact_deepimmuno": 0,
+  "benchmark_exact_prime2": 2,
+  "benchmark_near_deepimmuno": 1,
+  "benchmark_near_prime2": 12,
+  "benchmark_rows": 2317,
+  "benchmark_union_known_exact_overlap": 2,
+  "deepimmuno_training_rows_resolved": 9055,
+  "deepimmuno_training_rows_source": 9055,
+  "deepimmuno_unresolved_hla_rows": 0,
+  "overlap_dimensions": {
+    "bigmhc_published_immunogenicity_construction": "checked_via_prime2_random_flag",
+    "deephlapan_training_identity": "unknown_official_row_manifest_unavailable",
+    "deepimmuno_exact_peptide_hla": "checked",
+    "near_sequence_same_hla_same_length": "checked_for_prime2_and_deepimmuno",
+    "patient_and_study_training_identity": "unavailable",
+    "prime2_exact_peptide_hla": "checked"
+  },
+  "prime2_training_rows": 65585,
+  "prime2_workbook_sha256": "641a104764167f9f04bafb6606e519e5625740ed1720af7d15ac9026636bc23a"
+}

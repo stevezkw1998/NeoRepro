@@ -60,6 +60,31 @@ DEFAULT_PATHS = (
     "paper/reviewer_comments.md",
     "paper/reviewer_response.md",
     "FINAL_REPORT.md",
+    "data/processed/zhao_vaccine_benchmark_full.csv",
+    "data/processed/zhao_vaccine_benchmark.csv",
+    "data/zhao_vaccine_summary.json",
+    "data/zhao_vaccine_leakage_filter_summary.json",
+    "research/extension_protocol.json",
+    "research/training_overlap_audit_zhao.csv",
+    "research/training_overlap_summary_zhao.json",
+    "results/raw_predictions/zhao/mhcflurry-2.2.1.csv",
+    "results/raw_predictions/zhao/bigmhc-v1.0.csv",
+    "results/raw_predictions/zhao/prime-2.0.csv",
+    "results/raw_predictions/zhao/deepimmuno-cnn.csv",
+    "results/raw_predictions/zhao/deephlapan-1.1.1.csv",
+    "results/analysis/zhao/fixed/metrics.json",
+    "results/tables/zhao_extension_summary.csv",
+    "results/tables/model_dataset_eligibility.csv",
+    "results/figures/zhao_extension_ndcg5.png",
+    "reports/extension_summary.json",
+    "reports/extension_summary.md",
+    "reports/extension_value_audit.md",
+    "reports/zhao_predictor_run.json",
+    "results/raw_predictions/improve/expanded_9_10/deepimmuno-cnn.csv",
+    "results/raw_predictions/improve/expanded_9_10/deephlapan-1.1.1.csv",
+    "results/analysis/improve/expanded_9_10/metrics.json",
+    "reports/improve_expanded_predictor_run.json",
+    "reports/new_predictor_determinism.json",
 )
 
 
@@ -111,6 +136,10 @@ def main() -> int:
     fixed_metrics = json.loads(
         (root / "results/analysis/improve/fixed/metrics.json").read_text(encoding="utf-8")
     )
+    zhao_benchmark = read_csv(root / "data/processed/zhao_vaccine_benchmark.csv")
+    zhao_metrics = json.loads(
+        (root / "results/analysis/zhao/fixed/metrics.json").read_text(encoding="utf-8")
+    )
     predictor_revisions = {}
     for path in (
         root / "results/raw_predictions/improve/mhcflurry-2.2.1.csv",
@@ -120,6 +149,9 @@ def main() -> int:
         row = read_csv(path)[0]
         predictor_revisions[row["predictor"]] = row["predictor_version"]
     predictor_revisions["IMPROVE data"] = source_summary["source_revision"]
+    for path in sorted((root / "results/raw_predictions/zhao").glob("*.csv")):
+        row = read_csv(path)[0]
+        predictor_revisions[row["predictor"]] = row["predictor_version"]
     manifest = {
         "schema_version": "1.0",
         "generated_date": datetime.now(UTC).date().isoformat(),
@@ -140,6 +172,14 @@ def main() -> int:
             "seed": fixed_metrics["config"]["seed"],
             "top_k": fixed_metrics["config"]["ks"],
             "tie_policy": "analytic expectation over score ties",
+        },
+        "external_extension": {
+            "records": len(zhao_benchmark),
+            "positives": sum(int(row["immunogenicity"]) for row in zhao_benchmark),
+            "patients": len({row["patient_id"] for row in zhao_benchmark}),
+            "bootstrap_replicates": zhao_metrics["config"]["bootstrap"],
+            "primary_metric": "patient-macro NDCG@5",
+            "endpoint": "post-vaccination IFN-gamma ELISPOT after peptide-pulsed DC administration",
         },
         "artifacts": artifacts,
         "clean_reproduction": json.loads(

@@ -20,6 +20,8 @@ EXPECTED = {
     "mhcflurry": ("MHCflurry", "2.2.1", "mhcflurry-2.2.1.csv"),
     "bigmhc": ("BigMHC", "v1.0", "bigmhc-v1.0.csv"),
     "prime": ("PRIME", "2.0", "prime-2.0.csv"),
+    "deepimmuno": ("DeepImmuno-CNN", "1.0@df42ac5b", "deepimmuno-cnn.csv"),
+    "deephlapan": ("DeepHLApan", "1.1.1@ac1f4beb", "deephlapan-1.1.1.csv"),
 }
 
 
@@ -59,6 +61,20 @@ def commands(root: Path, benchmark: Path, output_dir: Path) -> dict[str, list[st
             "--output",
             str(output_dir / "prime-2.0.csv"),
         ],
+        "deepimmuno": [
+            str(root / "predictors/deepimmuno/.venv/bin/python"),
+            str(root / "predictors/deepimmuno/adapter.py"),
+            "--input", str(benchmark),
+            "--source-dir", str(root / "predictors/deepimmuno/source"),
+            "--output", str(output_dir / "deepimmuno-cnn.csv"),
+        ],
+        "deephlapan": [
+            str(root / "predictors/deephlapan/.venv/bin/python"),
+            str(root / "predictors/deephlapan/adapter.py"),
+            "--input", str(benchmark),
+            "--source-dir", str(root / "predictors/deephlapan/source"),
+            "--output", str(output_dir / "deephlapan-1.1.1.csv"),
+        ],
     }
 
 
@@ -89,8 +105,8 @@ def validated_existing(
     if any(
         row.get("predictor") != expected_predictor
         or row.get("predictor_version") != expected_version
-        or row.get("status") != "predicted"
-        or not row.get("score")
+        or not row.get("status")
+        or (row.get("status") == "predicted" and not row.get("score"))
         for row in rows
     ):
         return None
@@ -134,7 +150,7 @@ def main() -> int:
     parser.add_argument(
         "--predictors",
         nargs="+",
-        choices=("mhcflurry", "bigmhc", "prime"),
+        choices=("mhcflurry", "bigmhc", "prime", "deepimmuno", "deephlapan"),
         default=("mhcflurry", "bigmhc", "prime"),
     )
     parser.add_argument("--parallel", action="store_true")

@@ -61,24 +61,45 @@ def main() -> int:
         ),
         (
             "results/analysis/improve/length_9_10/metrics.json",
-            "data/sensitivity/length_9_10/predictions",
+            ("data/sensitivity/length_9_10/predictions",),
+            "data/sensitivity/length_9_10/benchmark.csv",
+        ),
+        (
+            "results/analysis/zhao/fixed/metrics.json",
+            ("results/raw_predictions/zhao",),
+            "data/processed/zhao_vaccine_benchmark.csv",
+        ),
+        (
+            "results/analysis/improve/expanded_9_10/metrics.json",
+            (
+                "data/sensitivity/length_9_10/predictions",
+                "results/raw_predictions/improve/expanded_9_10",
+            ),
             "data/sensitivity/length_9_10/benchmark.csv",
         ),
     )
     checks = []
-    for metric_relative, prediction_relative, benchmark_relative in analyses:
+    for metric_relative, prediction_relatives, benchmark_relative in analyses:
         benchmark = {
             row["record_id"]: int(row["immunogenicity"])
             for row in read_csv(root / benchmark_relative)
         }
         result = json.loads((root / metric_relative).read_text(encoding="utf-8"))
-        for path in sorted((root / prediction_relative).glob("*.csv")):
+        if isinstance(prediction_relatives, str):
+            prediction_relatives = (prediction_relatives,)
+        paths = [
+            path
+            for relative in prediction_relatives
+            for path in sorted((root / relative).glob("*.csv"))
+        ]
+        for path in paths:
             rows = read_csv(path)
             predictor = rows[0]["predictor"]
-            labels = [benchmark[row["record_id"]] for row in rows]
+            predicted = [row for row in rows if row["status"] == "predicted"]
+            labels = [benchmark[row["record_id"]] for row in predicted]
             scores = [
                 float(row["score"]) * (-1 if row["score_direction"] == "lower" else 1)
-                for row in rows
+                for row in predicted
             ]
             observed = {
                 "auroc": float(roc_auc_score(labels, scores)),

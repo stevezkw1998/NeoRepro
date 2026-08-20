@@ -66,3 +66,24 @@
 - Reporting-hierarchy provenance: the original frozen specification emphasized patient Top-K and treated AUROC as supporting. Independent review motivated designating pooled AUROC as the final same-task reporting primary because it avoids choosing a patient-specific K; this is a transparent post-review revision, not a preregistered primary endpoint.
 - Additional exact-peptide sensitivity: 35 primary-benchmark records contained a peptide seen in PRIME2 only under another HLA. Peptide specificity is HLA-conditioned, so they remain outside the primary exact peptide–HLA exclusion but receive a separate versioned exclusion analysis.
 - Cross-HLA aggregation sensitivity: raw maximum-score patient–peptide aggregation is exploratory because score scales vary by HLA. A second analysis first transforms scores to empirical within-HLA mid-percentiles and then takes the maximum.
+
+## 2026-08-20 — External extension frozen before prediction
+
+- Motivation: the completed study remained limited to one eligible performance dataset, two fixed same-task immunogenicity predictors, and a transparently post-review primary reporting choice.
+- Dataset decision: use the CC-BY-4.0 NCI Surgery Branch mutated-minimal-peptide test set (`10.35092/yhjc.11400987.v2`) as the second patient-grouped domain. Only rows with explicit experimental positive/negative screening outcomes are eligible; unscreened candidates are never converted to negatives.
+- Predictor decision: attempt DeepImmuno-CNN and DeepHLApan because both expose public local peptide–HLA immunogenicity artifacts and can also be tested on the existing benchmark within their declared domains. PredIG was not selected because its required parental-protein, NOAH and NetCleave inputs are not consistently available in the current canonical datasets.
+- Frozen primary: patient-macro pMHC Recall@20 on pairwise common same-task support, with paired patient bootstrap and analytic tie handling. No external predictions were generated before `research/extension_protocol.json` was written.
+- Failure policy: legacy-environment failure, unsupported HLA, and unknown training overlap remain results; no model is silently replaced or evaluated outside its declared input contract.
+
+## 2026-08-20 — NCI gate failure and external-dataset replacement
+
+- NCI eligibility result: the 2.36-GB test file contains 2,622,623 enumerated short peptide–HLA candidates. `Screening Status` describes the parent mutation/long-peptide screen; it does not establish that every enumerated short candidate was individually tested. Treating those rows as pMHC negatives would violate the frozen data rules, so the NCI pMHC protocol failed before any prediction.
+- Replacement source: Zhao et al. (`10.3389/fimmu.2026.1829509`) provide 2,317 SNV-derived 8–11mer peptides administered to 352 patients, each with a post-vaccination IFN-γ ELISPOT ratio. The source threshold of 2.0 defines 313 positive peptide responses. The article and supplementary workbook are CC-BY-4.0 and checksum-verifiable through Europe PMC.
+- Metric correction before prediction: because patients received only a small number of selected peptides, Recall@20 would saturate. The replacement protocol freezes patient-macro NDCG@5 as primary, with Recall@5, MRR, pooled AUROC/AP and coverage as supporting estimands.
+- Interpretation boundary: this external domain tests vaccine-elicited response after peptide-pulsed dendritic-cell administration. It is biologically complementary to IMPROVE, not a like-for-like replication of natural presentation or the multimer endpoint.
+## 2026-08-20 — Independent extension completed
+
+- Reproduced DeepImmuno-CNN at `df42ac5b` and DeepHLApan at `ac1f4beb` in isolated TensorFlow 2.15.1 environments. DeepHLApan required a semantics-preserving loader for the published legacy `GRU(reset_after=False)` weights; both adapters disable fuzzy HLA substitution.
+- The Zhao source yielded 2,317 individually administered peptides from 352 patients (313 positives). Known exact training-overlap union exclusion removed two positive records; 2,315 records, 311 positives and 131 positive-bearing patients remained.
+- The frozen 2,000-replicate primary comparison found BigMHC above PRIME by 0.057 patient-macro NDCG@5 (95% CI 0.008–0.106) and above DeepHLApan by 0.078 (0.022–0.133) on near-complete common support. DeepImmuno-CNN covered 43.8%; its common-support differences were unresolved.
+- The BigMHC–PRIME direction reversed relative to IMPROVE. This is interpreted as model-by-domain dependence, not a universal-winner result. The vaccine-elicited post-vaccination ELISPOT endpoint remains distinct from natural tumor presentation and clinical benefit.

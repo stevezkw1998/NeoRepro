@@ -1,0 +1,10 @@
+{
+  "excluded_positives": 2,
+  "excluded_rows": 2,
+  "exclusion_column": "union_known_exact_overlap",
+  "retained_patients": 352,
+  "retained_positive_bearing_patients": 131,
+  "retained_positives": 311,
+  "retained_rows": 2315,
+  "source_rows": 2317
+}

@@ -33,6 +33,10 @@ results/raw_predictions/**
 !results/raw_predictions/improve/baselines/lopo/*.csv
 !results/raw_predictions/improve/baselines/loso/
 !results/raw_predictions/improve/baselines/loso/*.csv
+!results/raw_predictions/zhao/
+!results/raw_predictions/zhao/*.csv
+!results/raw_predictions/improve/expanded_9_10/
+!results/raw_predictions/improve/expanded_9_10/*.csv
 results/raw_predictions/improve/peptide_sensitivity/
 results/raw_predictions/improve/peptide_sensitivity_hla_rank/
 predictors/**/attempts/*.tmp

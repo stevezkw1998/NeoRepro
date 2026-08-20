@@ -47,6 +47,11 @@ def build_results(root: Path) -> tuple[str, str]:
     improve = load_json(root / "research/training_overlap_summary_improve.json")
     fixed_sensitivity = load_json(root / "data/improve_fixed_sensitivity_summary.json")
     fixed_result = load_json(root / "results/analysis/improve/fixed/metrics.json")
+    zhao_source = load_json(root / "data/zhao_vaccine_summary.json")
+    zhao_filtered = load_json(root / "data/zhao_vaccine_leakage_filter_summary.json")
+    zhao_overlap = load_json(root / "research/training_overlap_summary_zhao.json")
+    zhao_result = load_json(root / "results/analysis/zhao/fixed/metrics.json")
+    expanded_result = load_json(root / "results/analysis/improve/expanded_9_10/metrics.json")
     peptide_result = load_json(root / "results/analysis/improve/peptide_sensitivity/metrics.json")
     peptide_hla_rank_result = load_json(
         root / "results/analysis/improve/peptide_sensitivity_hla_rank/metrics.json"
@@ -85,7 +90,9 @@ def build_results(root: Path) -> tuple[str, str]:
         "positive-bearing patients, versus "
         f"{f(bigmhc['auroc'])} and {f(bigmhc['recall@20'])} for BigMHC. Transparent peptide "
         "baselines outperformed HLA-only baselines under both patient- and study-held-out fitting, "
-        "while adding HLA to peptide features did not consistently improve over peptide features alone."
+        "while adding HLA to peptide features did not consistently improve over peptide features alone. "
+        f"A frozen independent extension evaluated five models on {zhao_filtered['retained_rows']:,} "
+        "overlap-filtered vaccine peptides with a distinct post-vaccination ELISPOT endpoint."
     )
 
     lopo = {row["predictor"]: row for row in baselines if row["analysis"] == "lopo"}
@@ -95,6 +102,16 @@ def build_results(root: Path) -> tuple[str, str]:
     exact_peptide_metrics = exact_peptide_result["metrics"]
     near_metrics = near_result["metrics"]
     length_metrics = length_result["metrics"]
+    zhao_rows = []
+    for name, value in sorted(zhao_result["metrics"].items()):
+        if value["metadata"]["task"] != "immunogenicity":
+            continue
+        ci = value["patient_bootstrap_95ci"]["ndcg@5"]
+        zhao_rows.append(
+            f"| {name} | {value['pooled']['n']:,} | {f(value['pooled']['auroc'])} | "
+            f"{f(value['pooled']['average_precision'])} | {f(value['patient']['ndcg@5'])} "
+            f"({f(ci['low'])}–{f(ci['high'])}) | {f(value['patient']['recall@5'])} |"
+        )
     results = f"""### Public-artifact reproduction
 
 The version-pinned CPU workflows for MHCflurry 2.2.1, BigMHC v1.0 and PRIME 2.0 all produced complete outputs for the common benchmark. Reproduction nevertheless required tool-specific workarounds: MHCflurry model-path correction, a 4.6-GB BigMHC repository checkout and native rebuilding of PRIME and MixMHCpred binaries on Apple Silicon. These observations are recorded in `data/predictor_registry.csv`; they describe this platform and these pinned revisions rather than a universal installation-success rate.
@@ -115,6 +132,8 @@ Table 1 reports the two fixed scores in the same broad immunogenicity category o
 
 The {filtered['retained_rows']:,} pMHC records represented 15,508 unique patient–peptide candidates; 1,601 candidates had multiple tested HLA pairings and 101 had discordant labels across HLA. After any-HLA-positive label aggregation and maximum raw-score aggregation, Recall@20 was {f(peptide_metrics['BigMHC']['patient']['recall@20'])} for BigMHC, {f(peptide_metrics['MHCflurry']['patient']['recall@20'])} for MHCflurry and {f(peptide_metrics['PRIME']['patient']['recall@20'])} for PRIME. Because raw score scales depend on HLA, this aggregation is exploratory. Normalizing scores to empirical within-HLA mid-percentiles before taking the maximum gave Recall@20 of {f(peptide_hla_rank_metrics['BigMHC']['patient']['recall@20'])}, {f(peptide_hla_rank_metrics['MHCflurry']['patient']['recall@20'])} and {f(peptide_hla_rank_metrics['PRIME']['patient']['recall@20'])}, respectively. Thus the decision unit and cross-HLA score rule changed absolute retrieval but not the qualitative ordering. Restriction to 9–10mers retained {length_metrics['BigMHC']['pooled']['n']:,} records and yielded AUROC {f(length_metrics['BigMHC']['pooled']['auroc'])} for BigMHC and {f(length_metrics['PRIME']['pooled']['auroc'])} for PRIME, preserving the primary direction.
 
+Expanding the same 9–10mer IMPROVE subset to the two newly reproduced models gave AUROC {f(expanded_result['metrics']['DeepImmuno-CNN']['pooled']['auroc'])} on {expanded_result['metrics']['DeepImmuno-CNN']['pooled']['n']:,} supported records for DeepImmuno-CNN and {f(expanded_result['metrics']['DeepHLApan']['pooled']['auroc'])} on all {expanded_result['metrics']['DeepHLApan']['pooled']['n']:,} records for DeepHLApan, versus {f(expanded_result['metrics']['PRIME']['pooled']['auroc'])} for PRIME. Their patient NDCG@5 values were {f(expanded_result['metrics']['DeepImmuno-CNN']['patient']['ndcg@5'])}, {f(expanded_result['metrics']['DeepHLApan']['patient']['ndcg@5'])} and {f(expanded_result['metrics']['PRIME']['patient']['ndcg@5'])}, respectively. This secondary expanded-model analysis used 500 patient bootstrap replicates and does not alter the frozen 2,000-replicate external primary analysis.
+
 ### Patient- and study-held-out transparent baselines
 
 Under leave-one-patient-out (LOPO) fitting, peptide logistic regression achieved AUROC {f(lopo['Peptide LR LOPO']['auroc'])} and mean Recall@20 {f(lopo['Peptide LR LOPO']['recall@20'])}, compared with {f(lopo['HLA-only LR LOPO']['auroc'])} and {f(lopo['HLA-only LR LOPO']['recall@20'])} for HLA-only logistic regression. The HLA-plus-peptide model reached AUROC {f(lopo['HLA+peptide LR LOPO']['auroc'])}, but its paired AUROC difference from peptide only was not resolved by the conditional 95% interval. Under leave-one-study-out (LOSO) fitting, peptide only again exceeded HLA only (AUROC {f(loso['Peptide LR LOSO']['auroc'])} versus {f(loso['HLA-only LR LOSO']['auroc'])}); adding HLA yielded {f(loso['HLA+peptide LR LOSO']['auroc'])}. These comparisons use the same estimator and differ only in feature set. The three study-specific LOSO results are descriptive, not a population-of-studies inference (Figure 3 and `results/analysis/improve/baselines/`).
@@ -126,6 +145,18 @@ Under leave-one-patient-out (LOPO) fitting, peptide logistic regression achieved
 ### HLA and cohort sensitivity
 
 Within-HLA rank AUROC was {f(hla['MHCflurry']['within_hla_rank_auroc'])}, {f(hla['BigMHC']['within_hla_rank_auroc'])} and {f(hla['PRIME']['within_hla_rank_auroc'])} for MHCflurry, BigMHC and PRIME, respectively. HLA mean scores alone were near or below chance ({f(hla['MHCflurry']['between_hla_mean_auroc'])}, {f(hla['BigMHC']['between_hla_mean_auroc'])} and {f(hla['PRIME']['between_hla_mean_auroc'])}). The score-scale-specific fraction of observed variance lying between HLA groups was {f(hla['MHCflurry']['score_variance_explained_by_hla'])}, {f(hla['BigMHC']['score_variance_explained_by_hla'])} and {f(hla['PRIME']['score_variance_explained_by_hla'])}; it is not interpreted as an isolated allele effect or compared across arbitrary score transformations. BigMHC cohort AUROC ranged from {f(min(value['auroc'] for value in fixed_result['metrics']['BigMHC']['study'].values()))} to {f(max(value['auroc'] for value in fixed_result['metrics']['BigMHC']['study'].values()))}. With only three compound domains, cohort results cannot separate cancer, treatment, assay and HLA composition.
+
+### Independent vaccine-cohort extension
+
+The frozen extension contained {zhao_source['output_rows']:,} individually administered 8–11mer peptides from {zhao_source['patients']} patients. Known exact-overlap union exclusion removed {zhao_filtered['excluded_rows']} records ({zhao_filtered['excluded_positives']} positives), retaining {zhao_filtered['retained_rows']:,} records, {zhao_filtered['retained_positives']} positives and {zhao_filtered['retained_positive_bearing_patients']} positive-bearing patients. The audit found {zhao_overlap['benchmark_exact_prime2']} exact PRIME2 matches and {zhao_overlap['benchmark_exact_deepimmuno']} exact DeepImmuno matches; DeepHLApan row-level training identity remains unknown.
+
+The prospectively frozen primary metric was patient-macro NDCG@5 because the median patient had six candidates and Recall@20 would saturate. Table 3 reports the immunogenicity models. Pairwise comparisons use model-specific common support and 2,000 patient bootstrap replicates; MHCflurry remains a task-distinct presentation association control.
+
+**Table 3. Independent Zhao 2026 vaccine-cohort extension.** The endpoint is post-vaccination IFN-γ ELISPOT after peptide-pulsed dendritic-cell administration, not natural tumor presentation or clinical efficacy.
+
+| Predictor | Predicted records | AUROC | AP | Patient NDCG@5 (95% CI) | Patient Recall@5 |
+|---|---:|---:|---:|---:|---:|
+{chr(10).join(zhao_rows)}
 """
     return abstract, results
 

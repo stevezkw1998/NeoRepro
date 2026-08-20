@@ -1,0 +1,141 @@
+{
+  "artifacts": [
+    {
+      "path": "results/raw_predictions/zhao/bigmhc-v1.0.csv",
+      "predictor": "BigMHC",
+      "rows": 2315,
+      "sha256": "6369298f9c6516c7befefa2ccf51642a895b7004749b2a197270f7ec9390c536",
+      "version": "v1.0"
+    },
+    {
+      "path": "results/raw_predictions/zhao/deephlapan-1.1.1.csv",
+      "predictor": "DeepHLApan",
+      "rows": 2315,
+      "sha256": "7e3ff3b9e9159c40242085892817ece981ac16be2aa916c00d71326815f91667",
+      "version": "1.1.1@ac1f4beb"
+    },
+    {
+      "path": "results/raw_predictions/zhao/deepimmuno-cnn.csv",
+      "predictor": "DeepImmuno-CNN",
+      "rows": 2315,
+      "sha256": "f6a9d72ce51755c07dd3dcaa603eb38056e30bd10111bb75f631ce8ac2119c47",
+      "version": "1.0@df42ac5b"
+    },
+    {
+      "path": "results/raw_predictions/zhao/mhcflurry-2.2.1.csv",
+      "predictor": "MHCflurry",
+      "rows": 2315,
+      "sha256": "f510b39d8ad007148e647c6acb0aca42691aa0ae8bc37a0813e140c5be0b7206",
+      "version": "2.2.1"
+    },
+    {
+      "path": "results/raw_predictions/zhao/prime-2.0.csv",
+      "predictor": "PRIME",
+      "rows": 2315,
+      "sha256": "dbd9ee8d11b8c4d2dccc5b49fb912a4c8df1b01c605fd953676e4fe08aa0fe80",
+      "version": "2.0"
+    }
+  ],
+  "benchmark": "data/processed/zhao_vaccine_benchmark.csv",
+  "completed_at": "2026-08-20T20:21:27.776054+00:00",
+  "orchestrator_python": "3.11.15 (main, Aug  7 2026, 02:15:53) [Clang 22.1.3 ]",
+  "parallel": true,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "reuse_existing": true,
+  "runs": [
+    {
+      "command": [
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/bigmhc/.venv/bin/python",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/bigmhc/adapter.py",
+        "--input",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/data/processed/zhao_vaccine_benchmark.csv",
+        "--source-dir",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/bigmhc/source",
+        "--python",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/bigmhc/.venv/bin/python",
+        "--output",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/results/raw_predictions/zhao/bigmhc-v1.0.csv"
+      ],
+      "execution": "reused_validated",
+      "predictor": "bigmhc",
+      "returncode": 0,
+      "rows": 2315,
+      "runtime_seconds": 0.0,
+      "sha256": "6369298f9c6516c7befefa2ccf51642a895b7004749b2a197270f7ec9390c536"
+    },
+    {
+      "command": [
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deephlapan/.venv/bin/python",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deephlapan/adapter.py",
+        "--input",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/data/processed/zhao_vaccine_benchmark.csv",
+        "--source-dir",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deephlapan/source",
+        "--output",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/results/raw_predictions/zhao/deephlapan-1.1.1.csv"
+      ],
+      "execution": "reused_validated",
+      "predictor": "deephlapan",
+      "returncode": 0,
+      "rows": 2315,
+      "runtime_seconds": 0.0,
+      "sha256": "7e3ff3b9e9159c40242085892817ece981ac16be2aa916c00d71326815f91667"
+    },
+    {
+      "command": [
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deepimmuno/.venv/bin/python",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deepimmuno/adapter.py",
+        "--input",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/data/processed/zhao_vaccine_benchmark.csv",
+        "--source-dir",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deepimmuno/source",
+        "--output",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/results/raw_predictions/zhao/deepimmuno-cnn.csv"
+      ],
+      "execution": "reused_validated",
+      "predictor": "deepimmuno",
+      "returncode": 0,
+      "rows": 2315,
+      "runtime_seconds": 0.0,
+      "sha256": "f6a9d72ce51755c07dd3dcaa603eb38056e30bd10111bb75f631ce8ac2119c47"
+    },
+    {
+      "command": [
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/mhcflurry/.venv/bin/python",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/mhcflurry/adapter.py",
+        "--input",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/data/processed/zhao_vaccine_benchmark.csv",
+        "--models-dir",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/mhcflurry/vendor/2.2.0/models_class1_presentation/models",
+        "--output",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/results/raw_predictions/zhao/mhcflurry-2.2.1.csv"
+      ],
+      "execution": "reused_validated",
+      "predictor": "mhcflurry",
+      "returncode": 0,
+      "rows": 2315,
+      "runtime_seconds": 0.0,
+      "sha256": "f510b39d8ad007148e647c6acb0aca42691aa0ae8bc37a0813e140c5be0b7206"
+    },
+    {
+      "command": [
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/.venv/bin/python3",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/prime/adapter.py",
+        "--input",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/data/processed/zhao_vaccine_benchmark.csv",
+        "--source-dir",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/prime/source",
+        "--mix-dir",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/prime/vendor/mixmhcpred",
+        "--output",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/results/raw_predictions/zhao/prime-2.0.csv"
+      ],
+      "execution": "reused_validated",
+      "predictor": "prime",
+      "returncode": 0,
+      "rows": 2315,
+      "runtime_seconds": 0.0,
+      "sha256": "dbd9ee8d11b8c4d2dccc5b49fb912a4c8df1b01c605fd953676e4fe08aa0fe80"
+    }
+  ]
+}

@@ -26,6 +26,11 @@ REQUIRED = (
     "paper/reviewer_comments.md",
     "paper/reviewer_response.md",
     "FINAL_REPORT.md",
+    "research/extension_protocol.json",
+    "research/training_overlap_summary_zhao.json",
+    "data/processed/zhao_vaccine_benchmark.csv",
+    "results/analysis/zhao/fixed/metrics.json",
+    "reports/extension_summary.md",
 )
 
 

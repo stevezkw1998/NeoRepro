@@ -3,7 +3,7 @@ export LC_ALL := en_US.UTF-8
 export LANG := en_US.UTF-8
 PY := uv run python
 
-.PHONY: install setup-predictors download-improve build-improve audit-improve \
+.PHONY: install setup-predictors download-improve build-improve audit-improve extension download-zhao build-zhao audit-zhao predict-zhao evaluate-zhao predict-expanded-improve evaluate-expanded-improve \
 	predict-improve baselines-improve evaluate-improve hla-improve figures manuscript \
 	sensitivity-improve build-peptide-sensitivity evaluate-peptide-sensitivity \
 	evaluate-peptide-hla-rank-sensitivity build-fixed-sensitivities \
@@ -19,7 +19,10 @@ setup-predictors:
 
 download-improve:
 	$(PY) scripts/download_public_data.py --source-id improve_patient_screen
-	$(PY) scripts/download_public_data.py --source-id prime2_table_s4
+	$(PY) scripts/download_archive_member.py \
+		--url https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9811684/supplementaryFiles \
+		--member mmc6.xlsx --sha256 641a104764167f9f04bafb6606e519e5625740ed1720af7d15ac9026636bc23a \
+		--output data/raw/prime2_table_s4.xlsx
 
 build-improve:
 	$(PY) scripts/build_improve_benchmark.py \
@@ -31,7 +34,7 @@ build-improve:
 audit-improve:
 	$(PY) scripts/audit_prime2_overlap.py \
 		--benchmark data/processed/improve_benchmark_full.csv \
-		--supplement-zip data/raw/prime2_supplementary_files.zip \
+		--supplement-zip data/raw/prime2_table_s4.xlsx \
 		--output research/training_overlap_audit_improve.csv \
 		--summary research/training_overlap_summary_improve.json \
 		--source-url https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9811684/supplementaryFiles
@@ -46,6 +49,62 @@ predict-improve:
 		--input data/processed/improve_benchmark.csv \
 		--output-dir results/raw_predictions/improve --parallel \
 		--receipt reports/full_predictor_run.json --reuse-existing
+
+download-zhao:
+	$(PY) scripts/download_archive_member.py \
+		--url https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13286890/supplementaryFiles \
+		--member Table1.xlsx --sha256 1fa76cf45435c39dc28e9d52e584d56938cee531dda953ad11cfbcc9c2617aea \
+		--output data/raw/zhao2026_table1.xlsx
+	$(PY) scripts/download_archive_member.py \
+		--url https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9811684/supplementaryFiles \
+		--member mmc6.xlsx --sha256 641a104764167f9f04bafb6606e519e5625740ed1720af7d15ac9026636bc23a \
+		--output data/raw/prime2_table_s4.xlsx
+
+build-zhao: download-zhao
+	$(PY) scripts/build_vaccine_benchmark.py --input data/raw/zhao2026_table1.xlsx \
+		--output data/processed/zhao_vaccine_benchmark_full.csv --summary data/zhao_vaccine_summary.json
+
+audit-zhao: build-zhao
+	$(PY) scripts/audit_external_training_overlap.py \
+		--benchmark data/processed/zhao_vaccine_benchmark_full.csv \
+		--prime2-archive data/raw/prime2_table_s4.xlsx \
+		--deepimmuno-training predictors/deepimmuno/source/data/remove_low_negative/remove0123.csv \
+		--output research/training_overlap_audit_zhao.csv \
+		--summary research/training_overlap_summary_zhao.json
+	$(PY) scripts/filter_known_training_overlap.py \
+		--benchmark data/processed/zhao_vaccine_benchmark_full.csv \
+		--audit research/training_overlap_audit_zhao.csv \
+		--output data/processed/zhao_vaccine_benchmark.csv \
+		--summary data/zhao_vaccine_leakage_filter_summary.json
+
+predict-zhao: audit-zhao
+	$(PY) scripts/run_fixed_predictors.py --input data/processed/zhao_vaccine_benchmark.csv \
+		--output-dir results/raw_predictions/zhao \
+		--predictors mhcflurry bigmhc prime deepimmuno deephlapan \
+		--parallel --reuse-existing --receipt reports/zhao_predictor_run.json
+
+evaluate-zhao: predict-zhao
+	PYTHONPATH=src $(PY) scripts/evaluate_benchmark.py \
+		--benchmark data/processed/zhao_vaccine_benchmark.csv \
+		--predictions results/raw_predictions/zhao/*.csv \
+		--output-dir results/analysis/zhao/fixed --bootstrap 2000 --seed 20260820
+	$(PY) scripts/summarize_extension.py
+
+predict-expanded-improve:
+	$(PY) scripts/run_fixed_predictors.py --input data/sensitivity/length_9_10/benchmark.csv \
+		--output-dir results/raw_predictions/improve/expanded_9_10 \
+		--predictors deepimmuno deephlapan --parallel --reuse-existing \
+		--receipt reports/improve_expanded_predictor_run.json
+
+evaluate-expanded-improve: predict-expanded-improve
+	PYTHONPATH=src $(PY) scripts/evaluate_benchmark.py \
+		--benchmark data/sensitivity/length_9_10/benchmark.csv \
+		--predictions data/sensitivity/length_9_10/predictions/*.csv \
+			results/raw_predictions/improve/expanded_9_10/*.csv \
+		--output-dir results/analysis/improve/expanded_9_10 --bootstrap 500 --seed 20260820
+
+extension: setup-predictors evaluate-zhao evaluate-expanded-improve
+	$(MAKE) test
 
 baselines-improve:
 	$(PY) scripts/run_lopo_baselines.py \

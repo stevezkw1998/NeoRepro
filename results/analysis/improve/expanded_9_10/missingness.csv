@@ -1,0 +1,7 @@
+predictor,status,count
+MHCflurry,predicted,15234
+BigMHC,predicted,15234
+PRIME,predicted,15234
+DeepImmuno-CNN,predicted,11036
+DeepImmuno-CNN,unsupported_hla,4198
+DeepHLApan,predicted,15234

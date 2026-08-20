@@ -1,0 +1,99 @@
+{
+  "protocol_id": "neorepro-external-extension-v1",
+  "frozen_at": "2026-08-20T13:00:00-07:00",
+  "status": "failed_dataset_eligibility_before_external_prediction",
+  "superseded_by": "research/extension_protocol.json",
+  "eligibility_failure": "The source file enumerates short peptide-HLA candidates derived from screened mutations. Most candidate short peptides were not individually assayed, so their rows cannot be treated as experimental pMHC negatives.",
+  "objective": "Test whether the main same-task ordering and patient-level retrieval conclusions persist in a second patient-grouped experimental domain while expanding the public immunogenicity-model set.",
+  "dataset": {
+    "name": "NCI Surgery Branch mutated minimal peptide test set",
+    "article_doi": "10.35092/yhjc.11400987.v2",
+    "article_id": 11400987,
+    "file_id": 26040944,
+    "file_name": "MmpsTestingSet.txt",
+    "source_url": "https://ndownloader.figshare.com/files/26040944",
+    "source_md5": "002002d3ef164efb299c377317cc35d6",
+    "license": "CC BY 4.0",
+    "patient_field": "ID",
+    "study_id": "NCI_GARTNER_TEST_2021",
+    "endpoint": "NCI Surgery Branch TIL reactivity screen of mutated minimal peptides",
+    "inclusion": [
+      "MHC class I peptide-HLA row with a source patient ID",
+      "explicit experimentally screened positive or negative status",
+      "peptide sequence and four-digit HLA resolvable without fuzzy substitution"
+    ],
+    "exclusion": [
+      "unscreened, blank, dash, or otherwise unknown response",
+      "noncanonical peptide sequence",
+      "missing or ambiguous patient or HLA identity",
+      "exact duplicate patient-peptide-HLA-label rows"
+    ]
+  },
+  "predictors": [
+    {
+      "name": "BigMHC",
+      "version": "v1.0",
+      "task": "immunogenicity",
+      "status": "existing"
+    },
+    {
+      "name": "PRIME",
+      "version": "2.0",
+      "task": "immunogenicity",
+      "status": "existing"
+    },
+    {
+      "name": "DeepImmuno-CNN",
+      "revision": "df42ac5b6bddfe531268335e2dcb496559cd488b",
+      "task": "immunogenicity",
+      "status": "new",
+      "declared_domain": "9-10mer peptides and upstream-supported HLA alleles"
+    },
+    {
+      "name": "DeepHLApan",
+      "revision": "ac1f4bebc095271504dfc2d2a93888df3be94e83",
+      "task": "immunogenicity",
+      "status": "new",
+      "declared_domain": "upstream-supported class-I peptide-HLA inputs"
+    },
+    {
+      "name": "MHCflurry",
+      "version": "2.2.1",
+      "task": "presentation",
+      "status": "existing_task_distinct_supporting_only"
+    }
+  ],
+  "primary_estimand": {
+    "metric": "patient-macro Recall@20",
+    "decision_unit": "patient-peptide-HLA record",
+    "patient_denominator": "source patients retaining at least one positive record on common model support",
+    "model_support": "intersection of valid predicted rows for the same-task immunogenicity predictors being paired",
+    "comparison": "all estimable paired same-task differences; no universal winner claim",
+    "uncertainty": "paired patient bootstrap, 2000 replicates",
+    "seed": 20260820,
+    "tie_rule": "analytic expectation over all permutations at a score-tie boundary"
+  },
+  "secondary_estimands": [
+    "pooled AUROC",
+    "pooled average precision",
+    "patient Recall@5 and Recall@10",
+    "patient MRR and NDCG@20",
+    "row coverage and HLA coverage",
+    "cross-dataset direction and rank stability"
+  ],
+  "leakage_policy": {
+    "exact_peptide_hla": "exclude the union of known exact training overlaps for the compared predictors",
+    "exact_peptide_different_hla": "report exclusion sensitivity",
+    "near_sequence": "report same-HLA same-length Hamming-distance-one sensitivity when training sequences are available",
+    "unknown_training_data": "retain an explicit unknown label; do not infer absence",
+    "deepimmuno": "audit against the public upstream training table",
+    "prime_bigmhc": "audit against official PRIME2 Table S4 and the published BigMHC immunogenicity construction",
+    "deephlapan": "mark unavailable training identities as unknown unless an official manifest is recovered"
+  },
+  "stopping_rules": [
+    "A stable scientifically material incompatibility is recorded rather than silently patched or substituted.",
+    "A new model may be excluded from a comparison for task mismatch, known leakage, unsupported HLA or reproducible runtime failure.",
+    "Failure of one new predictor does not invalidate the external-dataset extension if at least the two existing same-task predictors run on qualified patient data.",
+    "No endpoint or primary metric changes after external predictions are inspected."
+  ]
+}

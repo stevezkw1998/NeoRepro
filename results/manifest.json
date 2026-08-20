@@ -151,14 +151,14 @@
       "sha256": "62784780a0a4f3f8f6f33c284e7276d0d5defa9b363337cdb21150664d58f666"
     },
     {
-      "bytes": 5103,
+      "bytes": 7099,
       "path": "reports/metric_validation.json",
-      "sha256": "942261896d6c1c11e92f700b4dcb534e5b33831fc84262bf791fe05c18b628cd"
+      "sha256": "1b2e9de3c7f7dfabc9c3241b7552db3cd8f7298e866a8f08ed2fe00a000b7635"
     },
     {
-      "bytes": 365,
+      "bytes": 388,
       "path": "reports/manuscript_audit.json",
-      "sha256": "d01baee57a3c936df5949ce7a6dc5e0e5dbd56aad5846d4a96ce0c57f34faf36"
+      "sha256": "0feae6e8c58600efa569f597f7216411f29109e2041864dfab1559bae2023ae2"
     },
     {
       "bytes": 11059,
@@ -216,14 +216,14 @@
       "sha256": "537cb1397a68c114f4e49db1dd07be57fcab435bc2849d342f55399b650ac18e"
     },
     {
-      "bytes": 20170,
+      "bytes": 23918,
       "path": "paper/manuscript.md",
-      "sha256": "a29d8e8e44a7e05227ac2a8f19715978af037eb475a911a02a57ab50504de457"
+      "sha256": "619e1c1f32e296081798eb528a03650e46cdc0a59609684e64a11af4a414de13"
     },
     {
-      "bytes": 2615,
+      "bytes": 3018,
       "path": "paper/references.bib",
-      "sha256": "a409ae92ad6c85acb4dfdb8a58c235f02faaf28d1ad108846eefb3009906f406"
+      "sha256": "2c63b4fc72cd8a5014457c14aa3d7cd3285ba2a465ae37ead5bbc83cf61be995"
     },
     {
       "bytes": 5320,
@@ -236,9 +236,134 @@
       "sha256": "3bc706c7b062876fcdec8c1fb12c788baacb2302ed4eb4beef67961ded4ac792"
     },
     {
-      "bytes": 5383,
+      "bytes": 7103,
       "path": "FINAL_REPORT.md",
-      "sha256": "232b0a6402d4a464995dcfb7f60af609e8174d515b7a8de3f16ba689b01efbe3"
+      "sha256": "3d97420090c4b308b48a80c4dbf3f7931cf0827ba88f77bd166c1f6ec8aff7c5"
+    },
+    {
+      "bytes": 1239894,
+      "path": "data/processed/zhao_vaccine_benchmark_full.csv",
+      "sha256": "7b0d441a3dfaf8a31add3db5d5f4b2dc05e83336b32345599c2afbac3644ceda"
+    },
+    {
+      "bytes": 1238813,
+      "path": "data/processed/zhao_vaccine_benchmark.csv",
+      "sha256": "9b3429db6332ea70e829d33ecfb5a4bda6b1b12251e1fb78e13fc3d13a6cb51b"
+    },
+    {
+      "bytes": 944,
+      "path": "data/zhao_vaccine_summary.json",
+      "sha256": "2dec0478ade3c3190b183bf8982daa1331dfdaf9f07c76912373ee33163f58b1"
+    },
+    {
+      "bytes": 253,
+      "path": "data/zhao_vaccine_leakage_filter_summary.json",
+      "sha256": "a5cb18f11b7ca356411101b646ae6430495a62440d1d80f8a817514670a5298b"
+    },
+    {
+      "bytes": 4932,
+      "path": "research/extension_protocol.json",
+      "sha256": "087faec715bcc8f6d70226a61a7278ee217066e771a0f060717cd79560d46b01"
+    },
+    {
+      "bytes": 218141,
+      "path": "research/training_overlap_audit_zhao.csv",
+      "sha256": "c8943f7f55470df95a82de45e342e3732a16828f0f29371e0dd5f96829827a54"
+    },
+    {
+      "bytes": 992,
+      "path": "research/training_overlap_summary_zhao.json",
+      "sha256": "fef0051deb523af3e231e3266c447fb81819a2f3b989b3da6578e31f4798a2b2"
+    },
+    {
+      "bytes": 393852,
+      "path": "results/raw_predictions/zhao/mhcflurry-2.2.1.csv",
+      "sha256": "f510b39d8ad007148e647c6acb0aca42691aa0ae8bc37a0813e140c5be0b7206"
+    },
+    {
+      "bytes": 249701,
+      "path": "results/raw_predictions/zhao/bigmhc-v1.0.csv",
+      "sha256": "6369298f9c6516c7befefa2ccf51642a895b7004749b2a197270f7ec9390c536"
+    },
+    {
+      "bytes": 228931,
+      "path": "results/raw_predictions/zhao/prime-2.0.csv",
+      "sha256": "dbd9ee8d11b8c4d2dccc5b49fb912a4c8df1b01c605fd953676e4fe08aa0fe80"
+    },
+    {
+      "bytes": 235497,
+      "path": "results/raw_predictions/zhao/deepimmuno-cnn.csv",
+      "sha256": "f6a9d72ce51755c07dd3dcaa603eb38056e30bd10111bb75f631ce8ac2119c47"
+    },
+    {
+      "bytes": 273255,
+      "path": "results/raw_predictions/zhao/deephlapan-1.1.1.csv",
+      "sha256": "7e3ff3b9e9159c40242085892817ece981ac16be2aa916c00d71326815f91667"
+    },
+    {
+      "bytes": 370000,
+      "path": "results/analysis/zhao/fixed/metrics.json",
+      "sha256": "3353dfdfc2db5fa262d4a63c35e8d6836af8c44a6e05ed81451938421e714013"
+    },
+    {
+      "bytes": 960,
+      "path": "results/tables/zhao_extension_summary.csv",
+      "sha256": "102db8e8c8b78aa0b53ade31d2f9f98e9dbd6b91ec2e01566fd726ce25f83bfd"
+    },
+    {
+      "bytes": 919,
+      "path": "results/tables/model_dataset_eligibility.csv",
+      "sha256": "1316e9c8a4da1a7b8ce328459a2b31de221aae05972c0f7dbd2233c078d512f7"
+    },
+    {
+      "bytes": 38220,
+      "path": "results/figures/zhao_extension_ndcg5.png",
+      "sha256": "b4b4bca2091035ef211990a31d88d40032288807c1cc685e4cbee2677569ce61"
+    },
+    {
+      "bytes": 7097,
+      "path": "reports/extension_summary.json",
+      "sha256": "e1f1d14cbff23df38ae3f4e36c1373b7ee92e77c4c53cf557f76b8a63bb06cf1"
+    },
+    {
+      "bytes": 1972,
+      "path": "reports/extension_summary.md",
+      "sha256": "176c80a0ff8868dfbbd2e503a8a9c0dd976954f409fe892833be4a17938e6743"
+    },
+    {
+      "bytes": 4845,
+      "path": "reports/extension_value_audit.md",
+      "sha256": "b0f464be74536ee8067f5aa51e828481fbdaf5a0f1a0f5f14c50166c38a330ce"
+    },
+    {
+      "bytes": 6712,
+      "path": "reports/zhao_predictor_run.json",
+      "sha256": "080a12361337e456deb054e06ce4bb550309038f14d5a5a59feaad7f2f4b648b"
+    },
+    {
+      "bytes": 1488686,
+      "path": "results/raw_predictions/improve/expanded_9_10/deepimmuno-cnn.csv",
+      "sha256": "386509ee094fb0b7abfef30f961605d6e7c0126262dd7a508f8c442fb3bfd13a"
+    },
+    {
+      "bytes": 1721690,
+      "path": "results/raw_predictions/improve/expanded_9_10/deephlapan-1.1.1.csv",
+      "sha256": "280e632d9c40fcf565c77be57e4ab22aa05c69e5aa29e262ce16ed3eac6413ce"
+    },
+    {
+      "bytes": 220720,
+      "path": "results/analysis/improve/expanded_9_10/metrics.json",
+      "sha256": "466095e062c52ba7e7d94d75ff84b46055022b860ddb54246a41b74d70febb0d"
+    },
+    {
+      "bytes": 2673,
+      "path": "reports/improve_expanded_predictor_run.json",
+      "sha256": "7b0ee4472daf68f66a898fc4d08df61034626b08e4bc79d9375b31a7b02f4584"
+    },
+    {
+      "bytes": 435,
+      "path": "reports/new_predictor_determinism.json",
+      "sha256": "65fb300429c41a1fe7b251e90e4c799c901e22bb1e628f27422c1f2639f42254"
     }
   ],
   "benchmark": {
@@ -287,14 +412,24 @@
       20
     ]
   },
+  "external_extension": {
+    "bootstrap_replicates": 2000,
+    "endpoint": "post-vaccination IFN-gamma ELISPOT after peptide-pulsed DC administration",
+    "patients": 352,
+    "positives": 311,
+    "primary_metric": "patient-macro NDCG@5",
+    "records": 2315
+  },
   "generated_date": "2026-08-20",
   "predictor_revisions": {
     "BigMHC": "v1.0",
+    "DeepHLApan": "1.1.1@ac1f4beb",
+    "DeepImmuno-CNN": "1.0@df42ac5b",
     "IMPROVE data": "c67094276b52358b5202ad9e5597acd87888ea1d",
     "MHCflurry": "2.2.1",
     "PRIME": "2.0"
   },
-  "project_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
-  "project_worktree_clean": true,
+  "project_commit": "639268bd84c2de11421eb9aacaccb5edef8a8a6e",
+  "project_worktree_clean": false,
   "schema_version": "1.0"
 }

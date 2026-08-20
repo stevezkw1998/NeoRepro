@@ -1,0 +1,15 @@
+{
+  "benchmark": "data/processed/zhao_vaccine_benchmark.csv",
+  "comparison": "byte-identical independent adapter rerun",
+  "deephlapan": {
+    "rows": 2315,
+    "sha256": "7e3ff3b9e9159c40242085892817ece981ac16be2aa916c00d71326815f91667",
+    "status": "pass"
+  },
+  "deepimmuno_cnn": {
+    "rows": 2315,
+    "sha256": "f6a9d72ce51755c07dd3dcaa603eb38056e30bd10111bb75f631ce8ac2119c47",
+    "status": "pass"
+  },
+  "status": "pass"
+}

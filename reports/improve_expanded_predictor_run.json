@@ -1,0 +1,58 @@
+{
+  "artifacts": [
+    {
+      "path": "results/raw_predictions/improve/expanded_9_10/deephlapan-1.1.1.csv",
+      "predictor": "DeepHLApan",
+      "rows": 15234,
+      "sha256": "280e632d9c40fcf565c77be57e4ab22aa05c69e5aa29e262ce16ed3eac6413ce",
+      "version": "1.1.1@ac1f4beb"
+    },
+    {
+      "path": "results/raw_predictions/improve/expanded_9_10/deepimmuno-cnn.csv",
+      "predictor": "DeepImmuno-CNN",
+      "rows": 15234,
+      "sha256": "386509ee094fb0b7abfef30f961605d6e7c0126262dd7a508f8c442fb3bfd13a",
+      "version": "1.0@df42ac5b"
+    }
+  ],
+  "benchmark": "data/sensitivity/length_9_10/benchmark.csv",
+  "completed_at": "2026-08-20T20:22:07.825709+00:00",
+  "orchestrator_python": "3.11.15 (main, Aug  7 2026, 02:15:53) [Clang 22.1.3 ]",
+  "parallel": true,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "reuse_existing": false,
+  "runs": [
+    {
+      "command": [
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deephlapan/.venv/bin/python",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deephlapan/adapter.py",
+        "--input",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/data/sensitivity/length_9_10/benchmark.csv",
+        "--source-dir",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deephlapan/source",
+        "--output",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/results/raw_predictions/improve/expanded_9_10/deephlapan-1.1.1.csv"
+      ],
+      "execution": "executed",
+      "predictor": "deephlapan",
+      "returncode": 0,
+      "runtime_seconds": 160.70163658299862
+    },
+    {
+      "command": [
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deepimmuno/.venv/bin/python",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deepimmuno/adapter.py",
+        "--input",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/data/sensitivity/length_9_10/benchmark.csv",
+        "--source-dir",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/predictors/deepimmuno/source",
+        "--output",
+        "/Users/steve/Documents/ChatGPT/NeoRepro \u2014 Fully Autonomous Research Project/results/raw_predictions/improve/expanded_9_10/deepimmuno-cnn.csv"
+      ],
+      "execution": "executed",
+      "predictor": "deepimmuno",
+      "returncode": 0,
+      "runtime_seconds": 8.793825166998431
+    }
+  ]
+}

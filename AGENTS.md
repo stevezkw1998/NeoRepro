@@ -18,6 +18,14 @@ Use the narrowest applicable skill:
 
 Run bundled deterministic scripts before recreating equivalent one-off code.
 
+## Fast paths (use these instead of reading large archives)
+
+- `make extension` runs the frozen independent-cohort extension end to end: checksum-pinned extraction, canonicalization, overlap audit, five predictor adapters, patient bootstrap, summary, and tests.
+- `uv run python scripts/download_archive_member.py --url URL --member NAME --sha256 HASH --output PATH` extracts and verifies only the required member of a dynamically repackaged public ZIP. Pin the member hash, not the unstable outer archive.
+- `uv run python scripts/run_fixed_predictors.py ... --parallel --reuse-existing` parallelizes isolated predictor environments and reuses outputs only after ID/version/status validation.
+- `uv run python scripts/summarize_extension.py` regenerates all extension prose/table values from machine-readable results; never transcribe result numbers manually.
+- The NCI MMP test archive contains enumerated short candidates derived from screened long peptides. Do not label untested short candidates as pMHC negatives; `research/extension_protocol_v1_nci_failed.json` preserves this failed eligibility gate.
+
 ## Scientific integrity
 
 - Do not invent citations, data, results, software status, licenses, or biological conclusions.
@@ -42,4 +50,3 @@ Run bundled deterministic scripts before recreating equivalent one-off code.
 1. Do not scale beyond the cheap pilot until novelty, data eligibility, adapters, and metric fixtures pass.
 2. Do not interpret full results until missing predictions, leakage, score direction, and grouping are audited.
 3. Do not declare completion until a clean-checkout reproduction and manuscript audit pass.
-

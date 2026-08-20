@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 ## Outcome
 
-NeoRepro delivers a leakage-aware, patient-grouped reproduction of three public MHC-I predictors on the public IMPROVE T-cell recognition screen. Its most important contribution is not a new predictor; it is a defensible evaluation result showing how training overlap, decision-unit choice and candidate preselection change what can legitimately be claimed from public neoantigen benchmarks.
+NeoRepro delivers a leakage-aware, patient-grouped reproduction of five public MHC-I predictors across the IMPROVE T-cell recognition screen and an independent personalized-vaccine cohort. Its most important contribution is not a new predictor; it is a defensible evaluation result showing how training overlap, decision unit, endpoint and candidate preselection change what can legitimately be claimed from public neoantigen benchmarks.
 
 The initial 520-record TESLA pilot is retained only as a positive-control fixture because every record exactly overlaps the official PRIME2 training supplement. The primary benchmark is therefore the IMPROVE screen after excluding the common union of 45 exact PRIME2 or BigMHC construction overlaps: 17,475 pMHC records, 465 positives, 70 patients and three cohorts.
 
@@ -13,6 +13,16 @@ The initial 520-record TESLA pilot is retained only as a positive-control fixtur
 The final post-review reporting primary is pooled AUROC on common support; it was not preregistered as primary. PRIME scored 0.597 versus 0.546 for BigMHC, a paired difference of 0.051 with a patient-bootstrap 95% interval of 0.008 to 0.092. Mean patient-pMHC Recall@20 was 0.260 for PRIME and 0.146 for BigMHC, conditional on the 60 patients with at least one positive record. MHCflurry scored AUROC 0.537 and Recall@20 0.202, but is reported as a presentation-score association analysis rather than a like-for-like immunogenicity comparison.
 
 The result is directional rather than a claim of strong absolute prediction. Average precision was low (0.032–0.040), performance varied across patients and cohorts, and the source candidates had already passed a MuPeXI/RNA/NetMHCpan-oriented selection gate. The endpoint is DNA-barcoded pMHC multimer-detectable, patient-matched T-cell recognition—not natural processing, tumor presentation, functional killing or clinical benefit.
+
+## Independent-cohort extension
+
+The frozen extension added the Zhao 2026 cohort: 2,317 individually administered 8–11mer peptides from 352 patients, all assayed after vaccination by IFN-γ ELISPOT. Removing two known exact training overlaps left 2,315 records, 311 positives and 131 positive-bearing patients. The primary metric, patient-macro NDCG@5, was frozen before inference because the median patient had only six administered candidates.
+
+On near-complete common support, BigMHC exceeded PRIME by 0.057 NDCG@5 (patient-bootstrap 95% CI 0.008–0.106) and DeepHLApan by 0.078 (0.022–0.133). This reverses the BigMHC–PRIME direction observed in IMPROVE and is the extension's strongest scientific result: current model ordering is domain-dependent rather than universal. DeepImmuno-CNN covered only 43.8% of the cohort; its common-support differences from the other immunogenicity models were unresolved. DeepHLApan's row-level training identity remains unknown because its official repository exposes no training manifest.
+
+This cohort is complementary, not a pure biological replication. Peptide-pulsed dendritic-cell administration can induce or amplify post-vaccination responses, so these results do not establish natural tumor presentation, untreated intrinsic immunogenicity, tumor killing or clinical benefit.
+
+On the original IMPROVE 9–10mer subset, the expanded model set retained the original direction: PRIME AUROC 0.605, BigMHC 0.547, DeepImmuno-CNN 0.527 on its 11,036 supported records, and DeepHLApan 0.508. Thus the external reversal is not explained merely by adding the two older models; it is specifically a dataset/endpoint-domain change.
 
 ## Robustness and interpretation
 
@@ -32,7 +42,7 @@ Run `make -j4 reproduce-results` to regenerate analyses, figures, tables and the
 
 ## Independent review
 
-One statistical/reproducibility review and one biological/endpoint review were completed independently. Their comments and point-by-point dispositions are preserved in `paper/reviewer_comments.md` and `paper/reviewer_response.md`. The review resulted in near-overlap and peptide-unit sensitivities, matched-estimator baselines, analytic Top-K tie handling, narrower endpoint language and explicit limits on HLA interpretation.
+One statistical/reproducibility review and one biological/endpoint review were completed independently for the original analysis. Their comments and point-by-point dispositions are preserved in `paper/reviewer_comments.md` and `paper/reviewer_response.md`. The extension received a separate rubric-based value and evidence audit in `reports/extension_value_audit.md`; it is not misrepresented as a second blinded peer review.
 
 ## Remaining submission-only tasks
 

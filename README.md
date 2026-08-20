@@ -30,6 +30,8 @@ Independent bootstrap analyses are parallelized by Make. Use `make reproduce-res
 
 Key outputs are the [final report](FINAL_REPORT.md), [manuscript](paper/manuscript.md), [review record](paper/reviewer_response.md), [final result table](results/final_results.csv), [figures](results/figures/), [training-overlap audit](research/training_overlap_summary_improve.json), and [SHA-256 manifest](results/manifest.json).
 
+The independent Zhao 2026 vaccine-cohort extension is reproduced with `make -j4 extension`. Its concise evidence summary is in [reports/extension_summary.md](reports/extension_summary.md), with the frozen pre-inference contract in [research/extension_protocol.json](research/extension_protocol.json). The external endpoint is post-vaccination ELISPOT after peptide-pulsed dendritic-cell administration and must not be interpreted as natural tumor presentation or clinical efficacy.
+
 ## License
 
 Original NeoRepro code and documentation use the MIT License. Third-party predictors and datasets retain their own terms; inclusion in the study does not imply redistribution permission.
