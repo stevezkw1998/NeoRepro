@@ -7,7 +7,7 @@ name = "neorepro"
 version = "0.1.0.dev0"
 description = "Reproducibility and patient-level evaluation of public neoantigen predictors"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.12"
 license = "MIT"
 authors = [{name = "NeoRepro contributors"}]
 classifiers = [

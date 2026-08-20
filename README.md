@@ -20,7 +20,7 @@ The official PRIME2 supplement showed that all 520 records in the initial TESLA 
 
 ## Reproduce
 
-Install [uv](https://docs.astral.sh/uv/), then rebuild every analysis, figure, table and manuscript artifact from the versioned benchmark and prediction files:
+Install [uv](https://docs.astral.sh/uv/), then rebuild every analysis, figure, table and manuscript artifact with the project-pinned CPython 3.11.15 from the versioned benchmark and prediction files:
 
 ```bash
 make -j4 reproduce-results

@@ -8,5 +8,5 @@
   "patients": 70,
   "positives": 454,
   "records_in_multi_hla_candidates": 3568,
-  "score_rule": "maximum oriented score across tested HLA records"
+  "score_rule": "raw-max"
 }
