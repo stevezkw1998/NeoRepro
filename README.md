@@ -2,6 +2,10 @@
 
 # NeoRepro
 
+> 🧪 **[We are actively seeking external reviewers and predictor authors.](https://github.com/stevezkw1998/NeoRepro/issues/2)**
+>
+> 15–30 min sanity checks, reproduction attempts, dataset suggestions and adversarial critiques are welcome.
+
 NeoRepro is a leakage-aware, patient-level, reproducible benchmark resource for public MHC-I peptide–HLA neoantigen predictors. It packages pinned predictor artifacts, record-level provenance, training-overlap audits, common-support comparisons, patient-level uncertainty, support-matched random baselines and machine-generated results.
 
 This is a benchmark/resource contribution, not a new predictor and not a claim of a universal model winner or clinical utility.

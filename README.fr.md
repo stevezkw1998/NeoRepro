@@ -2,6 +2,10 @@
 
 # NeoRepro
 
+> 🧪 **[Nous recherchons activement des évaluateurs externes et des auteurs de prédicteurs.](https://github.com/stevezkw1998/NeoRepro/issues/2)**
+>
+> Les vérifications de cohérence de 15–30 minutes, les tentatives de reproduction, les suggestions de jeux de données et les critiques contradictoires sont les bienvenues.
+
 NeoRepro est une ressource d’évaluation reproductible, tenant compte des fuites de données et menée au niveau du patient, pour les prédicteurs publics de néoantigènes peptide–HLA de MHC-I. Elle rassemble des artefacts de prédicteurs épinglés, la provenance de chaque enregistrement, des audits de chevauchement avec les données d’entraînement, des comparaisons sur un support commun, l’incertitude au niveau du patient, des références aléatoires adaptées au support et des résultats générés automatiquement.
 
 Il s’agit d’une contribution de type ressource et benchmark, et non d’un nouveau prédicteur ni d’une affirmation concernant un modèle universellement gagnant ou une utilité clinique.
