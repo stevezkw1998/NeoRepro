@@ -15,6 +15,7 @@ NeoRepro 是面向公开 MHC-I 肽–HLA 新抗原预测器的泄漏感知、患
 - **当前论文稿：**[资源定位版论文](paper/manuscript_resource.md)。
 - **两分钟证据摘要：**[中英双语专家简报](output/pdf/neorepro_expert_brief_bilingual.pdf)和[独立队列扩展摘要](reports/extension_summary.md)。
 - **复现冻结结果：**使用下方“复现”部分中的命令。
+- **测试你自己的预测器：**运行 `neorepro benchmark predictions.csv --output-dir neorepro-results`；参见[标准单文件契约](contracts/README.md)。
 - **接入第三方数据集或预测器：**请参阅 [plug-in contract](contracts/README.md)。
 - **引用固定版本：**参见 [CITATION.cff](CITATION.cff) 和 [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0)。
 

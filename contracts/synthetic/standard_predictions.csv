@@ -1,0 +1,9 @@
+record_id,patient_id,study_id,label,score,predictor,score_direction,status,training_overlap,hla
+s1,P1,SYNTHETIC,1,0.9,Example-A,higher,predicted,none,HLA-A*02:01
+s2,P1,SYNTHETIC,0,0.1,Example-A,higher,predicted,none,HLA-A*02:01
+s3,P2,SYNTHETIC,1,0.8,Example-A,higher,predicted,unknown,HLA-A*02:01
+s4,P2,SYNTHETIC,0,0.2,Example-A,higher,predicted,none,HLA-A*02:01
+s1,P1,SYNTHETIC,1,0.7,Example-B,higher,predicted,none,HLA-A*02:01
+s2,P1,SYNTHETIC,0,0.3,Example-B,higher,predicted,none,HLA-A*02:01
+s3,P2,SYNTHETIC,1,0.6,Example-B,higher,predicted,unknown,HLA-A*02:01
+s4,P2,SYNTHETIC,0,,Example-B,higher,unsupported,none,HLA-A*02:01

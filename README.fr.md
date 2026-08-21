@@ -15,6 +15,7 @@ Il s’agit d’une contribution de type ressource et benchmark, et non d’un n
 - **Manuscrit actuel :** [manuscrit positionné comme ressource](paper/manuscript_resource.md).
 - **Synthèse des preuves en deux minutes :** [note bilingue pour experts](output/pdf/neorepro_expert_brief_bilingual.pdf) et [résumé de l’extension sur une cohorte indépendante](reports/extension_summary.md).
 - **Reproduire les résultats figés :** utiliser la commande de la section « Reproduction » ci-dessous.
+- **Évaluer votre propre prédicteur :** exécuter `neorepro benchmark predictions.csv --output-dir neorepro-results` ; consulter le [contrat standard à fichier unique](contracts/README.md).
 - **Ajouter un jeu de données ou un prédicteur tiers :** consulter le [plug-in contract](contracts/README.md).
 - **Citer une version figée :** [CITATION.cff](CITATION.cff) et [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
 

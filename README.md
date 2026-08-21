@@ -15,6 +15,7 @@ This is a benchmark/resource contribution, not a new predictor and not a claim o
 - **Current manuscript:** [resource-positioned manuscript](paper/manuscript_resource.md).
 - **Two-minute evidence summary:** [bilingual expert brief](output/pdf/neorepro_expert_brief_bilingual.pdf) and [independent-cohort extension summary](reports/extension_summary.md).
 - **Reproduce the frozen results:** use the command in the Reproduce section below.
+- **Benchmark your own predictor:** run `neorepro benchmark predictions.csv --output-dir neorepro-results`; see the [standard one-file contract](contracts/README.md).
 - **Add a third-party dataset or predictor:** follow the [plug-in contract](contracts/README.md).
 - **Cite a fixed version:** [CITATION.cff](CITATION.cff) and the [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
 

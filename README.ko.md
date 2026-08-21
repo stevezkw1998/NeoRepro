@@ -15,6 +15,7 @@ NeoRepro는 공개 MHC-I 펩타이드–HLA 신생항원 예측기를 위한 데
 - **현재 원고:** [리소스 중심 원고](paper/manuscript_resource.md).
 - **간단한 증거 요약:** [중영 이중언어 전문가 요약](output/pdf/neorepro_expert_brief_bilingual.pdf)과 [독립 코호트 확장 요약](reports/extension_summary.md).
 - **고정 결과 재현:** 아래 재현 절의 명령을 사용하십시오.
+- **자체 예측기 벤치마크:** `neorepro benchmark predictions.csv --output-dir neorepro-results`를 실행하고 [표준 단일 파일 계약](contracts/README.md)을 참조하십시오.
 - **제3자 데이터셋 또는 예측기 추가:** [plug-in contract](contracts/README.md)를 참조하십시오.
 - **고정 버전 인용:** [CITATION.cff](CITATION.cff)와 [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0)를 참조하십시오.
 

@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 
 from neorepro.audit import AuditError, audit_predictions
+from neorepro.benchmark import BenchmarkError, run_benchmark
 from neorepro.contract import (
     ContractError,
     evaluate,
@@ -65,6 +66,25 @@ def main(argv: list[str] | None = None) -> int:
         ),
     )
     audit_parser.add_argument("predictions", type=Path, help="five-column prediction CSV")
+    benchmark_parser = subparsers.add_parser(
+        "benchmark",
+        help="run the portable standard benchmark from one joined prediction CSV",
+        description=(
+            "Evaluate one or more predictors from a CSV containing record_id, patient_id, "
+            "study_id, label, score and predictor. Produces evaluation.json and report.md."
+        ),
+    )
+    benchmark_parser.add_argument("predictions", type=Path)
+    benchmark_parser.add_argument(
+        "--output-dir", type=Path, default=Path("neorepro-results")
+    )
+    benchmark_parser.add_argument("--threshold", type=float, default=0.5)
+    benchmark_parser.add_argument("--bootstrap", type=int, default=1000)
+    benchmark_parser.add_argument("--seed", type=int, default=20260820)
+    benchmark_parser.add_argument(
+        "--score-direction", choices=["higher", "lower"], default="higher"
+    )
+    benchmark_parser.add_argument("--rank-unit", choices=["pMHC", "peptide"], default="pMHC")
 
     def add_path_command(name, help_text):
         p = subparsers.add_parser(name, help=help_text)
@@ -110,6 +130,35 @@ def main(argv: list[str] | None = None) -> int:
         except AuditError as error:
             parser.error(str(error))
         print(json.dumps(report, indent=2, sort_keys=True, allow_nan=False))
+        return 0
+    if args.command == "benchmark":
+        try:
+            result, json_path, report_path = run_benchmark(
+                args.predictions,
+                args.output_dir,
+                threshold=args.threshold,
+                bootstrap=args.bootstrap,
+                seed=args.seed,
+                rank_unit=args.rank_unit,
+                default_direction=args.score_direction,
+            )
+        except (BenchmarkError, OSError) as error:
+            parser.error(str(error))
+        print(
+            json.dumps(
+                {
+                    "status": "ok",
+                    "predictors": result["input"]["predictors"],
+                    "common_support": result["support"][
+                        "leakage_filtered_common_records"
+                    ],
+                    "evaluation": str(json_path),
+                    "report": str(report_path),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
         return 0
     try:
         if args.command == "dataset":

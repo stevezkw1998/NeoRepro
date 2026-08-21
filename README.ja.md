@@ -15,6 +15,7 @@ NeoRepro は、公開されている MHC-I ペプチド–HLA ネオアンチゲ
 - **現行原稿：**[リソースとして位置付けた原稿](paper/manuscript_resource.md)。
 - **短時間で読めるエビデンス概要：**[中英併記の専門家向け概要](output/pdf/neorepro_expert_brief_bilingual.pdf)および[独立コホート拡張の概要](reports/extension_summary.md)。
 - **凍結済み結果の再現：**下記「再現」節のコマンドを使用してください。
+- **独自予測器のベンチマーク：**`neorepro benchmark predictions.csv --output-dir neorepro-results` を実行し、[標準単一ファイル契約](contracts/README.md)を参照してください。
 - **第三者データセットまたは予測器の追加：**[plug-in contract](contracts/README.md) を参照してください。
 - **固定版の引用：**[CITATION.cff](CITATION.cff) および [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0)を参照してください。
 

@@ -15,6 +15,7 @@ Der Beitrag ist eine Benchmark- und Forschungsressource, kein neuer Prädiktor u
 - **Aktuelles Manuskript:** [als Ressource positioniertes Manuskript](paper/manuscript_resource.md).
 - **Evidenz in zwei Minuten:** [zweisprachige Expertenübersicht](output/pdf/neorepro_expert_brief_bilingual.pdf) und [Zusammenfassung der unabhängigen Kohortenerweiterung](reports/extension_summary.md).
 - **Festgeschriebene Ergebnisse reproduzieren:** den Befehl im Abschnitt „Reproduktion“ verwenden.
+- **Eigenen Prädiktor benchmarken:** `neorepro benchmark predictions.csv --output-dir neorepro-results` ausführen; siehe [Standardvertrag für eine einzelne Datei](contracts/README.md).
 - **Drittanbieter-Datensatz oder -Prädiktor hinzufügen:** den [plug-in contract](contracts/README.md) verwenden.
 - **Feste Version zitieren:** [CITATION.cff](CITATION.cff) und [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
 

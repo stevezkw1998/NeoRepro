@@ -15,6 +15,7 @@ Es una contribución de referencia y recursos, no un predictor nuevo ni una afir
 - **Manuscrito actual:** [manuscrito orientado como recurso](paper/manuscript_resource.md).
 - **Resumen de la evidencia en dos minutos:** [informe bilingüe para expertos](output/pdf/neorepro_expert_brief_bilingual.pdf) y [resumen de la extensión con cohorte independiente](reports/extension_summary.md).
 - **Reproducir los resultados fijados:** usar el comando de la sección «Reproducción».
+- **Evaluar su propio predictor:** ejecutar `neorepro benchmark predictions.csv --output-dir neorepro-results`; consultar el [contrato estándar de un solo archivo](contracts/README.md).
 - **Añadir un conjunto de datos o predictor de terceros:** consultar el [plug-in contract](contracts/README.md).
 - **Citar una versión fija:** [CITATION.cff](CITATION.cff) y [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
 
