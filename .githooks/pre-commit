@@ -1,6 +1,10 @@
 #!/bin/sh
 set -eu
 
+export PYTHONUTF8=1
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 expected_name="stevezkw"
 author_ident="$(git var GIT_AUTHOR_IDENT)"
 committer_ident="$(git var GIT_COMMITTER_IDENT)"
@@ -30,9 +34,14 @@ if printf '%s\n' "$changed_paths" | grep -Eq '^\.githooks/(pre-commit|pre-push)$
 fi
 
 if printf '%s\n' "$changed_paths" | grep -Eq '^(README(\.[^.]+)?\.md|i18n/(glossary\.md|readme_state\.json)|scripts/readme_i18n\.py|tests/test_readme_i18n\.py)$'; then
-  export PYTHONUTF8=1
-  export LC_ALL=en_US.UTF-8
-  export LANG=en_US.UTF-8
   python3 scripts/readme_i18n.py check
   uv run pytest -q tests/test_readme_i18n.py
+fi
+
+if printf '%s\n' "$changed_paths" | grep -Eq '^(src|scripts|tests)/.*\.py$'; then
+  uv run ruff check src scripts tests
+fi
+
+if printf '%s\n' "$changed_paths" | grep -Eq '^(src/neorepro/(audit|cli|metrics)\.py|tests/test_(audit_cli|metrics)\.py)$'; then
+  uv run pytest -q tests/test_audit_cli.py tests/test_metrics.py
 fi
