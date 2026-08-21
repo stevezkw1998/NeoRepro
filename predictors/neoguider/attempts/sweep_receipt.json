@@ -1,0 +1,12 @@
+{
+  "predictor": "neoguider",
+  "revision": "f95a5713453910902d657f1d148568b93c81026f",
+  "repo": "https://github.com/XuegongLab/neoguider.git",
+  "install_returncode": 2,
+  "smoke_returncode": 125,
+  "license_files": [
+    "LICENSE.txt"
+  ],
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "benchmark_track": "profile_only"
+}

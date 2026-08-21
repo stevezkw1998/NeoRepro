@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import math
 from collections.abc import Iterable, Sequence
+from math import comb
 
 
 def _validate(labels: Sequence[int], scores: Sequence[float]) -> None:
@@ -81,4 +82,71 @@ def ranking_metrics(labels_in_rank_order: Sequence[int], ks: Iterable[int]) -> d
         ideal_hits = min(positives, len(top))
         idcg = sum(1 / math.log2(rank + 1) for rank in range(1, ideal_hits + 1))
         result[f"ndcg@{k}"] = dcg / idcg
+    return result
+
+
+def tie_aware_ranking_metrics(
+    labels: Sequence[int], scores: Sequence[float], ks: Iterable[int]
+) -> dict[str, float]:
+    """Compute expected patient-ranking metrics over every tied-score ordering."""
+    _validate(labels, scores)
+    positives = sum(labels)
+    if not positives:
+        raise ValueError("ranking metrics require a positive-bearing patient")
+    ordered = sorted(range(len(scores)), key=scores.__getitem__, reverse=True)
+    score_groups: list[tuple[int, int]] = []
+    start = 0
+    while start < len(ordered):
+        end = start + 1
+        while end < len(ordered) and scores[ordered[end]] == scores[ordered[start]]:
+            end += 1
+        score_groups.append((end - start, sum(labels[index] for index in ordered[start:end])))
+        start = end
+
+    offset = 0
+    expected_mrr = 0.0
+    for size, group_positives in score_groups:
+        if group_positives:
+            denominator = comb(size, group_positives)
+            expected_mrr = sum(
+                (comb(size - first, group_positives - 1) / denominator) / (offset + first)
+                for first in range(1, size - group_positives + 2)
+            )
+            break
+        offset += size
+
+    result = {"mrr": expected_mrr}
+    for k in ks:
+        if k <= 0:
+            raise ValueError("K must be positive")
+        limit = min(k, len(ordered))
+        remaining = limit
+        offset = 0
+        expected_hits = 0.0
+        expected_dcg = 0.0
+        zero_hit_probability = 1.0
+        for size, group_positives in score_groups:
+            if not remaining:
+                break
+            selected = min(remaining, size)
+            expected_hits += selected * group_positives / size
+            expected_dcg += (group_positives / size) * sum(
+                1 / math.log2(rank + 1)
+                for rank in range(offset + 1, offset + selected + 1)
+            )
+            if selected == size:
+                if group_positives:
+                    zero_hit_probability = 0.0
+            elif zero_hit_probability and group_positives:
+                zero_hit_probability *= comb(size - group_positives, selected) / comb(
+                    size, selected
+                )
+            remaining -= selected
+            offset += selected
+        result[f"recall@{k}"] = expected_hits / positives
+        result[f"precision@{k}"] = expected_hits / limit
+        result[f"hitrate@{k}"] = 1 - zero_hit_probability
+        ideal_hits = min(positives, limit)
+        idcg = sum(1 / math.log2(rank + 1) for rank in range(1, ideal_hits + 1))
+        result[f"ndcg@{k}"] = expected_dcg / idcg
     return result

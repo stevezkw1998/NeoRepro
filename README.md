@@ -2,6 +2,10 @@
 
 # NeoRepro
 
+> 🧪 **[We are actively seeking external reviewers and predictor authors.](https://github.com/stevezkw1998/NeoRepro/issues/2)**
+>
+> 15–30 min sanity checks, reproduction attempts, dataset suggestions and adversarial critiques are welcome.
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
 
 NeoRepro is a leakage-aware, patient-level, reproducible benchmark resource for public MHC-I peptide–HLA neoantigen predictors. It packages pinned predictor artifacts, record-level provenance, training-overlap audits, common-support comparisons, patient-level uncertainty, support-matched random baselines and machine-generated results.
@@ -13,6 +17,8 @@ This is a benchmark/resource contribution, not a new predictor and not a claim o
 - **Current manuscript:** [resource-positioned manuscript](paper/manuscript_resource.md).
 - **Two-minute evidence summary:** [bilingual expert brief](output/pdf/neorepro_expert_brief_bilingual.pdf) and [independent-cohort extension summary](reports/extension_summary.md).
 - **Reproduce the frozen results:** use the command in the Reproduce section below.
+- **Benchmark your own predictor:** run `neorepro benchmark predictions.csv --output-dir neorepro-results`; see the [standard one-file contract](contracts/README.md).
+- **Add a third-party dataset or predictor:** follow the [plug-in contract](contracts/README.md).
 - **Cite a fixed version:** [CITATION.cff](CITATION.cff), the [v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1) and [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064).
 
 For the scientific contract and scope, see [RESEARCH_SPEC.md](RESEARCH_SPEC.md).
@@ -20,10 +26,12 @@ For the scientific contract and scope, see [RESEARCH_SPEC.md](RESEARCH_SPEC.md).
 ## Status
 
 - Current-literature audit: complete; decision `RESCOPE, then GO`
-- Reproduced predictors: MHCflurry 2.2.1, BigMHC v1.0, PRIME 2.0, DeepImmuno-CNN and DeepHLApan
+- Benchmarked predictors: MHCflurry 2.2.1, BigMHC v1.0, PRIME 2.0, DeepImmuno-CNN and DeepHLApan; seven additional public tools have versioned profile-only, non-comparable or failed reproduction records
 - TESLA pilot: complete; reclassified as a training-overlap-positive control
 - Primary benchmark: IMPROVE, 17,475 leakage-filtered rows, 70 patients, 3 cohorts
 - Primary IMPROVE inference: complete; 52,425 fixed-tool predictions with no missing rows
+- External domains: Zhao vaccine cohort plus a separately frozen 129-record, 9-patient RCC vaccine cohort
+- Reusable extension interface: machine-validated Dataset Card, Predictor Card and prediction-artifact contracts
 - Manuscript: [resource-positioned version](paper/manuscript_resource.md), generated from frozen result files; independent statistical and biological review complete
 
 ## Main result
@@ -46,7 +54,7 @@ Independent bootstrap analyses are parallelized by Make. Use `make reproduce-res
 - **Auditable outputs:** [final result table](results/final_results.csv), [figures](results/figures/), [training-overlap audit](research/training_overlap_summary_improve.json), and [SHA-256 manifest](results/manifest.json).
 - **Submission planning:** [target-venue strategy](reports/target_venues_2026-08-20.md).
 
-The independent Zhao 2026 vaccine-cohort extension is reproduced with `make -j4 extension`. Its concise evidence summary is in [reports/extension_summary.md](reports/extension_summary.md), with the frozen pre-inference contract in [research/extension_protocol.json](research/extension_protocol.json). The external endpoint is post-vaccination ELISPOT after peptide-pulsed dendritic-cell administration and must not be interpreted as natural tumor presentation or clinical efficacy.
+The independent Zhao 2026 vaccine-cohort extension is reproduced with `make -j4 extension`. Its concise evidence summary is in [reports/extension_summary.md](reports/extension_summary.md), with the frozen pre-inference contract in [research/extension_protocol.json](research/extension_protocol.json). The separately frozen RCC extension is documented in [research/extension_protocol_rcc_v1.json](research/extension_protocol_rcc_v1.json), and exploratory three-domain stability outputs are under `results/analysis/stability/`. Both external endpoints are post-vaccination assays and must not be interpreted as natural tumor presentation or clinical efficacy.
 
 ## License
 

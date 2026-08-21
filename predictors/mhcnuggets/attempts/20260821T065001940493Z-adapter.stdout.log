@@ -1,0 +1,7 @@
+Predicting for 3 peptides
+Number of peptides skipped/total due to length 0 / 0
+Building model
+Closest allele found HLA-A02:01
+Predicting with only binding affinity trained models
+Writing output files...
+MHCnuggets 2.4.0@b666fea3: 3/3 predicted -> predictors/mhcnuggets/fixture_predictions.csv

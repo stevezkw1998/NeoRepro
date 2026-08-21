@@ -1,0 +1,49 @@
+usage: pvacseq [-h]
+               {run,binding_filter,coverage_filter,transcript_filter,top_score_filter,aggregate_report_filter,net_chop,netmhc_stab,calculate_reference_proteome_similarity,generate_protein_fasta,create_peptide_ordering_form,generate_aggregated_report,identify_problematic_amino_acids,mark_genes_of_interest,add_ml_predictions,update_tiers,download_example_data,install_vep_plugin}
+               ...
+
+positional arguments:
+  {run,binding_filter,coverage_filter,transcript_filter,top_score_filter,aggregate_report_filter,net_chop,netmhc_stab,calculate_reference_proteome_similarity,generate_protein_fasta,create_peptide_ordering_form,generate_aggregated_report,identify_problematic_amino_acids,mark_genes_of_interest,add_ml_predictions,update_tiers,download_example_data,install_vep_plugin}
+    run                 Run the pVACseq pipeline.
+    binding_filter      Filter variants processed by IEDB by binding score.
+    coverage_filter     Filter variants processed by IEDB by coverage, vaf,
+                        and gene expression.
+    transcript_filter   Filter variant transcripts processed by IEDB.
+    top_score_filter    Pick the best neoepitope for each variant.
+    aggregate_report_filter
+                        Filter an aggregate report and its metrics.json file
+                        based on the variant Tier.
+    net_chop            Run NetChop on existing pVACseq output .tsv to predict
+                        cleavage sites on the neoepitopes.
+    netmhc_stab         Run NetMHCStabPan on existing pVACseq output .tsv to
+                        add stability predictions to the neoepitopes.
+    calculate_reference_proteome_similarity
+                        Blast peptides against the reference proteome on
+                        existing pVACseq output .tsv.
+    generate_protein_fasta
+                        Generate an annotated fasta file from a VCF with
+                        protein sequences of mutations and matching wildtypes.
+    create_peptide_ordering_form
+                        Generate a peptide ordering form with coloring.
+    generate_aggregated_report
+                        Generate an aggregated report from a pVACseq
+                        .all_epitopes.tsv report file.
+    identify_problematic_amino_acids
+                        Mark problematic amino acid positions in each epitope
+                        or filter entries that have problematic amino acids.
+    mark_genes_of_interest
+                        Mark predictions resulting from variants on a genes of
+                        interest list.
+    add_ml_predictions  Add ML-based neoantigen evaluation predictions to
+                        pVACtools output files.
+    update_tiers        Update tiers in an aggregated report in order to, for
+                        example, use different thresholds or account for
+                        problematic position or reference match information if
+                        run after initial pipeline run.
+    download_example_data
+                        Download example input and output files.
+    install_vep_plugin  Install the Wildtype and Frameshift VEP plugins into
+                        your VEP_plugins directory.
+
+options:
+  -h, --help            show this help message and exit

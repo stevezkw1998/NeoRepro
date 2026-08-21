@@ -2,6 +2,10 @@
 
 # NeoRepro
 
+> 🧪 **[我們正積極徵求外部審閱者與預測器作者。](https://github.com/stevezkw1998/NeoRepro/issues/2)**
+>
+> 歡迎進行 15–30 分鐘的合理性檢查、重現嘗試、資料集建議與對抗性批評。
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
 
 NeoRepro 是一套針對公開 MHC-I 胜肽–HLA 新抗原預測器、考量資料洩漏、病人層級且可重現的基準資源。它整合固定版本的預測器產物、逐筆資料來源、訓練資料重疊稽核、共同可評估集合比較、病人層級不確定性、依支援範圍匹配的隨機基準，以及由機器產生的結果。
@@ -13,6 +17,8 @@ NeoRepro 是一套針對公開 MHC-I 胜肽–HLA 新抗原預測器、考量資
 - **目前論文稿：**[資源定位版論文](paper/manuscript_resource.md)。
 - **兩分鐘證據摘要：**[中英雙語專家簡報](output/pdf/neorepro_expert_brief_bilingual.pdf)與[獨立隊列延伸摘要](reports/extension_summary.md)。
 - **重現凍結結果：**使用下方「重現」章節中的指令。
+- **測試你自己的預測器：**執行 `neorepro benchmark predictions.csv --output-dir neorepro-results`；請參閱[標準單一檔案契約](contracts/README.md)。
+- **接入第三方資料集或預測器：**請參閱 [plug-in contract](contracts/README.md)。
 - **引用固定版本：**請參閱 [CITATION.cff](CITATION.cff)、[v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1) 與 [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064)。
 
 科學研究契約與範圍請見 [RESEARCH_SPEC.md](RESEARCH_SPEC.md)。
@@ -20,10 +26,12 @@ NeoRepro 是一套針對公開 MHC-I 胜肽–HLA 新抗原預測器、考量資
 ## 狀態
 
 - 最新文獻稽核：已完成；決策為 `RESCOPE, then GO`
-- 已重現的預測器：MHCflurry 2.2.1、BigMHC v1.0、PRIME 2.0、DeepImmuno-CNN 與 DeepHLApan
+- 已納入基準的預測器：MHCflurry 2.2.1、BigMHC v1.0、PRIME 2.0、DeepImmuno-CNN 與 DeepHLApan；另有七個公開工具保留僅供描述、不可比較或重現失敗的版本化記錄
 - TESLA 試驗：已完成；重新歸類為訓練資料重疊陽性對照
 - 主要基準：IMPROVE，17,475 筆經資料洩漏過濾的記錄、70 位病人、3 個隊列
 - 主要 IMPROVE 推論：已完成；52,425 筆固定工具預測，沒有缺漏記錄
+- 外部領域：Zhao 疫苗隊列，以及另行凍結的 RCC 疫苗隊列（129 筆記錄、9 位病人）
+- 可重用延伸介面：經機器驗證的 Dataset Card、Predictor Card 與預測產物契約
 - 論文稿：[資源定位版](paper/manuscript_resource.md)，由凍結結果檔案產生；獨立統計與生物學審查皆已完成
 
 ## 主要結果
@@ -46,7 +54,7 @@ Make 會平行執行彼此獨立的 bootstrap 分析。CPU 或記憶體受限時
 - **可稽核輸出：**[最終結果表](results/final_results.csv)、[圖表](results/figures/)、[訓練資料重疊稽核](research/training_overlap_summary_improve.json)與 [SHA-256 清單](results/manifest.json)。
 - **投稿規劃：**[目標期刊策略](reports/target_venues_2026-08-20.md)。
 
-獨立 Zhao 2026 疫苗隊列延伸可用 `make -j4 extension` 重現。簡要證據摘要位於 [reports/extension_summary.md](reports/extension_summary.md)，推論前凍結的研究契約位於 [research/extension_protocol.json](research/extension_protocol.json)。外部終點是以胜肽脈衝樹突細胞施打後的疫苗接種後 ELISPOT，不應解讀為自然腫瘤呈遞或臨床療效。
+獨立 Zhao 2026 疫苗隊列延伸可用 `make -j4 extension` 重現。簡要證據摘要位於 [reports/extension_summary.md](reports/extension_summary.md)，推論前凍結的研究契約位於 [research/extension_protocol.json](research/extension_protocol.json)。另行凍結的 RCC 延伸記錄於 [research/extension_protocol_rcc_v1.json](research/extension_protocol_rcc_v1.json)，三領域探索性穩定性輸出位於 `results/analysis/stability/`。兩個外部終點均為疫苗接種後檢測，不應解讀為自然腫瘤呈遞或臨床療效。
 
 ## 授權條款
 

@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import csv
+import hashlib
 import json
 import math
 import random
@@ -181,6 +183,26 @@ def load_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def input_fingerprint(paths: list[Path], bootstrap: int, seed: int) -> str:
+    """Bind a resumable bootstrap checkpoint to its exact inputs and configuration."""
+    digest = hashlib.sha256()
+    digest.update(f"bootstrap={bootstrap}\nseed={seed}\n".encode())
+    for path in paths:
+        digest.update(str(path).encode())
+        digest.update(b"\0")
+        with path.open("rb") as handle:
+            for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                digest.update(chunk)
+    return digest.hexdigest()
+
+
+def atomic_json(path: Path, payload: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(payload, sort_keys=True, allow_nan=False) + "\n")
+    temporary.replace(path)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--benchmark", type=Path, required=True)
@@ -188,6 +210,12 @@ def main() -> int:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--bootstrap", type=int, default=2000)
     parser.add_argument("--seed", type=int, default=20260820)
+    parser.add_argument(
+        "--checkpoint-every",
+        type=int,
+        default=50,
+        help="atomically save bootstrap state every N replicates; 0 disables resume",
+    )
     args = parser.parse_args()
 
     benchmark_rows = load_csv(args.benchmark)
@@ -333,7 +361,32 @@ def main() -> int:
         }
         for predictor, rows in joined.items()
     }
-    for _ in range(args.bootstrap):
+    checkpoint_path = args.output_dir / ".bootstrap_checkpoint.json"
+    fingerprint = input_fingerprint(
+        [args.benchmark, *sorted(args.predictions)], args.bootstrap, args.seed
+    )
+    start_replicate = 0
+    if args.checkpoint_every > 0 and checkpoint_path.exists():
+        checkpoint = json.loads(checkpoint_path.read_text())
+        if checkpoint.get("fingerprint") != fingerprint:
+            raise SystemExit(
+                f"checkpoint inputs/configuration changed; remove {checkpoint_path} to restart"
+            )
+        start_replicate = int(checkpoint["completed"])
+        rng.setstate(ast.literal_eval(checkpoint["rng_state"]))
+        samples = {
+            predictor: defaultdict(list, metric_samples)
+            for predictor, metric_samples in checkpoint["samples"].items()
+        }
+        restored_pairs = {}
+        for item in checkpoint["paired_samples"]:
+            restored_pairs[(item["left"], item["right"])] = defaultdict(
+                list, item["metrics"]
+            )
+        paired_samples = restored_pairs
+        print(f"resuming bootstrap at replicate {start_replicate}/{args.bootstrap}")
+
+    for replicate_index in range(start_replicate, args.bootstrap):
         draws = rng.choices(patients, k=len(patients))
         replicate = {}
         for predictor in joined:
@@ -383,6 +436,26 @@ def main() -> int:
                 right_value = pair_replicate[right][metric]
                 if isinstance(left_value, (int, float)) and isinstance(right_value, (int, float)):
                     paired_samples[pair][metric].append(left_value - right_value)
+        completed = replicate_index + 1
+        if (
+            args.checkpoint_every > 0
+            and completed < args.bootstrap
+            and completed % args.checkpoint_every == 0
+        ):
+            atomic_json(
+                checkpoint_path,
+                {
+                    "schema_version": 1,
+                    "fingerprint": fingerprint,
+                    "completed": completed,
+                    "rng_state": repr(rng.getstate()),
+                    "samples": samples,
+                    "paired_samples": [
+                        {"left": pair[0], "right": pair[1], "metrics": values}
+                        for pair, values in sorted(paired_samples.items())
+                    ],
+                },
+            )
 
     for predictor, predictor_metrics in metrics.items():
         predictor_metrics["patient_bootstrap_95ci"] = {
@@ -426,7 +499,9 @@ def main() -> int:
         json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"
     )
     with (args.output_dir / "missingness.csv").open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["predictor", "status", "count"])
+        writer = csv.DictWriter(
+            handle, fieldnames=["predictor", "status", "count"], lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(missingness)
     with (args.output_dir / "paired_differences.csv").open("w", newline="") as handle:
@@ -444,9 +519,10 @@ def main() -> int:
             "ci_low",
             "ci_high",
         ]
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(paired)
+    checkpoint_path.unlink(missing_ok=True)
     print(
         json.dumps(
             {

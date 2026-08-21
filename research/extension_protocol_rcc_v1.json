@@ -1,0 +1,46 @@
+{
+  "protocol_id": "neorepro-rcc-vaccine-extension-v1",
+  "frozen_at": "2026-08-20",
+  "status": "completed_prediction_and_evaluation",
+  "dataset": {
+    "name": "Braun et al. personalized RCC peptide vaccine cohort",
+    "article_doi": "10.1038/s41586-024-08507-5",
+    "supplement_member": "41586_2024_8507_MOESM4_ESM.xlsx",
+    "supplement_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-024-08507-5/MediaObjects/41586_2024_8507_MOESM4_ESM.xlsx",
+    "supplement_sha256": "c113c42b0773049fe7e3f6b983485d15cd00cb847c6fd5de532cea4c9715d0c1",
+    "worksheet": "sheet2",
+    "source_rows": 130,
+    "excluded_rows": 1,
+    "rows": 129,
+    "patients": 9,
+    "endpoint": "post-vaccination in-vitro peptide-stimulation IFN-gamma ELISpot",
+    "short_peptide_field": "Short_Epitope",
+    "hla_field": "HLA_of_best_short_epitope",
+    "patient_field": "Patient_ID",
+    "positive_rule": "source-reported individual-peptide p-value threshold; preserve continuous replicate values and source p-value",
+    "negative_rule": "not an untreated biological negative; row-level comparator is the matched no-stimulation control within the same assay",
+    "scope_boundary": "independent vaccine-elicited response domain; do not call untreated, natural presentation, clinical efficacy or intrinsic immunogenicity",
+    "eligibility_gate": [
+      "129 retained rows have patient ID, short epitope and HLA field; one source row has N/A short epitope/HLA and is excluded",
+      "all 129 retained rows have three peptide-stimulation and three no-stimulation replicates",
+      "predicted HLA semantics are retained explicitly",
+      "no untested enumerated candidates are converted into negatives"
+    ]
+  },
+  "prediction_policy": {
+    "status": "completed",
+    "eligible_tools": ["BigMHC v1.0", "PRIME 2.0", "DeepImmuno-CNN", "DeepHLApan"],
+    "exclude": ["MHCflurry from same-task primary because it is a presentation score"],
+    "primary": "patient-macro NDCG@5 on pairwise common prediction support",
+    "secondary": ["pooled AUROC", "average precision", "patient Recall@5", "coverage"],
+    "leakage": "apply known exact peptide-HLA union; unknown training identity remains unknown",
+    "reason_for_separate_protocol": "endpoint and treatment context differ from IMPROVE and Zhao",
+    "results": {
+      "BigMHC": {"predicted_rows": 128, "auroc": 0.476, "patient_ndcg5": 0.533},
+      "PRIME": {"predicted_rows": 128, "auroc": 0.580, "patient_ndcg5": 0.691},
+      "DeepHLApan": {"predicted_rows": 128, "auroc": 0.505, "patient_ndcg5": 0.614},
+      "DeepImmuno-CNN": {"predicted_rows": 51, "auroc": 0.472, "patient_ndcg5": 0.711}
+    },
+    "interpretation": "RCC is a small endpoint-distinct vaccine cohort; DeepImmuno-CNN has 39.5% coverage and all conclusions are descriptive, not universal model rankings."
+  }
+}

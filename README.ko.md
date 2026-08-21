@@ -2,6 +2,10 @@
 
 # NeoRepro
 
+> 🧪 **[외부 검토자와 예측기 개발자를 적극적으로 찾고 있습니다.](https://github.com/stevezkw1998/NeoRepro/issues/2)**
+>
+> 15–30분의 타당성 점검, 재현 시도, 데이터셋 제안 및 비판적 검토를 환영합니다.
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
 
 NeoRepro는 공개 MHC-I 펩타이드–HLA 신생항원 예측기를 위한 데이터 누출 인지형, 환자 수준, 재현 가능한 벤치마크 리소스입니다. 고정된 예측기 아티팩트, 레코드 수준 출처, 학습 데이터 중복 감사, 공통 평가 가능 집합 비교, 환자 수준 불확실성, 지원 범위를 맞춘 무작위 기준선 및 기계 생성 결과를 제공합니다.
@@ -13,6 +17,8 @@ NeoRepro는 공개 MHC-I 펩타이드–HLA 신생항원 예측기를 위한 데
 - **현재 원고:** [리소스 중심 원고](paper/manuscript_resource.md).
 - **간단한 증거 요약:** [중영 이중언어 전문가 요약](output/pdf/neorepro_expert_brief_bilingual.pdf)과 [독립 코호트 확장 요약](reports/extension_summary.md).
 - **고정 결과 재현:** 아래 재현 절의 명령을 사용하십시오.
+- **자체 예측기 벤치마크:** `neorepro benchmark predictions.csv --output-dir neorepro-results`를 실행하고 [표준 단일 파일 계약](contracts/README.md)을 참조하십시오.
+- **제3자 데이터셋 또는 예측기 추가:** [plug-in contract](contracts/README.md)를 참조하십시오.
 - **고정 버전 인용:** [CITATION.cff](CITATION.cff), [v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1)와 [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064)를 참조하십시오.
 
 과학적 연구 계약과 범위는 [RESEARCH_SPEC.md](RESEARCH_SPEC.md)를 참조하십시오.
@@ -20,10 +26,12 @@ NeoRepro는 공개 MHC-I 펩타이드–HLA 신생항원 예측기를 위한 데
 ## 상태
 
 - 최신 문헌 감사: 완료, 결정은 `RESCOPE, then GO`
-- 재현한 예측기: MHCflurry 2.2.1, BigMHC v1.0, PRIME 2.0, DeepImmuno-CNN, DeepHLApan
+- 벤치마크 예측기: MHCflurry 2.2.1, BigMHC v1.0, PRIME 2.0, DeepImmuno-CNN, DeepHLApan. 추가로 일곱 공개 도구의 프로필 전용, 비교 불가 또는 재현 실패 기록을 버전 관리
 - TESLA 파일럿: 완료, 학습 데이터 중복 양성 대조군으로 재분류
-- 주요 벤치마크: IMPROVE, 누출 필터링 후 17,475개 레코드, 70명 환자, 3개 코호트
+- 주요 벤치마크: IMPROVE, 누출 필터링 후 17,475개 레코드, 70명 환자, 세 개 코호트
 - 주요 IMPROVE 추론: 완료, 고정 도구 예측 52,425개, 누락 레코드 없음
+- 외부 도메인: Zhao 백신 코호트와 별도로 고정한 129개 레코드·9명 환자의 RCC 백신 코호트
+- 재사용 가능한 확장 인터페이스: 기계 검증된 Dataset Card, Predictor Card 및 예측 아티팩트 계약
 - 원고: [리소스 중심 버전](paper/manuscript_resource.md), 고정 결과 파일에서 생성, 독립 통계 및 생물학 검토 완료
 
 ## 주요 결과
@@ -46,7 +54,7 @@ make -j4 reproduce-results
 - **감사 가능한 출력:** [최종 결과표](results/final_results.csv), [그림](results/figures/), [학습 데이터 중복 감사](research/training_overlap_summary_improve.json), [SHA-256 매니페스트](results/manifest.json).
 - **투고 계획:** [대상 저널 전략](reports/target_venues_2026-08-20.md).
 
-독립 Zhao 2026 백신 코호트 확장은 `make -j4 extension`으로 재현할 수 있습니다. 간결한 증거 요약은 [reports/extension_summary.md](reports/extension_summary.md), 추론 전에 고정한 연구 계약은 [research/extension_protocol.json](research/extension_protocol.json)에 있습니다. 외부 종말점은 펩타이드 펄스 수지상세포 투여 후 백신 접종 뒤 ELISPOT이며, 자연 종양 제시나 임상 효능으로 해석해서는 안 됩니다.
+독립 Zhao 2026 백신 코호트 확장은 `make -j4 extension`으로 재현할 수 있습니다. 간결한 증거 요약은 [reports/extension_summary.md](reports/extension_summary.md), 추론 전에 고정한 연구 계약은 [research/extension_protocol.json](research/extension_protocol.json)에 있습니다. 별도로 고정한 RCC 확장은 [research/extension_protocol_rcc_v1.json](research/extension_protocol_rcc_v1.json), 세 도메인 탐색적 안정성 출력은 `results/analysis/stability/`에 있습니다. 두 외부 종말점 모두 백신 접종 후 측정이며 자연 종양 제시나 임상 효능으로 해석해서는 안 됩니다.
 
 ## 라이선스
 

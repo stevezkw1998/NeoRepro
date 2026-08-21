@@ -156,9 +156,9 @@
       "sha256": "1b2e9de3c7f7dfabc9c3241b7552db3cd8f7298e866a8f08ed2fe00a000b7635"
     },
     {
-      "bytes": 487,
+      "bytes": 507,
       "path": "reports/manuscript_resource_audit.json",
-      "sha256": "90836e1d37e0eeaab46a0ab3781bc8811877c4c514570015d1546875fd3cdcd0"
+      "sha256": "f3ecb57f6e562c5737aa5755fe2a42a0f2cafb304aa18b9e45c7f7c6d4e39a10"
     },
     {
       "bytes": 11059,
@@ -176,9 +176,9 @@
       "sha256": "54dc400f5e5970188b4822ae9253e17c3e2b18a463056a2e629f7f884e44589d"
     },
     {
-      "bytes": 889,
+      "bytes": 1314,
       "path": "reports/clean_reproduction.json",
-      "sha256": "7ff012366417a31a5136f85e7a3be6bcd9135a77545078d26938abb699b3c02d"
+      "sha256": "a5ec65a24bafd59a03d383d261c45f95cfaeea74c69770603307435aab96897b"
     },
     {
       "bytes": 3957,
@@ -216,14 +216,14 @@
       "sha256": "537cb1397a68c114f4e49db1dd07be57fcab435bc2849d342f55399b650ac18e"
     },
     {
-      "bytes": 28762,
+      "bytes": 32388,
       "path": "paper/manuscript_resource.md",
-      "sha256": "14e5b9707bc9e674ae9786d9cfee76af78a8228a1952838e213d903b1f8bbed4"
+      "sha256": "478a604932072c91b847672417a325ba34a7ca5f42072ae7900e16f1e119e347"
     },
     {
-      "bytes": 4697,
+      "bytes": 5021,
       "path": "paper/references.bib",
-      "sha256": "5d883804d7d2be339135d8b3aa9efe2f4798ecadf4405a25b6318848c210216a"
+      "sha256": "272e420b33156882a5c53fed86b7c1eb22bdb7d29da916967fbc68f0f60266c1"
     },
     {
       "bytes": 5320,
@@ -236,9 +236,9 @@
       "sha256": "3bc706c7b062876fcdec8c1fb12c788baacb2302ed4eb4beef67961ded4ac792"
     },
     {
-      "bytes": 7407,
+      "bytes": 8573,
       "path": "FINAL_REPORT.md",
-      "sha256": "1caaadde6d784865bdd1ad2c659904f806f62d025e3b31c8e648f952c90ad6e7"
+      "sha256": "cbbb3e4b04a105c19d3ca3bce1cd3bf434a0a57ceaff4c1e25a7dd426f6523fc"
     },
     {
       "bytes": 1239894,
@@ -369,6 +369,181 @@
       "bytes": 288,
       "path": "reports/extension_clean_reproduction.json",
       "sha256": "f60acbb3d208c6971bf129be0c5d7be39dd2784147918005ff794b2ead558fa7"
+    },
+    {
+      "bytes": 49526,
+      "path": "data/processed/rcc_vaccine_benchmark.csv",
+      "sha256": "1697b5808a05836995fbc8e8167d3516187f4184367fa7e1c2564b4701f6b3f8"
+    },
+    {
+      "bytes": 49526,
+      "path": "data/processed/rcc_vaccine_benchmark_full.csv",
+      "sha256": "1697b5808a05836995fbc8e8167d3516187f4184367fa7e1c2564b4701f6b3f8"
+    },
+    {
+      "bytes": 288,
+      "path": "data/rcc_vaccine_summary.json",
+      "sha256": "ff829adc508c37ca50fe06d5ddf7505c51373f837dcd8f06770bebad85eb0977"
+    },
+    {
+      "bytes": 2861,
+      "path": "research/extension_protocol_rcc_v1.json",
+      "sha256": "fa3e89478b91e03500f1ad65327fe1a803624ea5ae88e782a1b466932fd2b399"
+    },
+    {
+      "bytes": 12340,
+      "path": "research/training_overlap_audit_rcc.csv",
+      "sha256": "4381cd1b1a2b3061a8e26bb4d7deec8ff4606eb115e6c2ade4d3787051cbdb53"
+    },
+    {
+      "bytes": 1070,
+      "path": "research/training_overlap_summary_rcc.json",
+      "sha256": "f8315e6c6115fbbd01fdb276d9bdbb68f7d9911c6da89a77c6e037ac7da42721"
+    },
+    {
+      "bytes": 13826,
+      "path": "results/raw_predictions/rcc/bigmhc-v1.0.csv",
+      "sha256": "1b16e7bf545032a9763a9c899190775dddf24ea19378d8763899663a460f8dd5"
+    },
+    {
+      "bytes": 12737,
+      "path": "results/raw_predictions/rcc/prime-2.0.csv",
+      "sha256": "68ed9f4f7a928964ccbab018d315e0e3ff9315d1b5c5a80665c30dee9a861140"
+    },
+    {
+      "bytes": 13004,
+      "path": "results/raw_predictions/rcc/deepimmuno-cnn.csv",
+      "sha256": "be8fdb1f4efff6ef3159971a46f58513e8cc90d2d2f5737494aa14871700ad1e"
+    },
+    {
+      "bytes": 15155,
+      "path": "results/raw_predictions/rcc/deephlapan-1.1.1.csv",
+      "sha256": "4d084a12522852fbdfe3bcbe9b64a8477f496b2073e6f8fc95943bfd18b3e4d4"
+    },
+    {
+      "bytes": 5035,
+      "path": "reports/rcc_predictor_run.json",
+      "sha256": "c5efc343344eff9f5c962f8d7834c7f3c0c686bcc669eaaf87617b44f0da3b00"
+    },
+    {
+      "bytes": 82938,
+      "path": "results/analysis/rcc/metrics.json",
+      "sha256": "6da6a361e1f7bf5596e88820cb2c2c00d549e3152579f30e217da446e2daf859"
+    },
+    {
+      "bytes": 266,
+      "path": "results/analysis/rcc/missingness.csv",
+      "sha256": "75b876d69948ea61012702b39a0382bed0a4b41ed40890c4985a0827a14a1d33"
+    },
+    {
+      "bytes": 11450,
+      "path": "results/analysis/rcc/paired_differences.csv",
+      "sha256": "cc67f00b4b278f0614bcac1b2b4ef9513ecc6abbb144bce1d44696e309885449"
+    },
+    {
+      "bytes": 1402,
+      "path": "results/analysis/stability/analysis_metadata.json",
+      "sha256": "a09048edd10e12ae98583d304f2f21c960f222a42ed6ca46f4089c43c6b46e3e"
+    },
+    {
+      "bytes": 4538,
+      "path": "results/analysis/stability/dataset_predictor_metric_matrix.csv",
+      "sha256": "f8828927ff5b5aac296ad562145d95bc2dc50768478c512771f8044a80b6c0bb"
+    },
+    {
+      "bytes": 8609,
+      "path": "results/analysis/stability/rank_stability.csv",
+      "sha256": "5c8b4b111f938788827184399f3fd063033fde55c33f8d22c1f9683bdbba2101"
+    },
+    {
+      "bytes": 760,
+      "path": "results/analysis/stability/model_selection_first_probability.csv",
+      "sha256": "0ab7bae116a8a227aa079b35bafc1a17bc691cd121547c75f2975d176f028c14"
+    },
+    {
+      "bytes": 1463,
+      "path": "results/analysis/stability/sensitivity_summary.csv",
+      "sha256": "96ec210d87df0fae602a35da0e2a9cdcd7554ad7aa8de9059d685525de20a8a4"
+    },
+    {
+      "bytes": 1913,
+      "path": "results/analysis/stability/leave_one_domain_out.csv",
+      "sha256": "d35e7c8f98211daa299761df8a9cafdbd68528fae5d50252c55a25017a7cac7b"
+    },
+    {
+      "bytes": 375,
+      "path": "results/analysis/stability/endpoint_domain_metadata.csv",
+      "sha256": "bb381081a5abc3cf45265d73aa812675fd2d7eac8319560eee4e7f918d1f0170"
+    },
+    {
+      "bytes": 3655,
+      "path": "results/analysis/stability/endpoint_domain_auroc.svg",
+      "sha256": "8f9875a1ff7b0e75be13cd4c31e7623a1d4d14bd45481a8b2dad85e2abffb9ab"
+    },
+    {
+      "bytes": 91312,
+      "path": "results/analysis/stability/endpoint_domain_auroc.png",
+      "sha256": "327fcd4d215d48f18832cf77959e125fc2d2f64490a80bd86cf3c9dd316c956b"
+    },
+    {
+      "bytes": 348,
+      "path": "contracts/dataset-card.example.json",
+      "sha256": "4c3abe7cd9c09d8560df1b7c2530461fec81645442917c50969b0bed379c9c67"
+    },
+    {
+      "bytes": 360,
+      "path": "contracts/predictor-card.example.json",
+      "sha256": "f2f0c6e1490f622e45b4c1b2e04076f0836632cf6aff08c92c70044be045a7cd"
+    },
+    {
+      "bytes": 575,
+      "path": "contracts/prediction-artifact.schema.json",
+      "sha256": "ed38da54c4fc933ca616d3d88c57e894b97c6dc079962e542f6d5eae5ba32cbe"
+    },
+    {
+      "bytes": 153,
+      "path": "contracts/synthetic/benchmark.csv",
+      "sha256": "06696235cd66940fe2bc88b15a1fb37cc5d085331ff652a1e393fde53b9cb310"
+    },
+    {
+      "bytes": 283,
+      "path": "contracts/synthetic/predictions.csv",
+      "sha256": "ed054ea5f4da890ad676049d297eddc0243375de392a59594655ea24c56db858"
+    },
+    {
+      "bytes": 321,
+      "path": "predictors/mhcmatch/attempts/sweep_receipt.json",
+      "sha256": "98b8977360a1a9f1fe031edf02692a7bbdf4c966c87cd7060d9528843126d575"
+    },
+    {
+      "bytes": 321,
+      "path": "predictors/mhcnuggets/attempts/sweep_receipt.json",
+      "sha256": "f330557e0a8b5c092b4ab06bc18062233ae9c832021ff7419fde61b5d95d34ff"
+    },
+    {
+      "bytes": 322,
+      "path": "predictors/neofox/attempts/sweep_receipt.json",
+      "sha256": "820962cf5c57c19542e89f45a34135ef414c186a9b5cfcf58894b3a6c0e64073"
+    },
+    {
+      "bytes": 325,
+      "path": "predictors/neoguider/attempts/sweep_receipt.json",
+      "sha256": "5fee464b36230c75e18e02655dfa7dba45cca11a8c7062baf33201fb86cef123"
+    },
+    {
+      "bytes": 344,
+      "path": "predictors/pvactools/attempts/sweep_receipt.json",
+      "sha256": "fdd6e350bdd290a5bd6d92a0d4c88e12203e185d96910f7c5cf0d2764361b18d"
+    },
+    {
+      "bytes": 315,
+      "path": "predictors/seq2neo/attempts/sweep_receipt.json",
+      "sha256": "9e65865499af2e52047fa59bbac63a68484a5ef4cd5e65b3b6dbe68671bf26c7"
+    },
+    {
+      "bytes": 312,
+      "path": "predictors/vaxrank/attempts/sweep_receipt.json",
+      "sha256": "8cb0d6206ce785f351b09acff12d0676462744653a48856608bc183a773d9365"
     }
   ],
   "benchmark": {
@@ -379,12 +554,12 @@
     "studies": 3
   },
   "clean_reproduction": {
-    "command": "make -j4 reproduce-results",
-    "completed_at": "2026-08-20T12:29:54Z",
-    "elapsed_seconds": 734,
+    "command": "make -C /tmp/neorepro-release-hcLY3g -j4 reproduce-results",
+    "completed_at": "2026-08-21T07:53:30Z",
     "expected_manifest_change": {
-      "project_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
-      "project_worktree_clean": true
+      "project_commit": "5ff644dd210f7f672ec5ad25b4e64a0c5c6e28f1",
+      "project_worktree_clean": false,
+      "reason": "the manifest is generated before the reproduction's final test step"
     },
     "initial_worktree_clean": true,
     "returncode": 0,
@@ -396,14 +571,18 @@
       "scipy": "1.17.1"
     },
     "schema_version": "1.0",
-    "source_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
-    "started_at": "2026-08-20T12:17:40Z",
+    "source_commit": "5ff644dd210f7f672ec5ad25b4e64a0c5c6e28f1",
     "verification": {
-      "byte_stable_tracked_artifacts": true,
-      "maximum_metric_absolute_error": 1.1102230246251565e-16,
-      "metric_validation": "24 checks passed at tolerance 1e-12",
-      "post_run_changed_files_excluding_manifest": [],
-      "pytest": "27 passed",
+      "generated_outputs_promoted_from_clean_clone": true,
+      "manuscript_audit": "pass; 12 citations resolved; no placeholders or forbidden overclaims",
+      "maximum_metric_absolute_error": 2.220446049250313e-16,
+      "metric_validation": "34 checks passed at tolerance 1e-12",
+      "post_run_findings": [
+        "legacy generated CSV files used CRLF and were normalized to the writer's declared LF output",
+        "RCC metrics contained invocation-dependent absolute paths and were replaced by clean-clone relative paths"
+      ],
+      "pytest": "49 passed",
+      "release_boundary": "pass; 413 tracked files; zero violations",
       "ruff": "pass"
     }
   },
@@ -434,7 +613,7 @@
     "MHCflurry": "2.2.1",
     "PRIME": "2.0"
   },
-  "project_commit": "9fa3acb763c8c22e94653fa54162d24c3a55bbe0",
+  "project_commit": "d8710676d758a51701121c6ab04c32183c8ac553",
   "project_worktree_clean": false,
   "schema_version": "1.0"
 }

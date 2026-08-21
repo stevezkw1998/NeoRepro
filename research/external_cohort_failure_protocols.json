@@ -1,0 +1,72 @@
+{
+  "protocol_id": "neorepro-external-cohort-funnel-v1",
+  "created_at": "2026-08-20",
+  "status": "screening_complete_rcc_frozen_evx_failed",
+  "hard_gate": "Do not convert enumerated, untested, unreported, or merely computational candidates into experimental negatives.",
+  "screening_rule": [
+    "Every retained row must be an individually assayed short peptide observation or a source-grounded explicit negative.",
+    "Patient identity, peptide, HLA and source study/cohort must be recoverable without guessing.",
+    "Treatment or vaccination context is recorded and cannot be relabeled untreated/natural presentation.",
+    "Training-set status is audited separately; unknown is not absence of overlap.",
+    "A source with incomplete evidence is pending, not eligible."
+  ],
+  "failures": [
+    {
+      "candidate_id": "nci_mmp_2021",
+      "failure_code": "UNTESTED_ENUMERATED_CANDIDATES",
+      "evidence_url": "https://ndownloader.figshare.com/files/26040944",
+      "reason": "The archive enumerates short candidates derived from screened parent mutations, but does not establish individual testing for each short peptide-HLA row. Unknown rows cannot be labeled pMHC negatives.",
+      "action": "Preserve research/extension_protocol_v1_nci_failed.json; no prediction run."
+    },
+    {
+      "candidate_id": "gbm_neovax_2025",
+      "failure_code": "NO_VERIFIED_COMPLETE_PEPTIDE_HLA_TABLE",
+      "evidence_url": "https://aacr.figshare.com/articles/dataset/Supplementary_Table_S5_from_Integrating_Multisector_Molecular_Characterization_into_Personalized_Peptide_Vaccine_Design_for_Patients_with_Newly_Diagnosed_Glioblastoma/29071987",
+      "reason": "Located public artifact is TCR-sequence data and does not itself verify complete patient-peptide-HLA experimental negatives.",
+      "action": "Do not download or infer missing rows; retain as failed until a source-grounded row-level table is found."
+    },
+    {
+      "candidate_id": "melanoma_personal_2021",
+      "failure_code": "RESTRICTED_AND_ENDPOINT_INCOMPLETE",
+      "evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8273876/",
+      "reason": "Public supplements emphasize selected vaccine responses and the article states some patient-related data are subject to confidentiality/MTA; complete class-I patient-peptide-HLA experimental-negative rows are not established.",
+      "action": "Exclude from benchmark; do not treat unreported peptides as negatives."
+    },
+    {
+      "candidate_id": "nepdb_2021",
+      "failure_code": "PROVENANCE_AND_TRAINING_UNCERTAIN",
+      "evidence_url": "https://doi.org/10.3389/fimmu.2021.644637",
+      "reason": "A curated database is not automatically a reconstructable patient-grouped cohort; patient IDs, assay denominators, cohort boundaries and training overlap are not verified at row level.",
+      "action": "Use only for discovery/provenance cross-checking, not as an external cohort."
+    },
+    {
+      "candidate_id": "tesla_2020",
+      "failure_code": "KNOWN_TRAINING_OVERLAP",
+      "evidence_url": "https://doi.org/10.1016/j.cell.2020.09.015",
+      "reason": "The local audit found all 520 pilot rows exact peptide-HLA matches in official PRIME2 training and concordant with the published BigMHC immunogenicity construction.",
+      "action": "Retain only as leakage-positive control; no external-validity claim."
+    },
+    {
+      "candidate_id": "itsndb_2023",
+      "failure_code": "PATIENT_AND_NEGATIVE_SEMANTICS_NOT_VERIFIED",
+      "evidence_url": "https://doi.org/10.3389/fimmu.2023.1094236",
+      "reason": "The public description mixes curated neoantigens with simulated prioritization scenarios; a complete patient-linked, individually tested negative table is not established.",
+      "action": "Do not promote to candidate without source-table audit."
+    },
+    {
+      "candidate_id": "evx01_2024",
+      "failure_code": "NO_COMPLETE_SHORT_PEPTIDE_HLA_NEGATIVE_TABLE",
+      "evidence_url": "https://jitc.bmj.com/content/12/5/e008817",
+      "reason": "The study reports individual restimulation of long vaccine peptides, but the public evidence does not provide a complete short-peptide-HLA row table with experimentally defined pMHC negatives; irrelevant-peptide background is not equivalent to a source-grounded pMHC negative cohort.",
+      "action": "Exclude from benchmark and preserve the source-level failure."
+    }
+  ],
+  "pending": [],
+  "eligible_after_member_audit": [
+    {
+      "candidate_id": "rcc_pcv_2025",
+      "protocol": "research/extension_protocol_rcc_v1.json",
+      "member_sha256": "c113c42b0773049fe7e3f6b983485d15cd00cb847c6fd5de532cea4c9715d0c1"
+    }
+  ]
+}

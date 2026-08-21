@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+export PYTHONUTF8=1
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+python3 scripts/readme_i18n.py check
+uv run pytest -q

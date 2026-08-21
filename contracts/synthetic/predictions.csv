@@ -1,0 +1,5 @@
+record_id,predictor,predictor_version,task,score,score_direction,status
+s1,synthetic,1.0,immunogenicity,0.9,higher,predicted
+s2,synthetic,1.0,immunogenicity,0.1,higher,predicted
+s3,synthetic,1.0,immunogenicity,0.8,higher,predicted
+s4,synthetic,1.0,immunogenicity,,higher,unsupported

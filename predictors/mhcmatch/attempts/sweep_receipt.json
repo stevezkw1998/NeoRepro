@@ -1,0 +1,12 @@
+{
+  "predictor": "mhcmatch",
+  "revision": "956bdb613fdb1e128cbd7d59fabb9b47ef1aaae9",
+  "repo": "https://github.com/antigenomics/mhcmatch.git",
+  "install_returncode": 0,
+  "smoke_returncode": 125,
+  "license_files": [
+    "LICENSE"
+  ],
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "benchmark_track": "profile_only"
+}

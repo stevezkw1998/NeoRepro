@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NeoRepro Prediction Artifact",
+  "type": "object",
+  "required": ["record_id", "predictor", "predictor_version", "task", "score", "score_direction", "status"],
+  "properties": {
+    "record_id": {"type": "string"}, "predictor": {"type": "string"}, "predictor_version": {"type": "string"},
+    "task": {"type": "string"}, "score": {"type": ["number", "string", "null"]},
+    "score_direction": {"enum": ["higher", "lower"]}, "status": {"enum": ["predicted", "unsupported", "failed", "invalid"]}
+  }
+}

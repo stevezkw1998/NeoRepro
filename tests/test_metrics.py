@@ -2,7 +2,12 @@ import math
 
 import pytest
 
-from neorepro.metrics import auroc, average_precision, ranking_metrics
+from neorepro.metrics import (
+    auroc,
+    average_precision,
+    ranking_metrics,
+    tie_aware_ranking_metrics,
+)
 
 
 def test_perfect_pooled_ranking() -> None:
@@ -33,3 +38,10 @@ def test_patient_top_k_uses_available_candidates() -> None:
 def test_ranking_requires_positive_patient() -> None:
     with pytest.raises(ValueError, match="positive-bearing"):
         ranking_metrics([0, 0], [5])
+
+
+def test_tie_aware_ranking_uses_expected_ordering() -> None:
+    result = tie_aware_ranking_metrics([1, 0], [0.5, 0.5], [1])
+    assert result["recall@1"] == pytest.approx(0.5)
+    assert result["hitrate@1"] == pytest.approx(0.5)
+    assert result["mrr"] == pytest.approx(0.75)

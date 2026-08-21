@@ -1,0 +1,13 @@
+dataset,metric,predictor,probability_first,task
+improve_benchmark,Recall@5,BigMHC,0.0815,immunogenicity
+improve_benchmark,Recall@5,PRIME,0.9185,immunogenicity
+improve_benchmark,Recall@5,MHCflurry,1.0,presentation
+zhao_vaccine_benchmark,Recall@5,BigMHC,0.001,immunogenicity
+zhao_vaccine_benchmark,Recall@5,DeepHLApan,0.0,immunogenicity
+zhao_vaccine_benchmark,Recall@5,DeepImmuno-CNN,0.999,immunogenicity
+zhao_vaccine_benchmark,Recall@5,PRIME,0.0,immunogenicity
+zhao_vaccine_benchmark,Recall@5,MHCflurry,1.0,presentation
+rcc_vaccine_benchmark,Recall@5,BigMHC,0.0,immunogenicity
+rcc_vaccine_benchmark,Recall@5,DeepHLApan,0.0,immunogenicity
+rcc_vaccine_benchmark,Recall@5,DeepImmuno-CNN,0.99,immunogenicity
+rcc_vaccine_benchmark,Recall@5,PRIME,0.01,immunogenicity

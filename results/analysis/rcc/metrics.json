@@ -1,0 +1,2911 @@
+{
+  "benchmark": "data/processed/rcc_vaccine_benchmark.csv",
+  "common_support": [
+    {
+      "left": "BigMHC",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "task": "immunogenicity"
+    },
+    {
+      "left": "BigMHC",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "task": "immunogenicity"
+    },
+    {
+      "left": "BigMHC",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "task": "immunogenicity"
+    },
+    {
+      "left": "DeepHLApan",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "task": "immunogenicity"
+    },
+    {
+      "left": "DeepHLApan",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "task": "immunogenicity"
+    },
+    {
+      "left": "DeepImmuno-CNN",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "task": "immunogenicity"
+    }
+  ],
+  "config": {
+    "bootstrap": 2000,
+    "ks": [
+      5,
+      10,
+      20
+    ],
+    "seed": 20260820
+  },
+  "metrics": {
+    "BigMHC": {
+      "hla": {
+        "HLA-A*01:01": {
+          "auroc": 0.5555555555555556,
+          "average_precision": 0.9467813051146384,
+          "brier": 0.7766608713597656,
+          "n": 10,
+          "positives": 9
+        },
+        "HLA-A*02:01": {
+          "auroc": 0.8055555555555556,
+          "average_precision": 0.5888888888888888,
+          "brier": 0.17650530414755602,
+          "n": 9,
+          "positives": 3
+        },
+        "HLA-A*03:01": {
+          "auroc": 0.6666666666666666,
+          "average_precision": 0.75,
+          "brier": 0.2554600718003685,
+          "n": 5,
+          "positives": 2
+        },
+        "HLA-A*25:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 5.337579490387601e-05,
+          "n": 1,
+          "positives": 0
+        },
+        "HLA-A*30:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 0.009819210166266542,
+          "n": 3,
+          "positives": 0
+        },
+        "HLA-A*31:01": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.4452767978083257,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-A*32:01": {
+          "auroc": 0.0,
+          "average_precision": 0.5833333333333333,
+          "brier": 0.6360571360656988,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-A*66:01": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.4588287991777727,
+          "n": 4,
+          "positives": 2
+        },
+        "HLA-B*07:02": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.27139674555417276,
+          "n": 4,
+          "positives": 2
+        },
+        "HLA-B*08:01": {
+          "auroc": 0.5333333333333333,
+          "average_precision": 0.7250000000000001,
+          "brier": 0.32692333515866856,
+          "n": 8,
+          "positives": 5
+        },
+        "HLA-B*13:02": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.13057078448859577,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-B*18:01": {
+          "auroc": 0.25,
+          "average_precision": 0.5833333333333333,
+          "brier": 0.5087623762373769,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-B*27:05": {
+          "auroc": 0.5,
+          "average_precision": 0.5381944444444444,
+          "brier": 0.2843966461375668,
+          "n": 10,
+          "positives": 4
+        },
+        "HLA-B*27:06": {
+          "auroc": null,
+          "average_precision": 1.0,
+          "brier": 0.9825847383470074,
+          "n": 1,
+          "positives": 1
+        },
+        "HLA-B*35:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 0.039145639455604904,
+          "n": 1,
+          "positives": 0
+        },
+        "HLA-B*35:03": {
+          "auroc": 0.0,
+          "average_precision": 0.3333333333333333,
+          "brier": 0.3219427027809941,
+          "n": 3,
+          "positives": 1
+        },
+        "HLA-B*38:01": {
+          "auroc": 0.0,
+          "average_precision": 0.5,
+          "brier": 0.39194105610017,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-B*40:01": {
+          "auroc": 0.4666666666666667,
+          "average_precision": 0.7226190476190477,
+          "brier": 0.4048368493871514,
+          "n": 8,
+          "positives": 5
+        },
+        "HLA-B*44:02": {
+          "auroc": 0.5125,
+          "average_precision": 0.6842147435897434,
+          "brier": 0.5705962359098319,
+          "n": 13,
+          "positives": 8
+        },
+        "HLA-B*55:01": {
+          "auroc": null,
+          "average_precision": 1.0,
+          "brier": 0.9723301576064242,
+          "n": 3,
+          "positives": 3
+        },
+        "HLA-B*57:01": {
+          "auroc": 0.5,
+          "average_precision": 0.6666666666666666,
+          "brier": 0.25555068008958337,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-C*03:03": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.50740073893866,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-C*05:01": {
+          "auroc": 0.0,
+          "average_precision": 0.6388888888888888,
+          "brier": 0.6178133595147751,
+          "n": 4,
+          "positives": 3
+        },
+        "HLA-C*06:02": {
+          "auroc": 0.5,
+          "average_precision": 0.8875,
+          "brier": 0.6729075510492147,
+          "n": 5,
+          "positives": 4
+        },
+        "HLA-C*07:01": {
+          "auroc": 0.32857142857142857,
+          "average_precision": 0.5365388579674294,
+          "brier": 0.4838775810121097,
+          "n": 12,
+          "positives": 7
+        },
+        "HLA-C*07:02": {
+          "auroc": 0.3333333333333333,
+          "average_precision": 0.8055555555555556,
+          "brier": 0.38905007015972415,
+          "n": 4,
+          "positives": 3
+        },
+        "HLA-C*12:03": {
+          "auroc": null,
+          "average_precision": 1.0,
+          "brier": 0.9803353164996088,
+          "n": 2,
+          "positives": 2
+        }
+      },
+      "metadata": {
+        "score_direction": "higher",
+        "source": "results/raw_predictions/rcc/bigmhc-v1.0.csv",
+        "task": "immunogenicity",
+        "version": "v1.0"
+      },
+      "patient": {
+        "hitrate@10": 1.0,
+        "hitrate@20": 1.0,
+        "hitrate@5": 1.0,
+        "mrr": 0.6518518518518518,
+        "ndcg@10": 0.6312873089172458,
+        "ndcg@20": 0.7738604771130371,
+        "ndcg@5": 0.5325765609825637,
+        "positive_bearing_patients": 9,
+        "precision@10": 0.5611111111111111,
+        "precision@20": 0.5646005983467284,
+        "precision@5": 0.5333333333333333,
+        "recall@10": 0.7159050825717492,
+        "recall@20": 1.0,
+        "recall@5": 0.35287798621131955
+      },
+      "patient_bootstrap_95ci": {
+        "auroc": {
+          "high": 0.5535088711420252,
+          "low": 0.39938211912672045
+        },
+        "average_precision": {
+          "high": 0.673066296054345,
+          "low": 0.49899434265684595
+        },
+        "hitrate@10": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "hitrate@20": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "hitrate@5": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "mrr": {
+          "high": 0.837037037037037,
+          "low": 0.45365740740740734
+        },
+        "ndcg@10": {
+          "high": 0.7275479609299087,
+          "low": 0.5328394305376711
+        },
+        "ndcg@20": {
+          "high": 0.8561682035271525,
+          "low": 0.6647997182152893
+        },
+        "ndcg@5": {
+          "high": 0.6403384470711495,
+          "low": 0.4175916065340972
+        },
+        "precision@10": {
+          "high": 0.6666666666666666,
+          "low": 0.45
+        },
+        "precision@20": {
+          "high": 0.6469078556462458,
+          "low": 0.4669648367055487
+        },
+        "precision@5": {
+          "high": 0.6444444444444445,
+          "low": 0.4222222222222222
+        },
+        "recall@10": {
+          "high": 0.8320025653358986,
+          "low": 0.6028407086740422
+        },
+        "recall@20": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "recall@5": {
+          "high": 0.4365211640211639,
+          "low": 0.28138327721661055
+        }
+      },
+      "patient_values": {
+        "RCC-101": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.8333333333333333,
+          "ndcg@10": 0.8762995389962467,
+          "ndcg@20": 0.8762995389962467,
+          "ndcg@5": 0.7590911424516827,
+          "precision@10": 0.7,
+          "precision@20": 0.6363636363636364,
+          "precision@5": 0.8,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 0.5714285714285714
+        },
+        "RCC-102": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.2,
+          "ndcg@10": 0.430624116386567,
+          "ndcg@20": 0.430624116386567,
+          "ndcg@5": 0.23719771276929622,
+          "precision@10": 0.25,
+          "precision@20": 0.25,
+          "precision@5": 0.2,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 0.5
+        },
+        "RCC-104": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.6395647163312485,
+          "ndcg@20": 0.8837407779997417,
+          "ndcg@5": 0.7227265726449519,
+          "precision@10": 0.5,
+          "precision@20": 0.5294117647058824,
+          "precision@5": 0.6,
+          "recall@10": 0.5555555555555556,
+          "recall@20": 1.0,
+          "recall@5": 0.3333333333333333
+        },
+        "RCC-105": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.41666666666666663,
+          "ndcg@10": 0.5918332819916706,
+          "ndcg@20": 0.7898052753909603,
+          "ndcg@5": 0.46905661104071605,
+          "precision@10": 0.7,
+          "precision@20": 0.7368421052631579,
+          "precision@5": 0.6,
+          "recall@10": 0.5,
+          "recall@20": 1.0,
+          "recall@5": 0.21428571428571427
+        },
+        "RCC-106": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.47534276898500794,
+          "ndcg@20": 0.7203074868223487,
+          "ndcg@5": 0.36005461457723403,
+          "precision@10": 0.5,
+          "precision@20": 0.5625,
+          "precision@5": 0.4,
+          "recall@10": 0.5555555555555556,
+          "recall@20": 1.0,
+          "recall@5": 0.2222222222222222
+        },
+        "RCC-107": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.7729548681688855,
+          "ndcg@20": 0.8573636767513856,
+          "ndcg@5": 0.5531464700081437,
+          "precision@10": 0.5,
+          "precision@20": 0.5454545454545454,
+          "precision@5": 0.4,
+          "recall@10": 0.8333333333333334,
+          "recall@20": 1.0,
+          "recall@5": 0.3333333333333333
+        },
+        "RCC-108": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.41666666666666663,
+          "ndcg@10": 0.46289840701360524,
+          "ndcg@20": 0.6780957041773528,
+          "ndcg@5": 0.46905661104071605,
+          "precision@10": 0.4,
+          "precision@20": 0.4666666666666667,
+          "precision@5": 0.6,
+          "recall@10": 0.5714285714285714,
+          "recall@20": 1.0,
+          "recall@5": 0.42857142857142855
+        },
+        "RCC-109": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6832491119818491,
+          "ndcg@20": 0.807381612705331,
+          "ndcg@5": 0.5118886180624318,
+          "precision@10": 0.8,
+          "precision@20": 0.6875,
+          "precision@5": 0.6,
+          "recall@10": 0.7272727272727273,
+          "recall@20": 1.0,
+          "recall@5": 0.2727272727272727
+        },
+        "RCC-110": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.7488189704001319,
+          "ndcg@20": 0.9211261047873995,
+          "ndcg@5": 0.710970696247901,
+          "precision@10": 0.7,
+          "precision@20": 0.6666666666666666,
+          "precision@5": 0.6,
+          "recall@10": 0.7,
+          "recall@20": 1.0,
+          "recall@5": 0.3
+        }
+      },
+      "pooled": {
+        "auroc": 0.4759748427672956,
+        "average_precision": 0.5856631462955934,
+        "brier": 0.44860391491063,
+        "n": 128,
+        "positives": 75
+      },
+      "study": {
+        "RCC_PCV_VACCINE_2025": {
+          "auroc": 0.4759748427672956,
+          "average_precision": 0.5856631462955934,
+          "brier": 0.44860391491063,
+          "n": 128,
+          "positives": 75
+        }
+      }
+    },
+    "DeepHLApan": {
+      "hla": {
+        "HLA-A*01:01": {
+          "auroc": 0.5555555555555556,
+          "average_precision": 0.9467813051146384,
+          "brier": 0.6350796566107824,
+          "n": 10,
+          "positives": 9
+        },
+        "HLA-A*02:01": {
+          "auroc": 0.5277777777777778,
+          "average_precision": 0.425,
+          "brier": 0.30187009644184803,
+          "n": 9,
+          "positives": 3
+        },
+        "HLA-A*03:01": {
+          "auroc": 0.8333333333333334,
+          "average_precision": 0.8333333333333333,
+          "brier": 0.21866561025884895,
+          "n": 5,
+          "positives": 2
+        },
+        "HLA-A*25:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 0.5919859914807039,
+          "n": 1,
+          "positives": 0
+        },
+        "HLA-A*30:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 0.6518509783239685,
+          "n": 3,
+          "positives": 0
+        },
+        "HLA-A*31:01": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.22453314818114337,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-A*32:01": {
+          "auroc": 0.5,
+          "average_precision": 0.8333333333333333,
+          "brier": 0.29385490350386284,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-A*66:01": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.2637184827870923,
+          "n": 4,
+          "positives": 2
+        },
+        "HLA-B*07:02": {
+          "auroc": 0.75,
+          "average_precision": 0.8333333333333333,
+          "brier": 0.24624852418541207,
+          "n": 4,
+          "positives": 2
+        },
+        "HLA-B*08:01": {
+          "auroc": 0.4666666666666667,
+          "average_precision": 0.6983333333333334,
+          "brier": 0.3105990778488774,
+          "n": 8,
+          "positives": 5
+        },
+        "HLA-B*13:02": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.409583986666841,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-B*18:01": {
+          "auroc": 0.25,
+          "average_precision": 0.5833333333333333,
+          "brier": 0.30231696703191596,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-B*27:05": {
+          "auroc": 0.6666666666666666,
+          "average_precision": 0.6011904761904762,
+          "brier": 0.36036220595666985,
+          "n": 10,
+          "positives": 4
+        },
+        "HLA-B*27:06": {
+          "auroc": null,
+          "average_precision": 1.0,
+          "brier": 0.18737445074360148,
+          "n": 1,
+          "positives": 1
+        },
+        "HLA-B*35:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 0.5986074455543146,
+          "n": 1,
+          "positives": 0
+        },
+        "HLA-B*35:03": {
+          "auroc": 0.0,
+          "average_precision": 0.3333333333333333,
+          "brier": 0.647851957956463,
+          "n": 3,
+          "positives": 1
+        },
+        "HLA-B*38:01": {
+          "auroc": 0.0,
+          "average_precision": 0.5,
+          "brier": 0.47431751632294605,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-B*40:01": {
+          "auroc": 0.2,
+          "average_precision": 0.5392857142857144,
+          "brier": 0.503263362761755,
+          "n": 8,
+          "positives": 5
+        },
+        "HLA-B*44:02": {
+          "auroc": 0.7625,
+          "average_precision": 0.8607954545454546,
+          "brier": 0.29576446274958446,
+          "n": 13,
+          "positives": 8
+        },
+        "HLA-B*55:01": {
+          "auroc": null,
+          "average_precision": 1.0,
+          "brier": 0.9321453855555113,
+          "n": 3,
+          "positives": 3
+        },
+        "HLA-B*57:01": {
+          "auroc": 0.5,
+          "average_precision": 0.6666666666666666,
+          "brier": 0.30637106710129497,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-C*03:03": {
+          "auroc": 0.0,
+          "average_precision": 0.5833333333333333,
+          "brier": 0.3276111573648398,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-C*05:01": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.22813751061878165,
+          "n": 4,
+          "positives": 3
+        },
+        "HLA-C*06:02": {
+          "auroc": 0.5,
+          "average_precision": 0.8875,
+          "brier": 0.19676999380006047,
+          "n": 5,
+          "positives": 4
+        },
+        "HLA-C*07:01": {
+          "auroc": 0.4714285714285714,
+          "average_precision": 0.6553030303030304,
+          "brier": 0.2791138986130422,
+          "n": 12,
+          "positives": 7
+        },
+        "HLA-C*07:02": {
+          "auroc": 0.6666666666666666,
+          "average_precision": 0.9166666666666666,
+          "brier": 0.23313610190493347,
+          "n": 4,
+          "positives": 3
+        },
+        "HLA-C*12:03": {
+          "auroc": null,
+          "average_precision": 1.0,
+          "brier": 0.0001787875426514692,
+          "n": 2,
+          "positives": 2
+        }
+      },
+      "metadata": {
+        "score_direction": "higher",
+        "source": "results/raw_predictions/rcc/deephlapan-1.1.1.csv",
+        "task": "immunogenicity",
+        "version": "1.1.1@ac1f4beb"
+      },
+      "patient": {
+        "hitrate@10": 1.0,
+        "hitrate@20": 1.0,
+        "hitrate@5": 0.8888888888888888,
+        "mrr": 0.7222222222222222,
+        "ndcg@10": 0.6703258245072994,
+        "ndcg@20": 0.8085230459234908,
+        "ndcg@5": 0.6140248752438171,
+        "positive_bearing_patients": 9,
+        "precision@10": 0.5611111111111111,
+        "precision@20": 0.5646005983467284,
+        "precision@5": 0.6222222222222222,
+        "recall@10": 0.7264870931537598,
+        "recall@20": 1.0,
+        "recall@5": 0.35645342312008976
+      },
+      "patient_bootstrap_95ci": {
+        "auroc": {
+          "high": 0.595005662825475,
+          "low": 0.40889232966390093
+        },
+        "average_precision": {
+          "high": 0.7418858290949979,
+          "low": 0.5420228402887045
+        },
+        "hitrate@10": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "hitrate@20": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "hitrate@5": {
+          "high": 1.0,
+          "low": 0.6666666666666666
+        },
+        "mrr": {
+          "high": 0.9074074074074074,
+          "low": 0.5185185185185185
+        },
+        "ndcg@10": {
+          "high": 0.773125749993384,
+          "low": 0.5659855649509037
+        },
+        "ndcg@20": {
+          "high": 0.8947689844911606,
+          "low": 0.6899714059669764
+        },
+        "ndcg@5": {
+          "high": 0.7654367605421801,
+          "low": 0.4067505026362102
+        },
+        "precision@10": {
+          "high": 0.6501388888888882,
+          "low": 0.4611111111111111
+        },
+        "precision@20": {
+          "high": 0.6469078556462458,
+          "low": 0.4669648367055487
+        },
+        "precision@5": {
+          "high": 0.7555555555555556,
+          "low": 0.4222222222222222
+        },
+        "recall@10": {
+          "high": 0.8537918871252205,
+          "low": 0.601262225428892
+        },
+        "recall@20": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "recall@5": {
+          "high": 0.4670554753888087,
+          "low": 0.23950296616963282
+        }
+      },
+      "patient_values": {
+        "RCC-101": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.8333333333333333,
+          "ndcg@10": 0.7730836500855316,
+          "ndcg@20": 0.8497584640784245,
+          "ndcg@5": 0.6130227926089763,
+          "precision@10": 0.6,
+          "precision@20": 0.6363636363636364,
+          "precision@5": 0.6,
+          "recall@10": 0.8571428571428571,
+          "recall@20": 1.0,
+          "recall@5": 0.42857142857142855
+        },
+        "RCC-102": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 0.0,
+          "mrr": 0.16666666666666666,
+          "ndcg@10": 0.4227898344066503,
+          "ndcg@20": 0.4227898344066503,
+          "ndcg@5": 0.0,
+          "precision@10": 0.25,
+          "precision@20": 0.25,
+          "precision@5": 0.0,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 0.0
+        },
+        "RCC-104": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.659224332815107,
+          "ndcg@20": 0.893591198482684,
+          "ndcg@5": 0.830419897363192,
+          "precision@10": 0.5,
+          "precision@20": 0.5294117647058824,
+          "precision@5": 0.8,
+          "recall@10": 0.5555555555555556,
+          "recall@20": 1.0,
+          "recall@5": 0.4444444444444444
+        },
+        "RCC-105": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.5683416927717359,
+          "ndcg@20": 0.8218204494927667,
+          "ndcg@5": 0.6608397947263839,
+          "precision@10": 0.6,
+          "precision@20": 0.7368421052631579,
+          "precision@5": 0.8,
+          "recall@10": 0.42857142857142855,
+          "recall@20": 1.0,
+          "recall@5": 0.2857142857142857
+        },
+        "RCC-106": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.5161528906822677,
+          "ndcg@20": 0.754314697957365,
+          "ndcg@5": 0.5296347172140421,
+          "precision@10": 0.5,
+          "precision@20": 0.5625,
+          "precision@5": 0.6,
+          "recall@10": 0.5555555555555556,
+          "recall@20": 1.0,
+          "recall@5": 0.3333333333333333
+        },
+        "RCC-107": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.944819226755994,
+          "ndcg@20": 0.944819226755994,
+          "ndcg@5": 0.8539316501572937,
+          "precision@10": 0.6,
+          "precision@20": 0.5454545454545454,
+          "precision@5": 0.8,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 0.6666666666666666
+        },
+        "RCC-108": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.5798612725328837,
+          "ndcg@20": 0.7275358570132511,
+          "ndcg@5": 0.38356636737133565,
+          "precision@10": 0.5,
+          "precision@20": 0.4666666666666667,
+          "precision@5": 0.4,
+          "recall@10": 0.7142857142857143,
+          "recall@20": 1.0,
+          "recall@5": 0.2857142857142857
+        },
+        "RCC-109": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.7914544336296033,
+          "ndcg@20": 0.9106496109753879,
+          "ndcg@5": 0.7860137352654724,
+          "precision@10": 0.8,
+          "precision@20": 0.6875,
+          "precision@5": 0.8,
+          "recall@10": 0.7272727272727273,
+          "recall@20": 1.0,
+          "recall@5": 0.36363636363636365
+        },
+        "RCC-110": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.7772050868859213,
+          "ndcg@20": 0.9514280741488932,
+          "ndcg@5": 0.8687949224876582,
+          "precision@10": 0.7,
+          "precision@20": 0.6666666666666666,
+          "precision@5": 0.8,
+          "recall@10": 0.7,
+          "recall@20": 1.0,
+          "recall@5": 0.4
+        }
+      },
+      "pooled": {
+        "auroc": 0.5046540880503144,
+        "average_precision": 0.6532494332203217,
+        "brier": 0.361873408840907,
+        "n": 128,
+        "positives": 75
+      },
+      "study": {
+        "RCC_PCV_VACCINE_2025": {
+          "auroc": 0.5046540880503144,
+          "average_precision": 0.6532494332203217,
+          "brier": 0.361873408840907,
+          "n": 128,
+          "positives": 75
+        }
+      }
+    },
+    "DeepImmuno-CNN": {
+      "hla": {
+        "HLA-A*01:01": {
+          "auroc": null,
+          "average_precision": 0.9999999999999999,
+          "brier": 0.3949711436600252,
+          "n": 6,
+          "positives": 6
+        },
+        "HLA-A*02:01": {
+          "auroc": 0.2777777777777778,
+          "average_precision": 0.4666666666666667,
+          "brier": 0.36143655748097425,
+          "n": 6,
+          "positives": 3
+        },
+        "HLA-A*03:01": {
+          "auroc": 0.0,
+          "average_precision": 0.5,
+          "brier": 0.4841049884591555,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-A*30:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 0.8053670747968357,
+          "n": 3,
+          "positives": 0
+        },
+        "HLA-B*07:02": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.11387628173357213,
+          "n": 4,
+          "positives": 2
+        },
+        "HLA-B*08:01": {
+          "auroc": 0.75,
+          "average_precision": 0.6666666666666666,
+          "brier": 0.3782338557424658,
+          "n": 4,
+          "positives": 2
+        },
+        "HLA-B*18:01": {
+          "auroc": 0.75,
+          "average_precision": 0.8333333333333333,
+          "brier": 0.2261920761561721,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-B*27:05": {
+          "auroc": 0.625,
+          "average_precision": 0.6499999999999999,
+          "brier": 0.3437516617313712,
+          "n": 8,
+          "positives": 4
+        },
+        "HLA-B*40:01": {
+          "auroc": 0.0,
+          "average_precision": 0.6388888888888888,
+          "brier": 0.23982545942086936,
+          "n": 4,
+          "positives": 3
+        },
+        "HLA-B*44:02": {
+          "auroc": 0.6666666666666666,
+          "average_precision": 0.3333333333333333,
+          "brier": 0.21491416359774884,
+          "n": 4,
+          "positives": 1
+        },
+        "HLA-B*57:01": {
+          "auroc": 0.5,
+          "average_precision": 0.6666666666666666,
+          "brier": 0.2952957789199111,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-C*06:02": {
+          "auroc": 0.3333333333333333,
+          "average_precision": 0.8055555555555556,
+          "brier": 0.25271668358889426,
+          "n": 4,
+          "positives": 3
+        }
+      },
+      "metadata": {
+        "score_direction": "higher",
+        "source": "results/raw_predictions/rcc/deepimmuno-cnn.csv",
+        "task": "immunogenicity",
+        "version": "1.0@df42ac5b"
+      },
+      "patient": {
+        "hitrate@10": 1.0,
+        "hitrate@20": 1.0,
+        "hitrate@5": 1.0,
+        "mrr": 0.8095238095238095,
+        "ndcg@10": 0.8191558587095117,
+        "ndcg@20": 0.8368671618581434,
+        "ndcg@5": 0.7107525131913099,
+        "positive_bearing_patients": 7,
+        "precision@10": 0.616156462585034,
+        "precision@20": 0.6232993197278911,
+        "precision@5": 0.6523809523809524,
+        "recall@10": 0.9642857142857143,
+        "recall@20": 1.0,
+        "recall@5": 0.7547619047619047
+      },
+      "patient_bootstrap_95ci": {
+        "auroc": {
+          "high": 0.6588901357351014,
+          "low": 0.2826005353179266
+        },
+        "average_precision": {
+          "high": 0.7066785307286951,
+          "low": 0.5130564168759791
+        },
+        "hitrate@10": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "hitrate@20": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "hitrate@5": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "mrr": {
+          "high": 0.9523809523809523,
+          "low": 0.6388888888888888
+        },
+        "ndcg@10": {
+          "high": 0.9222423078369432,
+          "low": 0.7102434954027206
+        },
+        "ndcg@20": {
+          "high": 0.9254379579736113,
+          "low": 0.7425358171776326
+        },
+        "ndcg@5": {
+          "high": 0.8388566073648231,
+          "low": 0.5911799981092667
+        },
+        "precision@10": {
+          "high": 0.7626798115079363,
+          "low": 0.5107142857142857
+        },
+        "precision@20": {
+          "high": 0.7708333333333334,
+          "low": 0.525
+        },
+        "precision@5": {
+          "high": 0.8,
+          "low": 0.5238095238095238
+        },
+        "recall@10": {
+          "high": 1.0,
+          "low": 0.8928571428571429
+        },
+        "recall@20": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "recall@5": {
+          "high": 0.9111111111111111,
+          "low": 0.5833333333333334
+        }
+      },
+      "patient_values": {
+        "RCC-101": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.8333333333333333,
+          "ndcg@10": 0.8446574402245026,
+          "ndcg@20": 0.8446574402245026,
+          "ndcg@5": 0.705601260713727,
+          "precision@10": 0.6666666666666666,
+          "precision@20": 0.6666666666666666,
+          "precision@5": 0.6,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 0.75
+        },
+        "RCC-104": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8219303906225648,
+          "ndcg@20": 0.8219303906225648,
+          "ndcg@5": 0.5087403079104241,
+          "precision@10": 0.5,
+          "precision@20": 0.5,
+          "precision@5": 0.4,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 0.4
+        },
+        "RCC-105": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0,
+          "ndcg@20": 1.0,
+          "ndcg@5": 1.0,
+          "precision@10": 1.0,
+          "precision@20": 1.0,
+          "precision@5": 1.0,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 1.0
+        },
+        "RCC-106": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6309297535714575,
+          "ndcg@20": 0.6309297535714575,
+          "ndcg@5": 0.6309297535714575,
+          "precision@10": 0.5,
+          "precision@20": 0.5,
+          "precision@5": 0.5,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 1.0
+        },
+        "RCC-108": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6108096776415199,
+          "ndcg@20": 0.7347887996819421,
+          "ndcg@5": 0.5147714448836774,
+          "precision@10": 0.45,
+          "precision@20": 0.5,
+          "precision@5": 0.6,
+          "recall@10": 0.75,
+          "recall@20": 1.0,
+          "recall@5": 0.5
+        },
+        "RCC-109": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.8333333333333333,
+          "ndcg@10": 0.8627766724467997,
+          "ndcg@20": 0.8627766724467997,
+          "ndcg@5": 0.773049051499641,
+          "precision@10": 0.5714285714285714,
+          "precision@20": 0.5714285714285714,
+          "precision@5": 0.6666666666666667,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 0.8333333333333334
+        },
+        "RCC-110": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.962987076459737,
+          "ndcg@20": 0.962987076459737,
+          "ndcg@5": 0.8421757737602428,
+          "precision@10": 0.625,
+          "precision@20": 0.625,
+          "precision@5": 0.8,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 0.8
+        }
+      },
+      "pooled": {
+        "auroc": 0.4717868338557994,
+        "average_precision": 0.5833356847201822,
+        "brier": 0.334029412618985,
+        "n": 51,
+        "positives": 29
+      },
+      "study": {
+        "RCC_PCV_VACCINE_2025": {
+          "auroc": 0.4717868338557994,
+          "average_precision": 0.5833356847201822,
+          "brier": 0.334029412618985,
+          "n": 51,
+          "positives": 29
+        }
+      }
+    },
+    "PRIME": {
+      "hla": {
+        "HLA-A*01:01": {
+          "auroc": 0.8888888888888888,
+          "average_precision": 0.9888888888888888,
+          "brier": 0.7091975897099,
+          "n": 10,
+          "positives": 9
+        },
+        "HLA-A*02:01": {
+          "auroc": 0.8055555555555556,
+          "average_precision": 0.5888888888888888,
+          "brier": 0.27258663554044443,
+          "n": 9,
+          "positives": 3
+        },
+        "HLA-A*03:01": {
+          "auroc": 0.8333333333333334,
+          "average_precision": 0.8333333333333333,
+          "brier": 0.32875926336680006,
+          "n": 5,
+          "positives": 2
+        },
+        "HLA-A*25:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 0.000241056676,
+          "n": 1,
+          "positives": 0
+        },
+        "HLA-A*30:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 0.029397898114000003,
+          "n": 3,
+          "positives": 0
+        },
+        "HLA-A*31:01": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.4250756048725,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-A*32:01": {
+          "auroc": 0.5,
+          "average_precision": 0.8333333333333333,
+          "brier": 0.5460592483973333,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-A*66:01": {
+          "auroc": 0.5,
+          "average_precision": 0.75,
+          "brier": 0.42045441972875,
+          "n": 4,
+          "positives": 2
+        },
+        "HLA-B*07:02": {
+          "auroc": 0.5,
+          "average_precision": 0.75,
+          "brier": 0.42103460183875,
+          "n": 4,
+          "positives": 2
+        },
+        "HLA-B*08:01": {
+          "auroc": 0.4666666666666667,
+          "average_precision": 0.645,
+          "brier": 0.48618577261425,
+          "n": 8,
+          "positives": 5
+        },
+        "HLA-B*13:02": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.299968537172,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-B*18:01": {
+          "auroc": 0.25,
+          "average_precision": 0.5833333333333333,
+          "brier": 0.5449431063919999,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-B*27:05": {
+          "auroc": 0.7916666666666666,
+          "average_precision": 0.8125,
+          "brier": 0.32862863951029997,
+          "n": 10,
+          "positives": 4
+        },
+        "HLA-B*27:06": {
+          "auroc": null,
+          "average_precision": 1.0,
+          "brier": 0.9869568108490001,
+          "n": 1,
+          "positives": 1
+        },
+        "HLA-B*35:01": {
+          "auroc": null,
+          "average_precision": null,
+          "brier": 6.0074010000000005e-06,
+          "n": 1,
+          "positives": 0
+        },
+        "HLA-B*35:03": {
+          "auroc": 0.0,
+          "average_precision": 0.3333333333333333,
+          "brier": 0.32795754596533333,
+          "n": 3,
+          "positives": 1
+        },
+        "HLA-B*38:01": {
+          "auroc": 0.0,
+          "average_precision": 0.5,
+          "brier": 0.341915561845,
+          "n": 2,
+          "positives": 1
+        },
+        "HLA-B*40:01": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.526717705342375,
+          "n": 8,
+          "positives": 5
+        },
+        "HLA-B*44:02": {
+          "auroc": 0.3625,
+          "average_precision": 0.5592147435897437,
+          "brier": 0.5715760481483078,
+          "n": 13,
+          "positives": 8
+        },
+        "HLA-B*55:01": {
+          "auroc": null,
+          "average_precision": 1.0,
+          "brier": 0.9283741232836666,
+          "n": 3,
+          "positives": 3
+        },
+        "HLA-B*57:01": {
+          "auroc": 0.5,
+          "average_precision": 0.6666666666666666,
+          "brier": 0.4117236931343333,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-C*03:03": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.6127647742116666,
+          "n": 3,
+          "positives": 2
+        },
+        "HLA-C*05:01": {
+          "auroc": 0.3333333333333333,
+          "average_precision": 0.8055555555555556,
+          "brier": 0.65865841489875,
+          "n": 4,
+          "positives": 3
+        },
+        "HLA-C*06:02": {
+          "auroc": 0.0,
+          "average_precision": 0.6791666666666667,
+          "brier": 0.7228783354532,
+          "n": 5,
+          "positives": 4
+        },
+        "HLA-C*07:01": {
+          "auroc": 0.44285714285714284,
+          "average_precision": 0.5720315398886827,
+          "brier": 0.56084362498675,
+          "n": 12,
+          "positives": 7
+        },
+        "HLA-C*07:02": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "brier": 0.70853305068425,
+          "n": 4,
+          "positives": 3
+        },
+        "HLA-C*12:03": {
+          "auroc": null,
+          "average_precision": 1.0,
+          "brier": 0.8546234622425,
+          "n": 2,
+          "positives": 2
+        }
+      },
+      "metadata": {
+        "score_direction": "higher",
+        "source": "results/raw_predictions/rcc/prime-2.0.csv",
+        "task": "immunogenicity",
+        "version": "2.0"
+      },
+      "patient": {
+        "hitrate@10": 1.0,
+        "hitrate@20": 1.0,
+        "hitrate@5": 1.0,
+        "mrr": 0.7685185185185185,
+        "ndcg@10": 0.6881137179921539,
+        "ndcg@20": 0.827121210551411,
+        "ndcg@5": 0.6908650160295152,
+        "positive_bearing_patients": 9,
+        "precision@10": 0.5611111111111111,
+        "precision@20": 0.5646005983467284,
+        "precision@5": 0.6814814814814815,
+        "recall@10": 0.7203944203944204,
+        "recall@20": 1.0,
+        "recall@5": 0.47526054192720857
+      },
+      "patient_bootstrap_95ci": {
+        "auroc": {
+          "high": 0.6460297912268356,
+          "low": 0.5190087535014005
+        },
+        "average_precision": {
+          "high": 0.7184616323154791,
+          "low": 0.5803605807721791
+        },
+        "hitrate@10": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "hitrate@20": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "hitrate@5": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "mrr": {
+          "high": 0.9074074074074074,
+          "low": 0.6296296296296297
+        },
+        "ndcg@10": {
+          "high": 0.7462504477591396,
+          "low": 0.6222563694605703
+        },
+        "ndcg@20": {
+          "high": 0.8844015947466178,
+          "low": 0.7626559123915735
+        },
+        "ndcg@5": {
+          "high": 0.789022108580068,
+          "low": 0.6109516552594605
+        },
+        "precision@10": {
+          "high": 0.6444444444444444,
+          "low": 0.4666666666666667
+        },
+        "precision@20": {
+          "high": 0.6469078556462458,
+          "low": 0.4669648367055487
+        },
+        "precision@5": {
+          "high": 0.8,
+          "low": 0.5703703703703704
+        },
+        "recall@10": {
+          "high": 0.821869488536155,
+          "low": 0.6236159211159211
+        },
+        "recall@20": {
+          "high": 1.0,
+          "low": 1.0
+        },
+        "recall@5": {
+          "high": 0.6257114798781466,
+          "low": 0.3651551226551226
+        }
+      },
+      "patient_values": {
+        "RCC-101": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.8333333333333333,
+          "ndcg@10": 0.8047526145467747,
+          "ndcg@20": 0.8814274285396676,
+          "ndcg@5": 0.7590911424516827,
+          "precision@10": 0.6,
+          "precision@20": 0.6363636363636364,
+          "precision@5": 0.8,
+          "recall@10": 0.8571428571428571,
+          "recall@20": 1.0,
+          "recall@5": 0.5714285714285714
+        },
+        "RCC-102": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6240505200038379,
+          "ndcg@20": 0.6240505200038379,
+          "ndcg@5": 0.6240505200038379,
+          "precision@10": 0.25,
+          "precision@20": 0.25,
+          "precision@5": 0.4,
+          "recall@10": 1.0,
+          "recall@20": 1.0,
+          "recall@5": 1.0
+        },
+        "RCC-104": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.5030399532861564,
+          "ndcg@20": 0.7513611520351534,
+          "ndcg@5": 0.5147714448836774,
+          "precision@10": 0.5,
+          "precision@20": 0.5294117647058824,
+          "precision@5": 0.6,
+          "recall@10": 0.5555555555555556,
+          "recall@20": 1.0,
+          "recall@5": 0.3333333333333333
+        },
+        "RCC-105": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.7951725670061051,
+          "ndcg@20": 0.9624379607364066,
+          "ndcg@5": 1.0,
+          "precision@10": 0.7,
+          "precision@20": 0.7368421052631579,
+          "precision@5": 1.0,
+          "recall@10": 0.5,
+          "recall@20": 1.0,
+          "recall@5": 0.35714285714285715
+        },
+        "RCC-106": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6866059341140195,
+          "ndcg@20": 0.8042717497692192,
+          "ndcg@5": 0.6608397947263839,
+          "precision@10": 0.7,
+          "precision@20": 0.5625,
+          "precision@5": 0.8,
+          "recall@10": 0.7777777777777778,
+          "recall@20": 1.0,
+          "recall@5": 0.4444444444444444
+        },
+        "RCC-107": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.789149990140578,
+          "ndcg@20": 0.8735587987230781,
+          "ndcg@5": 0.6843515475204855,
+          "precision@10": 0.5,
+          "precision@20": 0.5454545454545454,
+          "precision@5": 0.6,
+          "recall@10": 0.8333333333333334,
+          "recall@20": 1.0,
+          "recall@5": 0.5
+        },
+        "RCC-108": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.75,
+          "ndcg@10": 0.6573429591465088,
+          "ndcg@20": 0.800344115277589,
+          "ndcg@5": 0.5922216874835863,
+          "precision@10": 0.5,
+          "precision@20": 0.4666666666666667,
+          "precision@5": 0.6,
+          "recall@10": 0.7142857142857143,
+          "recall@20": 1.0,
+          "recall@5": 0.42857142857142855
+        },
+        "RCC-109": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 0.8333333333333333,
+          "ndcg@10": 0.6051925781121545,
+          "ndcg@20": 0.8417183321921483,
+          "ndcg@5": 0.5742421908816506,
+          "precision@10": 0.6,
+          "precision@20": 0.6875,
+          "precision@5": 0.5333333333333333,
+          "recall@10": 0.5454545454545454,
+          "recall@20": 1.0,
+          "recall@5": 0.2424242424242424
+        },
+        "RCC-110": {
+          "hitrate@10": 1.0,
+          "hitrate@20": 1.0,
+          "hitrate@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.7277163455732502,
+          "ndcg@20": 0.9049208376855988,
+          "ndcg@5": 0.8082168163143322,
+          "precision@10": 0.7,
+          "precision@20": 0.6666666666666666,
+          "precision@5": 0.8,
+          "recall@10": 0.7,
+          "recall@20": 1.0,
+          "recall@5": 0.4
+        }
+      },
+      "pooled": {
+        "auroc": 0.579874213836478,
+        "average_precision": 0.6393093241046907,
+        "brier": 0.5017369006240234,
+        "n": 128,
+        "positives": 75
+      },
+      "study": {
+        "RCC_PCV_VACCINE_2025": {
+          "auroc": 0.579874213836478,
+          "average_precision": 0.6393093241046907,
+          "brier": 0.5017369006240234,
+          "n": 128,
+          "positives": 75
+        }
+      }
+    }
+  },
+  "paired_same_task": [
+    {
+      "ci_high": 0.04947664122641821,
+      "ci_low": -0.1161501900458979,
+      "difference_left_minus_right": -0.028679245283018795,
+      "left": "BigMHC",
+      "left_value_common": 0.4759748427672956,
+      "metric": "auroc",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.5046540880503144,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": -0.003714798993252979,
+      "ci_low": -0.12680520185134853,
+      "difference_left_minus_right": -0.06758628692472834,
+      "left": "BigMHC",
+      "left_value_common": 0.5856631462955934,
+      "metric": "average_precision",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.6532494332203217,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "hitrate@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "hitrate@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.33333333333333337,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.11111111111111116,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "hitrate@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.8888888888888888,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.001898148148147924,
+      "ci_low": -0.18148148148148147,
+      "difference_left_minus_right": -0.07037037037037042,
+      "left": "BigMHC",
+      "left_value_common": 0.6518518518518518,
+      "metric": "mrr",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.7222222222222222,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.012336267625158463,
+      "ci_low": -0.08993220825260806,
+      "difference_left_minus_right": -0.03903851559005356,
+      "left": "BigMHC",
+      "left_value_common": 0.6312873089172458,
+      "metric": "ndcg@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.6703258245072994,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": -0.009628459310849847,
+      "ci_low": -0.06086790188393626,
+      "difference_left_minus_right": -0.03466256881045371,
+      "left": "BigMHC",
+      "left_value_common": 0.7738604771130371,
+      "metric": "ndcg@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.8085230459234908,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.050409043936959864,
+      "ci_low": -0.1901851493238087,
+      "difference_left_minus_right": -0.08144831426125343,
+      "left": "BigMHC",
+      "left_value_common": 0.5325765609825637,
+      "metric": "ndcg@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.6140248752438171,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0444444444444444,
+      "ci_low": -0.0444444444444444,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 0.5611111111111111,
+      "metric": "precision@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.5611111111111111,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 0.5646005983467284,
+      "metric": "precision@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.5646005983467284,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.06666666666666665,
+      "ci_low": -0.2222222222222222,
+      "difference_left_minus_right": -0.0888888888888889,
+      "left": "BigMHC",
+      "left_value_common": 0.5333333333333333,
+      "metric": "precision@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.6222222222222222,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.044973544973545,
+      "ci_low": -0.06878306878306872,
+      "difference_left_minus_right": -0.010582010582010581,
+      "left": "BigMHC",
+      "left_value_common": 0.7159050825717492,
+      "metric": "recall@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.7264870931537598,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "recall@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.15916426166426165,
+      "ci_low": -0.1300316658649992,
+      "difference_left_minus_right": -0.003575436908770213,
+      "left": "BigMHC",
+      "left_value_common": 0.35287798621131955,
+      "metric": "recall@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "DeepHLApan",
+      "right_value_common": 0.35645342312008976,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.16264296120925142,
+      "ci_low": -0.04712865259740257,
+      "difference_left_minus_right": 0.07210031347962381,
+      "left": "BigMHC",
+      "left_value_common": 0.5438871473354232,
+      "metric": "auroc",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.4717868338557994,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.1148432249105829,
+      "ci_low": -0.03556215089261466,
+      "difference_left_minus_right": 0.048296319647384345,
+      "left": "BigMHC",
+      "left_value_common": 0.6316320043675665,
+      "metric": "average_precision",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.5833356847201822,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "hitrate@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "hitrate@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "hitrate@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.125,
+      "ci_low": -0.3214285714285714,
+      "difference_left_minus_right": -0.04761904761904767,
+      "left": "BigMHC",
+      "left_value_common": 0.7619047619047619,
+      "metric": "mrr",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.8095238095238095,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.05335537459609574,
+      "ci_low": -0.09325707120581819,
+      "difference_left_minus_right": -0.010454564627022767,
+      "left": "BigMHC",
+      "left_value_common": 0.8087012940824889,
+      "metric": "ndcg@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.8191558587095117,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.040171356613644335,
+      "ci_low": -0.0973475628913677,
+      "difference_left_minus_right": -0.01610746654958295,
+      "left": "BigMHC",
+      "left_value_common": 0.8207596953085604,
+      "metric": "ndcg@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.8368671618581434,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.044278942373923366,
+      "ci_low": -0.09740725277182755,
+      "difference_left_minus_right": -0.013826215159676747,
+      "left": "BigMHC",
+      "left_value_common": 0.6969262980316332,
+      "metric": "ndcg@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.7107525131913099,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.022222222222222143,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0071428571428571175,
+      "left": "BigMHC",
+      "left_value_common": 0.6232993197278911,
+      "metric": "precision@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.616156462585034,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 0.6232993197278911,
+      "metric": "precision@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.6232993197278911,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 0.6523809523809524,
+      "metric": "precision@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.6523809523809524,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.03703703703703709,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.011904761904761862,
+      "left": "BigMHC",
+      "left_value_common": 0.9761904761904762,
+      "metric": "recall@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.9642857142857143,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "recall@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 0.7547619047619047,
+      "metric": "recall@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.7547619047619047,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": -0.015272674169330787,
+      "ci_low": -0.1891589126906106,
+      "difference_left_minus_right": -0.10389937106918234,
+      "left": "BigMHC",
+      "left_value_common": 0.4759748427672956,
+      "metric": "auroc",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.579874213836478,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.01740314444245059,
+      "ci_low": -0.12351507022065718,
+      "difference_left_minus_right": -0.053646177809097306,
+      "left": "BigMHC",
+      "left_value_common": 0.5856631462955934,
+      "metric": "average_precision",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.6393093241046907,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "hitrate@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "hitrate@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "hitrate@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.07407407407407407,
+      "ci_low": -0.30370370370370364,
+      "difference_left_minus_right": -0.1166666666666667,
+      "left": "BigMHC",
+      "left_value_common": 0.6518518518518518,
+      "metric": "mrr",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.7685185185185185,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.03017239737900372,
+      "ci_low": -0.14483158331026183,
+      "difference_left_minus_right": -0.0568264090749081,
+      "left": "BigMHC",
+      "left_value_common": 0.6312873089172458,
+      "metric": "ndcg@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.6881137179921539,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.008075273494052092,
+      "ci_low": -0.11794338501591053,
+      "difference_left_minus_right": -0.0532607334383739,
+      "left": "BigMHC",
+      "left_value_common": 0.7738604771130371,
+      "metric": "ndcg@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.827121210551411,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": -0.023271734532436354,
+      "ci_low": -0.2990950049162747,
+      "difference_left_minus_right": -0.15828845504695155,
+      "left": "BigMHC",
+      "left_value_common": 0.5325765609825637,
+      "metric": "ndcg@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.6908650160295152,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.06666666666666676,
+      "ci_low": -0.06666666666666665,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 0.5611111111111111,
+      "metric": "precision@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.5611111111111111,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 0.5646005983467284,
+      "metric": "precision@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.5646005983467284,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": -0.0444444444444444,
+      "ci_low": -0.2594444444444445,
+      "difference_left_minus_right": -0.14814814814814814,
+      "left": "BigMHC",
+      "left_value_common": 0.5333333333333333,
+      "metric": "precision@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.6814814814814815,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.07215007215007219,
+      "ci_low": -0.08113275613275624,
+      "difference_left_minus_right": -0.004489337822671136,
+      "left": "BigMHC",
+      "left_value_common": 0.7159050825717492,
+      "metric": "recall@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.7203944203944204,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "BigMHC",
+      "left_value_common": 1.0,
+      "metric": "recall@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": -0.03366442199775537,
+      "ci_low": -0.23490259740259736,
+      "difference_left_minus_right": -0.12238255571588902,
+      "left": "BigMHC",
+      "left_value_common": 0.35287798621131955,
+      "metric": "recall@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.47526054192720857,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.13381416410650276,
+      "ci_low": -0.17358745742336204,
+      "difference_left_minus_right": -0.010971786833855801,
+      "left": "DeepHLApan",
+      "left_value_common": 0.4608150470219436,
+      "metric": "auroc",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.4717868338557994,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.12016090914540065,
+      "ci_low": -0.0844896794670285,
+      "difference_left_minus_right": 0.03270811775896276,
+      "left": "DeepHLApan",
+      "left_value_common": 0.6160438024791449,
+      "metric": "average_precision",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.5833356847201822,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 1.0,
+      "metric": "hitrate@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 1.0,
+      "metric": "hitrate@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 1.0,
+      "metric": "hitrate@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.20020833333333227,
+      "ci_low": -0.09999999999999998,
+      "difference_left_minus_right": 0.0357142857142857,
+      "left": "DeepHLApan",
+      "left_value_common": 0.8452380952380952,
+      "metric": "mrr",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.8095238095238095,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.12901205374691363,
+      "ci_low": -0.04765365130313093,
+      "difference_left_minus_right": 0.03239542824625208,
+      "left": "DeepHLApan",
+      "left_value_common": 0.8515512869557638,
+      "metric": "ndcg@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.8191558587095117,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.08191660986424498,
+      "ci_low": -0.05020882164937479,
+      "difference_left_minus_right": 0.014684125097620404,
+      "left": "DeepHLApan",
+      "left_value_common": 0.8515512869557638,
+      "metric": "ndcg@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.8368671618581434,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.11382296763686184,
+      "ci_low": -0.0833180287588855,
+      "difference_left_minus_right": 0.015728646900082577,
+      "left": "DeepHLApan",
+      "left_value_common": 0.7264811600913925,
+      "metric": "ndcg@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.7107525131913099,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.06428571428571428,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.021428571428571463,
+      "left": "DeepHLApan",
+      "left_value_common": 0.6375850340136054,
+      "metric": "precision@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.616156462585034,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 0.6232993197278911,
+      "metric": "precision@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.6232993197278911,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.08571428571428574,
+      "ci_low": -0.08000000000000007,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 0.6523809523809524,
+      "metric": "precision@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.6523809523809524,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.1071428571428571,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0357142857142857,
+      "left": "DeepHLApan",
+      "left_value_common": 1.0,
+      "metric": "recall@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.9642857142857143,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 1.0,
+      "metric": "recall@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.08571428571428574,
+      "ci_low": -0.08000000000000007,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 0.7547619047619047,
+      "metric": "recall@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "DeepImmuno-CNN",
+      "right_value_common": 0.7547619047619047,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.04368853820754026,
+      "ci_low": -0.195250402792696,
+      "difference_left_minus_right": -0.07522012578616355,
+      "left": "DeepHLApan",
+      "left_value_common": 0.5046540880503144,
+      "metric": "auroc",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.579874213836478,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.09172009118667658,
+      "ci_low": -0.09238799817801838,
+      "difference_left_minus_right": 0.013940109115631039,
+      "left": "DeepHLApan",
+      "left_value_common": 0.6532494332203217,
+      "metric": "average_precision",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.6393093241046907,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 1.0,
+      "metric": "hitrate@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 1.0,
+      "metric": "hitrate@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": -0.33333333333333337,
+      "difference_left_minus_right": -0.11111111111111116,
+      "left": "DeepHLApan",
+      "left_value_common": 0.8888888888888888,
+      "metric": "hitrate@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.12962962962962965,
+      "ci_low": -0.2314814814814815,
+      "difference_left_minus_right": -0.04629629629629628,
+      "left": "DeepHLApan",
+      "left_value_common": 0.7222222222222222,
+      "metric": "mrr",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.7685185185185185,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.08331803966539872,
+      "ci_low": -0.12058836256824594,
+      "difference_left_minus_right": -0.017787893484854544,
+      "left": "DeepHLApan",
+      "left_value_common": 0.6703258245072994,
+      "metric": "ndcg@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.6881137179921539,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.04597761031229554,
+      "ci_low": -0.0910240490275227,
+      "difference_left_minus_right": -0.01859816462792019,
+      "left": "DeepHLApan",
+      "left_value_common": 0.8085230459234908,
+      "metric": "ndcg@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.827121210551411,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.09313139286054935,
+      "ci_low": -0.26593716874969686,
+      "difference_left_minus_right": -0.07684014078569812,
+      "left": "DeepHLApan",
+      "left_value_common": 0.6140248752438171,
+      "metric": "ndcg@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.6908650160295152,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.06666666666666676,
+      "ci_low": -0.06666666666666665,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 0.5611111111111111,
+      "metric": "precision@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.5611111111111111,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 0.5646005983467284,
+      "metric": "precision@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.5646005983467284,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0888888888888889,
+      "ci_low": -0.20000000000000007,
+      "difference_left_minus_right": -0.059259259259259234,
+      "left": "DeepHLApan",
+      "left_value_common": 0.6222222222222222,
+      "metric": "precision@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.6814814814814815,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.07744107744107742,
+      "ci_low": -0.07319223985890644,
+      "difference_left_minus_right": 0.006092672759339446,
+      "left": "DeepHLApan",
+      "left_value_common": 0.7264870931537598,
+      "metric": "recall@10",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.7203944203944204,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepHLApan",
+      "left_value_common": 1.0,
+      "metric": "recall@20",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.048110068943402265,
+      "ci_low": -0.36333172999839664,
+      "difference_left_minus_right": -0.1188071188071188,
+      "left": "DeepHLApan",
+      "left_value_common": 0.35645342312008976,
+      "metric": "recall@5",
+      "n_common": 128,
+      "patients_common": 9,
+      "positives_common": 75,
+      "right": "PRIME",
+      "right_value_common": 0.47526054192720857,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.04963112522686011,
+      "ci_low": -0.3485843515037594,
+      "difference_left_minus_right": -0.15047021943573663,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.4717868338557994,
+      "metric": "auroc",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.622257053291536,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.03802709044411525,
+      "ci_low": -0.1543269255374634,
+      "difference_left_minus_right": -0.04858767874061665,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.5833356847201822,
+      "metric": "average_precision",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.6319233634607988,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 1.0,
+      "metric": "hitrate@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 1.0,
+      "metric": "hitrate@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 1.0,
+      "metric": "hitrate@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.20000000000000007,
+      "ci_low": -0.09999999999999998,
+      "difference_left_minus_right": 0.0357142857142857,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.8095238095238095,
+      "metric": "mrr",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.7738095238095238,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.05146739445932063,
+      "ci_low": -0.0835917238927503,
+      "difference_left_minus_right": -0.007970910076125937,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.8191558587095117,
+      "metric": "ndcg@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.8271267687856376,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.05207977361323347,
+      "ci_low": -0.03209450981710745,
+      "difference_left_minus_right": 0.009740393072505737,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.8368671618581434,
+      "metric": "ndcg@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.8271267687856376,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0826002139424956,
+      "ci_low": -0.08016590563417962,
+      "difference_left_minus_right": 0.0036628776135311236,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.7107525131913099,
+      "metric": "ndcg@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.7070896355777788,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": -0.06428571428571428,
+      "difference_left_minus_right": -0.021428571428571463,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.616156462585034,
+      "metric": "precision@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.6375850340136054,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.6232993197278911,
+      "metric": "precision@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.6232993197278911,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.09333333333333338,
+      "ci_low": -0.11428571428571432,
+      "difference_left_minus_right": -0.00952380952380949,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.6523809523809524,
+      "metric": "precision@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.6619047619047619,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": -0.1071428571428571,
+      "difference_left_minus_right": -0.0357142857142857,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.9642857142857143,
+      "metric": "recall@10",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "difference_left_minus_right": 0.0,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 1.0,
+      "metric": "recall@20",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 1.0,
+      "task": "immunogenicity"
+    },
+    {
+      "ci_high": 0.10000000000000009,
+      "ci_low": -0.12857142857142856,
+      "difference_left_minus_right": -0.011904761904761862,
+      "left": "DeepImmuno-CNN",
+      "left_value_common": 0.7547619047619047,
+      "metric": "recall@5",
+      "n_common": 51,
+      "patients_common": 9,
+      "positives_common": 29,
+      "right": "PRIME",
+      "right_value_common": 0.7666666666666666,
+      "task": "immunogenicity"
+    }
+  ]
+}

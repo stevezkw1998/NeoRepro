@@ -1,0 +1,12 @@
+{
+  "predictor": "vaxrank",
+  "revision": "5c71edccda920fafaab5986837d3dd87c8ce8911",
+  "repo": "https://github.com/openvax/vaxrank.git",
+  "install_returncode": 0,
+  "smoke_returncode": 0,
+  "license_files": [
+    "LICENSE"
+  ],
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "benchmark_track": "profile_only"
+}

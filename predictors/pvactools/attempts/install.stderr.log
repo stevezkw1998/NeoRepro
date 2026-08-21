@@ -1,0 +1,8 @@
+Using Python 3.11.15 environment at: predictors/pvactools/.venv
+Resolved 107 packages in 748ms
+   Building pvactools @ file:///Users/steve/Documents/ChatGPT/NeoRepro%20%E2%80%94%20Fully%20Autonomous%20Research%20Project/predictors/pvactools/source
+      Built pvactools @ file:///Users/steve/Documents/ChatGPT/NeoRepro%20%E2%80%94%20Fully%20Autonomous%20Research%20Project/predictors/pvactools/source
+Prepared 1 package in 607ms
+Uninstalled 1 package in 2ms
+Installed 1 package in 5ms
+ ~ pvactools==7.1.2 (from file:///Users/steve/Documents/ChatGPT/NeoRepro%20%E2%80%94%20Fully%20Autonomous%20Research%20Project/predictors/pvactools/source)

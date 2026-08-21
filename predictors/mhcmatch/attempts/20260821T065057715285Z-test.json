@@ -1,0 +1,16 @@
+{
+  "command": [
+    "predictors/mhcmatch/.venv/bin/mhcmatch",
+    "--help"
+  ],
+  "duration_seconds": 1.92031,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "mhcmatch",
+  "python": "3.11.15",
+  "returncode": 0,
+  "stage": "test",
+  "started_at": "2026-08-21T06:50:57.715285+00:00",
+  "stderr_log": "20260821T065057715285Z-test.stderr.log",
+  "stdout_log": "20260821T065057715285Z-test.stdout.log",
+  "timed_out": false
+}

@@ -2,6 +2,10 @@
 
 # NeoRepro
 
+> 🧪 **[Nous recherchons activement des évaluateurs externes et des auteurs de prédicteurs.](https://github.com/stevezkw1998/NeoRepro/issues/2)**
+>
+> Les vérifications de cohérence de 15–30 minutes, les tentatives de reproduction, les suggestions de jeux de données et les critiques contradictoires sont les bienvenues.
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
 
 NeoRepro est une ressource d’évaluation reproductible, tenant compte des fuites de données et menée au niveau du patient, pour les prédicteurs publics de néoantigènes peptide–HLA de MHC-I. Elle rassemble des artefacts de prédicteurs épinglés, la provenance de chaque enregistrement, des audits de chevauchement avec les données d’entraînement, des comparaisons sur un support commun, l’incertitude au niveau du patient, des références aléatoires adaptées au support et des résultats générés automatiquement.
@@ -13,6 +17,8 @@ Il s’agit d’une contribution de type ressource et benchmark, et non d’un n
 - **Manuscrit actuel :** [manuscrit positionné comme ressource](paper/manuscript_resource.md).
 - **Synthèse des preuves en deux minutes :** [note bilingue pour experts](output/pdf/neorepro_expert_brief_bilingual.pdf) et [résumé de l’extension sur une cohorte indépendante](reports/extension_summary.md).
 - **Reproduire les résultats figés :** utiliser la commande de la section « Reproduction » ci-dessous.
+- **Évaluer votre propre prédicteur :** exécuter `neorepro benchmark predictions.csv --output-dir neorepro-results` ; consulter le [contrat standard à fichier unique](contracts/README.md).
+- **Ajouter un jeu de données ou un prédicteur tiers :** consulter le [plug-in contract](contracts/README.md).
 - **Citer une version figée :** [CITATION.cff](CITATION.cff), [v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1) et [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064).
 
 Le contrat scientifique et le périmètre sont décrits dans [RESEARCH_SPEC.md](RESEARCH_SPEC.md).
@@ -20,10 +26,12 @@ Le contrat scientifique et le périmètre sont décrits dans [RESEARCH_SPEC.md](
 ## État
 
 - Audit de la littérature actuelle : terminé ; décision `RESCOPE, then GO`
-- Prédicteurs reproduits : MHCflurry 2.2.1, BigMHC v1.0, PRIME 2.0, DeepImmuno-CNN et DeepHLApan
+- Prédicteurs évalués : MHCflurry 2.2.1, BigMHC v1.0, PRIME 2.0, DeepImmuno-CNN et DeepHLApan ; sept autres outils publics disposent de dossiers versionnés de profil, de non-comparabilité ou d’échec de reproduction
 - Pilote TESLA : terminé ; reclassé comme contrôle positif de chevauchement avec l’entraînement
 - Benchmark principal : IMPROVE, 17,475 enregistrements après filtrage des fuites, 70 patients et 3 cohortes
 - Inférence IMPROVE principale : terminée ; 52,425 prédictions d’outils fixes sans enregistrement manquant
+- Domaines externes : cohorte vaccinale Zhao et cohorte vaccinale RCC figée séparément avec 129 enregistrements et 9 patients
+- Interface d’extension réutilisable : Dataset Cards, Predictor Cards et contrats d’artefacts de prédiction validés automatiquement
 - Manuscrit : [version positionnée comme ressource](paper/manuscript_resource.md), générée à partir des résultats figés ; revues statistique et biologique indépendantes terminées
 
 ## Résultat principal
@@ -46,7 +54,7 @@ Make parallélise les analyses bootstrap indépendantes. Utilisez `make reproduc
 - **Sorties auditables :** [table finale des résultats](results/final_results.csv), [figures](results/figures/), [audit du chevauchement avec l’entraînement](research/training_overlap_summary_improve.json) et [manifeste SHA-256](results/manifest.json).
 - **Planification de la soumission :** [stratégie des revues cibles](reports/target_venues_2026-08-20.md).
 
-L’extension indépendante sur la cohorte vaccinale Zhao 2026 est reproduite avec `make -j4 extension`. La synthèse concise des preuves se trouve dans [reports/extension_summary.md](reports/extension_summary.md), et le contrat figé avant l’inférence dans [research/extension_protocol.json](research/extension_protocol.json). Le critère externe est un ELISPOT après vaccination et administration de cellules dendritiques chargées en peptides ; il ne doit pas être interprété comme une présentation tumorale naturelle ni comme une efficacité clinique.
+L’extension indépendante sur la cohorte vaccinale Zhao 2026 est reproduite avec `make -j4 extension`. La synthèse concise des preuves se trouve dans [reports/extension_summary.md](reports/extension_summary.md), et le contrat figé avant l’inférence dans [research/extension_protocol.json](research/extension_protocol.json). L’extension RCC figée séparément se trouve dans [research/extension_protocol_rcc_v1.json](research/extension_protocol_rcc_v1.json), et les sorties exploratoires de stabilité sur trois domaines dans `results/analysis/stability/`. Les deux critères externes sont postérieurs à la vaccination et ne doivent pas être interprétés comme une présentation tumorale naturelle ni comme une efficacité clinique.
 
 ## Licence
 
