@@ -1,10 +1,8 @@
 {
   "schema_version": "1.0",
-  "source_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
-  "command": "make -j4 reproduce-results",
-  "started_at": "2026-08-20T12:17:40Z",
-  "completed_at": "2026-08-20T12:29:54Z",
-  "elapsed_seconds": 734,
+  "source_commit": "5ff644dd210f7f672ec5ad25b4e64a0c5c6e28f1",
+  "command": "make -C /tmp/neorepro-release-hcLY3g -j4 reproduce-results",
+  "completed_at": "2026-08-21T07:53:30Z",
   "initial_worktree_clean": true,
   "returncode": 0,
   "runtime": {
@@ -16,14 +14,20 @@
   },
   "verification": {
     "ruff": "pass",
-    "pytest": "27 passed",
-    "metric_validation": "24 checks passed at tolerance 1e-12",
-    "maximum_metric_absolute_error": 1.1102230246251565e-16,
-    "byte_stable_tracked_artifacts": true,
-    "post_run_changed_files_excluding_manifest": []
+    "pytest": "49 passed",
+    "manuscript_audit": "pass; 12 citations resolved; no placeholders or forbidden overclaims",
+    "release_boundary": "pass; 413 tracked files; zero violations",
+    "metric_validation": "34 checks passed at tolerance 1e-12",
+    "maximum_metric_absolute_error": 2.220446049250313e-16,
+    "generated_outputs_promoted_from_clean_clone": true,
+    "post_run_findings": [
+      "legacy generated CSV files used CRLF and were normalized to the writer's declared LF output",
+      "RCC metrics contained invocation-dependent absolute paths and were replaced by clean-clone relative paths"
+    ]
   },
   "expected_manifest_change": {
-    "project_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
-    "project_worktree_clean": true
+    "project_commit": "5ff644dd210f7f672ec5ad25b4e64a0c5c6e28f1",
+    "project_worktree_clean": false,
+    "reason": "the manifest is generated before the reproduction's final test step"
   }
 }

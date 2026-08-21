@@ -176,9 +176,9 @@
       "sha256": "54dc400f5e5970188b4822ae9253e17c3e2b18a463056a2e629f7f884e44589d"
     },
     {
-      "bytes": 889,
+      "bytes": 1314,
       "path": "reports/clean_reproduction.json",
-      "sha256": "7ff012366417a31a5136f85e7a3be6bcd9135a77545078d26938abb699b3c02d"
+      "sha256": "a5ec65a24bafd59a03d383d261c45f95cfaeea74c69770603307435aab96897b"
     },
     {
       "bytes": 3957,
@@ -426,9 +426,9 @@
       "sha256": "c5efc343344eff9f5c962f8d7834c7f3c0c686bcc669eaaf87617b44f0da3b00"
     },
     {
-      "bytes": 83351,
+      "bytes": 82938,
       "path": "results/analysis/rcc/metrics.json",
-      "sha256": "25ebbf73dd025d75b9d94f646022dfa4eaa794a3f80f47d81478cbe93df1fe60"
+      "sha256": "6da6a361e1f7bf5596e88820cb2c2c00d549e3152579f30e217da446e2daf859"
     },
     {
       "bytes": 266,
@@ -436,9 +436,9 @@
       "sha256": "75b876d69948ea61012702b39a0382bed0a4b41ed40890c4985a0827a14a1d33"
     },
     {
-      "bytes": 11452,
+      "bytes": 11450,
       "path": "results/analysis/rcc/paired_differences.csv",
-      "sha256": "97e77b6a54cd871b34e9531cda9ef8e321fd6f2481387379d04c40475c365be8"
+      "sha256": "cc67f00b4b278f0614bcac1b2b4ef9513ecc6abbb144bce1d44696e309885449"
     },
     {
       "bytes": 1402,
@@ -554,12 +554,12 @@
     "studies": 3
   },
   "clean_reproduction": {
-    "command": "make -j4 reproduce-results",
-    "completed_at": "2026-08-20T12:29:54Z",
-    "elapsed_seconds": 734,
+    "command": "make -C /tmp/neorepro-release-hcLY3g -j4 reproduce-results",
+    "completed_at": "2026-08-21T07:53:30Z",
     "expected_manifest_change": {
-      "project_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
-      "project_worktree_clean": true
+      "project_commit": "5ff644dd210f7f672ec5ad25b4e64a0c5c6e28f1",
+      "project_worktree_clean": false,
+      "reason": "the manifest is generated before the reproduction's final test step"
     },
     "initial_worktree_clean": true,
     "returncode": 0,
@@ -571,14 +571,18 @@
       "scipy": "1.17.1"
     },
     "schema_version": "1.0",
-    "source_commit": "f4d86e6fbffb8062952eab3ec0d6d236a936a67d",
-    "started_at": "2026-08-20T12:17:40Z",
+    "source_commit": "5ff644dd210f7f672ec5ad25b4e64a0c5c6e28f1",
     "verification": {
-      "byte_stable_tracked_artifacts": true,
-      "maximum_metric_absolute_error": 1.1102230246251565e-16,
-      "metric_validation": "24 checks passed at tolerance 1e-12",
-      "post_run_changed_files_excluding_manifest": [],
-      "pytest": "27 passed",
+      "generated_outputs_promoted_from_clean_clone": true,
+      "manuscript_audit": "pass; 12 citations resolved; no placeholders or forbidden overclaims",
+      "maximum_metric_absolute_error": 2.220446049250313e-16,
+      "metric_validation": "34 checks passed at tolerance 1e-12",
+      "post_run_findings": [
+        "legacy generated CSV files used CRLF and were normalized to the writer's declared LF output",
+        "RCC metrics contained invocation-dependent absolute paths and were replaced by clean-clone relative paths"
+      ],
+      "pytest": "49 passed",
+      "release_boundary": "pass; 413 tracked files; zero violations",
       "ruff": "pass"
     }
   },
@@ -609,7 +613,7 @@
     "MHCflurry": "2.2.1",
     "PRIME": "2.0"
   },
-  "project_commit": "db00e769f8d6831221264e6a187309cfeadbd91a",
+  "project_commit": "5ff644dd210f7f672ec5ad25b4e64a0c5c6e28f1",
   "project_worktree_clean": false,
   "schema_version": "1.0"
 }

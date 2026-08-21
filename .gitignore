@@ -11,6 +11,8 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
+.bootstrap_checkpoint.json
+.bootstrap_checkpoint.json.tmp
 .coverage
 htmlcov/
 build/
