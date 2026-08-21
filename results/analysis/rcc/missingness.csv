@@ -1,0 +1,10 @@
+predictor,status,count
+BigMHC,predicted,128
+BigMHC,unsupported_hla,1
+DeepHLApan,predicted,128
+DeepHLApan,unsupported_hla,1
+DeepImmuno-CNN,predicted,51
+DeepImmuno-CNN,unsupported_hla,29
+DeepImmuno-CNN,unsupported_length,49
+PRIME,predicted,128
+PRIME,unsupported_hla,1

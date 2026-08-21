@@ -24,6 +24,12 @@ This cohort is complementary, not a pure biological replication. Peptide-pulsed 
 
 On the original IMPROVE 9–10mer subset, the expanded model set retained the original direction: PRIME AUROC 0.605, BigMHC 0.547, DeepImmuno-CNN 0.527 on its 11,036 supported records, and DeepHLApan 0.508. Thus the external reversal is not explained merely by adding the two older models; it is specifically a dataset/endpoint-domain change.
 
+## RCC cohort and reusable-resource extension
+
+A second endpoint-distinct vaccine extension adds 129 individually assayed short peptides from nine RCC vaccine recipients. Its protocol was frozen before prediction, its source workbook is checksum-pinned, and no known exact PRIME2, BigMHC-construction or DeepImmuno training overlap was identified. Because the cohort is small, uses source-predicted HLA assignments and measures post-vaccination in-vitro stimulation, its results are descriptive and do not establish natural presentation, untreated immunogenicity, clinical efficacy or a universal predictor order. All quantitative RCC results and uncertainty intervals are generated into `paper/manuscript_resource.md` from `results/analysis/rcc/metrics.json`.
+
+The repository now also includes an expanded public-artifact census and a machine-validated extension contract for datasets, predictors and standardized prediction artifacts. Heterogeneous or failed tools remain visible in the registry but are not promoted into the peptide–HLA benchmark. Three-domain stability outputs are explicitly exploratory, task-stratified and conditional on observed support.
+
 ## Robustness and interpretation
 
 - Excluding 35 peptides seen in PRIME2 training only under another HLA left the main direction unchanged (BigMHC AUROC 0.545; PRIME 0.596). Excluding 18 additional same-HLA, same-length Hamming-distance-one records did likewise (0.546; 0.596).

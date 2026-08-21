@@ -1,0 +1,12 @@
+{
+  "predictor": "neofox",
+  "revision": "dd894a67ad02a4377ed3e4b1e44bd576360c98cd",
+  "repo": "https://github.com/TRON-Bioinformatics/neofox.git",
+  "install_returncode": 0,
+  "smoke_returncode": 0,
+  "license_files": [
+    "LICENSE"
+  ],
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "benchmark_track": "profile_only"
+}

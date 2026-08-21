@@ -1,0 +1,9 @@
+{
+  "rows": 129,
+  "patients": 9,
+  "positives": 75,
+  "negatives": 54,
+  "member_sha256": "c113c42b0773049fe7e3f6b983485d15cd00cb847c6fd5de532cea4c9715d0c1",
+  "endpoint": "post-vaccine individual-peptide IFNG ELISpot",
+  "hla_semantics": "predicted best short-epitope binding allele"
+}

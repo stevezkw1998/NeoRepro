@@ -1,0 +1,12 @@
+{
+  "schema_version": "predictor-card-1",
+  "predictor_id": "synthetic-demo",
+  "version": "1.0.0",
+  "task": "immunogenicity",
+  "score_direction": "higher",
+  "adapter": "predictors/example/adapter.py",
+  "license": "MIT",
+  "input": ["record_id", "peptide", "hla"],
+  "output": "contracts/prediction-artifact.schema.json",
+  "training_overlap": "unknown"
+}

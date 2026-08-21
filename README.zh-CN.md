@@ -15,6 +15,7 @@ NeoRepro 是面向公开 MHC-I 肽–HLA 新抗原预测器的泄漏感知、患
 - **当前论文稿：**[资源定位版论文](paper/manuscript_resource.md)。
 - **两分钟证据摘要：**[中英双语专家简报](output/pdf/neorepro_expert_brief_bilingual.pdf)和[独立队列扩展摘要](reports/extension_summary.md)。
 - **复现冻结结果：**使用下方“复现”部分中的命令。
+- **接入第三方数据集或预测器：**请参阅 [plug-in contract](contracts/README.md)。
 - **引用固定版本：**参见 [CITATION.cff](CITATION.cff) 和 [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0)。
 
 科学研究契约与范围见 [RESEARCH_SPEC.md](RESEARCH_SPEC.md)。
@@ -22,10 +23,12 @@ NeoRepro 是面向公开 MHC-I 肽–HLA 新抗原预测器的泄漏感知、患
 ## 状态
 
 - 最新文献审计：已完成；结论为 `RESCOPE, then GO`
-- 已复现预测器：MHCflurry 2.2.1、BigMHC v1.0、PRIME 2.0、DeepImmuno-CNN 和 DeepHLApan
+- 已纳入基准的预测器：MHCflurry 2.2.1、BigMHC v1.0、PRIME 2.0、DeepImmuno-CNN 和 DeepHLApan；另有七个公开工具保留了仅档案、不可比较或复现失败的版本化记录
 - TESLA 试点：已完成；重新归类为训练数据重叠阳性对照
 - 主要基准：IMPROVE，17,475 条经过泄漏过滤的记录、70 名患者、3 个队列
 - 主要 IMPROVE 推理：已完成；52,425 条固定工具预测，无缺失记录
+- 外部领域：Zhao 疫苗队列，以及单独冻结的 RCC 疫苗队列（129 条记录、9 名患者）
+- 可复用扩展接口：经机器验证的 Dataset Card、Predictor Card 和预测工件契约
 - 论文稿：[资源定位版](paper/manuscript_resource.md)，由冻结结果文件生成；独立统计学与生物学审查均已完成
 
 ## 主要结果
@@ -48,7 +51,7 @@ Make 会并行执行相互独立的 bootstrap 分析。在 CPU 或内存受限�
 - **可审计输出：**[最终结果表](results/final_results.csv)、[图表](results/figures/)、[训练数据重叠审计](research/training_overlap_summary_improve.json)和 [SHA-256 清单](results/manifest.json)。
 - **投稿规划：**[目标期刊策略](reports/target_venues_2026-08-20.md)。
 
-独立 Zhao 2026 疫苗队列扩展可通过 `make -j4 extension` 复现。简要证据摘要见 [reports/extension_summary.md](reports/extension_summary.md)，推理前冻结的研究契约见 [research/extension_protocol.json](research/extension_protocol.json)。外部终点是在肽脉冲树突状细胞给药后的疫苗接种后 ELISPOT，不应解读为自然肿瘤呈递或临床疗效。
+独立 Zhao 2026 疫苗队列扩展可通过 `make -j4 extension` 复现。简要证据摘要见 [reports/extension_summary.md](reports/extension_summary.md)，推理前冻结的研究契约见 [research/extension_protocol.json](research/extension_protocol.json)。单独冻结的 RCC 扩展记录在 [research/extension_protocol_rcc_v1.json](research/extension_protocol_rcc_v1.json)，三领域探索性稳定性输出位于 `results/analysis/stability/`。两个外部终点均为疫苗接种后检测，不应解读为自然肿瘤呈递或临床疗效。
 
 ## 许可证
 

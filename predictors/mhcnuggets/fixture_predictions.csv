@@ -1,0 +1,4 @@
+record_id,predictor,predictor_version,task,score,score_direction,status,raw_score,provenance_path
+mhcnuggets-fixture-1,MHCnuggets,2.4.0@b666fea3,binding,49.76,lower,predicted,49.76,/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcnuggets/source
+mhcnuggets-fixture-2,MHCnuggets,2.4.0@b666fea3,binding,13.9,lower,predicted,13.9,/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcnuggets/source
+mhcnuggets-fixture-3,MHCnuggets,2.4.0@b666fea3,binding,5707.79,lower,predicted,5707.79,/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/mhcnuggets/source

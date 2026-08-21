@@ -1,0 +1,8 @@
+Using Python 3.11.15 environment at: predictors/neofox/.venv
+Resolved 44 packages in 356ms
+   Building neofox @ file:///Users/steve/Documents/ChatGPT/NeoRepro%20%E2%80%94%20Fully%20Autonomous%20Research%20Project/predictors/neofox/source
+      Built neofox @ file:///Users/steve/Documents/ChatGPT/NeoRepro%20%E2%80%94%20Fully%20Autonomous%20Research%20Project/predictors/neofox/source
+Prepared 1 package in 269ms
+Uninstalled 1 package in 7ms
+Installed 1 package in 18ms
+ ~ neofox==1.2.3 (from file:///Users/steve/Documents/ChatGPT/NeoRepro%20%E2%80%94%20Fully%20Autonomous%20Research%20Project/predictors/neofox/source)

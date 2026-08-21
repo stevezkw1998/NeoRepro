@@ -79,6 +79,9 @@ def build_results(root: Path) -> tuple[str, str]:
     zhao_filtered = load_json(root / "data/zhao_vaccine_leakage_filter_summary.json")
     zhao_overlap = load_json(root / "research/training_overlap_summary_zhao.json")
     zhao_result = load_json(root / "results/analysis/zhao/fixed/metrics.json")
+    rcc_source = load_json(root / "data/rcc_vaccine_summary.json")
+    rcc_overlap = load_json(root / "research/training_overlap_summary_rcc.json")
+    rcc_result = load_json(root / "results/analysis/rcc/metrics.json")
     expanded_result = load_json(root / "results/analysis/improve/expanded_9_10/metrics.json")
     peptide_result = load_json(root / "results/analysis/improve/peptide_sensitivity/metrics.json")
     peptide_hla_rank_result = load_json(
@@ -92,6 +95,7 @@ def build_results(root: Path) -> tuple[str, str]:
     fixed = load_csv(root / "results/tables/fixed_predictor_summary.csv")
     baselines = load_csv(root / "results/tables/heldout_baseline_summary.csv")
     hla = {row["predictor"]: row for row in load_csv(root / "results/analysis/improve/hla_sensitivity.csv")}
+    registry = load_csv(root / "data/predictor_registry.csv")
     benchmark_groups: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in load_csv(root / "data/processed/improve_benchmark.csv"):
         benchmark_groups[row["patient_id"]].append(row)
@@ -121,8 +125,10 @@ def build_results(root: Path) -> tuple[str, str]:
         "baselines outperformed HLA-only baselines under both patient- and study-held-out fitting, "
         "while adding HLA to peptide features did not consistently improve over peptide features alone. "
         f"A frozen extension evaluated five models on {zhao_filtered['retained_rows']:,} overlap-filtered "
-        "vaccine peptides with a distinct post-vaccination ELISPOT endpoint. Support-matched random "
-        "ranking showed that high marginal Top-K values did not necessarily imply useful ranking signal."
+        "vaccine peptides with a distinct post-vaccination ELISPOT endpoint. A second endpoint-distinct "
+        f"vaccine cohort contributed {rcc_source['rows']} individually assayed short peptides from "
+        f"{rcc_source['patients']} patients. Support-matched and cross-domain analyses showed that high "
+        "marginal Top-K values did not necessarily imply stable or useful ranking signal."
     )
 
     lopo = {row["predictor"]: row for row in baselines if row["analysis"] == "lopo"}
@@ -154,6 +160,20 @@ def build_results(root: Path) -> tuple[str, str]:
         for row in zhao_result["paired_same_task"]
         if row["left"] == "BigMHC" and row["right"] == "PRIME" and row["metric"] == "ndcg@5"
     )
+    rcc_rows = []
+    rcc_benchmark = load_csv(root / "data/processed/rcc_vaccine_benchmark.csv")
+    for name, value in sorted(rcc_result["metrics"].items()):
+        random_ndcg5, _ = random_ranking_reference(
+            rcc_benchmark, load_csv(root / value["metadata"]["source"]), k=5
+        )
+        ci = value["patient_bootstrap_95ci"]["ndcg@5"]
+        rcc_rows.append(
+            f"| {name} | {value['pooled']['n']:,} | {f(value['pooled']['auroc'])} | "
+            f"{f(value['pooled']['average_precision'])} | {f(value['patient']['ndcg@5'])} "
+            f"({f(ci['low'])}–{f(ci['high'])}) | {f(random_ndcg5)} | "
+            f"{f(value['patient']['ndcg@5'] - random_ndcg5)} |"
+        )
+    profile_only = sum(row["final_status"] != "reproduced" for row in registry)
     results = f"""### Public-artifact reproduction
 
 The version-pinned CPU workflows for MHCflurry 2.2.1, BigMHC v1.0 and PRIME 2.0 all produced complete outputs for the common benchmark. Reproduction nevertheless required tool-specific workarounds: MHCflurry model-path correction, a 4.6-GB BigMHC repository checkout and native rebuilding of PRIME and MixMHCpred binaries on Apple Silicon. These observations are recorded in `data/predictor_registry.csv`; they describe this platform and these pinned revisions rather than a universal installation-success rate.
@@ -199,6 +219,22 @@ The prospectively frozen primary metric was patient-macro NDCG@5 because the med
 | Predictor | Predicted records | AUROC | AP | Patient NDCG@5 (95% CI) | Random NDCG@5 | Gain over random |
 |---|---:|---:|---:|---:|---:|---:|
 {chr(10).join(zhao_rows)}
+
+### Endpoint-distinct RCC vaccine cohort
+
+The separately frozen RCC protocol retained {rcc_source['rows']} individually assayed short peptides from {rcc_source['patients']} vaccinated patients after excluding one source row with no usable short peptide/HLA assignment [@braun2025rcc]. The assay compared three peptide-stimulation replicates with three matched no-stimulation replicates; labels follow the source p-value threshold and therefore are assay-context outcomes rather than untreated biological negatives. No exact PRIME2, BigMHC-construction or DeepImmuno training overlap was identified among the {rcc_overlap['benchmark_rows']} records, while DeepHLApan row-level training identity remains unknown.
+
+On near-complete support, PRIME had AUROC {f(rcc_result['metrics']['PRIME']['pooled']['auroc'])} and patient NDCG@5 {f(rcc_result['metrics']['PRIME']['patient']['ndcg@5'])}; BigMHC had {f(rcc_result['metrics']['BigMHC']['pooled']['auroc'])} and {f(rcc_result['metrics']['BigMHC']['patient']['ndcg@5'])}, respectively. DeepImmuno-CNN supported only {rcc_result['metrics']['DeepImmuno-CNN']['pooled']['n']} records. With nine patients, all estimates are descriptive and do not establish a cross-domain interaction, universal ordering, natural tumour presentation or clinical efficacy.
+
+**Table 4. RCC personalized-vaccine cohort.** The endpoint is post-vaccination, individual-peptide IFN-γ ELISpot after in-vitro stimulation. Random NDCG@5 is calculated on each model's exact support.
+
+| Predictor | Predicted records | AUROC | AP | Patient NDCG@5 (95% CI) | Random NDCG@5 | Gain over random |
+|---|---:|---:|---:|---:|---:|---:|
+{chr(10).join(rcc_rows)}
+
+### Expanded reproducibility profile and extension contract
+
+The artifact census now records {len(registry)} pinned predictor entries. Beyond the five benchmarked tools, {profile_only} entries are retained as profile-only, non-comparable, pending or unreproducible outcomes rather than being silently omitted. The public extension contract supplies machine-validated Dataset Cards, Predictor Cards and prediction-artifact schemas together with a common-support evaluator; these additions improve reuse but do not make heterogeneous prediction tasks scientifically interchangeable.
 """
     return abstract, results
 

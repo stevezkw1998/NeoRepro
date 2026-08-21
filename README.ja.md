@@ -15,6 +15,7 @@ NeoRepro は、公開されている MHC-I ペプチド–HLA ネオアンチゲ
 - **現行原稿：**[リソースとして位置付けた原稿](paper/manuscript_resource.md)。
 - **短時間で読めるエビデンス概要：**[中英併記の専門家向け概要](output/pdf/neorepro_expert_brief_bilingual.pdf)および[独立コホート拡張の概要](reports/extension_summary.md)。
 - **凍結済み結果の再現：**下記「再現」節のコマンドを使用してください。
+- **第三者データセットまたは予測器の追加：**[plug-in contract](contracts/README.md) を参照してください。
 - **固定版の引用：**[CITATION.cff](CITATION.cff) および [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0)を参照してください。
 
 科学的な研究契約と範囲については [RESEARCH_SPEC.md](RESEARCH_SPEC.md) を参照してください。
@@ -22,10 +23,12 @@ NeoRepro は、公開されている MHC-I ペプチド–HLA ネオアンチゲ
 ## 状況
 
 - 最新文献監査：完了、判断は `RESCOPE, then GO`
-- 再現済み予測器：MHCflurry 2.2.1、BigMHC v1.0、PRIME 2.0、DeepImmuno-CNN、DeepHLApan
+- ベンチマーク対象予測器：MHCflurry 2.2.1、BigMHC v1.0、PRIME 2.0、DeepImmuno-CNN、DeepHLApan。さらに七つの公開ツールについて、プロファイル限定、比較不能、または再現失敗の記録をバージョン管理
 - TESLA パイロット：完了、学習データ重複の陽性対照として再分類
 - 主要ベンチマーク：IMPROVE、リーケージ除外後 17,475 レコード、70 患者、3 コホート
 - 主要 IMPROVE 推論：完了、固定ツールによる 52,425 予測、欠損レコードなし
+- 外部ドメイン：Zhao ワクチンコホートと、別途凍結した 129 レコード・9 患者の RCC ワクチンコホート
+- 再利用可能な拡張インターフェース：機械検証済み Dataset Card、Predictor Card、予測アーティファクト契約
 - 原稿：[リソース位置付け版](paper/manuscript_resource.md)、凍結結果ファイルから生成、独立した統計学・生物学レビュー済み
 
 ## 主な結果
@@ -48,7 +51,7 @@ make -j4 reproduce-results
 - **監査可能な出力：**[最終結果表](results/final_results.csv)、[図](results/figures/)、[学習データ重複監査](research/training_overlap_summary_improve.json)、[SHA-256 マニフェスト](results/manifest.json)。
 - **投稿計画：**[投稿先戦略](reports/target_venues_2026-08-20.md)。
 
-独立した Zhao 2026 ワクチンコホート拡張は `make -j4 extension` で再現できます。簡潔なエビデンス概要は [reports/extension_summary.md](reports/extension_summary.md)、推論前に凍結した研究契約は [research/extension_protocol.json](research/extension_protocol.json) にあります。外部エンドポイントは、ペプチドをパルスした樹状細胞投与後のワクチン接種後 ELISPOT であり、自然な腫瘍提示や臨床効果を示すものではありません。
+独立した Zhao 2026 ワクチンコホート拡張は `make -j4 extension` で再現できます。簡潔なエビデンス概要は [reports/extension_summary.md](reports/extension_summary.md)、推論前に凍結した研究契約は [research/extension_protocol.json](research/extension_protocol.json) にあります。別途凍結した RCC 拡張は [research/extension_protocol_rcc_v1.json](research/extension_protocol_rcc_v1.json)、三ドメインの探索的安定性出力は `results/analysis/stability/` にあります。両外部エンドポイントはワクチン接種後の測定であり、自然な腫瘍提示や臨床効果を示すものではありません。
 
 ## ライセンス
 

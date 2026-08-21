@@ -1,0 +1,4 @@
+/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/neofox/source/neofox/model/conversion.py:203: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert(mhc in [MHC_I, MHC_II], 'Bad MHC value')
+/Users/steve/Documents/ChatGPT/NeoRepro — Fully Autonomous Research Project/predictors/neofox/source/neofox/model/conversion.py:260: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (mhc in [MHC_I, MHC_II], 'Bad MHC value')

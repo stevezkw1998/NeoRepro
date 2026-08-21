@@ -1,0 +1,9 @@
+Using Python 3.11.15 environment at: predictors/seq2neo/.venv
+  × No solution found when resolving dependencies:
+  ╰─▶ Because tensorflow==2.3.0 has no wheels with a matching Python ABI tag
+      (e.g., `cp311`) and seq2neo==2.1 depends on tensorflow==2.3.0, we can
+      conclude that seq2neo==2.1 cannot be used.
+      And because only seq2neo==2.1 is available and you require seq2neo, we
+      can conclude that your requirements are unsatisfiable.
+
+hint: You require CPython 3.11 (`cp311`), but we only found wheels for `tensorflow` (v2.3.0) with the following Python ABI tags: `cp35m`, `cp36m`, `cp37m`, `cp38`

@@ -1,0 +1,12 @@
+{
+  "predictor": "seq2neo",
+  "revision": "f342aa4ffa9012fb5509914333b9401a1eb286c4",
+  "repo": "https://github.com/XSLiuLab/Seq2Neo.git",
+  "install_returncode": 1,
+  "smoke_returncode": 125,
+  "license_files": [
+    "LICENSE"
+  ],
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "benchmark_track": "profile_only"
+}

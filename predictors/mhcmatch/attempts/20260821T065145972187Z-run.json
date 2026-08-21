@@ -1,0 +1,17 @@
+{
+  "command": [
+    "predictors/mhcmatch/.venv/bin/mhcmatch",
+    "binder",
+    "NLVPMVATV"
+  ],
+  "duration_seconds": 180.143593,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "mhcmatch",
+  "python": "3.11.15",
+  "returncode": 124,
+  "stage": "run",
+  "started_at": "2026-08-21T06:51:45.972187+00:00",
+  "stderr_log": "20260821T065145972187Z-run.stderr.log",
+  "stdout_log": "20260821T065145972187Z-run.stdout.log",
+  "timed_out": true
+}

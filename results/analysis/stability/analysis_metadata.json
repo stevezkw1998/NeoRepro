@@ -1,0 +1,68 @@
+{
+  "analysis_type": "exploratory_descriptive_heterogeneity",
+  "bootstrap": 2000,
+  "seed": 20260820,
+  "ks": [
+    1,
+    5,
+    10,
+    20
+  ],
+  "coverage_thresholds": [
+    0.5,
+    0.8,
+    0.95
+  ],
+  "datasets": [
+    "improve_benchmark",
+    "zhao_vaccine_benchmark",
+    "rcc_vaccine_benchmark"
+  ],
+  "predictors": {
+    "BigMHC": {
+      "task": "immunogenicity",
+      "version": "v1.0",
+      "status": {
+        "predicted": 128,
+        "unsupported_hla": 1
+      }
+    },
+    "MHCflurry": {
+      "task": "presentation",
+      "version": "2.2.1",
+      "status": {
+        "predicted": 2315
+      }
+    },
+    "PRIME": {
+      "task": "immunogenicity",
+      "version": "2.0",
+      "status": {
+        "predicted": 128,
+        "unsupported_hla": 1
+      }
+    },
+    "DeepHLApan": {
+      "task": "immunogenicity",
+      "version": "1.1.1@ac1f4beb",
+      "status": {
+        "predicted": 128,
+        "unsupported_hla": 1
+      }
+    },
+    "DeepImmuno-CNN": {
+      "task": "immunogenicity",
+      "version": "1.0@df42ac5b",
+      "status": {
+        "predicted": 51,
+        "unsupported_length": 49,
+        "unsupported_hla": 29
+      }
+    }
+  },
+  "limitations": [
+    "fixed pretrained scores; no causal inference",
+    "model-selection probabilities are conditional on observed patient samples",
+    "coverage strategies are descriptive and not multiplicity-adjusted"
+  ]
+}

@@ -156,9 +156,9 @@
       "sha256": "1b2e9de3c7f7dfabc9c3241b7552db3cd8f7298e866a8f08ed2fe00a000b7635"
     },
     {
-      "bytes": 487,
+      "bytes": 507,
       "path": "reports/manuscript_resource_audit.json",
-      "sha256": "90836e1d37e0eeaab46a0ab3781bc8811877c4c514570015d1546875fd3cdcd0"
+      "sha256": "f3ecb57f6e562c5737aa5755fe2a42a0f2cafb304aa18b9e45c7f7c6d4e39a10"
     },
     {
       "bytes": 11059,
@@ -216,14 +216,14 @@
       "sha256": "537cb1397a68c114f4e49db1dd07be57fcab435bc2849d342f55399b650ac18e"
     },
     {
-      "bytes": 28603,
+      "bytes": 32229,
       "path": "paper/manuscript_resource.md",
-      "sha256": "3f994070a10d1408aa2d985ced7947f2406f62eb41504c161166bb768d9839ac"
+      "sha256": "eab98d902505e17a8d312b1575977440ab4854d77ef91ef6a9aa844a4e5e4e54"
     },
     {
-      "bytes": 4697,
+      "bytes": 5021,
       "path": "paper/references.bib",
-      "sha256": "5d883804d7d2be339135d8b3aa9efe2f4798ecadf4405a25b6318848c210216a"
+      "sha256": "272e420b33156882a5c53fed86b7c1eb22bdb7d29da916967fbc68f0f60266c1"
     },
     {
       "bytes": 5320,
@@ -236,9 +236,9 @@
       "sha256": "3bc706c7b062876fcdec8c1fb12c788baacb2302ed4eb4beef67961ded4ac792"
     },
     {
-      "bytes": 7353,
+      "bytes": 8519,
       "path": "FINAL_REPORT.md",
-      "sha256": "c2ffc0f9b83d7407a5e05ad36016e3cab9ccdf9ca7ab1dbc2f570f91bf7e4963"
+      "sha256": "16b3f44385a6e0fa7839bb3c3246f8695871a526989875665283aa08d55127f2"
     },
     {
       "bytes": 1239894,
@@ -369,6 +369,181 @@
       "bytes": 288,
       "path": "reports/extension_clean_reproduction.json",
       "sha256": "f60acbb3d208c6971bf129be0c5d7be39dd2784147918005ff794b2ead558fa7"
+    },
+    {
+      "bytes": 49526,
+      "path": "data/processed/rcc_vaccine_benchmark.csv",
+      "sha256": "1697b5808a05836995fbc8e8167d3516187f4184367fa7e1c2564b4701f6b3f8"
+    },
+    {
+      "bytes": 49526,
+      "path": "data/processed/rcc_vaccine_benchmark_full.csv",
+      "sha256": "1697b5808a05836995fbc8e8167d3516187f4184367fa7e1c2564b4701f6b3f8"
+    },
+    {
+      "bytes": 288,
+      "path": "data/rcc_vaccine_summary.json",
+      "sha256": "ff829adc508c37ca50fe06d5ddf7505c51373f837dcd8f06770bebad85eb0977"
+    },
+    {
+      "bytes": 2861,
+      "path": "research/extension_protocol_rcc_v1.json",
+      "sha256": "fa3e89478b91e03500f1ad65327fe1a803624ea5ae88e782a1b466932fd2b399"
+    },
+    {
+      "bytes": 12340,
+      "path": "research/training_overlap_audit_rcc.csv",
+      "sha256": "4381cd1b1a2b3061a8e26bb4d7deec8ff4606eb115e6c2ade4d3787051cbdb53"
+    },
+    {
+      "bytes": 1070,
+      "path": "research/training_overlap_summary_rcc.json",
+      "sha256": "f8315e6c6115fbbd01fdb276d9bdbb68f7d9911c6da89a77c6e037ac7da42721"
+    },
+    {
+      "bytes": 13826,
+      "path": "results/raw_predictions/rcc/bigmhc-v1.0.csv",
+      "sha256": "1b16e7bf545032a9763a9c899190775dddf24ea19378d8763899663a460f8dd5"
+    },
+    {
+      "bytes": 12737,
+      "path": "results/raw_predictions/rcc/prime-2.0.csv",
+      "sha256": "68ed9f4f7a928964ccbab018d315e0e3ff9315d1b5c5a80665c30dee9a861140"
+    },
+    {
+      "bytes": 13004,
+      "path": "results/raw_predictions/rcc/deepimmuno-cnn.csv",
+      "sha256": "be8fdb1f4efff6ef3159971a46f58513e8cc90d2d2f5737494aa14871700ad1e"
+    },
+    {
+      "bytes": 15155,
+      "path": "results/raw_predictions/rcc/deephlapan-1.1.1.csv",
+      "sha256": "4d084a12522852fbdfe3bcbe9b64a8477f496b2073e6f8fc95943bfd18b3e4d4"
+    },
+    {
+      "bytes": 5035,
+      "path": "reports/rcc_predictor_run.json",
+      "sha256": "c5efc343344eff9f5c962f8d7834c7f3c0c686bcc669eaaf87617b44f0da3b00"
+    },
+    {
+      "bytes": 83351,
+      "path": "results/analysis/rcc/metrics.json",
+      "sha256": "25ebbf73dd025d75b9d94f646022dfa4eaa794a3f80f47d81478cbe93df1fe60"
+    },
+    {
+      "bytes": 266,
+      "path": "results/analysis/rcc/missingness.csv",
+      "sha256": "75b876d69948ea61012702b39a0382bed0a4b41ed40890c4985a0827a14a1d33"
+    },
+    {
+      "bytes": 11452,
+      "path": "results/analysis/rcc/paired_differences.csv",
+      "sha256": "97e77b6a54cd871b34e9531cda9ef8e321fd6f2481387379d04c40475c365be8"
+    },
+    {
+      "bytes": 1402,
+      "path": "results/analysis/stability/analysis_metadata.json",
+      "sha256": "a09048edd10e12ae98583d304f2f21c960f222a42ed6ca46f4089c43c6b46e3e"
+    },
+    {
+      "bytes": 4538,
+      "path": "results/analysis/stability/dataset_predictor_metric_matrix.csv",
+      "sha256": "f8828927ff5b5aac296ad562145d95bc2dc50768478c512771f8044a80b6c0bb"
+    },
+    {
+      "bytes": 8609,
+      "path": "results/analysis/stability/rank_stability.csv",
+      "sha256": "5c8b4b111f938788827184399f3fd063033fde55c33f8d22c1f9683bdbba2101"
+    },
+    {
+      "bytes": 760,
+      "path": "results/analysis/stability/model_selection_first_probability.csv",
+      "sha256": "0ab7bae116a8a227aa079b35bafc1a17bc691cd121547c75f2975d176f028c14"
+    },
+    {
+      "bytes": 1463,
+      "path": "results/analysis/stability/sensitivity_summary.csv",
+      "sha256": "96ec210d87df0fae602a35da0e2a9cdcd7554ad7aa8de9059d685525de20a8a4"
+    },
+    {
+      "bytes": 1913,
+      "path": "results/analysis/stability/leave_one_domain_out.csv",
+      "sha256": "d35e7c8f98211daa299761df8a9cafdbd68528fae5d50252c55a25017a7cac7b"
+    },
+    {
+      "bytes": 375,
+      "path": "results/analysis/stability/endpoint_domain_metadata.csv",
+      "sha256": "bb381081a5abc3cf45265d73aa812675fd2d7eac8319560eee4e7f918d1f0170"
+    },
+    {
+      "bytes": 3655,
+      "path": "results/analysis/stability/endpoint_domain_auroc.svg",
+      "sha256": "8f9875a1ff7b0e75be13cd4c31e7623a1d4d14bd45481a8b2dad85e2abffb9ab"
+    },
+    {
+      "bytes": 91312,
+      "path": "results/analysis/stability/endpoint_domain_auroc.png",
+      "sha256": "327fcd4d215d48f18832cf77959e125fc2d2f64490a80bd86cf3c9dd316c956b"
+    },
+    {
+      "bytes": 348,
+      "path": "contracts/dataset-card.example.json",
+      "sha256": "4c3abe7cd9c09d8560df1b7c2530461fec81645442917c50969b0bed379c9c67"
+    },
+    {
+      "bytes": 360,
+      "path": "contracts/predictor-card.example.json",
+      "sha256": "f2f0c6e1490f622e45b4c1b2e04076f0836632cf6aff08c92c70044be045a7cd"
+    },
+    {
+      "bytes": 575,
+      "path": "contracts/prediction-artifact.schema.json",
+      "sha256": "ed38da54c4fc933ca616d3d88c57e894b97c6dc079962e542f6d5eae5ba32cbe"
+    },
+    {
+      "bytes": 153,
+      "path": "contracts/synthetic/benchmark.csv",
+      "sha256": "06696235cd66940fe2bc88b15a1fb37cc5d085331ff652a1e393fde53b9cb310"
+    },
+    {
+      "bytes": 283,
+      "path": "contracts/synthetic/predictions.csv",
+      "sha256": "ed054ea5f4da890ad676049d297eddc0243375de392a59594655ea24c56db858"
+    },
+    {
+      "bytes": 321,
+      "path": "predictors/mhcmatch/attempts/sweep_receipt.json",
+      "sha256": "98b8977360a1a9f1fe031edf02692a7bbdf4c966c87cd7060d9528843126d575"
+    },
+    {
+      "bytes": 321,
+      "path": "predictors/mhcnuggets/attempts/sweep_receipt.json",
+      "sha256": "f330557e0a8b5c092b4ab06bc18062233ae9c832021ff7419fde61b5d95d34ff"
+    },
+    {
+      "bytes": 322,
+      "path": "predictors/neofox/attempts/sweep_receipt.json",
+      "sha256": "820962cf5c57c19542e89f45a34135ef414c186a9b5cfcf58894b3a6c0e64073"
+    },
+    {
+      "bytes": 325,
+      "path": "predictors/neoguider/attempts/sweep_receipt.json",
+      "sha256": "5fee464b36230c75e18e02655dfa7dba45cca11a8c7062baf33201fb86cef123"
+    },
+    {
+      "bytes": 344,
+      "path": "predictors/pvactools/attempts/sweep_receipt.json",
+      "sha256": "fdd6e350bdd290a5bd6d92a0d4c88e12203e185d96910f7c5cf0d2764361b18d"
+    },
+    {
+      "bytes": 315,
+      "path": "predictors/seq2neo/attempts/sweep_receipt.json",
+      "sha256": "9e65865499af2e52047fa59bbac63a68484a5ef4cd5e65b3b6dbe68671bf26c7"
+    },
+    {
+      "bytes": 312,
+      "path": "predictors/vaxrank/attempts/sweep_receipt.json",
+      "sha256": "8cb0d6206ce785f351b09acff12d0676462744653a48856608bc183a773d9365"
     }
   ],
   "benchmark": {
@@ -425,7 +600,7 @@
     "primary_metric": "patient-macro NDCG@5",
     "records": 2315
   },
-  "generated_date": "2026-08-20",
+  "generated_date": "2026-08-21",
   "predictor_revisions": {
     "BigMHC": "v1.0",
     "DeepHLApan": "1.1.1@ac1f4beb",
@@ -434,7 +609,7 @@
     "MHCflurry": "2.2.1",
     "PRIME": "2.0"
   },
-  "project_commit": "f02559b72773293c175c7bde418206b4e39b37a9",
+  "project_commit": "db00e769f8d6831221264e6a187309cfeadbd91a",
   "project_worktree_clean": false,
   "schema_version": "1.0"
 }

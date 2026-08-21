@@ -1,0 +1,10 @@
+{
+  "schema_version": "dataset-card-1",
+  "dataset_id": "synthetic-demo",
+  "version": "1.0.0",
+  "records_path": "benchmark.csv",
+  "label_column": "label",
+  "patient_id_column": "patient_id",
+  "score_tasks": ["immunogenicity"],
+  "source": {"url": "https://example.org", "accessed": "2026-08-20", "sha256": "unknown", "license": "CC-BY-4.0"}
+}

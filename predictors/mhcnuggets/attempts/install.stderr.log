@@ -1,0 +1,8 @@
+Using Python 3.11.15 environment at: predictors/mhcnuggets/.venv
+Resolved 56 packages in 590ms
+   Building mhcnuggets @ file:///Users/steve/Documents/ChatGPT/NeoRepro%20%E2%80%94%20Fully%20Autonomous%20Research%20Project/predictors/mhcnuggets/source
+      Built mhcnuggets @ file:///Users/steve/Documents/ChatGPT/NeoRepro%20%E2%80%94%20Fully%20Autonomous%20Research%20Project/predictors/mhcnuggets/source
+Prepared 1 package in 246ms
+Uninstalled 1 package in 2ms
+Installed 1 package in 2ms
+ ~ mhcnuggets==2.4.0 (from file:///Users/steve/Documents/ChatGPT/NeoRepro%20%E2%80%94%20Fully%20Autonomous%20Research%20Project/predictors/mhcnuggets/source)

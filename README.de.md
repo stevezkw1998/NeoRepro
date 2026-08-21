@@ -15,6 +15,7 @@ Der Beitrag ist eine Benchmark- und Forschungsressource, kein neuer Prädiktor u
 - **Aktuelles Manuskript:** [als Ressource positioniertes Manuskript](paper/manuscript_resource.md).
 - **Evidenz in zwei Minuten:** [zweisprachige Expertenübersicht](output/pdf/neorepro_expert_brief_bilingual.pdf) und [Zusammenfassung der unabhängigen Kohortenerweiterung](reports/extension_summary.md).
 - **Festgeschriebene Ergebnisse reproduzieren:** den Befehl im Abschnitt „Reproduktion“ verwenden.
+- **Drittanbieter-Datensatz oder -Prädiktor hinzufügen:** den [plug-in contract](contracts/README.md) verwenden.
 - **Feste Version zitieren:** [CITATION.cff](CITATION.cff) und [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
 
 Der wissenschaftliche Vertrag und Umfang stehen in [RESEARCH_SPEC.md](RESEARCH_SPEC.md).
@@ -22,10 +23,12 @@ Der wissenschaftliche Vertrag und Umfang stehen in [RESEARCH_SPEC.md](RESEARCH_S
 ## Status
 
 - Aktuelle Literaturprüfung: abgeschlossen; Entscheidung `RESCOPE, then GO`
-- Reproduzierte Prädiktoren: MHCflurry 2.2.1, BigMHC v1.0, PRIME 2.0, DeepImmuno-CNN und DeepHLApan
+- Benchmark-Prädiktoren: MHCflurry 2.2.1, BigMHC v1.0, PRIME 2.0, DeepImmuno-CNN und DeepHLApan; für sieben weitere öffentliche Werkzeuge liegen versionierte Profil-, Nichtvergleichbarkeits- oder Fehlschlagsnachweise vor
 - TESLA-Pilot: abgeschlossen; als Positivkontrolle für Trainingsdatenüberschneidung neu eingestuft
 - Primärer Benchmark: IMPROVE, 17,475 nach Leakage-Filterung verbleibende Datensätze, 70 Patienten, 3 Kohorten
 - Primäre IMPROVE-Inferenz: abgeschlossen; 52,425 Vorhersagen fester Werkzeuge ohne fehlende Datensätze
+- Externe Domänen: Zhao-Impfkohorte sowie eine separat festgeschriebene RCC-Impfkohorte mit 129 Datensätzen und 9 Patienten
+- Wiederverwendbare Erweiterungsschnittstelle: maschinell validierte Dataset Cards, Predictor Cards und Verträge für Vorhersageartefakte
 - Manuskript: [Ressourcenfassung](paper/manuscript_resource.md), aus festgeschriebenen Ergebnisdateien erzeugt; unabhängige statistische und biologische Prüfung abgeschlossen
 
 ## Hauptergebnis
@@ -48,7 +51,7 @@ Unabhängige bootstrap-Analysen werden von Make parallelisiert. Bei begrenzter C
 - **Prüfbare Ausgaben:** [endgültige Ergebnistabelle](results/final_results.csv), [Abbildungen](results/figures/), [Prüfung auf Trainingsüberschneidungen](research/training_overlap_summary_improve.json) und [SHA-256-Manifest](results/manifest.json).
 - **Publikationsplanung:** [Strategie für Zielzeitschriften](reports/target_venues_2026-08-20.md).
 
-Die unabhängige Erweiterung um die Zhao 2026-Impfkohorte lässt sich mit `make -j4 extension` reproduzieren. Die kompakte Evidenzübersicht steht in [reports/extension_summary.md](reports/extension_summary.md), der vor der Inferenz festgeschriebene Studienvertrag in [research/extension_protocol.json](research/extension_protocol.json). Der externe Endpunkt ist ELISPOT nach der Impfung und Verabreichung peptidgepulster dendritischer Zellen; er darf nicht als natürliche Tumorpräsentation oder klinische Wirksamkeit interpretiert werden.
+Die unabhängige Erweiterung um die Zhao 2026-Impfkohorte lässt sich mit `make -j4 extension` reproduzieren. Die kompakte Evidenzübersicht steht in [reports/extension_summary.md](reports/extension_summary.md), der vor der Inferenz festgeschriebene Studienvertrag in [research/extension_protocol.json](research/extension_protocol.json). Die separat festgeschriebene RCC-Erweiterung steht in [research/extension_protocol_rcc_v1.json](research/extension_protocol_rcc_v1.json), explorative Stabilitätsausgaben für drei Domänen unter `results/analysis/stability/`. Beide externen Endpunkte wurden nach der Impfung erhoben und dürfen nicht als natürliche Tumorpräsentation oder klinische Wirksamkeit interpretiert werden.
 
 ## Lizenz
 

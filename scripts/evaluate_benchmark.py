@@ -426,7 +426,9 @@ def main() -> int:
         json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"
     )
     with (args.output_dir / "missingness.csv").open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["predictor", "status", "count"])
+        writer = csv.DictWriter(
+            handle, fieldnames=["predictor", "status", "count"], lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(missingness)
     with (args.output_dir / "paired_differences.csv").open("w", newline="") as handle:
@@ -444,7 +446,7 @@ def main() -> int:
             "ci_low",
             "ci_high",
         ]
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(paired)
     print(

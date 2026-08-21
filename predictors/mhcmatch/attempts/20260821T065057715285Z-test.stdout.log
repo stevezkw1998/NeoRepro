@@ -1,0 +1,49 @@
+usage: mhcmatch [-h]
+                {decompose,restriction,affinity,binder,scan,source,logo,span,predict,bootstrap,rank,explain,complement,neoag,mimicry,mimics,vector,deslip,expression}
+                ...
+
+peptide-MHC presentation tools
+
+positional arguments:
+  {decompose,restriction,affinity,binder,scan,source,logo,span,predict,bootstrap,rank,explain,complement,neoag,mimicry,mimics,vector,deslip,expression}
+    decompose           split a peptide into anchor / TCR-facing parts (X
+                        masks)
+    restriction         rank presenting alleles for a peptide
+    affinity            predict IC50 (nM) + neoantigen amplitude/DAI for a
+                        peptide
+    binder              generalized binder score (presentation x affinity)
+                        ranked over alleles
+    scan                find presented peptides in a protein (sequence or
+                        FASTA path)
+    source              find the self peptide a neoantigen derives from
+    logo                motif logo (information content) + length distribution
+    span                extend an MHC-II binding core to the full presented
+                        ligand
+    predict             score a variant peptide-window FASTA -> native +
+                        .scored.csv
+    bootstrap           pre-fetch the pmhc panel (and optionally proteomes)
+                        from HF
+    rank                rank neoantigen candidates (FASTA of windows, or a
+                        scored table)
+    explain             every component of the aggregate for one (peptide,
+                        allele)
+    complement          complementarity score (recognition axis) for peptides
+                        — vectorised
+    neoag               annotate candidates against the tested-neoantigen
+                        database (nearest validated-immunogenic peptide +
+                        substitution distance)
+    mimicry             the fitted mimicry aggregate: signed viral / self /
+                        thymus contributions per anchor and TCR-facing
+                        channel, and their sum
+    mimics              near-identical reference peptides per category (self /
+                        thymus / viral / bacterial / neoag) -- batched and
+                        threaded
+    vector              assemble a polyepitope cassette: withdraw on safety,
+                        choose how many units per allotype, order them, pick a
+                        spacer
+    deslip              find (and repair) the m1-pseudouridine +1 frameshift
+                        motif in a cassette coding sequence
+    expression          reference expression by normal tissue or tumour type
+
+options:
+  -h, --help            show this help message and exit

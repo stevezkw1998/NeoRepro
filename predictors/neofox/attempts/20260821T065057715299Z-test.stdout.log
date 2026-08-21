@@ -1,0 +1,47 @@
+usage: neofox [-h] --input-file INPUT_FILE --patient-data PATIENTS_DATA
+              --output-folder OUTPUT_FOLDER [--output-prefix OUTPUT_PREFIX]
+              [--with-all-neoepitopes]
+              [--rank-mhci-threshold RANK_MHCI_THRESHOLD]
+              [--rank-mhcii-threshold RANK_MHCII_THRESHOLD]
+              [--num-cpus NUM_CPUS] [--config CONFIG]
+              [--organism {human,mouse}] [--verbose]
+
+NeoFox 1.2.3 annotates a given set of neoantigen candidate sequences derived
+from point mutation with relevant neoantigen features
+
+options:
+  -h, --help            show this help message and exit
+  --input-file INPUT_FILE
+                        Input file with neoantigens candidates represented by
+                        long mutated peptide sequences. Supported formats:
+                        tab-separated columns (extensions: .txt or .tsv) or
+                        JSON (extension: .json)
+  --patient-data PATIENTS_DATA
+                        file with data for patients with columns: identifier,
+                        estimated_tumor_content, mhc_i_alleles,
+                        mhc_ii_alleles, tissue
+  --output-folder OUTPUT_FOLDER
+                        output folder
+  --output-prefix OUTPUT_PREFIX
+                        prefix to name output files in the output folder
+  --with-all-neoepitopes
+                        output annotations for all MHC-I and MHC-II
+                        neoepitopes on all HLA alleles
+  --rank-mhci-threshold RANK_MHCI_THRESHOLD
+                        MHC-I epitopes with a netMHCpan predicted rank greater
+                        than or equal than this threshold will be filtered out
+                        (default: 2.0)
+  --rank-mhcii-threshold RANK_MHCII_THRESHOLD
+                        MHC-II epitopes with a netMHCIIpan predicted rank
+                        greater than or equal than this threshold will be
+                        filtered out (default: 5.0)
+  --num-cpus NUM_CPUS   number of CPUs for computation
+  --config CONFIG       an optional configuration file with all the
+                        environment variables
+  --organism {human,mouse}
+                        the organism to which the data corresponds
+  --verbose             verbose logs
+
+NeoFox (NEOantigen Feature toolbOX) 1.2.3. Copyright (c) 2020-2021 TRON -
+Translational Oncology at the University Medical Center of the Johannes
+Gutenberg University Mainz gGmbH, all rights reserved

@@ -1,0 +1,12 @@
+{
+  "predictor": "mhcnuggets",
+  "revision": "b666fea3a54a1d357efba4ea4d8550ce5dd50aba",
+  "repo": "https://github.com/KarchinLab/mhcnuggets.git",
+  "install_returncode": 0,
+  "smoke_returncode": 0,
+  "license_files": [
+    "LICENSE"
+  ],
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "benchmark_track": "profile_only"
+}

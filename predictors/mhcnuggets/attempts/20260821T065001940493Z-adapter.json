@@ -1,0 +1,22 @@
+{
+  "command": [
+    "predictors/mhcnuggets/.venv/bin/python",
+    "predictors/mhcnuggets/adapter.py",
+    "--input",
+    "predictors/mhcnuggets/fixture.csv",
+    "--source-dir",
+    "predictors/mhcnuggets/source",
+    "--output",
+    "predictors/mhcnuggets/fixture_predictions.csv"
+  ],
+  "duration_seconds": 7.534415,
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "predictor": "mhcnuggets",
+  "python": "3.11.15",
+  "returncode": 0,
+  "stage": "adapter",
+  "started_at": "2026-08-21T06:50:01.940493+00:00",
+  "stderr_log": "20260821T065001940493Z-adapter.stderr.log",
+  "stdout_log": "20260821T065001940493Z-adapter.stdout.log",
+  "timed_out": false
+}

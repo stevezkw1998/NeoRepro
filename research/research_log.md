@@ -87,3 +87,38 @@
 - The Zhao source yielded 2,317 individually administered peptides from 352 patients (313 positives). Known exact training-overlap union exclusion removed two positive records; 2,315 records, 311 positives and 131 positive-bearing patients remained.
 - The frozen 2,000-replicate primary comparison found BigMHC above PRIME by 0.057 patient-macro NDCG@5 (95% CI 0.008–0.106) and above DeepHLApan by 0.078 (0.022–0.133) on near-complete common support. DeepImmuno-CNN covered 43.8%; its common-support differences were unresolved.
 - The BigMHC–PRIME direction reversed relative to IMPROVE. This is interpreted as model-by-domain dependence, not a universal-winner result. The vaccine-elicited post-vaccination ELISPOT endpoint remains distinct from natural tumor presentation and clinical benefit.
+
+## 2026-08-20 — External-cohort funnel audit (third/fourth queue)
+
+- Added `research/external_cohort_funnel.csv` and `research/external_cohort_failure_protocols.json` to preserve a source-by-source eligibility funnel rather than treating literature mentions as datasets.
+- Screened ten candidates spanning IMPROVE, Zhao, NCI, RCC PCV, EVX-01, GBM NeoVax, melanoma personal vaccines, NEPdb, TESLA and ITSNdb. Zhao and IMPROVE remain the only currently verified eligible patient-grouped benchmark datasets in this repository; Zhao has already been frozen and run.
+- NCI, GBM NeoVax, melanoma personal-vaccine data, NEPdb and ITSNdb received explicit failure reasons. NCI remains the decisive example of the mandatory rule: enumerated or untested short candidates are not experimental negatives.
+- RCC PCV and EVX-01 remain `pending` rather than eligible because the public evidence establishes individual-peptide assay components but does not yet verify the complete patient–peptide–HLA row-level negative contract, exact HLA semantics and machine-readable redistribution path.
+- No new predictions were launched from a pending source. The next safe action is a targeted supplement-member audit followed by a new frozen protocol only if every eligibility field passes.
+
+## 2026-08-20 — RCC member audit and EVX-01 exclusion
+
+- RCC Supplementary Table 2 was downloaded from the official Nature member URL and checksum-pinned (`c113c42b...5d0c1`). Worksheet 2 contains 130 rows from 9 patients; every row has a short epitope, predicted HLA field, three peptide-stimulation replicates and three no-stimulation replicates. RCC is therefore eligible as an endpoint-distinct vaccine cohort, and `research/extension_protocol_rcc_v1.json` was frozen before prediction.
+- RCC is not untreated and its HLA values are predicted binding alleles; all downstream reporting must preserve those limitations. It cannot be merged with IMPROVE as natural presentation or with Zhao as an identical assay endpoint.
+- EVX-01 was excluded after source-level audit. The paper reports 91 individually restimulated long vaccine peptides, but the public evidence does not provide a complete short-peptide-HLA row table with experimentally defined pMHC negatives; its background is an irrelevant peptide control. No prediction was run for EVX-01.
+
+## 2026-08-20 — RCC extension prediction and evaluation completed
+
+- Built `data/processed/rcc_vaccine_benchmark.csv` from 129 retained rows after excluding one N/A short-epitope/HLA source row; 9 patients, 75 positives and 54 negatives. Source checksum and row-level provenance are retained in `data/rcc_vaccine_summary.json` and the canonical rows.
+- Training-overlap audit found zero exact PRIME2, published BigMHC construction, or DeepImmuno peptide-HLA overlaps; near-sequence results are retained, and DeepHLApan training identity remains unknown.
+- Fixed predictors ran with coverage: BigMHC 128/129, PRIME 128/129, DeepHLApan 128/129, DeepImmuno-CNN 51/129. Missing outputs were not imputed or treated as negatives.
+- Existing evaluation produced descriptive pooled AUROC / patient NDCG@5: BigMHC 0.476 / 0.533, PRIME 0.580 / 0.691, DeepHLApan 0.505 / 0.614, DeepImmuno-CNN 0.472 / 0.711. Unequal support, vaccine endpoint, predicted-HLA semantics and small patient count prohibit universal ranking claims.
+
+## 2026-08-20 — Public predictor reproduction sweep
+
+- Added `scripts/reproduce_public_predictors.py` to clone each queued public repository, capture the immutable HEAD revision and license-file paths, create a per-predictor Python 3.11 environment, run editable installation, and preserve install/smoke stdout, stderr, and JSON receipts.
+- MHCnuggets, NeoFox, pVACtools, Vaxrank, and mhcmatch installed successfully. MHCnuggets and NeoFox passed import smoke tests; pVACtools and Vaxrank passed `--help`. mhcmatch has no documented smoke entry point in the checked revision.
+- NeoGuider did not expose a Python package entry point (`pyproject.toml`/`setup.py` absent), and Seq2Neo requires TensorFlow 2.3.0, which has no Python 3.11 wheel. These are recorded as reproducibility failures, not silently repaired.
+- pVACtools, NeoFox, Vaxrank, and Seq2Neo remain profile-only or non-comparable because their output contracts are end-to-end/annotation/ranking workflows rather than the canonical peptide–HLA score contract. No new candidate entered the benchmark.
+- Follow-up MHCnuggets audit: production BA weights and curated training tables are present in the pinned repository. The official three-peptide example ran successfully under Python 3.11/TensorFlow and the strict adapter produced 3/3 binding scores with lower-IC50-is-better semantics. The repository's `saves/test/HLA-A01:01_test_model` is a separate test checkpoint whose expected values cannot validate the production checkpoint; this is recorded as a limitation rather than an exact-match claim. The predictor remains pending for binding-track inclusion until training-overlap and benchmark-task alignment are audited.
+- Efficiency correction: mhcmatch's first binder invocation triggered its expensive calibration/reference bootstrap and timed out at 180 seconds. The cheap local CLI/API smoke path (`--help`, `decompose`) passed; the timeout is retained as evidence of an external/reference-data dependency, and no further large bootstrap was attempted for this profile-only candidate.
+## 2026-08-20 — Cross-dataset stability and model-selection-risk analysis
+
+Implemented `scripts/analyze_stability.py` and generated `results/analysis/stability/` from the frozen IMPROVE and Zhao benchmark/prediction artifacts. The analysis is explicitly exploratory/descriptive heterogeneity analysis: it produces a dataset × predictor × metric matrix, record-level Spearman ranking concordance, patient-bootstrap probability of being first at Recall@5, BigMHC–PRIME direction-reversal probability, and coverage-threshold common-support summaries. It uses analytic fixed-score rankings and a recorded seed; it does not perform post-hoc significance testing, causal inference, or clinical efficacy claims. The script preserves predictor status metadata and writes `analysis_metadata.json` with limitations and configuration.
+
+Acceptance follow-up: added explicit `leave_one_domain_out.csv`, `endpoint_domain_metadata.csv`, a dependency-free endpoint/domain AUROC SVG, and `tests/test_stability_analysis.py`. First-place probabilities are task-stratified so presentation and immunogenicity predictors are not placed in one leaderboard. The expensive 2,000-bootstrap output remains the authoritative model-selection file; the leave-one-domain-out and visualization artifacts are deterministic post-processing of the frozen inputs.

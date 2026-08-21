@@ -3,7 +3,7 @@ export LC_ALL := en_US.UTF-8
 export LANG := en_US.UTF-8
 PY := uv run python
 
-.PHONY: install setup-predictors download-improve build-improve audit-improve extension download-zhao build-zhao audit-zhao predict-zhao evaluate-zhao predict-expanded-improve evaluate-expanded-improve \
+.PHONY: install setup-predictors contract-gate release-boundary predictor-census external-funnel rcc evaluate-rcc stability download-improve build-improve audit-improve extension download-zhao build-zhao audit-zhao predict-zhao evaluate-zhao predict-expanded-improve evaluate-expanded-improve \
 	predict-improve baselines-improve evaluate-improve hla-improve figures manuscript \
 	sensitivity-improve build-peptide-sensitivity evaluate-peptide-sensitivity \
 	evaluate-peptide-hla-rank-sensitivity build-fixed-sensitivities \
@@ -13,6 +13,47 @@ PY := uv run python
 
 install:
 	uv sync --extra dev --extra analysis
+
+contract-gate:
+	cd /tmp && PYTHONPATH="$(CURDIR)/src" uv run --no-project --with pytest python -m neorepro.cli dataset validate "$(CURDIR)/contracts/dataset-card.example.json"
+	cd /tmp && PYTHONPATH="$(CURDIR)/src" uv run --no-project --with pytest python -m neorepro.cli predictor validate "$(CURDIR)/contracts/predictor-card.example.json"
+	cd /tmp && PYTHONPATH="$(CURDIR)/src" uv run --no-project --with pytest python -m neorepro.cli artifact "$(CURDIR)/contracts/synthetic/predictions.csv" --benchmark "$(CURDIR)/contracts/synthetic/benchmark.csv"
+	cd /tmp && PYTHONPATH="$(CURDIR)/src" uv run --no-project --with pytest python -m neorepro.cli evaluate "$(CURDIR)/contracts/synthetic/benchmark.csv" "$(CURDIR)/contracts/synthetic/predictions.csv" \
+		--output /tmp/neorepro-contract-evaluation.json --report /tmp/neorepro-contract-evaluation.md
+	cd /tmp && PYTHONPATH="$(CURDIR)/src" uv run --no-project --with pytest pytest "$(CURDIR)/tests/test_contract.py" -q
+
+release-boundary:
+	$(PY) scripts/audit_release_boundary.py
+
+predictor-census:
+	$(PY) scripts/reproduce_public_predictors.py
+
+external-funnel:
+	$(PY) scripts/validate_external_cohort_funnel.py
+
+rcc:
+	$(PY) scripts/build_rcc_benchmark.py --input data/raw/rcc_2025_table2.xlsx \
+		--output data/processed/rcc_vaccine_benchmark.csv --summary data/rcc_vaccine_summary.json
+	$(PY) scripts/audit_external_training_overlap.py \
+		--benchmark data/processed/rcc_vaccine_benchmark.csv \
+		--prime2-archive data/raw/prime2_table_s4.xlsx \
+		--output research/training_overlap_audit_rcc.csv \
+		--summary research/training_overlap_summary_rcc.json
+	$(MAKE) evaluate-rcc
+
+evaluate-rcc:
+	PYTHONPATH=src $(PY) scripts/evaluate_benchmark.py \
+		--benchmark data/processed/rcc_vaccine_benchmark.csv \
+		--predictions results/raw_predictions/rcc/*.csv \
+		--output-dir results/analysis/rcc --bootstrap 2000 --seed 20260820
+
+stability:
+	$(PY) scripts/analyze_stability.py \
+		--benchmark data/processed/improve_benchmark.csv data/processed/zhao_vaccine_benchmark.csv data/processed/rcc_vaccine_benchmark.csv \
+		--prediction-dir results/raw_predictions/improve results/raw_predictions/zhao results/raw_predictions/rcc \
+		--output-dir results/analysis/stability --bootstrap 2000 --seed 20260820
+	$(PY) scripts/render_stability_figure.py
+
 
 setup-predictors:
 	$(PY) scripts/setup_predictors.py --accept-academic-licenses
@@ -218,7 +259,7 @@ figures: evaluate-improve baselines-improve hla-improve
 		--loso results/analysis/improve/baselines/loso/metrics.json \
 		--hla results/analysis/improve/hla_sensitivity.csv
 
-manuscript: figures sensitivity-improve
+manuscript: figures sensitivity-improve evaluate-rcc stability external-funnel contract-gate
 	$(PY) scripts/build_manuscript.py
 
 manifest: manuscript validate-metrics
@@ -232,7 +273,7 @@ validate-metrics: evaluate-improve baselines-improve sensitivity-improve
 reproduce-results: install
 	$(MAKE) verify-reproduction
 
-verify-reproduction: manifest
+verify-reproduction: manifest release-boundary
 	$(MAKE) test
 
 # Also download source data and install/run licensed third-party predictors.

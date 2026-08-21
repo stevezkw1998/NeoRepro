@@ -1,0 +1,4 @@
+clinical_context,dataset,endpoint,n_patients,n_records,n_studies
+PD-L1 checkpoint inhibition,improve_benchmark,DNA-barcoded peptide-MHC multimer T-cell recognition,70,17475,3
+personalized_peptide_pulsed_DC_vaccine,zhao_vaccine_benchmark,post_vaccination_IFNG_ELISPOT,352,2315,1
+personalized_RCC_peptide_vaccine,rcc_vaccine_benchmark,post_vaccine_invitro_IFNG_ELISPOT,9,129,1
