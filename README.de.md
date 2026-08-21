@@ -2,6 +2,8 @@
 
 # NeoRepro
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
+
 NeoRepro ist eine reproduzierbare, patientenbezogene Benchmark-Ressource für öffentliche MHC-I-Peptid–HLA-Neoantigen-Prädiktoren unter Berücksichtigung von Datenlecks. Sie bündelt festgeschriebene Prädiktor-Artefakte, Provenienz auf Datensatzebene, Prüfungen auf Überschneidungen mit Trainingsdaten, Vergleiche auf einer gemeinsamen Auswertungsmenge, patientenbezogene Unsicherheit, an die Abdeckung angepasste Zufallsreferenzen und maschinell erzeugte Ergebnisse.
 
 Der Beitrag ist eine Benchmark- und Forschungsressource, kein neuer Prädiktor und keine Behauptung eines universell besten Modells oder klinischen Nutzens.
@@ -11,7 +13,7 @@ Der Beitrag ist eine Benchmark- und Forschungsressource, kein neuer Prädiktor u
 - **Aktuelles Manuskript:** [als Ressource positioniertes Manuskript](paper/manuscript_resource.md).
 - **Evidenz in zwei Minuten:** [zweisprachige Expertenübersicht](output/pdf/neorepro_expert_brief_bilingual.pdf) und [Zusammenfassung der unabhängigen Kohortenerweiterung](reports/extension_summary.md).
 - **Festgeschriebene Ergebnisse reproduzieren:** den Befehl im Abschnitt „Reproduktion“ verwenden.
-- **Feste Version zitieren:** [CITATION.cff](CITATION.cff) und [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
+- **Feste Version zitieren:** [CITATION.cff](CITATION.cff), [v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1) und [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064).
 
 Der wissenschaftliche Vertrag und Umfang stehen in [RESEARCH_SPEC.md](RESEARCH_SPEC.md).
 

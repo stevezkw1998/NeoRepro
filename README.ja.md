@@ -2,6 +2,8 @@
 
 # NeoRepro
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
+
 NeoRepro は、公開されている MHC-I ペプチド–HLA ネオアンチゲン予測器を対象とした、リーケージを考慮した患者単位の再現可能なベンチマークリソースです。固定された予測器アーティファクト、レコード単位の来歴、学習データ重複監査、共通評価可能集合での比較、患者単位の不確実性、評価可能範囲を一致させたランダムベースライン、および機械生成結果をまとめています。
 
 本プロジェクトはベンチマーク／リソースとしての貢献であり、新しい予測器ではありません。また、普遍的に最良のモデルや臨床的有用性を主張するものでもありません。
@@ -11,7 +13,7 @@ NeoRepro は、公開されている MHC-I ペプチド–HLA ネオアンチゲ
 - **現行原稿：**[リソースとして位置付けた原稿](paper/manuscript_resource.md)。
 - **短時間で読めるエビデンス概要：**[中英併記の専門家向け概要](output/pdf/neorepro_expert_brief_bilingual.pdf)および[独立コホート拡張の概要](reports/extension_summary.md)。
 - **凍結済み結果の再現：**下記「再現」節のコマンドを使用してください。
-- **固定版の引用：**[CITATION.cff](CITATION.cff) および [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0)を参照してください。
+- **固定版の引用：**[CITATION.cff](CITATION.cff)、[v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1)、および [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064)を参照してください。
 
 科学的な研究契約と範囲については [RESEARCH_SPEC.md](RESEARCH_SPEC.md) を参照してください。
 

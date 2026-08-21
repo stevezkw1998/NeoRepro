@@ -216,9 +216,9 @@
       "sha256": "537cb1397a68c114f4e49db1dd07be57fcab435bc2849d342f55399b650ac18e"
     },
     {
-      "bytes": 28662,
+      "bytes": 28762,
       "path": "paper/manuscript_resource.md",
-      "sha256": "c8818738d19f26348aa2e64d727d02ab477a9ffbe9d485c142f0682db7a4fe7c"
+      "sha256": "14e5b9707bc9e674ae9786d9cfee76af78a8228a1952838e213d903b1f8bbed4"
     },
     {
       "bytes": 4697,
@@ -236,9 +236,9 @@
       "sha256": "3bc706c7b062876fcdec8c1fb12c788baacb2302ed4eb4beef67961ded4ac792"
     },
     {
-      "bytes": 7380,
+      "bytes": 7407,
       "path": "FINAL_REPORT.md",
-      "sha256": "dae4bb0cb1b7731e6bb7a1f9690f990834e127da7a6364f1849be76634244d37"
+      "sha256": "1caaadde6d784865bdd1ad2c659904f806f62d025e3b31c8e648f952c90ad6e7"
     },
     {
       "bytes": 1239894,
@@ -434,7 +434,7 @@
     "MHCflurry": "2.2.1",
     "PRIME": "2.0"
   },
-  "project_commit": "ba381b38c6c518a3bcaae1285f40058dc6bf5c3a",
+  "project_commit": "9fa3acb763c8c22e94653fa54162d24c3a55bbe0",
   "project_worktree_clean": false,
   "schema_version": "1.0"
 }

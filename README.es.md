@@ -2,6 +2,8 @@
 
 # NeoRepro
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
+
 NeoRepro es un recurso de evaluación reproducible, sensible a la fuga de datos y a nivel de paciente para predictores públicos de neoantígenos péptido–HLA de MHC-I. Reúne artefactos de predictores fijados, procedencia por registro, auditorías de solapamiento con datos de entrenamiento, comparaciones sobre soporte común, incertidumbre a nivel de paciente, referencias aleatorias ajustadas al soporte y resultados generados automáticamente.
 
 Es una contribución de referencia y recursos, no un predictor nuevo ni una afirmación de que exista un modelo universalmente ganador o de utilidad clínica.
@@ -11,7 +13,7 @@ Es una contribución de referencia y recursos, no un predictor nuevo ni una afir
 - **Manuscrito actual:** [manuscrito orientado como recurso](paper/manuscript_resource.md).
 - **Resumen de la evidencia en dos minutos:** [informe bilingüe para expertos](output/pdf/neorepro_expert_brief_bilingual.pdf) y [resumen de la extensión con cohorte independiente](reports/extension_summary.md).
 - **Reproducir los resultados fijados:** usar el comando de la sección «Reproducción».
-- **Citar una versión fija:** [CITATION.cff](CITATION.cff) y [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
+- **Citar una versión fija:** [CITATION.cff](CITATION.cff), [v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1) y [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064).
 
 El contrato científico y el alcance están en [RESEARCH_SPEC.md](RESEARCH_SPEC.md).
 

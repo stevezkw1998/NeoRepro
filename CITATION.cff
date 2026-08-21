@@ -4,6 +4,8 @@ title: "NeoRepro: Leakage-Aware Reproduction and Patient-Level Evaluation of Pub
 type: software
 version: 0.1.1
 date-released: 2026-08-20
+doi: "10.5281/zenodo.22037064"
+repository-code: "https://github.com/stevezkw1998/NeoRepro"
 license: MIT
 authors:
   - family-names: "Zhu"

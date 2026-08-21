@@ -84,7 +84,7 @@ The practical implication is that neoantigen benchmarking should release source-
 
 ## Data and code availability
 
-NeoRepro code, canonical schemas, audit outputs, complete redistributable prediction files, metrics, tables, figures and a SHA-256 result manifest are included in the repository. The source download workflow retrieves third-party data and predictors from pinned public locations, verifies checksums where stable, and requires users to accept applicable upstream terms. Third-party predictors and data retain their original licenses; the repository does not redistribute or relicense PRIME or other restricted upstream artifacts. A permanent repository URL and archival DOI will be inserted before submission.
+NeoRepro code, canonical schemas, audit outputs, complete redistributable prediction files, metrics, tables, figures and a SHA-256 result manifest are available in the [public GitHub repository](https://github.com/stevezkw1998/NeoRepro). Release v0.1.1 is permanently archived at [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064). The source download workflow retrieves third-party data and predictors from pinned public locations, verifies checksums where stable, and requires users to accept applicable upstream terms. Third-party predictors and data retain their original licenses; the repository does not redistribute or relicense PRIME or other restricted upstream artifacts.
 
 ## Ethics statement
 
