@@ -216,9 +216,9 @@
       "sha256": "537cb1397a68c114f4e49db1dd07be57fcab435bc2849d342f55399b650ac18e"
     },
     {
-      "bytes": 28603,
+      "bytes": 28662,
       "path": "paper/manuscript_resource.md",
-      "sha256": "3f994070a10d1408aa2d985ced7947f2406f62eb41504c161166bb768d9839ac"
+      "sha256": "c8818738d19f26348aa2e64d727d02ab477a9ffbe9d485c142f0682db7a4fe7c"
     },
     {
       "bytes": 4697,
@@ -236,9 +236,9 @@
       "sha256": "3bc706c7b062876fcdec8c1fb12c788baacb2302ed4eb4beef67961ded4ac792"
     },
     {
-      "bytes": 7353,
+      "bytes": 7380,
       "path": "FINAL_REPORT.md",
-      "sha256": "c2ffc0f9b83d7407a5e05ad36016e3cab9ccdf9ca7ab1dbc2f570f91bf7e4963"
+      "sha256": "dae4bb0cb1b7731e6bb7a1f9690f990834e127da7a6364f1849be76634244d37"
     },
     {
       "bytes": 1239894,
@@ -425,7 +425,7 @@
     "primary_metric": "patient-macro NDCG@5",
     "records": 2315
   },
-  "generated_date": "2026-08-20",
+  "generated_date": "2026-08-21",
   "predictor_revisions": {
     "BigMHC": "v1.0",
     "DeepHLApan": "1.1.1@ac1f4beb",
@@ -434,7 +434,7 @@
     "MHCflurry": "2.2.1",
     "PRIME": "2.0"
   },
-  "project_commit": "f02559b72773293c175c7bde418206b4e39b37a9",
+  "project_commit": "ba381b38c6c518a3bcaae1285f40058dc6bf5c3a",
   "project_worktree_clean": false,
   "schema_version": "1.0"
 }

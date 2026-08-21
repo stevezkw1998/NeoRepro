@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "neorepro"
-version = "0.1.0.dev0"
+version = "0.1.1"
 description = "Reproducibility and patient-level evaluation of public neoantigen predictors"
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 license = "MIT"
-authors = [{name = "NeoRepro contributors"}]
+authors = [{name = "Kewen Zhu"}]
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "Programming Language :: Python :: 3",

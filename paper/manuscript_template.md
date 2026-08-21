@@ -1,6 +1,6 @@
 # NeoRepro: a leakage-aware, patient-level, reproducible benchmark resource for public MHC-I peptide–HLA predictors
 
-**Author line:** to be completed before submission
+**Kewen Zhu** · Independent Researcher · [ORCID 0009-0001-9964-9090](https://orcid.org/0009-0001-9964-9090)
 
 ## Abstract
 

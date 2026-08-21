@@ -2,7 +2,7 @@
 
 > **Archived draft.** This pre-resource-positioning manuscript is retained as a historical record and is not the current submission version. It has not been updated for the final five-predictor resource framing. Read the [current resource-positioned manuscript](manuscript_resource.md) instead.
 
-**Author line:** to be completed before submission
+**Kewen Zhu** · Independent Researcher · [ORCID 0009-0001-9964-9090](https://orcid.org/0009-0001-9964-9090)
 
 ## Abstract
 
