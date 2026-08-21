@@ -6,6 +6,8 @@
 >
 > 欢迎进行 15–30 分钟的合理性检查、复现尝试、数据集建议和对抗性批评。
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
+
 NeoRepro 是面向公开 MHC-I 肽–HLA 新抗原预测器的泄漏感知、患者级、可复现基准资源。它整合了固定版本的预测器工件、逐记录来源、训练数据重叠审计、共同支持集比较、患者级不确定性、支持集匹配的随机基线以及机器生成的结果。
 
 本项目贡献的是基准与研究资源，而不是新的预测器，也不宣称存在普适的最佳模型或临床效用。
@@ -17,7 +19,7 @@ NeoRepro 是面向公开 MHC-I 肽–HLA 新抗原预测器的泄漏感知、患
 - **复现冻结结果：**使用下方“复现”部分中的命令。
 - **测试你自己的预测器：**运行 `neorepro benchmark predictions.csv --output-dir neorepro-results`；参见[标准单文件契约](contracts/README.md)。
 - **接入第三方数据集或预测器：**请参阅 [plug-in contract](contracts/README.md)。
-- **引用固定版本：**参见 [CITATION.cff](CITATION.cff) 和 [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0)。
+- **引用固定版本：**参见 [CITATION.cff](CITATION.cff)、[v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1) 和 [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064)。
 
 科学研究契约与范围见 [RESEARCH_SPEC.md](RESEARCH_SPEC.md)。
 

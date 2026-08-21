@@ -6,6 +6,8 @@
 >
 > Les vérifications de cohérence de 15–30 minutes, les tentatives de reproduction, les suggestions de jeux de données et les critiques contradictoires sont les bienvenues.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
+
 NeoRepro est une ressource d’évaluation reproductible, tenant compte des fuites de données et menée au niveau du patient, pour les prédicteurs publics de néoantigènes peptide–HLA de MHC-I. Elle rassemble des artefacts de prédicteurs épinglés, la provenance de chaque enregistrement, des audits de chevauchement avec les données d’entraînement, des comparaisons sur un support commun, l’incertitude au niveau du patient, des références aléatoires adaptées au support et des résultats générés automatiquement.
 
 Il s’agit d’une contribution de type ressource et benchmark, et non d’un nouveau prédicteur ni d’une affirmation concernant un modèle universellement gagnant ou une utilité clinique.
@@ -17,7 +19,7 @@ Il s’agit d’une contribution de type ressource et benchmark, et non d’un n
 - **Reproduire les résultats figés :** utiliser la commande de la section « Reproduction » ci-dessous.
 - **Évaluer votre propre prédicteur :** exécuter `neorepro benchmark predictions.csv --output-dir neorepro-results` ; consulter le [contrat standard à fichier unique](contracts/README.md).
 - **Ajouter un jeu de données ou un prédicteur tiers :** consulter le [plug-in contract](contracts/README.md).
-- **Citer une version figée :** [CITATION.cff](CITATION.cff) et [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
+- **Citer une version figée :** [CITATION.cff](CITATION.cff), [v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1) et [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064).
 
 Le contrat scientifique et le périmètre sont décrits dans [RESEARCH_SPEC.md](RESEARCH_SPEC.md).
 

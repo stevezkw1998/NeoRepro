@@ -6,6 +6,8 @@
 >
 > 15–30 min sanity checks, reproduction attempts, dataset suggestions and adversarial critiques are welcome.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
+
 NeoRepro is a leakage-aware, patient-level, reproducible benchmark resource for public MHC-I peptide–HLA neoantigen predictors. It packages pinned predictor artifacts, record-level provenance, training-overlap audits, common-support comparisons, patient-level uncertainty, support-matched random baselines and machine-generated results.
 
 This is a benchmark/resource contribution, not a new predictor and not a claim of a universal model winner or clinical utility.
@@ -17,7 +19,7 @@ This is a benchmark/resource contribution, not a new predictor and not a claim o
 - **Reproduce the frozen results:** use the command in the Reproduce section below.
 - **Benchmark your own predictor:** run `neorepro benchmark predictions.csv --output-dir neorepro-results`; see the [standard one-file contract](contracts/README.md).
 - **Add a third-party dataset or predictor:** follow the [plug-in contract](contracts/README.md).
-- **Cite a fixed version:** [CITATION.cff](CITATION.cff) and the [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0).
+- **Cite a fixed version:** [CITATION.cff](CITATION.cff), the [v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1) and [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064).
 
 For the scientific contract and scope, see [RESEARCH_SPEC.md](RESEARCH_SPEC.md).
 

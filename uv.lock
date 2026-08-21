@@ -164,7 +164,7 @@ wheels = [
 
 [[package]]
 name = "neorepro"
-version = "0.1.0.dev0"
+version = "0.1.1"
 source = { editable = "." }
 
 [package.optional-dependencies]

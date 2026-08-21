@@ -6,6 +6,8 @@
 >
 > 歡迎進行 15–30 分鐘的合理性檢查、重現嘗試、資料集建議與對抗性批評。
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
+
 NeoRepro 是一套針對公開 MHC-I 胜肽–HLA 新抗原預測器、考量資料洩漏、病人層級且可重現的基準資源。它整合固定版本的預測器產物、逐筆資料來源、訓練資料重疊稽核、共同可評估集合比較、病人層級不確定性、依支援範圍匹配的隨機基準，以及由機器產生的結果。
 
 本專案的貢獻是基準與研究資源，不是新的預測器，也不主張存在普遍適用的最佳模型或臨床效益。
@@ -17,7 +19,7 @@ NeoRepro 是一套針對公開 MHC-I 胜肽–HLA 新抗原預測器、考量資
 - **重現凍結結果：**使用下方「重現」章節中的指令。
 - **測試你自己的預測器：**執行 `neorepro benchmark predictions.csv --output-dir neorepro-results`；請參閱[標準單一檔案契約](contracts/README.md)。
 - **接入第三方資料集或預測器：**請參閱 [plug-in contract](contracts/README.md)。
-- **引用固定版本：**請參閱 [CITATION.cff](CITATION.cff) 與 [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0)。
+- **引用固定版本：**請參閱 [CITATION.cff](CITATION.cff)、[v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1) 與 [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064)。
 
 科學研究契約與範圍請見 [RESEARCH_SPEC.md](RESEARCH_SPEC.md)。
 

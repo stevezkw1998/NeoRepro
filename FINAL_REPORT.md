@@ -54,4 +54,4 @@ One statistical/reproducibility review and one biological/endpoint review were c
 
 ## Remaining submission-only tasks
 
-The scientific and computational work is complete. Before external submission, a human owner must supply author names, affiliations and ORCIDs; funding and conflict-of-interest statements; a real repository/archive URL and DOI; venue-specific formatting; and confirmation of any ethics language required when describing the already-published source cohort. A fresh literature check should also be run immediately before submission.
+The scientific and computational work is complete. Author identity, affiliation and ORCID metadata are supplied, and release v0.1.1 is archived at Zenodo DOI 10.5281/zenodo.22037064. Before external submission, a human owner must supply funding and conflict-of-interest statements, venue-specific formatting, and confirmation of any ethics language required when describing the already-published source cohort. A fresh literature check should also be run immediately before submission.

@@ -6,6 +6,8 @@
 >
 > 15–30분의 타당성 점검, 재현 시도, 데이터셋 제안 및 비판적 검토를 환영합니다.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22037063.svg)](https://doi.org/10.5281/zenodo.22037063)
+
 NeoRepro는 공개 MHC-I 펩타이드–HLA 신생항원 예측기를 위한 데이터 누출 인지형, 환자 수준, 재현 가능한 벤치마크 리소스입니다. 고정된 예측기 아티팩트, 레코드 수준 출처, 학습 데이터 중복 감사, 공통 평가 가능 집합 비교, 환자 수준 불확실성, 지원 범위를 맞춘 무작위 기준선 및 기계 생성 결과를 제공합니다.
 
 이 프로젝트는 새로운 예측기가 아니라 벤치마크/리소스 기여이며, 보편적인 최우수 모델이나 임상적 유용성을 주장하지 않습니다.
@@ -17,7 +19,7 @@ NeoRepro는 공개 MHC-I 펩타이드–HLA 신생항원 예측기를 위한 데
 - **고정 결과 재현:** 아래 재현 절의 명령을 사용하십시오.
 - **자체 예측기 벤치마크:** `neorepro benchmark predictions.csv --output-dir neorepro-results`를 실행하고 [표준 단일 파일 계약](contracts/README.md)을 참조하십시오.
 - **제3자 데이터셋 또는 예측기 추가:** [plug-in contract](contracts/README.md)를 참조하십시오.
-- **고정 버전 인용:** [CITATION.cff](CITATION.cff)와 [v0.1.0 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.0)를 참조하십시오.
+- **고정 버전 인용:** [CITATION.cff](CITATION.cff), [v0.1.1 release](https://github.com/stevezkw1998/NeoRepro/releases/tag/v0.1.1)와 [Zenodo DOI 10.5281/zenodo.22037064](https://doi.org/10.5281/zenodo.22037064)를 참조하십시오.
 
 과학적 연구 계약과 범위는 [RESEARCH_SPEC.md](RESEARCH_SPEC.md)를 참조하십시오.
 
